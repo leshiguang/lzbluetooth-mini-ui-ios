@@ -50,8 +50,8 @@
     return [LZBluetooth getDeviceManagerWithDeviceType:LZDeviceTypeBracelet];
 }
 
-- (id<LZDeviceSettingProtocol>)getSettingDataWithType:(LZBraceletSettingType)settingType {
-    return [LZDeviceSettingDBUtil getConfigWithMacString:self.device.mac settingType:settingType];
+- (id<LZDeviceSettingProtocol>)settingData {
+    return [LZDeviceSettingDBUtil getConfigWithMacString:self.device.mac settingType:self.settingType];
 }
 
 @end

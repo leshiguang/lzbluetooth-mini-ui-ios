@@ -9,7 +9,7 @@
 
 @implementation LZBaseSetCellModel
 
-- (LZBaseSetCellModel *)initModelWithSetType:(NSInteger)setType cellStyle:(DEVICESETCELLSTYLE)cellStyle titleStr:(NSString *)titleStr subStr:(NSString *)subStr {
+- (LZBaseSetCellModel *)initModelWithSetType:(NSUInteger)setType cellStyle:(DEVICESETCELLSTYLE)cellStyle titleStr:(NSString *)titleStr subStr:(NSString *)subStr {
     LZBaseSetCellModel *model = [[LZBaseSetCellModel alloc] init];
     model.setType = setType;
     model.cellStyle = cellStyle;

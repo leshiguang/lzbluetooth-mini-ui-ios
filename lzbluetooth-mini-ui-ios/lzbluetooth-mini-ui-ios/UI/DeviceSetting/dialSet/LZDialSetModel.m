@@ -24,11 +24,10 @@
     
     NSMutableArray<LZDialSetModel *> *dataItems = [[NSMutableArray alloc] init];
 //    NSArray<LSEDialProertyValue *> *dialProperties = [deviceInfo getDialProperties];
-//    for (NSInteger i = 0; i < dialProperties.count; i++) {
-//        LSEDialProertyValue *property = dialProperties[i];
-//        LZDialSetModel *item = [[LZDialSetModel alloc] initWithDialModeType:property.style name:property.name imageUrl:[NSURL URLWithString:property.url ?: @""]];
-//        [dataItems addObject:item];
-//    }
+    for (NSInteger i = 0; i < 4; i++) {
+        LZDialSetModel *item = [[LZDialSetModel alloc] initWithDialModeType:i name:@"" imageUrl:nil];
+        [dataItems addObject:item];
+    }
     return [dataItems copy];
 }
 @end

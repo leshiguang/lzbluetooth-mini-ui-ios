@@ -22,10 +22,13 @@ typedef enum : NSUInteger {
 @property (nonatomic, assign) DEVICESETCELLSTYLE cellStyle;
 @property (nonatomic, strong) NSString *titleStr;
 @property (nonatomic, strong) NSString *subStr;
-@property (nonatomic, assign) NSInteger setType;
+@property (nonatomic, assign) NSUInteger setType;
 @property (nonatomic, assign) BOOL switchIsOpne;
 
-- (LZBaseSetCellModel *)initModelWithSetType:(NSInteger)setType cellStyle:(DEVICESETCELLSTYLE)cellStyle titleStr:(NSString * _Nullable)titleStr subStr:(NSString * _Nullable)subStr;
+- (LZBaseSetCellModel *)initModelWithSetType:(NSUInteger)setType
+                                   cellStyle:(DEVICESETCELLSTYLE)cellStyle
+                                    titleStr:(NSString * _Nullable)titleStr
+                                      subStr:(NSString * _Nullable)subStr;
 
 + (NSArray <__kindof LZBaseSetCellModel *> *)cellModelList;
 

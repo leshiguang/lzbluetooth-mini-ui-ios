@@ -25,7 +25,7 @@
 
 
 
-@interface LZBraceletInfoViewController () <UITableViewDelegate, UITableViewDataSource, LZSettingTableViewCellDelegate>
+@interface LZBraceletInfoViewController () <UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) NSArray <LZSettingCellModel *> * dataSourceAry;
 
@@ -51,7 +51,6 @@
 }
 
 - (void)reloadData {
-    [self initSetSwitchState];
     
     NSMutableArray *mAry = [self.dataSourceAry mutableCopy];
     LZSettingCellModel *deviceNameModel = mAry[0];
@@ -70,118 +69,77 @@
     [self.tableView reloadData];
 }
 
-#pragma mark - Private Methods
-- (void)initSetSwitchState {
-    
-    
-}
-
 #pragma mark - LZSettingTableViewCellDelegate
-
 - (void)unbindClick:(LZSettingCellModel *)cellModel {
 //    __weak typeof(self) weakSelf = self;
     [self.deviceManager deleteMonitorDeviceWithMacString:self.device.mac];
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-- (void)switchOn:(BOOL)isOn cellModle:(LZSettingCellModel *)cellModel {
-    if (cellModel.setType == DEVICESETTYPE_PHONE_CALL_REMINDING) {
-        //来电提醒
-
-        LZA5SettingCallReminderData *data = [[LZA5SettingCallReminderData alloc] init];
-        data.reminderType = LZA5CallReminderTypeDefault;
-        data.enable = isOn;
-        [self sendData:data];
-    } else if (cellModel.setType == DEVICESETTYPE_HEART_RATE__MONITOR) {
-        //心率监测
-        LZA5SettingSmartHRDetectionData *data = [[LZA5SettingSmartHRDetectionData alloc] init];
-        data.mode = isOn;
-        [self sendData:data];
-    }
-}
-
-- (void)setFail {
-    [self reloadData];
-}
 
 #pragma mark - cell select
 - (void)cellSelect:(LZSettingCellModel *)model {
+    NSString *className = nil;
     switch (model.setType) {
-        case DEVICESETTYPE_DIAL_SET: {
-            LZDialSetViewController *vc = [[LZDialSetViewController alloc] init];
-            vc.device = self.device;
-            [self.navigationController pushViewController:vc animated:YES];
+        case DEVICESETTYPE_UNBIND:
+            [self unbindClick:model];
+            break;
+        case LZBraceletSettingTypeDial: {
+            className = @"LZDialSetViewController";
         }
             break;
-        case DEVICESETTYPE_GOAL_SETTING: {
-            LZGoalSetViewController *vc = [[LZGoalSetViewController alloc] init];
-            vc.device = self.device;
-            [self.navigationController pushViewController:vc animated:YES];
+        case LZBraceletSettingTypeTargetEncourage: {
+            className = @"LZGoalSetViewController";
         }
             break;
-        case DEVICESETTYPE_EVENT_TO_REMIND: {
-            LZEventToRemindViewController *vc = [[LZEventToRemindViewController alloc] init];
-            vc.device = self.device;
-            [self.navigationController pushViewController:vc animated:YES];
+        case LZBraceletSettingTypeEventReminder: {
+            className = @"LZEventToRemindViewController";
         }
             break;
-        case DEVICESETTYPE_HEART_RATE_WARNING: {
-            LZHeartRataWarningViewController *vc = [[LZHeartRataWarningViewController alloc] init];
-            vc.device = self.device;
-            [self.navigationController pushViewController:vc animated:YES];
+        case LZBraceletSettingTypeCustomSportHrReminder: {
+            className = @"LZHeartRataWarningViewController";
         }
             break;
-        case DEVICESETTYPE_MESSAGE_TO_REMIND: {
-            LZMessageToRemindViewController *vc = [[LZMessageToRemindViewController alloc] init];
-            vc.device = self.device;
-            [self.navigationController pushViewController:vc animated:YES];
+        case LZBraceletSettingTypeCallReminder: {
+            className = @"LZMessageToRemindViewController";
         }
             break;
-        case DEVICESETTYPE_NIGHT_MODE: {
-            LZNightModeViewController *vc = [[LZNightModeViewController alloc] init];
-            vc.device = self.device;
-            [self.navigationController pushViewController:vc animated:YES];
+        case LZBraceletSettingTypeNightMode: {
+            className = @"LZNightModeViewController";
         }
             break;
-        case DEVICESETTYPE_DND_MODE: {
-            LZDndModeViewController *vc = [[LZDndModeViewController alloc] init];
-            vc.device = self.device;
-            [self.navigationController pushViewController:vc animated:YES];
+        case LZBraceletSettingTypeNoDisturb: {
+            className = @"LZDndModeViewController";
         }
             break;
-        case DEVICESETTYPE_SCREEN_ORIENTATION: {
-            LZScreenOrientationViewController *vc = [[LZScreenOrientationViewController alloc] init];
-            vc.device = self.device;
-            [self.navigationController pushViewController:vc animated:YES];
+        case LZBraceletSettingTypeScreenDirection: {
+            className = @"LZScreenOrientationViewController";
         }
             break;
-        case DEVICESETTYPE_SPORT_TYPE: {
-            LZSportTypeViewController *vc = [[LZSportTypeViewController alloc] init];
-            vc.device = self.device;
-            [self.navigationController pushViewController:vc animated:YES];
+        case LZBraceletSettingTypeTimeMode: {
+            className = @"LZTimeFormatViewController";
         }
             break;
-        case DEVICESETTYPE_TIME_FORMAT: {
-            LZTimeFormatViewController *vc = [[LZTimeFormatViewController alloc] init];
-            vc.device = self.device;
-            [self.navigationController pushViewController:vc animated:YES];
+        case LZBraceletSettingTypeWristHabit: {
+            className = @"LZWearingHabitsViewController";
         }
             break;
-        case DEVICESETTYPE_WEARING_HABITS: {
-            LZWearingHabitsViewController *vc = [[LZWearingHabitsViewController alloc] init];
-            vc.device = self.device;
-            [self.navigationController pushViewController:vc animated:YES];
-        }
-            break;
-        case DEVICESETTYPE_SCREEN_CONTENT: {
-            LZScreenContentViewController *vc = [[LZScreenContentViewController alloc] init];
-            vc.device = self.device;
-            [self.navigationController pushViewController:vc animated:YES];
+        case LZBraceletSettingTypeCustomScreen: {
+            className = @"LZScreenContentViewController";
         }
             break;
 
         default:
             break;
+    }
+    
+    if (className) {
+        LZDeviceManagerViewController *vc = [[NSClassFromString(className) alloc] init];
+        if (vc) {
+            vc.device = self.device;
+            vc.settingType = model.setType;
+            [self.navigationController pushViewController:vc animated:YES];
+        }
     }
 }
 
@@ -206,7 +164,6 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     LZSettingTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([LZSettingTableViewCell class])];
-    cell.delegate = self;
     [cell updateCellWithModel:self.dataSourceAry[indexPath.row]];
     return cell;
 }

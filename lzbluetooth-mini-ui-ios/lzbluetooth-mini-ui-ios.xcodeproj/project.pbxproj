@@ -576,8 +576,8 @@
 		60C72CCC25B561D700E00276 /* controller */ = {
 			isa = PBXGroup;
 			children = (
-				60C72CCD25B561D700E00276 /* LZBraceletInfoViewController.m */,
 				60C72CCE25B561D700E00276 /* LZBraceletInfoViewController.h */,
+				60C72CCD25B561D700E00276 /* LZBraceletInfoViewController.m */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -585,8 +585,8 @@
 		60C72CCF25B561D700E00276 /* model */ = {
 			isa = PBXGroup;
 			children = (
-				60C72CD025B561D700E00276 /* LZSettingCellModel.m */,
 				60C72CD125B561D700E00276 /* LZSettingCellModel.h */,
+				60C72CD025B561D700E00276 /* LZSettingCellModel.m */,
 			);
 			path = model;
 			sourceTree = "<group>";

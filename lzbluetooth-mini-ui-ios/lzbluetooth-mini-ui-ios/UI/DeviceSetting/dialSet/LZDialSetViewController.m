@@ -47,7 +47,9 @@
 }
 
 - (void)initSetData {
-    [self.collectionView selectItemAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:NO scrollPosition:UICollectionViewScrollPositionNone];
+    LZA5SettingDialTypeData *data = [self settingData];
+    
+    [self.collectionView selectItemAtIndexPath:[NSIndexPath indexPathForRow:MAX(0, data.dialType - 1) inSection:0] animated:NO scrollPosition:UICollectionViewScrollPositionNone];
 }
 
 #pragma mark - UICollectionViewDelegate

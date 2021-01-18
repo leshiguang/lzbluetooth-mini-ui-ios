@@ -61,7 +61,7 @@
 - (UIImageView *)dialImageView {
     if (!_dialImageView) {
         _dialImageView = [[UIImageView alloc] initWithFrame:CGRectZero];
-        _dialImageView.backgroundColor = [UIColor whiteColor];
+        _dialImageView.backgroundColor = [UIColor grayColor];
     }
     return _dialImageView;
 }
