@@ -9,8 +9,11 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+typedef void(^LZEditHandler)(NSString *text);
+
 @interface LZAddEventToRemindContentTableViewCell : UITableViewCell
-@property (nonatomic, copy) dispatch_block_t textViewDidChangeBlock;
+@property (nonatomic, strong) UITextField *textView;
+@property (nonatomic, copy) LZEditHandler textViewDidChangeBlock;
 @end
 
 NS_ASSUME_NONNULL_END

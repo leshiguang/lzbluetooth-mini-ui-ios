@@ -7,6 +7,7 @@
 
 #import "AppDelegate.h"
 #import <LZBluetooth/LZBluetooth.h>
+#import <YYModel/YYModel.h>
 
 @interface AppDelegate () <LZDeviceDelegate>
 

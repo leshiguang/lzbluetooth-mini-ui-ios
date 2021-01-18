@@ -10,8 +10,8 @@
 #import "LSWAppColorConfigrationMacro.h"
 #import "LSWAppFontConfigrationMacro.h"
 
-@interface LZAddEventToRemindContentTableViewCell () <UITextViewDelegate>
-@property (nonatomic, strong) UITextView *textView;
+@interface LZAddEventToRemindContentTableViewCell () <UITextFieldDelegate>
+
 @end
 
 @implementation LZAddEventToRemindContentTableViewCell
@@ -43,38 +43,23 @@
 }
 
 #pragma mark - UITextViewDelegates
-- (void)textViewDidEndEditing:(UITextView *)textView {
-    if(textView.text.length < 1){
-        textView.text = @"请输入提醒内容";
-        textView.textColor = UIColorFromHex(0xA3A3A3);
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    NSString *temp = [textField.text stringByReplacingCharactersInRange:range withString:string];
+    if (temp.length < 100) {
+        if (self.textViewDidChangeBlock) {
+            self.textViewDidChangeBlock(temp);
+        }
+        return YES;
     }
-    if (self.textViewDidChangeBlock) {
-        self.textViewDidChangeBlock();
-    }
-}
-
-- (void)textViewDidBeginEditing:(UITextView *)textView {
-    if([textView.text isEqualToString:@"请输入提醒内容"]){
-        textView.text = @"";
-        textView.textColor = UIColorFromHex(0x414141);
-    }
-    if (self.textViewDidChangeBlock) {
-        self.textViewDidChangeBlock();
-    }
-}
-
-- (void)textViewDidChange:(UITextView *)textView{
-    if (self.textViewDidChangeBlock) {
-        self.textViewDidChangeBlock();
-    }
+    return NO;
 }
 
 #pragma mark - getter
-- (UITextView *)textView {
+- (UITextField *)textView {
     if (!_textView) {
-        _textView = [[UITextView alloc] init];
+        _textView = [[UITextField alloc] init];
         _textView.delegate = self;
-        _textView.text = @"请输入提醒内容";
+        _textView.placeholder = @"请输入提醒内容";
         _textView.textColor = UIColorFromHex(0xA3A3A3);
         _textView.font = LSWDefaultFontWithSize(16);
     }

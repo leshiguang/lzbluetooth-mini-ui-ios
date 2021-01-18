@@ -54,7 +54,8 @@
     model1.switchIsOpne = self.targetCfg.enable;
     
     LZGoalSetModel *model2 = mAry[1];
-    model2.subStr = self.goalTypeAry[(int)self.targetCfg.targetType - 1];
+    NSInteger index = MAX(0, self.targetCfg.targetType - 1) ;
+    model2.subStr = self.goalTypeAry[index];
     
     LZGoalSetModel *model3 = mAry[2];
     model3.subStr = [@(self.targetCfg.value) stringValue];

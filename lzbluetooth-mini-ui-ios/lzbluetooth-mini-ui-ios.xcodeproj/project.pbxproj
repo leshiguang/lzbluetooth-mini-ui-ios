@@ -80,6 +80,7 @@
 		60C72D3E25B561D700E00276 /* LSWMineBraceletTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C72CF625B561D700E00276 /* LSWMineBraceletTableViewCell.m */; };
 		60C72D6225B5658A00E00276 /* LZViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C72D6125B5658A00E00276 /* LZViewController.m */; };
 		60C72D7C25B5820500E00276 /* LZHRReminderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C72D7B25B5820500E00276 /* LZHRReminderViewController.m */; };
+		60C72DBA25B5BA1800E00276 /* LZA5SettingEventRemindData+YYModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C72DB925B5BA1800E00276 /* LZA5SettingEventRemindData+YYModel.m */; };
 		72498FC97642C58CEA56EE92 /* Pods_lzbluetooth_mini_ui_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 972BCE45267335CFDDEDEB02 /* Pods_lzbluetooth_mini_ui_ios.framework */; };
 /* End PBXBuildFile section */
 
@@ -233,6 +234,8 @@
 		60C72D6125B5658A00E00276 /* LZViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZViewController.m; sourceTree = "<group>"; };
 		60C72D7A25B5820500E00276 /* LZHRReminderViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LZHRReminderViewController.h; sourceTree = "<group>"; };
 		60C72D7B25B5820500E00276 /* LZHRReminderViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LZHRReminderViewController.m; sourceTree = "<group>"; };
+		60C72DB825B5BA1800E00276 /* LZA5SettingEventRemindData+YYModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LZA5SettingEventRemindData+YYModel.h"; sourceTree = "<group>"; };
+		60C72DB925B5BA1800E00276 /* LZA5SettingEventRemindData+YYModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "LZA5SettingEventRemindData+YYModel.m"; sourceTree = "<group>"; };
 		972BCE45267335CFDDEDEB02 /* Pods_lzbluetooth_mini_ui_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_lzbluetooth_mini_ui_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -437,6 +440,8 @@
 				60C72C8425B561D600E00276 /* LZEventToRemindTableViewCell.m */,
 				60C72C7E25B561D600E00276 /* LZAddEventToRemindContentTableViewCell.h */,
 				60C72C8325B561D600E00276 /* LZAddEventToRemindContentTableViewCell.m */,
+				60C72DB825B5BA1800E00276 /* LZA5SettingEventRemindData+YYModel.h */,
+				60C72DB925B5BA1800E00276 /* LZA5SettingEventRemindData+YYModel.m */,
 			);
 			path = eventToRemind;
 			sourceTree = "<group>";
@@ -869,6 +874,7 @@
 				60C72D2D25B561D700E00276 /* LSRandomCodeInputView.m in Sources */,
 				60C72D2225B561D700E00276 /* LZGoalSetModel.m in Sources */,
 				60C72CFD25B561D700E00276 /* MBProgressHUD.m in Sources */,
+				60C72DBA25B5BA1800E00276 /* LZA5SettingEventRemindData+YYModel.m in Sources */,
 				60C72D0425B561D700E00276 /* LZScreenOrientationCellModel.m in Sources */,
 				60C72D2925B561D700E00276 /* LSWButton.m in Sources */,
 				60C72D1825B561D700E00276 /* LZHeartRateWarningCell.m in Sources */,

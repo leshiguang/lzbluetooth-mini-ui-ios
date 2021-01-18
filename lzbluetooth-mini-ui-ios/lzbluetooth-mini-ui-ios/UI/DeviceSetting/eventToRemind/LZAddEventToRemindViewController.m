@@ -30,6 +30,8 @@
 @property (nonatomic, copy) NSArray *vibrationModelAry;
 @property (nonatomic, copy) NSArray *vibrationModelLeaveAry;
 
+@property (nonatomic, assign) BOOL isCreate;
+
 @end
 
 @implementation LZAddEventToRemindViewController
@@ -39,11 +41,29 @@
     self.title = @"事件提醒";
     self.view.backgroundColor = [UIColor whiteColor];
     [self createUI];
+    
+    if (!self.contentData) {
+        self.isCreate = YES;
+        LZA5SettingEventRemindContentData *contentData = [[LZA5SettingEventRemindContentData alloc] init];
+        contentData.des = @"闹钟1";
+        contentData.index = self.data.contentDatas.lastObject.index + 1;
+        contentData.enable = YES;
+        contentData.hour = 8;
+        contentData.minute = 0;
+        contentData.repeatFlag = LZA5RepeatTimeFlagAll;
+        contentData.vibrationType = LZA5VibrationTypeAlways;
+        contentData.vibrationTime = 60;
+        contentData.vibrationLevel1 = 9;
+        contentData.vibrationLevel2 = 9;
+        self.contentData = contentData;
+    }
+    
+    [self updateUI];
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    
 }
 
 - (void)createUI {
@@ -62,6 +82,26 @@
         make.left.and.right.equalTo(self.view);
         make.bottom.equalTo(self.sureBtn.mas_top).offset(-10);
     }];
+}
+
+- (void)updateUI {
+    LZAddEventToRemindCellModel *model0 = self.modelAry[0];
+    model0.switchIsOpne = self.contentData.enable;
+    
+    LZAddEventToRemindCellModel *model1 = self.modelAry[1];
+    model1.subStr = [NSString stringWithFormat:@"%02d:%02d", self.contentData.hour, self.contentData.minute];
+    LZAddEventToRemindCellModel *model2 = self.modelAry[2];
+    model2.subStr = [self repeatTimeStringWithFlag:self.contentData.repeatFlag];
+    LZAddEventToRemindCellModel *model3 = self.modelAry[3];
+    model3.subStr = self.vibrationModelAry[self.contentData.vibrationType];
+    LZAddEventToRemindCellModel *model4 = self.modelAry[4];
+    model4.subStr = self.vibrationModelLeaveAry[self.contentData.vibrationLevel1];
+    LZAddEventToRemindCellModel *model5 = self.modelAry[5];
+    model5.subStr = self.vibrationModelLeaveAry[self.contentData.vibrationLevel1];
+    LZAddEventToRemindCellModel *model6 = self.modelAry[6];
+    model6.subStr = self.minutesOrSecondsAry[self.contentData.vibrationTime];
+    
+    [self.tableView reloadData];
 }
 
 #pragma mark - UITableViewDelegate
@@ -96,35 +136,39 @@
         return cell;
     } else if (indexPath.row == self.modelAry.count) {
         LZAddEventToRemindContentTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([LZAddEventToRemindContentTableViewCell class]) forIndexPath:indexPath];
+        cell.textView.text = self.contentData.des;
         return cell;
     }
     return nil;
 }
 
 #pragma mark - LZSetPickerDelegate
-- (void)pickerEnd:(NSArray *)selectAry isSure:(BOOL)isSure {
-    [self dismissViewControllerAnimated:YES completion:nil];
-    if (!isSure) {
-        return;
-    }
+- (void)pickerViewControllerDidSelect:(LZSetPickerViewController *)vc {
+    NSInteger row = [vc selectedRowInComponent:0];
     switch (self.currentPickerType) {
-        case LZADDEVENTTOREMINDTYPE_REMIND_TIME:{
-//            NSString *timeStr = [NSString stringWithFormat:@"%@:%@",selectAry[0],selectAry[1]];
-        }
+        case LZADDEVENTTOREMINDTYPE_REMIND_TIME: {
+            NSInteger min = [vc selectedRowInComponent:1];
+            self.contentData.hour = row;
+            self.contentData.minute = min;
             break;
-        case LZADDEVENTTOREMINDTYPE_VIBRATION_MODE:{
-            
         }
+        case LZADDEVENTTOREMINDTYPE_VIBRATION_MODE:
+            self.contentData.vibrationType = row;
             break;
         case LZADDEVENTTOREMINDTYPE_VIBRATION_LEAVE1:
+            self.contentData.vibrationLevel1 = row;
             break;
         case LZADDEVENTTOREMINDTYPE_VIBRATION_LEAVE2:
+            self.contentData.vibrationLevel2 = row ;
             break;
         case LZADDEVENTTOREMINDTYPE_VIBRATION_TIME:
+            self.contentData.vibrationTime = row;
             break;
         default:
             break;
     }
+    [vc dismissViewControllerAnimated:YES completion:nil];
+    [self updateUI];
 }
 
 #pragma mark - Privates Methods
@@ -135,10 +179,15 @@
     LZSetPopUpAnimator *popUpAnimator = [[LZSetPopUpAnimator alloc] initWithPresentedViewController:self presentingViewController:vc];
     vc.transitioningDelegate = popUpAnimator;
     vc.dataSoureAry = self.weekAry;
+    __weak typeof(self) weakSelf = self;
     vc.sureBlock = ^(NSArray<NSIndexPath *> * _Nonnull ary) {
         NSLog(@"%@", ary);
-        
-        
+        __block LZA5RepeatTimeFlag flag = LZA5RepeatTimeFlagNon;
+        [ary enumerateObjectsUsingBlock:^(NSIndexPath * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            flag |= (1 << obj.row);
+        }];
+        weakSelf.contentData.repeatFlag = flag;
+        [weakSelf updateUI];
     };
     self.currentPickerType = model.setType;
     [self presentViewController:vc animated:NO completion:nil];
@@ -154,16 +203,24 @@
     switch (model.setType) {
         case LZADDEVENTTOREMINDTYPE_REMIND_TIME:
             vc.dataSoureAry = @[self.hoursAry, self.minutesOrSecondsAry];
+            [vc selectRow:self.contentData.hour inComponent:0 animated:NO];
+            [vc selectRow:self.contentData.minute inComponent:1 animated:NO];
             break;
         case LZADDEVENTTOREMINDTYPE_VIBRATION_MODE:
             vc.dataSoureAry = @[self.vibrationModelAry];
+            [vc selectRow:self.contentData.vibrationType inComponent:0 animated:NO];
             break;
         case LZADDEVENTTOREMINDTYPE_VIBRATION_LEAVE1:
+            vc.dataSoureAry = @[self.vibrationModelLeaveAry];
+            [vc selectRow:self.contentData.vibrationLevel1 inComponent:0 animated:NO];
+            break;
         case LZADDEVENTTOREMINDTYPE_VIBRATION_LEAVE2:
             vc.dataSoureAry = @[self.vibrationModelLeaveAry];
+            [vc selectRow:self.contentData.vibrationLevel2 inComponent:0 animated:NO];
             break;
         case LZADDEVENTTOREMINDTYPE_VIBRATION_TIME:
             vc.dataSoureAry = @[self.minutesOrSecondsAry];
+            [vc selectRow:self.contentData.vibrationTime inComponent:0 animated:NO];
             break;
         default:
             break;
@@ -175,11 +232,70 @@
 
 #pragma mark - evnet
 - (void)clickSureBtn:(UIButton *)btn {
-    
+    if (self.isCreate) {
+        NSMutableArray *array = [NSMutableArray array];
+        if (self.data.contentDatas) {
+            [array addObjectsFromArray:self.data.contentDatas];
+        }
+        [array addObject:self.contentData];
+        self.data.contentDatas = array;
+        [self sendData:self.data];
+    } else {
+        [self sendData:self.data];
+    }
     
 }
 
 #pragma mark - getter
+- (NSString *)repeatTimeStringWithFlag:(LZA5RepeatTimeFlag)flag {
+    if (flag == LZA5RepeatTimeFlagAll) {
+        return @"每天";
+    }
+    
+    if ((flag & 0b11111) == 0b11111) {
+        return @"工作日";
+    }
+    
+    if ((flag & 0b1100000) == 0b1100000) {
+        return @"周末";
+    }
+    
+    NSMutableArray *array = [NSMutableArray array];
+    for (int i = 0; i < 7; i++) {
+        if (flag & (1 << i)) {
+            [array addObject:[self weekStringWithIndex:i]];
+        }
+    }
+    return [array componentsJoinedByString:@","];
+}
+
+- (NSString *)weekStringWithIndex:(NSInteger)index {
+    switch (index) {
+        case 0:
+            return @"一";
+            break;
+        case 1:
+            return @"二";
+        case 2:
+            return @"三";
+            break;
+        case 3:
+            return @"四";
+        case 4:
+            return @"五";
+        case 5:
+            return @"六";
+        case 6:
+            return @"日";
+            break;
+            
+            
+        default:
+            break;
+    }
+    return @"";
+}
+
 - (UITableView *)tableView {
     if (!_tableView) {
         _tableView = [[UITableView alloc] init];

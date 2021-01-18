@@ -11,10 +11,6 @@
 
 @interface LZEventToRemindTableViewCell ()
 
-@property (nonatomic,strong) UILabel *timeLabel;
-@property (nonatomic,strong) UILabel *eventLabel;
-@property (nonatomic,strong) UIImageView *delectImageView;
-
 @end
 
 
@@ -93,7 +89,7 @@
 
 - (UIImageView *)delectImageView {
     if (!_delectImageView) {
-        _delectImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:(@"scale_ic_alarm_delete")]];
+        _delectImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:(@"Mine_zh_icn_arrow")]];
     }
     return _delectImageView;
 }
