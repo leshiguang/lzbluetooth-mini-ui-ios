@@ -1,0 +1,1121 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		60C72C2C25B55F9B00E00276 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C72C2B25B55F9B00E00276 /* AppDelegate.m */; };
+		60C72C2F25B55F9B00E00276 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C72C2E25B55F9B00E00276 /* SceneDelegate.m */; };
+		60C72C3525B55F9B00E00276 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60C72C3325B55F9B00E00276 /* Main.storyboard */; };
+		60C72C3725B55F9C00E00276 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 60C72C3625B55F9C00E00276 /* Assets.xcassets */; };
+		60C72C3A25B55F9C00E00276 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60C72C3825B55F9C00E00276 /* LaunchScreen.storyboard */; };
+		60C72C3D25B55F9C00E00276 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C72C3C25B55F9C00E00276 /* main.m */; };
+		60C72CFC25B561D700E00276 /* LZDeviceManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C72C4E25B561D600E00276 /* LZDeviceManagerViewController.m */; };
+		60C72CFD25B561D700E00276 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C72C5025B561D600E00276 /* MBProgressHUD.m */; };
+		60C72CFE25B561D700E00276 /* UIViewController+MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C72C5325B561D600E00276 /* UIViewController+MBProgressHUD.m */; };
+		60C72CFF25B561D700E00276 /* LZDndModelCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C72C5825B561D600E00276 /* LZDndModelCellModel.m */; };
+		60C72D0025B561D700E00276 /* LZDndModeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C72C5925B561D600E00276 /* LZDndModeViewController.m */; };
+		60C72D0125B561D700E00276 /* LZDndModelCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C72C5A25B561D600E00276 /* LZDndModelCell.m */; };
+		60C72D0225B561D700E00276 /* LZScreenOrientationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C72C5D25B561D600E00276 /* LZScreenOrientationViewController.m */; };
+		60C72D0325B561D700E00276 /* LZScreenOrientationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C72C5E25B561D600E00276 /* LZScreenOrientationCell.m */; };
+		60C72D0425B561D700E00276 /* LZScreenOrientationCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C72C6225B561D600E00276 /* LZScreenOrientationCellModel.m */; };
+		60C72D0525B561D700E00276 /* LZScreenContentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C72C6525B561D600E00276 /* LZScreenContentCell.m */; };
+		60C72D0625B561D700E00276 /* LZScreenContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C72C6625B561D600E00276 /* LZScreenContentViewController.m */; };
+		60C72D0725B561D700E00276 /* LZScreenContentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C72C6725B561D600E00276 /* LZScreenContentModel.m */; };
+		60C72D0825B561D700E00276 /* LZDialSetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C72C6B25B561D600E00276 /* LZDialSetViewController.m */; };
+		60C72D0925B561D700E00276 /* LZDialSetModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C72C6F25B561D600E00276 /* LZDialSetModel.m */; };
+		60C72D0A25B561D700E00276 /* LZDialSetCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C72C7025B561D600E00276 /* LZDialSetCollectionViewCell.m */; };
+		60C72D0B25B561D700E00276 /* LZMessageToRemindCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C72C7225B561D600E00276 /* LZMessageToRemindCellModel.m */; };
+		60C72D0C25B561D700E00276 /* LZMessageToRemindCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C72C7325B561D600E00276 /* LZMessageToRemindCell.m */; };
+		60C72D0D25B561D700E00276 /* LZMessageToRemindViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C72C7425B561D600E00276 /* LZMessageToRemindViewController.m */; };
+		60C72D0E25B561D700E00276 /* LZAddEventToRemindViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C72C7A25B561D600E00276 /* LZAddEventToRemindViewController.m */; };
+		60C72D0F25B561D700E00276 /* LZAddEventToRemindCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C72C8025B561D600E00276 /* LZAddEventToRemindCellModel.m */; };
+		60C72D1025B561D700E00276 /* LZEventToRemindViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C72C8125B561D600E00276 /* LZEventToRemindViewController.m */; };
+		60C72D1125B561D700E00276 /* LZAddEventToRemindCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C72C8225B561D600E00276 /* LZAddEventToRemindCell.m */; };
+		60C72D1225B561D700E00276 /* LZAddEventToRemindContentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C72C8325B561D600E00276 /* LZAddEventToRemindContentTableViewCell.m */; };
+		60C72D1325B561D700E00276 /* LZEventToRemindTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C72C8425B561D600E00276 /* LZEventToRemindTableViewCell.m */; };
+		60C72D1425B561D700E00276 /* LZNightModelCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C72C8825B561D600E00276 /* LZNightModelCell.m */; };
+		60C72D1525B561D700E00276 /* LZNightModeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C72C8925B561D600E00276 /* LZNightModeViewController.m */; };
+		60C72D1625B561D700E00276 /* LZNightModelCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C72C8B25B561D600E00276 /* LZNightModelCellModel.m */; };
+		60C72D1725B561D700E00276 /* LZHeartRataWarningViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C72C8F25B561D600E00276 /* LZHeartRataWarningViewController.m */; };
+		60C72D1825B561D700E00276 /* LZHeartRateWarningCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C72C9025B561D600E00276 /* LZHeartRateWarningCell.m */; };
+		60C72D1925B561D700E00276 /* LZHearRateWarningCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C72C9125B561D600E00276 /* LZHearRateWarningCellModel.m */; };
+		60C72D1A25B561D700E00276 /* LZTimeFormatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C72C9425B561D600E00276 /* LZTimeFormatViewController.m */; };
+		60C72D1B25B561D700E00276 /* LZTimeFormatModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C72C9725B561D600E00276 /* LZTimeFormatModel.m */; };
+		60C72D1C25B561D700E00276 /* LZTimeFormatCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C72C9925B561D600E00276 /* LZTimeFormatCell.m */; };
+		60C72D1D25B561D700E00276 /* LZSportTypeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C72C9C25B561D600E00276 /* LZSportTypeViewController.m */; };
+		60C72D1E25B561D700E00276 /* LZWearingHabitsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C72C9F25B561D600E00276 /* LZWearingHabitsViewController.m */; };
+		60C72D1F25B561D700E00276 /* LZWearingHabitsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C72CA125B561D600E00276 /* LZWearingHabitsModel.m */; };
+		60C72D2025B561D700E00276 /* LZWearingHabitsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C72CA225B561D600E00276 /* LZWearingHabitsCell.m */; };
+		60C72D2125B561D700E00276 /* LZGoalSetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C72CA525B561D600E00276 /* LZGoalSetViewController.m */; };
+		60C72D2225B561D700E00276 /* LZGoalSetModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C72CA625B561D600E00276 /* LZGoalSetModel.m */; };
+		60C72D2325B561D700E00276 /* LZGoalSettingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C72CA725B561D600E00276 /* LZGoalSettingTableViewCell.m */; };
+		60C72D2425B561D700E00276 /* LZSetPopUpAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C72CAE25B561D600E00276 /* LZSetPopUpAnimator.m */; };
+		60C72D2525B561D700E00276 /* LZSetPopUpTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C72CAF25B561D600E00276 /* LZSetPopUpTableViewCell.m */; };
+		60C72D2625B561D700E00276 /* LZSetPopUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C72CB025B561D600E00276 /* LZSetPopUpViewController.m */; };
+		60C72D2725B561D700E00276 /* LSWGradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C72CB425B561D600E00276 /* LSWGradientView.m */; };
+		60C72D2825B561D700E00276 /* LZBaseSetCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C72CB825B561D600E00276 /* LZBaseSetCellModel.m */; };
+		60C72D2925B561D700E00276 /* LSWButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C72CBA25B561D700E00276 /* LSWButton.m */; };
+		60C72D2A25B561D700E00276 /* LZPickerAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C72CBC25B561D700E00276 /* LZPickerAnimator.m */; };
+		60C72D2B25B561D700E00276 /* LZSetPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C72CBF25B561D700E00276 /* LZSetPickerViewController.m */; };
+		60C72D2C25B561D700E00276 /* LZBaseSetTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C72CC025B561D700E00276 /* LZBaseSetTableViewCell.m */; };
+		60C72D2D25B561D700E00276 /* LSRandomCodeInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C72CC125B561D700E00276 /* LSRandomCodeInputView.m */; };
+		60C72D3025B561D700E00276 /* LZDeviceSettingDBUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C72CCA25B561D700E00276 /* LZDeviceSettingDBUtil.m */; };
+		60C72D3125B561D700E00276 /* LZBraceletInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C72CCD25B561D700E00276 /* LZBraceletInfoViewController.m */; };
+		60C72D3225B561D700E00276 /* LZSettingCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C72CD025B561D700E00276 /* LZSettingCellModel.m */; };
+		60C72D3325B561D700E00276 /* LZSettingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C72CD425B561D700E00276 /* LZSettingTableViewCell.m */; };
+		60C72D3425B561D700E00276 /* LZSearchBindContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C72CD725B561D700E00276 /* LZSearchBindContainerViewController.m */; };
+		60C72D3525B561D700E00276 /* LSWEnterRandomCodeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C72CDA25B561D700E00276 /* LSWEnterRandomCodeView.m */; };
+		60C72D3625B561D700E00276 /* LSWBindingDeviceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C72CDD25B561D700E00276 /* LSWBindingDeviceView.m */; };
+		60C72D3725B561D700E00276 /* LZBindingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C72CDF25B561D700E00276 /* LZBindingViewController.m */; };
+		60C72D3825B561D700E00276 /* LSWBluetoothSearchingDeviceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C72CE425B561D700E00276 /* LSWBluetoothSearchingDeviceView.m */; };
+		60C72D3925B561D700E00276 /* LSCircleWaveAnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C72CE625B561D700E00276 /* LSCircleWaveAnimationView.m */; };
+		60C72D3A25B561D700E00276 /* LZSearchDeviceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C72CE825B561D700E00276 /* LZSearchDeviceViewController.m */; };
+		60C72D3B25B561D700E00276 /* LSWBSBSelectDeviceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C72CEE25B561D700E00276 /* LSWBSBSelectDeviceView.m */; };
+		60C72D3C25B561D700E00276 /* LZChooseBindDeviceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C72CF025B561D700E00276 /* LZChooseBindDeviceViewController.m */; };
+		60C72D3D25B561D700E00276 /* LSWMyDeviceListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C72CF325B561D700E00276 /* LSWMyDeviceListViewController.m */; };
+		60C72D3E25B561D700E00276 /* LSWMineBraceletTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C72CF625B561D700E00276 /* LSWMineBraceletTableViewCell.m */; };
+		60C72D6225B5658A00E00276 /* LZViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C72D6125B5658A00E00276 /* LZViewController.m */; };
+		72498FC97642C58CEA56EE92 /* Pods_lzbluetooth_mini_ui_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 972BCE45267335CFDDEDEB02 /* Pods_lzbluetooth_mini_ui_ios.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		163C92D1A499CB589DCA1962 /* Pods-lzbluetooth-mini-ui-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lzbluetooth-mini-ui-ios.debug.xcconfig"; path = "Target Support Files/Pods-lzbluetooth-mini-ui-ios/Pods-lzbluetooth-mini-ui-ios.debug.xcconfig"; sourceTree = "<group>"; };
+		18391318254DD260CC607D1A /* Pods-lzbluetooth-mini-ui-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lzbluetooth-mini-ui-ios.release.xcconfig"; path = "Target Support Files/Pods-lzbluetooth-mini-ui-ios/Pods-lzbluetooth-mini-ui-ios.release.xcconfig"; sourceTree = "<group>"; };
+		60C72C2725B55F9B00E00276 /* lzbluetooth-mini-ui-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "lzbluetooth-mini-ui-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		60C72C2A25B55F9B00E00276 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		60C72C2B25B55F9B00E00276 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		60C72C2D25B55F9B00E00276 /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
+		60C72C2E25B55F9B00E00276 /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
+		60C72C3425B55F9B00E00276 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		60C72C3625B55F9C00E00276 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		60C72C3925B55F9C00E00276 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		60C72C3B25B55F9C00E00276 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		60C72C3C25B55F9C00E00276 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		60C72C4D25B561D600E00276 /* LZDeviceManagerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZDeviceManagerViewController.h; sourceTree = "<group>"; };
+		60C72C4E25B561D600E00276 /* LZDeviceManagerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZDeviceManagerViewController.m; sourceTree = "<group>"; };
+		60C72C5025B561D600E00276 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		60C72C5125B561D600E00276 /* UIViewController+MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+MBProgressHUD.h"; sourceTree = "<group>"; };
+		60C72C5225B561D600E00276 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		60C72C5325B561D600E00276 /* UIViewController+MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+MBProgressHUD.m"; sourceTree = "<group>"; };
+		60C72C5625B561D600E00276 /* LZDndModeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZDndModeViewController.h; sourceTree = "<group>"; };
+		60C72C5725B561D600E00276 /* LZDndModelCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZDndModelCell.h; sourceTree = "<group>"; };
+		60C72C5825B561D600E00276 /* LZDndModelCellModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZDndModelCellModel.m; sourceTree = "<group>"; };
+		60C72C5925B561D600E00276 /* LZDndModeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZDndModeViewController.m; sourceTree = "<group>"; };
+		60C72C5A25B561D600E00276 /* LZDndModelCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZDndModelCell.m; sourceTree = "<group>"; };
+		60C72C5B25B561D600E00276 /* LZDndModelCellModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZDndModelCellModel.h; sourceTree = "<group>"; };
+		60C72C5D25B561D600E00276 /* LZScreenOrientationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZScreenOrientationViewController.m; sourceTree = "<group>"; };
+		60C72C5E25B561D600E00276 /* LZScreenOrientationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZScreenOrientationCell.m; sourceTree = "<group>"; };
+		60C72C5F25B561D600E00276 /* LZScreenOrientationCellModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZScreenOrientationCellModel.h; sourceTree = "<group>"; };
+		60C72C6025B561D600E00276 /* LZScreenOrientationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZScreenOrientationCell.h; sourceTree = "<group>"; };
+		60C72C6125B561D600E00276 /* LZScreenOrientationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZScreenOrientationViewController.h; sourceTree = "<group>"; };
+		60C72C6225B561D600E00276 /* LZScreenOrientationCellModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZScreenOrientationCellModel.m; sourceTree = "<group>"; };
+		60C72C6425B561D600E00276 /* LZScreenContentModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZScreenContentModel.h; sourceTree = "<group>"; };
+		60C72C6525B561D600E00276 /* LZScreenContentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZScreenContentCell.m; sourceTree = "<group>"; };
+		60C72C6625B561D600E00276 /* LZScreenContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZScreenContentViewController.m; sourceTree = "<group>"; };
+		60C72C6725B561D600E00276 /* LZScreenContentModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZScreenContentModel.m; sourceTree = "<group>"; };
+		60C72C6825B561D600E00276 /* LZScreenContentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZScreenContentCell.h; sourceTree = "<group>"; };
+		60C72C6925B561D600E00276 /* LZScreenContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZScreenContentViewController.h; sourceTree = "<group>"; };
+		60C72C6B25B561D600E00276 /* LZDialSetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZDialSetViewController.m; sourceTree = "<group>"; };
+		60C72C6C25B561D600E00276 /* LZDialSetCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZDialSetCollectionViewCell.h; sourceTree = "<group>"; };
+		60C72C6D25B561D600E00276 /* LZDialSetModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZDialSetModel.h; sourceTree = "<group>"; };
+		60C72C6E25B561D600E00276 /* LZDialSetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZDialSetViewController.h; sourceTree = "<group>"; };
+		60C72C6F25B561D600E00276 /* LZDialSetModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZDialSetModel.m; sourceTree = "<group>"; };
+		60C72C7025B561D600E00276 /* LZDialSetCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZDialSetCollectionViewCell.m; sourceTree = "<group>"; };
+		60C72C7225B561D600E00276 /* LZMessageToRemindCellModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZMessageToRemindCellModel.m; sourceTree = "<group>"; };
+		60C72C7325B561D600E00276 /* LZMessageToRemindCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZMessageToRemindCell.m; sourceTree = "<group>"; };
+		60C72C7425B561D600E00276 /* LZMessageToRemindViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZMessageToRemindViewController.m; sourceTree = "<group>"; };
+		60C72C7525B561D600E00276 /* LZMessageToRemindCellModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZMessageToRemindCellModel.h; sourceTree = "<group>"; };
+		60C72C7625B561D600E00276 /* LZMessageToRemindViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZMessageToRemindViewController.h; sourceTree = "<group>"; };
+		60C72C7725B561D600E00276 /* LZMessageToRemindCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZMessageToRemindCell.h; sourceTree = "<group>"; };
+		60C72C7925B561D600E00276 /* LZAddEventToRemindCellModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZAddEventToRemindCellModel.h; sourceTree = "<group>"; };
+		60C72C7A25B561D600E00276 /* LZAddEventToRemindViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZAddEventToRemindViewController.m; sourceTree = "<group>"; };
+		60C72C7B25B561D600E00276 /* LZAddEventToRemindCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZAddEventToRemindCell.h; sourceTree = "<group>"; };
+		60C72C7C25B561D600E00276 /* LZEventToRemindViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZEventToRemindViewController.h; sourceTree = "<group>"; };
+		60C72C7D25B561D600E00276 /* LZEventToRemindTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZEventToRemindTableViewCell.h; sourceTree = "<group>"; };
+		60C72C7E25B561D600E00276 /* LZAddEventToRemindContentTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZAddEventToRemindContentTableViewCell.h; sourceTree = "<group>"; };
+		60C72C7F25B561D600E00276 /* LZAddEventToRemindViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZAddEventToRemindViewController.h; sourceTree = "<group>"; };
+		60C72C8025B561D600E00276 /* LZAddEventToRemindCellModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZAddEventToRemindCellModel.m; sourceTree = "<group>"; };
+		60C72C8125B561D600E00276 /* LZEventToRemindViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZEventToRemindViewController.m; sourceTree = "<group>"; };
+		60C72C8225B561D600E00276 /* LZAddEventToRemindCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZAddEventToRemindCell.m; sourceTree = "<group>"; };
+		60C72C8325B561D600E00276 /* LZAddEventToRemindContentTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZAddEventToRemindContentTableViewCell.m; sourceTree = "<group>"; };
+		60C72C8425B561D600E00276 /* LZEventToRemindTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZEventToRemindTableViewCell.m; sourceTree = "<group>"; };
+		60C72C8625B561D600E00276 /* LZNightModeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZNightModeViewController.h; sourceTree = "<group>"; };
+		60C72C8725B561D600E00276 /* LZNightModelCellModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZNightModelCellModel.h; sourceTree = "<group>"; };
+		60C72C8825B561D600E00276 /* LZNightModelCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZNightModelCell.m; sourceTree = "<group>"; };
+		60C72C8925B561D600E00276 /* LZNightModeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZNightModeViewController.m; sourceTree = "<group>"; };
+		60C72C8A25B561D600E00276 /* LZNightModelCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZNightModelCell.h; sourceTree = "<group>"; };
+		60C72C8B25B561D600E00276 /* LZNightModelCellModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZNightModelCellModel.m; sourceTree = "<group>"; };
+		60C72C8D25B561D600E00276 /* LZHeartRateWarningCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZHeartRateWarningCell.h; sourceTree = "<group>"; };
+		60C72C8E25B561D600E00276 /* LZHearRateWarningCellModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZHearRateWarningCellModel.h; sourceTree = "<group>"; };
+		60C72C8F25B561D600E00276 /* LZHeartRataWarningViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZHeartRataWarningViewController.m; sourceTree = "<group>"; };
+		60C72C9025B561D600E00276 /* LZHeartRateWarningCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZHeartRateWarningCell.m; sourceTree = "<group>"; };
+		60C72C9125B561D600E00276 /* LZHearRateWarningCellModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZHearRateWarningCellModel.m; sourceTree = "<group>"; };
+		60C72C9225B561D600E00276 /* LZHeartRataWarningViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZHeartRataWarningViewController.h; sourceTree = "<group>"; };
+		60C72C9425B561D600E00276 /* LZTimeFormatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZTimeFormatViewController.m; sourceTree = "<group>"; };
+		60C72C9525B561D600E00276 /* LZTimeFormatModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZTimeFormatModel.h; sourceTree = "<group>"; };
+		60C72C9625B561D600E00276 /* LZTimeFormatCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZTimeFormatCell.h; sourceTree = "<group>"; };
+		60C72C9725B561D600E00276 /* LZTimeFormatModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZTimeFormatModel.m; sourceTree = "<group>"; };
+		60C72C9825B561D600E00276 /* LZTimeFormatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZTimeFormatViewController.h; sourceTree = "<group>"; };
+		60C72C9925B561D600E00276 /* LZTimeFormatCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZTimeFormatCell.m; sourceTree = "<group>"; };
+		60C72C9B25B561D600E00276 /* LZSportTypeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZSportTypeViewController.h; sourceTree = "<group>"; };
+		60C72C9C25B561D600E00276 /* LZSportTypeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZSportTypeViewController.m; sourceTree = "<group>"; };
+		60C72C9E25B561D600E00276 /* LZWearingHabitsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZWearingHabitsModel.h; sourceTree = "<group>"; };
+		60C72C9F25B561D600E00276 /* LZWearingHabitsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZWearingHabitsViewController.m; sourceTree = "<group>"; };
+		60C72CA025B561D600E00276 /* LZWearingHabitsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZWearingHabitsCell.h; sourceTree = "<group>"; };
+		60C72CA125B561D600E00276 /* LZWearingHabitsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZWearingHabitsModel.m; sourceTree = "<group>"; };
+		60C72CA225B561D600E00276 /* LZWearingHabitsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZWearingHabitsCell.m; sourceTree = "<group>"; };
+		60C72CA325B561D600E00276 /* LZWearingHabitsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZWearingHabitsViewController.h; sourceTree = "<group>"; };
+		60C72CA525B561D600E00276 /* LZGoalSetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZGoalSetViewController.m; sourceTree = "<group>"; };
+		60C72CA625B561D600E00276 /* LZGoalSetModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZGoalSetModel.m; sourceTree = "<group>"; };
+		60C72CA725B561D600E00276 /* LZGoalSettingTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZGoalSettingTableViewCell.m; sourceTree = "<group>"; };
+		60C72CA825B561D600E00276 /* LZGoalSetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZGoalSetViewController.h; sourceTree = "<group>"; };
+		60C72CA925B561D600E00276 /* LZGoalSettingTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZGoalSettingTableViewCell.h; sourceTree = "<group>"; };
+		60C72CAA25B561D600E00276 /* LZGoalSetModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZGoalSetModel.h; sourceTree = "<group>"; };
+		60C72CAC25B561D600E00276 /* LSWButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSWButton.h; sourceTree = "<group>"; };
+		60C72CAE25B561D600E00276 /* LZSetPopUpAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZSetPopUpAnimator.m; sourceTree = "<group>"; };
+		60C72CAF25B561D600E00276 /* LZSetPopUpTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZSetPopUpTableViewCell.m; sourceTree = "<group>"; };
+		60C72CB025B561D600E00276 /* LZSetPopUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZSetPopUpViewController.m; sourceTree = "<group>"; };
+		60C72CB125B561D600E00276 /* LZSetPopUpAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZSetPopUpAnimator.h; sourceTree = "<group>"; };
+		60C72CB225B561D600E00276 /* LZSetPopUpTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZSetPopUpTableViewCell.h; sourceTree = "<group>"; };
+		60C72CB325B561D600E00276 /* LZSetPopUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZSetPopUpViewController.h; sourceTree = "<group>"; };
+		60C72CB425B561D600E00276 /* LSWGradientView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSWGradientView.m; sourceTree = "<group>"; };
+		60C72CB525B561D600E00276 /* LZBaseSetCellModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZBaseSetCellModel.h; sourceTree = "<group>"; };
+		60C72CB625B561D600E00276 /* LZBaseSetTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZBaseSetTableViewCell.h; sourceTree = "<group>"; };
+		60C72CB725B561D600E00276 /* LSRandomCodeInputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSRandomCodeInputView.h; sourceTree = "<group>"; };
+		60C72CB825B561D600E00276 /* LZBaseSetCellModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZBaseSetCellModel.m; sourceTree = "<group>"; };
+		60C72CB925B561D600E00276 /* LSWGradientView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSWGradientView.h; sourceTree = "<group>"; };
+		60C72CBA25B561D700E00276 /* LSWButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSWButton.m; sourceTree = "<group>"; };
+		60C72CBC25B561D700E00276 /* LZPickerAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZPickerAnimator.m; sourceTree = "<group>"; };
+		60C72CBD25B561D700E00276 /* LZSetPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZSetPickerViewController.h; sourceTree = "<group>"; };
+		60C72CBE25B561D700E00276 /* LZPickerAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZPickerAnimator.h; sourceTree = "<group>"; };
+		60C72CBF25B561D700E00276 /* LZSetPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZSetPickerViewController.m; sourceTree = "<group>"; };
+		60C72CC025B561D700E00276 /* LZBaseSetTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZBaseSetTableViewCell.m; sourceTree = "<group>"; };
+		60C72CC125B561D700E00276 /* LSRandomCodeInputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSRandomCodeInputView.m; sourceTree = "<group>"; };
+		60C72CC325B561D700E00276 /* LZDeviceSettingDBUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZDeviceSettingDBUtil.h; sourceTree = "<group>"; };
+		60C72CCA25B561D700E00276 /* LZDeviceSettingDBUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZDeviceSettingDBUtil.m; sourceTree = "<group>"; };
+		60C72CCD25B561D700E00276 /* LZBraceletInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZBraceletInfoViewController.m; sourceTree = "<group>"; };
+		60C72CCE25B561D700E00276 /* LZBraceletInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZBraceletInfoViewController.h; sourceTree = "<group>"; };
+		60C72CD025B561D700E00276 /* LZSettingCellModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZSettingCellModel.m; sourceTree = "<group>"; };
+		60C72CD125B561D700E00276 /* LZSettingCellModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZSettingCellModel.h; sourceTree = "<group>"; };
+		60C72CD325B561D700E00276 /* LZSettingTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZSettingTableViewCell.h; sourceTree = "<group>"; };
+		60C72CD425B561D700E00276 /* LZSettingTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZSettingTableViewCell.m; sourceTree = "<group>"; };
+		60C72CD725B561D700E00276 /* LZSearchBindContainerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZSearchBindContainerViewController.m; sourceTree = "<group>"; };
+		60C72CDA25B561D700E00276 /* LSWEnterRandomCodeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSWEnterRandomCodeView.m; sourceTree = "<group>"; };
+		60C72CDB25B561D700E00276 /* LSWBindingDeviceView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSWBindingDeviceView.h; sourceTree = "<group>"; };
+		60C72CDC25B561D700E00276 /* LSWEnterRandomCodeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSWEnterRandomCodeView.h; sourceTree = "<group>"; };
+		60C72CDD25B561D700E00276 /* LSWBindingDeviceView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSWBindingDeviceView.m; sourceTree = "<group>"; };
+		60C72CDF25B561D700E00276 /* LZBindingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZBindingViewController.m; sourceTree = "<group>"; };
+		60C72CE025B561D700E00276 /* LZBindingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZBindingViewController.h; sourceTree = "<group>"; };
+		60C72CE325B561D700E00276 /* LSCircleWaveAnimationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSCircleWaveAnimationView.h; sourceTree = "<group>"; };
+		60C72CE425B561D700E00276 /* LSWBluetoothSearchingDeviceView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSWBluetoothSearchingDeviceView.m; sourceTree = "<group>"; };
+		60C72CE525B561D700E00276 /* LSWBluetoothSearchingDeviceView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSWBluetoothSearchingDeviceView.h; sourceTree = "<group>"; };
+		60C72CE625B561D700E00276 /* LSCircleWaveAnimationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSCircleWaveAnimationView.m; sourceTree = "<group>"; };
+		60C72CE825B561D700E00276 /* LZSearchDeviceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZSearchDeviceViewController.m; sourceTree = "<group>"; };
+		60C72CE925B561D700E00276 /* LZSearchDeviceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZSearchDeviceViewController.h; sourceTree = "<group>"; };
+		60C72CEA25B561D700E00276 /* LZSearchBindContainerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZSearchBindContainerViewController.h; sourceTree = "<group>"; };
+		60C72CED25B561D700E00276 /* LSWBSBSelectDeviceView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSWBSBSelectDeviceView.h; sourceTree = "<group>"; };
+		60C72CEE25B561D700E00276 /* LSWBSBSelectDeviceView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSWBSBSelectDeviceView.m; sourceTree = "<group>"; };
+		60C72CF025B561D700E00276 /* LZChooseBindDeviceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZChooseBindDeviceViewController.m; sourceTree = "<group>"; };
+		60C72CF125B561D700E00276 /* LZChooseBindDeviceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZChooseBindDeviceViewController.h; sourceTree = "<group>"; };
+		60C72CF325B561D700E00276 /* LSWMyDeviceListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSWMyDeviceListViewController.m; sourceTree = "<group>"; };
+		60C72CF525B561D700E00276 /* LSWMineBraceletTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSWMineBraceletTableViewCell.h; sourceTree = "<group>"; };
+		60C72CF625B561D700E00276 /* LSWMineBraceletTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSWMineBraceletTableViewCell.m; sourceTree = "<group>"; };
+		60C72CF725B561D700E00276 /* LSWMyDeviceListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSWMyDeviceListViewController.h; sourceTree = "<group>"; };
+		60C72CF925B561D700E00276 /* LSWAppFontConfigrationMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSWAppFontConfigrationMacro.h; sourceTree = "<group>"; };
+		60C72CFA25B561D700E00276 /* LSWAppAppearanceConfigrationMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSWAppAppearanceConfigrationMacro.h; sourceTree = "<group>"; };
+		60C72CFB25B561D700E00276 /* LSWAppColorConfigrationMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSWAppColorConfigrationMacro.h; sourceTree = "<group>"; };
+		60C72D6025B5658A00E00276 /* LZViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZViewController.h; sourceTree = "<group>"; };
+		60C72D6125B5658A00E00276 /* LZViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZViewController.m; sourceTree = "<group>"; };
+		972BCE45267335CFDDEDEB02 /* Pods_lzbluetooth_mini_ui_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_lzbluetooth_mini_ui_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		60C72C2425B55F9B00E00276 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				72498FC97642C58CEA56EE92 /* Pods_lzbluetooth_mini_ui_ios.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		32E64A343887CFDCACA5EEFA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				163C92D1A499CB589DCA1962 /* Pods-lzbluetooth-mini-ui-ios.debug.xcconfig */,
+				18391318254DD260CC607D1A /* Pods-lzbluetooth-mini-ui-ios.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		5DC7912FA63CC3B901D1ECA5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				972BCE45267335CFDDEDEB02 /* Pods_lzbluetooth_mini_ui_ios.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		60C72C1E25B55F9B00E00276 = {
+			isa = PBXGroup;
+			children = (
+				60C72C2925B55F9B00E00276 /* lzbluetooth-mini-ui-ios */,
+				60C72C2825B55F9B00E00276 /* Products */,
+				32E64A343887CFDCACA5EEFA /* Pods */,
+				5DC7912FA63CC3B901D1ECA5 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		60C72C2825B55F9B00E00276 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				60C72C2725B55F9B00E00276 /* lzbluetooth-mini-ui-ios.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		60C72C2925B55F9B00E00276 /* lzbluetooth-mini-ui-ios */ = {
+			isa = PBXGroup;
+			children = (
+				60C72C4B25B561BA00E00276 /* UI */,
+				60C72C2A25B55F9B00E00276 /* AppDelegate.h */,
+				60C72C2B25B55F9B00E00276 /* AppDelegate.m */,
+				60C72D6025B5658A00E00276 /* LZViewController.h */,
+				60C72D6125B5658A00E00276 /* LZViewController.m */,
+				60C72C2D25B55F9B00E00276 /* SceneDelegate.h */,
+				60C72C2E25B55F9B00E00276 /* SceneDelegate.m */,
+				60C72C3325B55F9B00E00276 /* Main.storyboard */,
+				60C72C3625B55F9C00E00276 /* Assets.xcassets */,
+				60C72C3825B55F9C00E00276 /* LaunchScreen.storyboard */,
+				60C72C3B25B55F9C00E00276 /* Info.plist */,
+				60C72C3C25B55F9C00E00276 /* main.m */,
+			);
+			path = "lzbluetooth-mini-ui-ios";
+			sourceTree = "<group>";
+		};
+		60C72C4B25B561BA00E00276 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				60C72CF825B561D700E00276 /* AppAppearanceConfigration  */,
+				60C72CAB25B561D600E00276 /* BaseView */,
+				60C72C4C25B561D600E00276 /* BaseViewController */,
+				60C72CD525B561D700E00276 /* DeviceBind */,
+				60C72CCB25B561D700E00276 /* DeviceInfo */,
+				60C72C5425B561D600E00276 /* DeviceSetting */,
+				60C72C4F25B561D600E00276 /* HUD */,
+				60C72CC225B561D700E00276 /* Util */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		60C72C4C25B561D600E00276 /* BaseViewController */ = {
+			isa = PBXGroup;
+			children = (
+				60C72C4D25B561D600E00276 /* LZDeviceManagerViewController.h */,
+				60C72C4E25B561D600E00276 /* LZDeviceManagerViewController.m */,
+			);
+			path = BaseViewController;
+			sourceTree = "<group>";
+		};
+		60C72C4F25B561D600E00276 /* HUD */ = {
+			isa = PBXGroup;
+			children = (
+				60C72C5025B561D600E00276 /* MBProgressHUD.m */,
+				60C72C5125B561D600E00276 /* UIViewController+MBProgressHUD.h */,
+				60C72C5225B561D600E00276 /* MBProgressHUD.h */,
+				60C72C5325B561D600E00276 /* UIViewController+MBProgressHUD.m */,
+			);
+			path = HUD;
+			sourceTree = "<group>";
+		};
+		60C72C5425B561D600E00276 /* DeviceSetting */ = {
+			isa = PBXGroup;
+			children = (
+				60C72C5525B561D600E00276 /* dndMode */,
+				60C72C5C25B561D600E00276 /* screenOrientation */,
+				60C72C6325B561D600E00276 /* screenContent */,
+				60C72C6A25B561D600E00276 /* dialSet */,
+				60C72C7125B561D600E00276 /* messageToRemind */,
+				60C72C7825B561D600E00276 /* eventToRemind */,
+				60C72C8525B561D600E00276 /* nightMode */,
+				60C72C8C25B561D600E00276 /* heartRateWarning */,
+				60C72C9325B561D600E00276 /* timeFormat */,
+				60C72C9A25B561D600E00276 /* sportType */,
+				60C72C9D25B561D600E00276 /* wearingHabits */,
+				60C72CA425B561D600E00276 /* goalSetting */,
+			);
+			path = DeviceSetting;
+			sourceTree = "<group>";
+		};
+		60C72C5525B561D600E00276 /* dndMode */ = {
+			isa = PBXGroup;
+			children = (
+				60C72C5625B561D600E00276 /* LZDndModeViewController.h */,
+				60C72C5725B561D600E00276 /* LZDndModelCell.h */,
+				60C72C5825B561D600E00276 /* LZDndModelCellModel.m */,
+				60C72C5925B561D600E00276 /* LZDndModeViewController.m */,
+				60C72C5A25B561D600E00276 /* LZDndModelCell.m */,
+				60C72C5B25B561D600E00276 /* LZDndModelCellModel.h */,
+			);
+			path = dndMode;
+			sourceTree = "<group>";
+		};
+		60C72C5C25B561D600E00276 /* screenOrientation */ = {
+			isa = PBXGroup;
+			children = (
+				60C72C5D25B561D600E00276 /* LZScreenOrientationViewController.m */,
+				60C72C5E25B561D600E00276 /* LZScreenOrientationCell.m */,
+				60C72C5F25B561D600E00276 /* LZScreenOrientationCellModel.h */,
+				60C72C6025B561D600E00276 /* LZScreenOrientationCell.h */,
+				60C72C6125B561D600E00276 /* LZScreenOrientationViewController.h */,
+				60C72C6225B561D600E00276 /* LZScreenOrientationCellModel.m */,
+			);
+			path = screenOrientation;
+			sourceTree = "<group>";
+		};
+		60C72C6325B561D600E00276 /* screenContent */ = {
+			isa = PBXGroup;
+			children = (
+				60C72C6425B561D600E00276 /* LZScreenContentModel.h */,
+				60C72C6525B561D600E00276 /* LZScreenContentCell.m */,
+				60C72C6625B561D600E00276 /* LZScreenContentViewController.m */,
+				60C72C6725B561D600E00276 /* LZScreenContentModel.m */,
+				60C72C6825B561D600E00276 /* LZScreenContentCell.h */,
+				60C72C6925B561D600E00276 /* LZScreenContentViewController.h */,
+			);
+			path = screenContent;
+			sourceTree = "<group>";
+		};
+		60C72C6A25B561D600E00276 /* dialSet */ = {
+			isa = PBXGroup;
+			children = (
+				60C72C6B25B561D600E00276 /* LZDialSetViewController.m */,
+				60C72C6C25B561D600E00276 /* LZDialSetCollectionViewCell.h */,
+				60C72C6D25B561D600E00276 /* LZDialSetModel.h */,
+				60C72C6E25B561D600E00276 /* LZDialSetViewController.h */,
+				60C72C6F25B561D600E00276 /* LZDialSetModel.m */,
+				60C72C7025B561D600E00276 /* LZDialSetCollectionViewCell.m */,
+			);
+			path = dialSet;
+			sourceTree = "<group>";
+		};
+		60C72C7125B561D600E00276 /* messageToRemind */ = {
+			isa = PBXGroup;
+			children = (
+				60C72C7225B561D600E00276 /* LZMessageToRemindCellModel.m */,
+				60C72C7325B561D600E00276 /* LZMessageToRemindCell.m */,
+				60C72C7425B561D600E00276 /* LZMessageToRemindViewController.m */,
+				60C72C7525B561D600E00276 /* LZMessageToRemindCellModel.h */,
+				60C72C7625B561D600E00276 /* LZMessageToRemindViewController.h */,
+				60C72C7725B561D600E00276 /* LZMessageToRemindCell.h */,
+			);
+			path = messageToRemind;
+			sourceTree = "<group>";
+		};
+		60C72C7825B561D600E00276 /* eventToRemind */ = {
+			isa = PBXGroup;
+			children = (
+				60C72C7925B561D600E00276 /* LZAddEventToRemindCellModel.h */,
+				60C72C7A25B561D600E00276 /* LZAddEventToRemindViewController.m */,
+				60C72C7B25B561D600E00276 /* LZAddEventToRemindCell.h */,
+				60C72C7C25B561D600E00276 /* LZEventToRemindViewController.h */,
+				60C72C7D25B561D600E00276 /* LZEventToRemindTableViewCell.h */,
+				60C72C7E25B561D600E00276 /* LZAddEventToRemindContentTableViewCell.h */,
+				60C72C7F25B561D600E00276 /* LZAddEventToRemindViewController.h */,
+				60C72C8025B561D600E00276 /* LZAddEventToRemindCellModel.m */,
+				60C72C8125B561D600E00276 /* LZEventToRemindViewController.m */,
+				60C72C8225B561D600E00276 /* LZAddEventToRemindCell.m */,
+				60C72C8325B561D600E00276 /* LZAddEventToRemindContentTableViewCell.m */,
+				60C72C8425B561D600E00276 /* LZEventToRemindTableViewCell.m */,
+			);
+			path = eventToRemind;
+			sourceTree = "<group>";
+		};
+		60C72C8525B561D600E00276 /* nightMode */ = {
+			isa = PBXGroup;
+			children = (
+				60C72C8625B561D600E00276 /* LZNightModeViewController.h */,
+				60C72C8725B561D600E00276 /* LZNightModelCellModel.h */,
+				60C72C8825B561D600E00276 /* LZNightModelCell.m */,
+				60C72C8925B561D600E00276 /* LZNightModeViewController.m */,
+				60C72C8A25B561D600E00276 /* LZNightModelCell.h */,
+				60C72C8B25B561D600E00276 /* LZNightModelCellModel.m */,
+			);
+			path = nightMode;
+			sourceTree = "<group>";
+		};
+		60C72C8C25B561D600E00276 /* heartRateWarning */ = {
+			isa = PBXGroup;
+			children = (
+				60C72C8D25B561D600E00276 /* LZHeartRateWarningCell.h */,
+				60C72C8E25B561D600E00276 /* LZHearRateWarningCellModel.h */,
+				60C72C8F25B561D600E00276 /* LZHeartRataWarningViewController.m */,
+				60C72C9025B561D600E00276 /* LZHeartRateWarningCell.m */,
+				60C72C9125B561D600E00276 /* LZHearRateWarningCellModel.m */,
+				60C72C9225B561D600E00276 /* LZHeartRataWarningViewController.h */,
+			);
+			path = heartRateWarning;
+			sourceTree = "<group>";
+		};
+		60C72C9325B561D600E00276 /* timeFormat */ = {
+			isa = PBXGroup;
+			children = (
+				60C72C9425B561D600E00276 /* LZTimeFormatViewController.m */,
+				60C72C9525B561D600E00276 /* LZTimeFormatModel.h */,
+				60C72C9625B561D600E00276 /* LZTimeFormatCell.h */,
+				60C72C9725B561D600E00276 /* LZTimeFormatModel.m */,
+				60C72C9825B561D600E00276 /* LZTimeFormatViewController.h */,
+				60C72C9925B561D600E00276 /* LZTimeFormatCell.m */,
+			);
+			path = timeFormat;
+			sourceTree = "<group>";
+		};
+		60C72C9A25B561D600E00276 /* sportType */ = {
+			isa = PBXGroup;
+			children = (
+				60C72C9B25B561D600E00276 /* LZSportTypeViewController.h */,
+				60C72C9C25B561D600E00276 /* LZSportTypeViewController.m */,
+			);
+			path = sportType;
+			sourceTree = "<group>";
+		};
+		60C72C9D25B561D600E00276 /* wearingHabits */ = {
+			isa = PBXGroup;
+			children = (
+				60C72C9E25B561D600E00276 /* LZWearingHabitsModel.h */,
+				60C72C9F25B561D600E00276 /* LZWearingHabitsViewController.m */,
+				60C72CA025B561D600E00276 /* LZWearingHabitsCell.h */,
+				60C72CA125B561D600E00276 /* LZWearingHabitsModel.m */,
+				60C72CA225B561D600E00276 /* LZWearingHabitsCell.m */,
+				60C72CA325B561D600E00276 /* LZWearingHabitsViewController.h */,
+			);
+			path = wearingHabits;
+			sourceTree = "<group>";
+		};
+		60C72CA425B561D600E00276 /* goalSetting */ = {
+			isa = PBXGroup;
+			children = (
+				60C72CA525B561D600E00276 /* LZGoalSetViewController.m */,
+				60C72CA625B561D600E00276 /* LZGoalSetModel.m */,
+				60C72CA725B561D600E00276 /* LZGoalSettingTableViewCell.m */,
+				60C72CA825B561D600E00276 /* LZGoalSetViewController.h */,
+				60C72CA925B561D600E00276 /* LZGoalSettingTableViewCell.h */,
+				60C72CAA25B561D600E00276 /* LZGoalSetModel.h */,
+			);
+			path = goalSetting;
+			sourceTree = "<group>";
+		};
+		60C72CAB25B561D600E00276 /* BaseView */ = {
+			isa = PBXGroup;
+			children = (
+				60C72CAC25B561D600E00276 /* LSWButton.h */,
+				60C72CAD25B561D600E00276 /* weekPopup */,
+				60C72CB425B561D600E00276 /* LSWGradientView.m */,
+				60C72CB525B561D600E00276 /* LZBaseSetCellModel.h */,
+				60C72CB625B561D600E00276 /* LZBaseSetTableViewCell.h */,
+				60C72CB725B561D600E00276 /* LSRandomCodeInputView.h */,
+				60C72CB825B561D600E00276 /* LZBaseSetCellModel.m */,
+				60C72CB925B561D600E00276 /* LSWGradientView.h */,
+				60C72CBA25B561D700E00276 /* LSWButton.m */,
+				60C72CBB25B561D700E00276 /* pickerControl */,
+				60C72CC025B561D700E00276 /* LZBaseSetTableViewCell.m */,
+				60C72CC125B561D700E00276 /* LSRandomCodeInputView.m */,
+			);
+			path = BaseView;
+			sourceTree = "<group>";
+		};
+		60C72CAD25B561D600E00276 /* weekPopup */ = {
+			isa = PBXGroup;
+			children = (
+				60C72CAE25B561D600E00276 /* LZSetPopUpAnimator.m */,
+				60C72CAF25B561D600E00276 /* LZSetPopUpTableViewCell.m */,
+				60C72CB025B561D600E00276 /* LZSetPopUpViewController.m */,
+				60C72CB125B561D600E00276 /* LZSetPopUpAnimator.h */,
+				60C72CB225B561D600E00276 /* LZSetPopUpTableViewCell.h */,
+				60C72CB325B561D600E00276 /* LZSetPopUpViewController.h */,
+			);
+			path = weekPopup;
+			sourceTree = "<group>";
+		};
+		60C72CBB25B561D700E00276 /* pickerControl */ = {
+			isa = PBXGroup;
+			children = (
+				60C72CBC25B561D700E00276 /* LZPickerAnimator.m */,
+				60C72CBD25B561D700E00276 /* LZSetPickerViewController.h */,
+				60C72CBE25B561D700E00276 /* LZPickerAnimator.h */,
+				60C72CBF25B561D700E00276 /* LZSetPickerViewController.m */,
+			);
+			path = pickerControl;
+			sourceTree = "<group>";
+		};
+		60C72CC225B561D700E00276 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				60C72CC325B561D700E00276 /* LZDeviceSettingDBUtil.h */,
+				60C72CCA25B561D700E00276 /* LZDeviceSettingDBUtil.m */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
+		60C72CCB25B561D700E00276 /* DeviceInfo */ = {
+			isa = PBXGroup;
+			children = (
+				60C72CCC25B561D700E00276 /* controller */,
+				60C72CCF25B561D700E00276 /* model */,
+				60C72CD225B561D700E00276 /* view */,
+			);
+			path = DeviceInfo;
+			sourceTree = "<group>";
+		};
+		60C72CCC25B561D700E00276 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				60C72CCD25B561D700E00276 /* LZBraceletInfoViewController.m */,
+				60C72CCE25B561D700E00276 /* LZBraceletInfoViewController.h */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		60C72CCF25B561D700E00276 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				60C72CD025B561D700E00276 /* LZSettingCellModel.m */,
+				60C72CD125B561D700E00276 /* LZSettingCellModel.h */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		60C72CD225B561D700E00276 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				60C72CD325B561D700E00276 /* LZSettingTableViewCell.h */,
+				60C72CD425B561D700E00276 /* LZSettingTableViewCell.m */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		60C72CD525B561D700E00276 /* DeviceBind */ = {
+			isa = PBXGroup;
+			children = (
+				60C72CD625B561D700E00276 /* deviceSearchAndBind */,
+				60C72CF225B561D700E00276 /* bindedDeviceList */,
+			);
+			path = DeviceBind;
+			sourceTree = "<group>";
+		};
+		60C72CD625B561D700E00276 /* deviceSearchAndBind */ = {
+			isa = PBXGroup;
+			children = (
+				60C72CD725B561D700E00276 /* LZSearchBindContainerViewController.m */,
+				60C72CD825B561D700E00276 /* bindding */,
+				60C72CE125B561D700E00276 /* searchDevice */,
+				60C72CEA25B561D700E00276 /* LZSearchBindContainerViewController.h */,
+				60C72CEB25B561D700E00276 /* chooseBindDevice */,
+			);
+			path = deviceSearchAndBind;
+			sourceTree = "<group>";
+		};
+		60C72CD825B561D700E00276 /* bindding */ = {
+			isa = PBXGroup;
+			children = (
+				60C72CD925B561D700E00276 /* view */,
+				60C72CDE25B561D700E00276 /* viewController */,
+			);
+			path = bindding;
+			sourceTree = "<group>";
+		};
+		60C72CD925B561D700E00276 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				60C72CDA25B561D700E00276 /* LSWEnterRandomCodeView.m */,
+				60C72CDB25B561D700E00276 /* LSWBindingDeviceView.h */,
+				60C72CDC25B561D700E00276 /* LSWEnterRandomCodeView.h */,
+				60C72CDD25B561D700E00276 /* LSWBindingDeviceView.m */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		60C72CDE25B561D700E00276 /* viewController */ = {
+			isa = PBXGroup;
+			children = (
+				60C72CDF25B561D700E00276 /* LZBindingViewController.m */,
+				60C72CE025B561D700E00276 /* LZBindingViewController.h */,
+			);
+			path = viewController;
+			sourceTree = "<group>";
+		};
+		60C72CE125B561D700E00276 /* searchDevice */ = {
+			isa = PBXGroup;
+			children = (
+				60C72CE225B561D700E00276 /* view */,
+				60C72CE725B561D700E00276 /* viewController */,
+			);
+			path = searchDevice;
+			sourceTree = "<group>";
+		};
+		60C72CE225B561D700E00276 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				60C72CE325B561D700E00276 /* LSCircleWaveAnimationView.h */,
+				60C72CE425B561D700E00276 /* LSWBluetoothSearchingDeviceView.m */,
+				60C72CE525B561D700E00276 /* LSWBluetoothSearchingDeviceView.h */,
+				60C72CE625B561D700E00276 /* LSCircleWaveAnimationView.m */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		60C72CE725B561D700E00276 /* viewController */ = {
+			isa = PBXGroup;
+			children = (
+				60C72CE825B561D700E00276 /* LZSearchDeviceViewController.m */,
+				60C72CE925B561D700E00276 /* LZSearchDeviceViewController.h */,
+			);
+			path = viewController;
+			sourceTree = "<group>";
+		};
+		60C72CEB25B561D700E00276 /* chooseBindDevice */ = {
+			isa = PBXGroup;
+			children = (
+				60C72CEC25B561D700E00276 /* view */,
+				60C72CEF25B561D700E00276 /* viewController */,
+			);
+			path = chooseBindDevice;
+			sourceTree = "<group>";
+		};
+		60C72CEC25B561D700E00276 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				60C72CED25B561D700E00276 /* LSWBSBSelectDeviceView.h */,
+				60C72CEE25B561D700E00276 /* LSWBSBSelectDeviceView.m */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		60C72CEF25B561D700E00276 /* viewController */ = {
+			isa = PBXGroup;
+			children = (
+				60C72CF025B561D700E00276 /* LZChooseBindDeviceViewController.m */,
+				60C72CF125B561D700E00276 /* LZChooseBindDeviceViewController.h */,
+			);
+			path = viewController;
+			sourceTree = "<group>";
+		};
+		60C72CF225B561D700E00276 /* bindedDeviceList */ = {
+			isa = PBXGroup;
+			children = (
+				60C72CF325B561D700E00276 /* LSWMyDeviceListViewController.m */,
+				60C72CF425B561D700E00276 /* view */,
+				60C72CF725B561D700E00276 /* LSWMyDeviceListViewController.h */,
+			);
+			path = bindedDeviceList;
+			sourceTree = "<group>";
+		};
+		60C72CF425B561D700E00276 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				60C72CF525B561D700E00276 /* LSWMineBraceletTableViewCell.h */,
+				60C72CF625B561D700E00276 /* LSWMineBraceletTableViewCell.m */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		60C72CF825B561D700E00276 /* AppAppearanceConfigration  */ = {
+			isa = PBXGroup;
+			children = (
+				60C72CF925B561D700E00276 /* LSWAppFontConfigrationMacro.h */,
+				60C72CFA25B561D700E00276 /* LSWAppAppearanceConfigrationMacro.h */,
+				60C72CFB25B561D700E00276 /* LSWAppColorConfigrationMacro.h */,
+			);
+			path = "AppAppearanceConfigration ";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		60C72C2625B55F9B00E00276 /* lzbluetooth-mini-ui-ios */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 60C72C4025B55F9C00E00276 /* Build configuration list for PBXNativeTarget "lzbluetooth-mini-ui-ios" */;
+			buildPhases = (
+				10633DD3EC6C6A85AF037BB9 /* [CP] Check Pods Manifest.lock */,
+				60C72C2325B55F9B00E00276 /* Sources */,
+				60C72C2425B55F9B00E00276 /* Frameworks */,
+				60C72C2525B55F9B00E00276 /* Resources */,
+				DA696BDF73C8A8E8AAC2344D /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "lzbluetooth-mini-ui-ios";
+			productName = "lzbluetooth-mini-ui-ios";
+			productReference = 60C72C2725B55F9B00E00276 /* lzbluetooth-mini-ui-ios.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		60C72C1F25B55F9B00E00276 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1220;
+				TargetAttributes = {
+					60C72C2625B55F9B00E00276 = {
+						CreatedOnToolsVersion = 12.2;
+					};
+				};
+			};
+			buildConfigurationList = 60C72C2225B55F9B00E00276 /* Build configuration list for PBXProject "lzbluetooth-mini-ui-ios" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 60C72C1E25B55F9B00E00276;
+			productRefGroup = 60C72C2825B55F9B00E00276 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				60C72C2625B55F9B00E00276 /* lzbluetooth-mini-ui-ios */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		60C72C2525B55F9B00E00276 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				60C72C3A25B55F9C00E00276 /* LaunchScreen.storyboard in Resources */,
+				60C72C3725B55F9C00E00276 /* Assets.xcassets in Resources */,
+				60C72C3525B55F9B00E00276 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		10633DD3EC6C6A85AF037BB9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-lzbluetooth-mini-ui-ios-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DA696BDF73C8A8E8AAC2344D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-lzbluetooth-mini-ui-ios/Pods-lzbluetooth-mini-ui-ios-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-lzbluetooth-mini-ui-ios/Pods-lzbluetooth-mini-ui-ios-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-lzbluetooth-mini-ui-ios/Pods-lzbluetooth-mini-ui-ios-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		60C72C2325B55F9B00E00276 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				60C72D2A25B561D700E00276 /* LZPickerAnimator.m in Sources */,
+				60C72D1C25B561D700E00276 /* LZTimeFormatCell.m in Sources */,
+				60C72D2525B561D700E00276 /* LZSetPopUpTableViewCell.m in Sources */,
+				60C72D1B25B561D700E00276 /* LZTimeFormatModel.m in Sources */,
+				60C72D1025B561D700E00276 /* LZEventToRemindViewController.m in Sources */,
+				60C72D2D25B561D700E00276 /* LSRandomCodeInputView.m in Sources */,
+				60C72D2225B561D700E00276 /* LZGoalSetModel.m in Sources */,
+				60C72CFD25B561D700E00276 /* MBProgressHUD.m in Sources */,
+				60C72D0425B561D700E00276 /* LZScreenOrientationCellModel.m in Sources */,
+				60C72D2925B561D700E00276 /* LSWButton.m in Sources */,
+				60C72D1825B561D700E00276 /* LZHeartRateWarningCell.m in Sources */,
+				60C72D1725B561D700E00276 /* LZHeartRataWarningViewController.m in Sources */,
+				60C72D1925B561D700E00276 /* LZHearRateWarningCellModel.m in Sources */,
+				60C72D1125B561D700E00276 /* LZAddEventToRemindCell.m in Sources */,
+				60C72D0725B561D700E00276 /* LZScreenContentModel.m in Sources */,
+				60C72D1A25B561D700E00276 /* LZTimeFormatViewController.m in Sources */,
+				60C72D0D25B561D700E00276 /* LZMessageToRemindViewController.m in Sources */,
+				60C72D3325B561D700E00276 /* LZSettingTableViewCell.m in Sources */,
+				60C72D2425B561D700E00276 /* LZSetPopUpAnimator.m in Sources */,
+				60C72D3725B561D700E00276 /* LZBindingViewController.m in Sources */,
+				60C72D3525B561D700E00276 /* LSWEnterRandomCodeView.m in Sources */,
+				60C72C2C25B55F9B00E00276 /* AppDelegate.m in Sources */,
+				60C72D0825B561D700E00276 /* LZDialSetViewController.m in Sources */,
+				60C72D1625B561D700E00276 /* LZNightModelCellModel.m in Sources */,
+				60C72D2325B561D700E00276 /* LZGoalSettingTableViewCell.m in Sources */,
+				60C72CFC25B561D700E00276 /* LZDeviceManagerViewController.m in Sources */,
+				60C72D0525B561D700E00276 /* LZScreenContentCell.m in Sources */,
+				60C72D0A25B561D700E00276 /* LZDialSetCollectionViewCell.m in Sources */,
+				60C72D2B25B561D700E00276 /* LZSetPickerViewController.m in Sources */,
+				60C72D3125B561D700E00276 /* LZBraceletInfoViewController.m in Sources */,
+				60C72D1525B561D700E00276 /* LZNightModeViewController.m in Sources */,
+				60C72D3425B561D700E00276 /* LZSearchBindContainerViewController.m in Sources */,
+				60C72D6225B5658A00E00276 /* LZViewController.m in Sources */,
+				60C72D0C25B561D700E00276 /* LZMessageToRemindCell.m in Sources */,
+				60C72D0B25B561D700E00276 /* LZMessageToRemindCellModel.m in Sources */,
+				60C72D3E25B561D700E00276 /* LSWMineBraceletTableViewCell.m in Sources */,
+				60C72D0225B561D700E00276 /* LZScreenOrientationViewController.m in Sources */,
+				60C72D2725B561D700E00276 /* LSWGradientView.m in Sources */,
+				60C72D1D25B561D700E00276 /* LZSportTypeViewController.m in Sources */,
+				60C72D2025B561D700E00276 /* LZWearingHabitsCell.m in Sources */,
+				60C72D1225B561D700E00276 /* LZAddEventToRemindContentTableViewCell.m in Sources */,
+				60C72D3825B561D700E00276 /* LSWBluetoothSearchingDeviceView.m in Sources */,
+				60C72D2625B561D700E00276 /* LZSetPopUpViewController.m in Sources */,
+				60C72D2125B561D700E00276 /* LZGoalSetViewController.m in Sources */,
+				60C72D0125B561D700E00276 /* LZDndModelCell.m in Sources */,
+				60C72D0E25B561D700E00276 /* LZAddEventToRemindViewController.m in Sources */,
+				60C72D1325B561D700E00276 /* LZEventToRemindTableViewCell.m in Sources */,
+				60C72D0325B561D700E00276 /* LZScreenOrientationCell.m in Sources */,
+				60C72D3625B561D700E00276 /* LSWBindingDeviceView.m in Sources */,
+				60C72D3225B561D700E00276 /* LZSettingCellModel.m in Sources */,
+				60C72D3C25B561D700E00276 /* LZChooseBindDeviceViewController.m in Sources */,
+				60C72D2825B561D700E00276 /* LZBaseSetCellModel.m in Sources */,
+				60C72D3025B561D700E00276 /* LZDeviceSettingDBUtil.m in Sources */,
+				60C72D1425B561D700E00276 /* LZNightModelCell.m in Sources */,
+				60C72C3D25B55F9C00E00276 /* main.m in Sources */,
+				60C72CFE25B561D700E00276 /* UIViewController+MBProgressHUD.m in Sources */,
+				60C72D1F25B561D700E00276 /* LZWearingHabitsModel.m in Sources */,
+				60C72CFF25B561D700E00276 /* LZDndModelCellModel.m in Sources */,
+				60C72D0925B561D700E00276 /* LZDialSetModel.m in Sources */,
+				60C72D3925B561D700E00276 /* LSCircleWaveAnimationView.m in Sources */,
+				60C72D2C25B561D700E00276 /* LZBaseSetTableViewCell.m in Sources */,
+				60C72D3A25B561D700E00276 /* LZSearchDeviceViewController.m in Sources */,
+				60C72D0F25B561D700E00276 /* LZAddEventToRemindCellModel.m in Sources */,
+				60C72D3B25B561D700E00276 /* LSWBSBSelectDeviceView.m in Sources */,
+				60C72D3D25B561D700E00276 /* LSWMyDeviceListViewController.m in Sources */,
+				60C72D0625B561D700E00276 /* LZScreenContentViewController.m in Sources */,
+				60C72D0025B561D700E00276 /* LZDndModeViewController.m in Sources */,
+				60C72C2F25B55F9B00E00276 /* SceneDelegate.m in Sources */,
+				60C72D1E25B561D700E00276 /* LZWearingHabitsViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		60C72C3325B55F9B00E00276 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				60C72C3425B55F9B00E00276 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		60C72C3825B55F9C00E00276 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				60C72C3925B55F9C00E00276 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		60C72C3E25B55F9C00E00276 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		60C72C3F25B55F9C00E00276 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		60C72C4125B55F9C00E00276 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 163C92D1A499CB589DCA1962 /* Pods-lzbluetooth-mini-ui-ios.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Q4ULFJ6L7N;
+				INFOPLIST_FILE = "lzbluetooth-mini-ui-ios/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.lifesense.sdk.lzbluetooth-mini-ui-ios";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		60C72C4225B55F9C00E00276 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 18391318254DD260CC607D1A /* Pods-lzbluetooth-mini-ui-ios.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Q4ULFJ6L7N;
+				INFOPLIST_FILE = "lzbluetooth-mini-ui-ios/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.lifesense.sdk.lzbluetooth-mini-ui-ios";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		60C72C2225B55F9B00E00276 /* Build configuration list for PBXProject "lzbluetooth-mini-ui-ios" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				60C72C3E25B55F9C00E00276 /* Debug */,
+				60C72C3F25B55F9C00E00276 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		60C72C4025B55F9C00E00276 /* Build configuration list for PBXNativeTarget "lzbluetooth-mini-ui-ios" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				60C72C4125B55F9C00E00276 /* Debug */,
+				60C72C4225B55F9C00E00276 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 60C72C1F25B55F9B00E00276 /* Project object */;
+}

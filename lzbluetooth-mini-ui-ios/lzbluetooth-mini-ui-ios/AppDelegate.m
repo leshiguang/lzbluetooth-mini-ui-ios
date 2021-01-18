@@ -1,0 +1,46 @@
+//
+//  AppDelegate.m
+//  lzbluetooth-mini-ui-ios
+//
+//  Created by tanjian on 2021/1/18.
+//
+
+#import "AppDelegate.h"
+#import <LZBluetooth/LZBluetooth.h>
+
+@interface AppDelegate () <LZDeviceDelegate>
+
+@end
+
+@implementation AppDelegate
+
+
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+    [LZBluetooth initWithAppId:@"com.leshiguang.saas.rbac.demo.appid"];
+    id<LZDeviceManagerProtocol> deviceManager = [LZBluetooth getDeviceManagerWithDeviceType:LZDeviceTypeBracelet];
+    deviceManager.delegate = self;
+    
+    LZUserInfoConfig *userConfig = [[LZUserInfoConfig alloc] init];
+    deviceManager.userInfoConfig = userConfig;
+    
+    [LZLogger shareInstance].loggerHandler = ^(LZLoggerLevel level, NSString * _Nonnull msg) {
+        NSLog(@"[%@]%@", @(level), msg);
+    };
+    return YES;
+}
+
+#pragma mark - LZDeviceDelegate
+- (void)device:(id<LZDeviceProtocol>)device didReceiveMeasurementData:(id<LZMeasurementDataProtocol>)measurementData {
+    NSLog(@"收到测量数据 %@", measurementData);
+}
+
+- (void)deviceDidUpdateConnectStatus:(id<LZDeviceProtocol>)device {
+    NSLog(@"连接状态发生变化 %ld", device.connectStatus);
+}
+
+- (void)deviceDidUpdateBatteryStatus:(id<LZDeviceProtocol>)device {
+    NSLog(@"收到电量 %@", device.batteryInfo);
+}
+
+@end

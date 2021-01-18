@@ -1,0 +1,26 @@
+//
+//  LZAddEventToRemindCellModel.h
+//  LSBluetoothUI_iOS
+//
+//  Created by wm on 2020/12/9.
+//
+
+#import "LZBaseSetCellModel.h"
+
+NS_ASSUME_NONNULL_BEGIN
+
+typedef enum : NSUInteger {
+    LZADDEVENTTOREMINDTYPE_OPENR_EMIND,      //打开提醒
+    LZADDEVENTTOREMINDTYPE_REMIND_TIME,        //提醒时间
+    LZADDEVENTTOREMINDTYPE_REPEAT_TIME,         //每周重复时间
+    LZADDEVENTTOREMINDTYPE_VIBRATION_MODE,      //震动方式
+    LZADDEVENTTOREMINDTYPE_VIBRATION_LEAVE1,    //震动等级1
+    LZADDEVENTTOREMINDTYPE_VIBRATION_LEAVE2,    //震动等级2
+    LZADDEVENTTOREMINDTYPE_VIBRATION_TIME       //震动时长
+} LZADDEVENTTOREMINDTYPE;
+
+@interface LZAddEventToRemindCellModel : LZBaseSetCellModel
+
+@end
+
+NS_ASSUME_NONNULL_END
