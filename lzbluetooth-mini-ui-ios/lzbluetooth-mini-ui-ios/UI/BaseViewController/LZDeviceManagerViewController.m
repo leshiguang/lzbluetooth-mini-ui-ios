@@ -60,4 +60,27 @@
     }
 }
 
+- (NSArray<NSString *> *)hours {
+    if (!_hours) {
+        NSMutableArray *array = [NSMutableArray array];
+        for (int i = 0; i < 24; i++) {
+            [array addObject:[NSString stringWithFormat:@"%d", i]];
+        }
+        _hours = array;
+    }
+    return _hours;
+}
+
+- (NSArray<NSString *> *)minutes {
+    if (!_minutes) {
+        NSMutableArray *array = [NSMutableArray array];
+        for (int i = 0; i < 60; i++) {
+            [array addObject:[NSString stringWithFormat:@"%d", i]];
+        }
+        _minutes = array;
+    }
+    return _minutes;
+}
+
+
 @end

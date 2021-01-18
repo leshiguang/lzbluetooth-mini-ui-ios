@@ -361,11 +361,11 @@
 			isa = PBXGroup;
 			children = (
 				60C72C5625B561D600E00276 /* LZDndModeViewController.h */,
-				60C72C5725B561D600E00276 /* LZDndModelCell.h */,
-				60C72C5825B561D600E00276 /* LZDndModelCellModel.m */,
 				60C72C5925B561D600E00276 /* LZDndModeViewController.m */,
-				60C72C5A25B561D600E00276 /* LZDndModelCell.m */,
 				60C72C5B25B561D600E00276 /* LZDndModelCellModel.h */,
+				60C72C5825B561D600E00276 /* LZDndModelCellModel.m */,
+				60C72C5725B561D600E00276 /* LZDndModelCell.h */,
+				60C72C5A25B561D600E00276 /* LZDndModelCell.m */,
 			);
 			path = dndMode;
 			sourceTree = "<group>";
@@ -373,11 +373,11 @@
 		60C72C5C25B561D600E00276 /* screenOrientation */ = {
 			isa = PBXGroup;
 			children = (
+				60C72C6125B561D600E00276 /* LZScreenOrientationViewController.h */,
 				60C72C5D25B561D600E00276 /* LZScreenOrientationViewController.m */,
+				60C72C6025B561D600E00276 /* LZScreenOrientationCell.h */,
 				60C72C5E25B561D600E00276 /* LZScreenOrientationCell.m */,
 				60C72C5F25B561D600E00276 /* LZScreenOrientationCellModel.h */,
-				60C72C6025B561D600E00276 /* LZScreenOrientationCell.h */,
-				60C72C6125B561D600E00276 /* LZScreenOrientationViewController.h */,
 				60C72C6225B561D600E00276 /* LZScreenOrientationCellModel.m */,
 			);
 			path = screenOrientation;
@@ -470,11 +470,11 @@
 		60C72C9325B561D600E00276 /* timeFormat */ = {
 			isa = PBXGroup;
 			children = (
+				60C72C9825B561D600E00276 /* LZTimeFormatViewController.h */,
 				60C72C9425B561D600E00276 /* LZTimeFormatViewController.m */,
 				60C72C9525B561D600E00276 /* LZTimeFormatModel.h */,
-				60C72C9625B561D600E00276 /* LZTimeFormatCell.h */,
 				60C72C9725B561D600E00276 /* LZTimeFormatModel.m */,
-				60C72C9825B561D600E00276 /* LZTimeFormatViewController.h */,
+				60C72C9625B561D600E00276 /* LZTimeFormatCell.h */,
 				60C72C9925B561D600E00276 /* LZTimeFormatCell.m */,
 			);
 			path = timeFormat;
@@ -493,11 +493,11 @@
 			isa = PBXGroup;
 			children = (
 				60C72C9E25B561D600E00276 /* LZWearingHabitsModel.h */,
+				60C72CA125B561D600E00276 /* LZWearingHabitsModel.m */,
+				60C72CA325B561D600E00276 /* LZWearingHabitsViewController.h */,
 				60C72C9F25B561D600E00276 /* LZWearingHabitsViewController.m */,
 				60C72CA025B561D600E00276 /* LZWearingHabitsCell.h */,
-				60C72CA125B561D600E00276 /* LZWearingHabitsModel.m */,
 				60C72CA225B561D600E00276 /* LZWearingHabitsCell.m */,
-				60C72CA325B561D600E00276 /* LZWearingHabitsViewController.h */,
 			);
 			path = wearingHabits;
 			sourceTree = "<group>";

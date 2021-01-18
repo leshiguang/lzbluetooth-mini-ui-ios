@@ -13,6 +13,8 @@
 @interface LZTimeFormatViewController () <UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, copy) NSArray <LZTimeFormatModel *> *modelAry;
+
+@property (nonatomic, strong) LZA5SettingTimeModeData *data;
 @end
 
 @implementation LZTimeFormatViewController
@@ -22,6 +24,11 @@
     self.title = @"时间制式";
     self.view.backgroundColor = [UIColor whiteColor];
     [self createUI];
+    
+    self.data = [self settingData];
+    
+    NSInteger index = self.data.timeMode == LZA5TimeMode24 ? 0 : 1;
+    [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:index inSection:0] animated:YES scrollPosition:UITableViewScrollPositionNone];
 }
 
 - (void)createUI {
@@ -49,7 +56,9 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    self.data.timeMode = indexPath.row == 0 ? LZA5TimeMode24 : LZA5TimeMode12;
     
+    [self sendData:self.data];
 }
 
 #pragma mark - getter

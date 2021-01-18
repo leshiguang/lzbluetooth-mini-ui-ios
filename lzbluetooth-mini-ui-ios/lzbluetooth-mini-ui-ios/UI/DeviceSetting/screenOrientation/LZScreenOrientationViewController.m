@@ -11,8 +11,10 @@
 #import "LZScreenOrientationCell.h"
 
 @interface LZScreenOrientationViewController () <UITableViewDelegate, UITableViewDataSource>
-@property (nonatomic,strong) UITableView *tableView;
-@property (nonatomic,strong) NSArray <LZScreenOrientationCellModel *> *modelAry;
+@property (nonatomic, strong) UITableView *tableView;
+@property (nonatomic, strong) NSArray <LZScreenOrientationCellModel *> *modelAry;
+@property (nonatomic, strong) LZA5SettingScreenDirectionData *data;
+
 @end
 
 @implementation LZScreenOrientationViewController
@@ -22,7 +24,9 @@
     self.title = @"屏幕方向";
     self.view.backgroundColor = [UIColor whiteColor];
     [self createUI];
-    [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:YES scrollPosition:UITableViewScrollPositionNone];
+    self.data = [self settingData];
+    NSInteger index = self.data.screenDirection == LZA5ScreenDirectionH ? 0 : 1;
+    [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:index inSection:0] animated:YES scrollPosition:UITableViewScrollPositionNone];
 }
 
 - (void)createUI {
@@ -38,7 +42,9 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSLog(@"点击了");
+    self.data.screenDirection = indexPath.row == 0 ? LZA5ScreenDirectionH : LZA5ScreenDirectionV;
+    
+    [self sendData:self.data];
 }
 
 #pragma mark - UITableViewDataSource

@@ -13,6 +13,8 @@
 @interface LZWearingHabitsViewController () <UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, copy) NSArray <LZWearingHabitsModel *> * modelAry;
+
+@property (nonatomic, strong) LZA5SettingWristHabitData *data;
 @end
 
 @implementation LZWearingHabitsViewController
@@ -22,6 +24,10 @@
     self.title = @"佩戴习惯";
     self.view.backgroundColor = [UIColor whiteColor];
     [self createUI];
+    
+    self.data = [self settingData];
+    NSInteger index = self.data.displayMode == LZA5DisplayModeLeft ? 0 : 1;
+    [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:index inSection:0] animated:YES scrollPosition:UITableViewScrollPositionNone];
 }
 
 - (void)createUI {
@@ -44,7 +50,9 @@
 
 #pragma mark - UITableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    self.data.displayMode = indexPath.row == 0 ? LZA5DisplayModeLeft : LZA5DisplayModeRight;
     
+    [self sendData:self.data];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
