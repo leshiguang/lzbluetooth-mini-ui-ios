@@ -426,17 +426,17 @@
 			isa = PBXGroup;
 			children = (
 				60C72C7925B561D600E00276 /* LZAddEventToRemindCellModel.h */,
+				60C72C8025B561D600E00276 /* LZAddEventToRemindCellModel.m */,
+				60C72C7F25B561D600E00276 /* LZAddEventToRemindViewController.h */,
 				60C72C7A25B561D600E00276 /* LZAddEventToRemindViewController.m */,
 				60C72C7B25B561D600E00276 /* LZAddEventToRemindCell.h */,
-				60C72C7C25B561D600E00276 /* LZEventToRemindViewController.h */,
-				60C72C7D25B561D600E00276 /* LZEventToRemindTableViewCell.h */,
-				60C72C7E25B561D600E00276 /* LZAddEventToRemindContentTableViewCell.h */,
-				60C72C7F25B561D600E00276 /* LZAddEventToRemindViewController.h */,
-				60C72C8025B561D600E00276 /* LZAddEventToRemindCellModel.m */,
-				60C72C8125B561D600E00276 /* LZEventToRemindViewController.m */,
 				60C72C8225B561D600E00276 /* LZAddEventToRemindCell.m */,
-				60C72C8325B561D600E00276 /* LZAddEventToRemindContentTableViewCell.m */,
+				60C72C7C25B561D600E00276 /* LZEventToRemindViewController.h */,
+				60C72C8125B561D600E00276 /* LZEventToRemindViewController.m */,
+				60C72C7D25B561D600E00276 /* LZEventToRemindTableViewCell.h */,
 				60C72C8425B561D600E00276 /* LZEventToRemindTableViewCell.m */,
+				60C72C7E25B561D600E00276 /* LZAddEventToRemindContentTableViewCell.h */,
+				60C72C8325B561D600E00276 /* LZAddEventToRemindContentTableViewCell.m */,
 			);
 			path = eventToRemind;
 			sourceTree = "<group>";
@@ -445,11 +445,11 @@
 			isa = PBXGroup;
 			children = (
 				60C72C8625B561D600E00276 /* LZNightModeViewController.h */,
-				60C72C8725B561D600E00276 /* LZNightModelCellModel.h */,
-				60C72C8825B561D600E00276 /* LZNightModelCell.m */,
 				60C72C8925B561D600E00276 /* LZNightModeViewController.m */,
-				60C72C8A25B561D600E00276 /* LZNightModelCell.h */,
+				60C72C8725B561D600E00276 /* LZNightModelCellModel.h */,
 				60C72C8B25B561D600E00276 /* LZNightModelCellModel.m */,
+				60C72C8A25B561D600E00276 /* LZNightModelCell.h */,
+				60C72C8825B561D600E00276 /* LZNightModelCell.m */,
 			);
 			path = nightMode;
 			sourceTree = "<group>";
