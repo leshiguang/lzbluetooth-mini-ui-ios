@@ -17,6 +17,9 @@
 
 @property (nonatomic, copy) NSMutableArray *selectAry;
 
+@property (nonatomic, assign) NSUInteger selectComponent;
+@property (nonatomic, assign) NSUInteger selectRow;
+
 @end
 
 @implementation LZSetPickerViewController
@@ -30,7 +33,7 @@
         self.selectAry[i] = self.dataSoureAry[i][0];
     }
     [self.pickerView reloadAllComponents];
-    [self.pickerView selectRow:self.selectRow inComponent:self.selectComponent animated:NO];
+
 }
 
 - (void)commonInit {
@@ -74,9 +77,6 @@
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
     self.selectComponent = component;
     self.selectRow = row;
-    if (self.delegate && [self.delegate respondsToSelector:@selector(pickerViewController:didPickComponent:row:)]) {
-        [self.delegate pickerViewController:self didPickComponent:component row:row];
-    }
 }
 
 - (UIView *)pickerView:(UIPickerView *)pickerView viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(UIView *)view {
@@ -102,6 +102,14 @@
     return self.dataSoureAry[component].count;
 }
 
+- (void)selectRow:(NSInteger)row inComponent:(NSInteger)component animated:(BOOL)animated {
+    [self.pickerView selectRow:row inComponent:component animated:animated];
+}
+
+- (NSInteger)selectedRowInComponent:(NSInteger)component {
+    return [self.pickerView selectedRowInComponent:component];
+}
+
 #pragma mark - event
 - (void)clickCancleBtn {
     if (self.delegate && [self.delegate respondsToSelector:@selector(pickerViewControllerCanceld:)]) {
@@ -110,9 +118,9 @@
 }
 
 - (void)clickSureBtn {
-    if (self.delegate && [self.delegate respondsToSelector:@selector(pickerViewController:didPickComponent:row:)]) {
+    if (self.delegate && [self.delegate respondsToSelector:@selector(pickerViewControllerDidSelect:)]) {
         
-        [self.delegate pickerViewController:self didPickComponent:self.selectComponent row:self.selectRow];
+        [self.delegate pickerViewControllerDidSelect:self];
     }
 }
 

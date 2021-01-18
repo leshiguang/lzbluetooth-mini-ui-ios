@@ -454,11 +454,11 @@
 			isa = PBXGroup;
 			children = (
 				60C72C8D25B561D600E00276 /* LZHeartRateWarningCell.h */,
-				60C72C8E25B561D600E00276 /* LZHearRateWarningCellModel.h */,
-				60C72C8F25B561D600E00276 /* LZHeartRataWarningViewController.m */,
 				60C72C9025B561D600E00276 /* LZHeartRateWarningCell.m */,
+				60C72C8E25B561D600E00276 /* LZHearRateWarningCellModel.h */,
 				60C72C9125B561D600E00276 /* LZHearRateWarningCellModel.m */,
 				60C72C9225B561D600E00276 /* LZHeartRataWarningViewController.h */,
+				60C72C8F25B561D600E00276 /* LZHeartRataWarningViewController.m */,
 			);
 			path = heartRateWarning;
 			sourceTree = "<group>";

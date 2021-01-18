@@ -15,7 +15,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @optional
 
-- (void)pickerViewController:(LZSetPickerViewController *)vc didPickComponent:(NSUInteger)component row:(NSUInteger)row;
+/// 可以通过
+- (void)pickerViewControllerDidSelect:(LZSetPickerViewController *)vc;
 - (void)pickerViewControllerCanceld:(LZSetPickerViewController *)vc;
 
 @end
@@ -25,8 +26,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSArray <NSArray *> *dataSoureAry;
 @property (nonatomic, weak) id <LZSetPickerDelegate> delegate;
 
-@property (nonatomic, assign) NSUInteger selectComponent;
-@property (nonatomic, assign) NSUInteger selectRow;
+/// 获取当前的选中
+/// @param component 列
+- (NSInteger)selectedRowInComponent:(NSInteger)component;
+
+- (void)selectRow:(NSInteger)row inComponent:(NSInteger)component animated:(BOOL)animated;
 
 @end
 

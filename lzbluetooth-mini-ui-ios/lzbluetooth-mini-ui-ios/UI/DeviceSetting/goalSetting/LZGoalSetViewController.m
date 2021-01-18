@@ -122,8 +122,8 @@
 }
 
 #pragma mark - LZSetPickerDelegate
-- (void)pickerViewController:(LZSetPickerViewController *)vc didPickComponent:(NSUInteger)component row:(NSUInteger)row {
-    [self dismissViewControllerAnimated:YES completion:nil];
+- (void)pickerViewControllerDidSelect:(LZSetPickerViewController *)vc {
+    NSInteger row = [vc selectedRowInComponent:0];
     switch (self.currentPickerType) {
         case LZGOALSETTYPE_GOALTYPE:{
             self.targetCfg.targetType = row + 1;
@@ -140,8 +140,7 @@
     }
     
     [self updateUI];
-    
-    
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 #pragma mark - Private Methods

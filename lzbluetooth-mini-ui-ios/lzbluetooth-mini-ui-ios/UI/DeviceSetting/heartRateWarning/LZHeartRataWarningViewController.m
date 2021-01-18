@@ -12,10 +12,15 @@
 #import "LZPickerAnimator.h"
 #import "LZSetPickerViewController.h"
 
+static int minHr = 20;
+static int maxHr = 300;
+
 @interface LZHeartRataWarningViewController () <UITableViewDelegate, UITableViewDataSource, LZHeartRateWarningCellDelegate, LZSetPickerDelegate>
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, copy) NSArray <LZHearRateWarningCellModel *> *modelAry;
 @property (nonatomic, copy) NSArray *hearRateValueAry;
+
+@property (nonatomic, strong) LZA5SettingCustomSportHRSectionReminderData *data;
 @end
 
 @implementation LZHeartRataWarningViewController
@@ -25,6 +30,8 @@
     self.title = @"心率预警";
     self.view.backgroundColor = [UIColor whiteColor];
     [self createUI];
+    self.data = self.settingData;
+    [self updateUI];
 }
 
 - (void)createUI {
@@ -32,6 +39,15 @@
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.mas_equalTo(self.view);
     }];
+}
+
+- (void)updateUI {
+    LZHearRateWarningCellModel *model1 = self.modelAry[0];
+    model1.switchIsOpne = self.data.enable;
+    LZHearRateWarningCellModel *model2 = self.modelAry[1];
+    model2.subStr = [NSString stringWithFormat:@"%@~%@", @(self.data.minHr), @(self.data.maxHr)];
+   
+    [self.tableView reloadData];
 }
 
 #pragma mark - UITableViewDelegate
@@ -57,9 +73,18 @@
 
 #pragma mark - LZHeartRateWarningCellDelegate
 - (void)switchOn:(BOOL)isOn cellModle:(LZHearRateWarningCellModel *)cellModel {
-    if (cellModel.setType == LZHearRateWarningStyleSwitch) {
-        
-    }
+    self.data.enable = isOn;
+    [self sendData:self.data];
+}
+
+- (void)pickerViewControllerDidSelect:(LZSetPickerViewController *)vc {
+    self.data.minHr = [vc selectedRowInComponent:0] + minHr;
+    self.data.maxHr = [vc selectedRowInComponent:1] + maxHr;
+    
+    [vc dismissViewControllerAnimated:YES completion:^{
+            
+    }];
+    [self updateUI];
 }
 
 #pragma mark - Private Methods
@@ -91,7 +116,6 @@
 
 - (NSArray<LZHearRateWarningCellModel *> *)modelAry {
     if (!_modelAry) {
-        _modelAry = [[NSArray alloc] init];
         _modelAry = [LZHearRateWarningCellModel cellModelList];
     }
     return _modelAry;
@@ -101,7 +125,7 @@
     if (!_hearRateValueAry) {
         _hearRateValueAry = [[NSArray alloc] init];
         NSMutableArray *mAry = [[NSMutableArray alloc] init];
-        for (int i = 20; i <= 300; i++) {
+        for (int i = minHr; i <= maxHr; i++) {
             [mAry addObject:[NSString stringWithFormat:@"%@%d",i<10 ? @"0": @"",i]];
         }
         _hearRateValueAry = [mAry copy];
