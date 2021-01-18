@@ -32,8 +32,11 @@
     [super viewDidLoad];
     self.title = @"目标设置";
     self.view.backgroundColor = [UIColor whiteColor];
+    
+    self.targetCfg = [self settingData];
+    
     [self createUI];
-    [self initSetData];
+    [self updateUI];
     
 }
 
@@ -44,7 +47,7 @@
     }];
 }
 
-- (void)initSetData {
+- (void)updateUI {
     
     NSMutableArray *mAry = [self.modelAry mutableCopy];
     LZGoalSetModel *model1 = mAry[0];
@@ -119,30 +122,24 @@
 }
 
 #pragma mark - LZSetPickerDelegate
-- (void)pickerEnd:(NSArray *)selectAry isSure:(BOOL)isSure {
+- (void)pickerViewController:(LZSetPickerViewController *)vc didPickComponent:(NSUInteger)component row:(NSUInteger)row {
     [self dismissViewControllerAnimated:YES completion:nil];
-    if (!isSure || selectAry.count != 1) {
-        return;
-    }
     switch (self.currentPickerType) {
         case LZGOALSETTYPE_GOALTYPE:{
-            NSInteger index = [self.goalTypeAry indexOfObject:selectAry[0]];
-            if (index != NSNotFound) {
-                self.targetCfg.targetType = index + 1;
-                [self initSetData];
-            }
+            self.targetCfg.targetType = row + 1;
             break;
         }
             
         case LZGOALSETTYPE_GOALTNUM:{
-            self.targetCfg.value = [selectAry[0] intValue];
-            [self initSetData];
+            self.targetCfg.value = row + 1;
             break;
         }
             
         default:
             break;
     }
+    
+    [self updateUI];
     
     
 }

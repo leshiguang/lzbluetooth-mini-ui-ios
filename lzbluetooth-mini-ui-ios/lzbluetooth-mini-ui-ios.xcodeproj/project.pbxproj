@@ -501,12 +501,12 @@
 		60C72CA425B561D600E00276 /* goalSetting */ = {
 			isa = PBXGroup;
 			children = (
-				60C72CA525B561D600E00276 /* LZGoalSetViewController.m */,
-				60C72CA625B561D600E00276 /* LZGoalSetModel.m */,
-				60C72CA725B561D600E00276 /* LZGoalSettingTableViewCell.m */,
 				60C72CA825B561D600E00276 /* LZGoalSetViewController.h */,
-				60C72CA925B561D600E00276 /* LZGoalSettingTableViewCell.h */,
+				60C72CA525B561D600E00276 /* LZGoalSetViewController.m */,
 				60C72CAA25B561D600E00276 /* LZGoalSetModel.h */,
+				60C72CA625B561D600E00276 /* LZGoalSetModel.m */,
+				60C72CA925B561D600E00276 /* LZGoalSettingTableViewCell.h */,
+				60C72CA725B561D600E00276 /* LZGoalSettingTableViewCell.m */,
 			);
 			path = goalSetting;
 			sourceTree = "<group>";

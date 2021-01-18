@@ -29,6 +29,8 @@
     for (int i = 0; i < self.dataSoureAry.count; i++) {
         self.selectAry[i] = self.dataSoureAry[i][0];
     }
+    [self.pickerView reloadAllComponents];
+    [self.pickerView selectRow:self.selectRow inComponent:self.selectComponent animated:NO];
 }
 
 - (void)commonInit {
@@ -70,9 +72,10 @@
 }
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
-    NSString *str = self.dataSoureAry[component][row];
-    if (str) {
-        self.selectAry[component] = str;
+    self.selectComponent = component;
+    self.selectRow = row;
+    if (self.delegate && [self.delegate respondsToSelector:@selector(pickerViewController:didPickComponent:row:)]) {
+        [self.delegate pickerViewController:self didPickComponent:component row:row];
     }
 }
 
@@ -101,14 +104,15 @@
 
 #pragma mark - event
 - (void)clickCancleBtn {
-    if (self.delegate && [self.delegate respondsToSelector:@selector(pickerEnd:isSure:)]) {
-        [self.delegate pickerEnd:nil isSure:NO];
+    if (self.delegate && [self.delegate respondsToSelector:@selector(pickerViewControllerCanceld:)]) {
+        [self.delegate pickerViewControllerCanceld:self];
     }
 }
 
 - (void)clickSureBtn {
-    if (self.delegate && [self.delegate respondsToSelector:@selector(pickerEnd:isSure:)]) {
-        [self.delegate pickerEnd:[self.selectAry copy] isSure:YES];
+    if (self.delegate && [self.delegate respondsToSelector:@selector(pickerViewController:didPickComponent:row:)]) {
+        
+        [self.delegate pickerViewController:self didPickComponent:self.selectComponent row:self.selectRow];
     }
 }
 
