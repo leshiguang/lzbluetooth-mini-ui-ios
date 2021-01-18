@@ -10,9 +10,11 @@
 #import "LZMessageToRemindCellModel.h"
 #import <Masonry/Masonry.h>
 
-@interface LZMessageToRemindViewController () <UITableViewDelegate, UITableViewDataSource>
+@interface LZMessageToRemindViewController () <UITableViewDelegate, UITableViewDataSource, LZMessageToRemindCellDelegate>
 @property (nonatomic,strong) UITableView *tableView;
 @property (nonatomic,strong) NSArray <LZMessageToRemindCellModel *> *modelAry;
+
+@property (nonatomic, strong) LZA5SettingCallReminderData *data;
 @end
 
 @implementation LZMessageToRemindViewController
@@ -21,6 +23,7 @@
     [super viewDidLoad];
     self.title = @"消息提醒";
     self.view.backgroundColor = [UIColor whiteColor];
+    /// 这里没有读取缓存，因为比较特殊，每个设置，都是单独的
     [self createUI];
 }
 
@@ -31,13 +34,22 @@
     }];
 }
 
+#pragma mark - LZMessageToRemindCellDelegate
+- (void)switchOn:(BOOL)isOn cellModle:(LZMessageToRemindCellModel *)cellModel {
+    self.data.reminderType = cellModel.setType;
+    self.data.enable = isOn;
+    self.data.delay = 3;
+    self.data.vibrationType = LZA5VibrationTypeAlways;
+    self.data.vibrationTime = 60;
+    self.data.vibrationLevel1 = 9;
+    self.data.vibrationLevel2 = 9;
+
+    [self sendData:self.data];
+}
+
 #pragma mark - UITableViewDelegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 50;
-}
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
 }
 
 #pragma mark - UITableViewDataSource
@@ -48,6 +60,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     LZMessageToRemindCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([LZMessageToRemindCell class]) forIndexPath:indexPath];
     [cell updateCellWithModel:self.modelAry[indexPath.row]];
+    cell.delegate = self;
     return cell;
 }
 

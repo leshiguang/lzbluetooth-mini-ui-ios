@@ -412,12 +412,12 @@
 		60C72C7125B561D600E00276 /* messageToRemind */ = {
 			isa = PBXGroup;
 			children = (
-				60C72C7225B561D600E00276 /* LZMessageToRemindCellModel.m */,
-				60C72C7325B561D600E00276 /* LZMessageToRemindCell.m */,
-				60C72C7425B561D600E00276 /* LZMessageToRemindViewController.m */,
 				60C72C7525B561D600E00276 /* LZMessageToRemindCellModel.h */,
-				60C72C7625B561D600E00276 /* LZMessageToRemindViewController.h */,
+				60C72C7225B561D600E00276 /* LZMessageToRemindCellModel.m */,
 				60C72C7725B561D600E00276 /* LZMessageToRemindCell.h */,
+				60C72C7325B561D600E00276 /* LZMessageToRemindCell.m */,
+				60C72C7625B561D600E00276 /* LZMessageToRemindViewController.h */,
+				60C72C7425B561D600E00276 /* LZMessageToRemindViewController.m */,
 			);
 			path = messageToRemind;
 			sourceTree = "<group>";

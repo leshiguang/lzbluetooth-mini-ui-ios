@@ -9,11 +9,6 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-typedef NS_ENUM(NSUInteger, LZMessageToRemindCellSetTpye) {
-    LZMessageToRemindCellSetTpyeWechat,
-    LZMessageToRemindCellSetTpyeQQ,
-    LZMessageToRemindCellSetTpyeMessage,
-};
 
 @interface LZMessageToRemindCellModel : LZBaseSetCellModel
 
