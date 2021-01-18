@@ -128,6 +128,9 @@
             className = @"LZScreenContentViewController";
         }
             break;
+        case LZBraceletSettingTypeSmartHrDetection: {
+            className = @"LZHRReminderViewController";
+        }
 
         default:
             break;

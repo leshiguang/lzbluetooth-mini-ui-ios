@@ -79,6 +79,7 @@
 		60C72D3D25B561D700E00276 /* LSWMyDeviceListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C72CF325B561D700E00276 /* LSWMyDeviceListViewController.m */; };
 		60C72D3E25B561D700E00276 /* LSWMineBraceletTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C72CF625B561D700E00276 /* LSWMineBraceletTableViewCell.m */; };
 		60C72D6225B5658A00E00276 /* LZViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C72D6125B5658A00E00276 /* LZViewController.m */; };
+		60C72D7C25B5820500E00276 /* LZHRReminderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C72D7B25B5820500E00276 /* LZHRReminderViewController.m */; };
 		72498FC97642C58CEA56EE92 /* Pods_lzbluetooth_mini_ui_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 972BCE45267335CFDDEDEB02 /* Pods_lzbluetooth_mini_ui_ios.framework */; };
 /* End PBXBuildFile section */
 
@@ -230,6 +231,8 @@
 		60C72CFB25B561D700E00276 /* LSWAppColorConfigrationMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSWAppColorConfigrationMacro.h; sourceTree = "<group>"; };
 		60C72D6025B5658A00E00276 /* LZViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZViewController.h; sourceTree = "<group>"; };
 		60C72D6125B5658A00E00276 /* LZViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZViewController.m; sourceTree = "<group>"; };
+		60C72D7A25B5820500E00276 /* LZHRReminderViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LZHRReminderViewController.h; sourceTree = "<group>"; };
+		60C72D7B25B5820500E00276 /* LZHRReminderViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LZHRReminderViewController.m; sourceTree = "<group>"; };
 		972BCE45267335CFDDEDEB02 /* Pods_lzbluetooth_mini_ui_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_lzbluetooth_mini_ui_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -345,6 +348,7 @@
 				60C72C7825B561D600E00276 /* eventToRemind */,
 				60C72C8525B561D600E00276 /* nightMode */,
 				60C72C8C25B561D600E00276 /* heartRateWarning */,
+				60C72D7925B581C500E00276 /* HrSmarkReminder */,
 				60C72C9325B561D600E00276 /* timeFormat */,
 				60C72C9A25B561D600E00276 /* sportType */,
 				60C72C9D25B561D600E00276 /* wearingHabits */,
@@ -735,6 +739,15 @@
 			path = "AppAppearanceConfigration ";
 			sourceTree = "<group>";
 		};
+		60C72D7925B581C500E00276 /* HrSmarkReminder */ = {
+			isa = PBXGroup;
+			children = (
+				60C72D7A25B5820500E00276 /* LZHRReminderViewController.h */,
+				60C72D7B25B5820500E00276 /* LZHRReminderViewController.m */,
+			);
+			path = HrSmarkReminder;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -914,6 +927,7 @@
 				60C72D3B25B561D700E00276 /* LSWBSBSelectDeviceView.m in Sources */,
 				60C72D3D25B561D700E00276 /* LSWMyDeviceListViewController.m in Sources */,
 				60C72D0625B561D700E00276 /* LZScreenContentViewController.m in Sources */,
+				60C72D7C25B5820500E00276 /* LZHRReminderViewController.m in Sources */,
 				60C72D0025B561D700E00276 /* LZDndModeViewController.m in Sources */,
 				60C72C2F25B55F9B00E00276 /* SceneDelegate.m in Sources */,
 				60C72D1E25B561D700E00276 /* LZWearingHabitsViewController.m in Sources */,
