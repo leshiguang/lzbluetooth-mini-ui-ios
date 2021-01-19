@@ -9,25 +9,10 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-typedef NS_ENUM(NSUInteger, LZScreenContentSetType) {
-    LZScreenContentSetTypeTime,
-    LZScreenContentSetTypeCalories,
-    LZScreenContentSetTypeStep,
-    LZScreenContentSetTypeDistance,
-    LZScreenContentSetTypeHeartRate,
-    LZScreenContentSetTypeDailyData,
-    LZScreenContentSetTypeStopwatch,
-    LZScreenContentSetTypeWeather,
-    LZScreenContentSetTypeBattery,
-    LZScreenContentSetType12MinutesRun,
-    LZScreenContentSetType6MinutesWalk,
-    LZScreenContentSetTypeAlipay,
-};
-
 @interface LZScreenContentModel : NSObject
 @property (nonatomic, copy) NSString *titleStr;
 @property (nonatomic, assign) BOOL isSelect;
-@property (nonatomic, assign) LZScreenContentSetType setType;
+@property (nonatomic, assign) NSUInteger setType;
 
 + (NSArray <LZScreenContentModel *> *)cellModelList;
 @end

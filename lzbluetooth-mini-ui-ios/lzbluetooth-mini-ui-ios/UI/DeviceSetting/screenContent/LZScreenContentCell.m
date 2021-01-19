@@ -7,6 +7,11 @@
 
 #import "LZScreenContentCell.h"
 
+@interface LZScreenContentCell ()
+
+
+@end
+
 @implementation LZScreenContentCell
 
 - (void)layoutSubviews {
@@ -25,11 +30,6 @@
         self.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     return self;
-}
-
-- (void)updateCellWithModel:(LZScreenContentModel *)model {
-    self.textLabel.text = model.titleStr;
-    [self setSelected:model.isSelect animated:YES];
 }
 
 - (void)updateSelectImage {

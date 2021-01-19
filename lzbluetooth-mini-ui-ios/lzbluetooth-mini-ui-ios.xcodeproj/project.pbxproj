@@ -390,11 +390,11 @@
 			isa = PBXGroup;
 			children = (
 				60C72C6425B561D600E00276 /* LZScreenContentModel.h */,
-				60C72C6525B561D600E00276 /* LZScreenContentCell.m */,
-				60C72C6625B561D600E00276 /* LZScreenContentViewController.m */,
 				60C72C6725B561D600E00276 /* LZScreenContentModel.m */,
 				60C72C6825B561D600E00276 /* LZScreenContentCell.h */,
+				60C72C6525B561D600E00276 /* LZScreenContentCell.m */,
 				60C72C6925B561D600E00276 /* LZScreenContentViewController.h */,
+				60C72C6625B561D600E00276 /* LZScreenContentViewController.m */,
 			);
 			path = screenContent;
 			sourceTree = "<group>";
