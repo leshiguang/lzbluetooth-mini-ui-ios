@@ -122,8 +122,18 @@
             className = @"LZLanguageSettingViewController";
             break;
         }
-            
-
+        case LZBraceletSettingTypeSwiming: {
+            className = @"LZSwimingViewController";
+            break;
+        }
+        case LZBraceletSettingTypeWeather: {
+            className = @"LZWeatherViewController";
+            break;
+        }
+        case LZBraceletSettingTypeUnit: {
+            className = @"LZUnitViewController";
+        }
+          
         default:
             break;
     }
@@ -159,6 +169,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     LZSettingTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([LZSettingTableViewCell class])];
+    cell.unbindButton.userInteractionEnabled = NO;
     [cell updateCellWithModel:self.dataSourceAry[indexPath.row]];
     return cell;
 }

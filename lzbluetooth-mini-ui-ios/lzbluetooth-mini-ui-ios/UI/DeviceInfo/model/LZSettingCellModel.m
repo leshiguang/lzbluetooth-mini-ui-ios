@@ -58,7 +58,16 @@
     LZSettingCellModel *model17 = [[LZSettingCellModel alloc] initModelWithSetType:LZBraceletSettingTypeLanguage cellStyle:DEVICESETCELLSTYLE_RIGHT_IMG titleStr:@"语言" subStr:nil];
     [mAry addObject:model17];
     
-    LZSettingCellModel *otaModel = [[LZSettingCellModel alloc] initModelWithSetType:DEVICESETTYPE_FOTA cellStyle:DEVICESETCELLSTYLE_RIGHT_IMG_SUBTITLE titleStr:@"固件升级" subStr:@"T14"];
+    LZSettingCellModel *model18 = [[LZSettingCellModel alloc] initModelWithSetType:LZBraceletSettingTypeSwiming cellStyle:DEVICESETCELLSTYLE_RIGHT_IMG titleStr:@"游泳" subStr:nil];
+    [mAry addObject:model18];
+    
+    LZSettingCellModel *model19 = [[LZSettingCellModel alloc] initModelWithSetType:LZBraceletSettingTypeWeather cellStyle:DEVICESETCELLSTYLE_RIGHT_IMG titleStr:@"天气" subStr:nil];
+    [mAry addObject:model19];
+    
+    LZSettingCellModel *model20 = [[LZSettingCellModel alloc] initModelWithSetType:LZBraceletSettingTypeUnit cellStyle:DEVICESETCELLSTYLE_RIGHT_IMG titleStr:@"单位" subStr:nil];
+    [mAry addObject:model20];
+    
+    LZSettingCellModel *otaModel = [[LZSettingCellModel alloc] initModelWithSetType:DEVICESETTYPE_FOTA cellStyle:DEVICESETCELLSTYLE_RIGHT_IMG_SUBTITLE titleStr:@"固件升级" subStr:@""];
     [mAry addObject:otaModel];
     
     

@@ -42,6 +42,13 @@
     return self.modes.count;
 }
 
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    LZBaseSetTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass(LZBaseSetTableViewCell.class) forIndexPath:indexPath];
+    cell.rightSelectImageView.hidden = NO;
+    cell.titleLabel.text = self.modes[indexPath.row];
+    return cell;
+}
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     self.data.mode = indexPath.row;
     
