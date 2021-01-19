@@ -7,20 +7,14 @@
 
 #import "LZScreenContentViewController.h"
 #import <Masonry/Masonry.h>
-#import "LZScreenContentCell.h"
-#import "LZScreenContentModel.h"
 
-/// membo hr 2 不支持
+/// membo hr 2 不支持 最多支持 11个显示屏幕
 /// LZA5UIPageTypeMountainClimbing
 /// LZA5UIPageTypeDailyData
 /// LZA5UIPageTypeAerobicWorkout
 /// LZA5UIPageTypeESport
 
-@interface LZScreenContentViewController () <UITableViewDelegate, UITableViewDataSource>
-@property (nonatomic, strong) UITableView *tableView;
-@property (nonatomic, strong) NSMutableArray <LZScreenContentModel *> *modelAry;
-
-@property (nonatomic, strong) NSMutableArray <NSMutableArray <NSNumber *> *> *screenTypes;
+@interface LZScreenContentViewController ()
 
 @property (nonatomic, strong) NSArray <NSNumber *> *allScreenTypes;
 
@@ -30,30 +24,26 @@
 
 @implementation LZScreenContentViewController
 
+@dynamic data;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"自定义屏幕";
     self.view.backgroundColor = [UIColor whiteColor];
-    [self createUI];
+    self.tableView.allowsMultipleSelection = YES;
+    self.tableView.allowsSelectionDuringEditing = YES;
+    self.tableView.allowsMultipleSelectionDuringEditing = YES;
+    [self.tableView setEditing:YES animated:YES];
     
-    NSSet *set = [NSSet setWithArray:self.allScreenTypes];
-    NSLog(@"set count %@", @(set.count));
+    [self.dataSource addObject:[NSMutableArray array]];
+    [self.dataSource addObject:[NSMutableArray array]];
     
-    self.data = [self settingData];
     [self updateUI];
 }
 
-- (void)createUI {
-    [self.view addSubview:self.tableView];
-    [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.mas_equalTo(self.view);
-    }];
-}
-
 - (void)updateUI {
-    
-    NSMutableArray *selected = self.screenTypes[0];
-    NSMutableArray *unselected = self.screenTypes[1];
+    NSMutableArray *selected = self.dataSource[0];
+    NSMutableArray *unselected = self.dataSource[1];
     [selected removeAllObjects];
     [unselected removeAllObjects];
     
@@ -99,7 +89,7 @@
 
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath {
     NSAssert(sourceIndexPath.section == destinationIndexPath.section && destinationIndexPath.section == 0, @"只有选中的才可以reorder");
-    NSMutableArray *selected = self.screenTypes[0];
+    NSMutableArray *selected = self.dataSource[0];
     [selected exchangeObjectAtIndex:sourceIndexPath.row withObjectAtIndex:destinationIndexPath.row];
     
     [self updateCellSelect];
@@ -108,16 +98,14 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) return;
     
-    NSNumber *screenType = self.screenTypes[indexPath.section][indexPath.row];
-    
-    NSMutableArray *selected = self.screenTypes[0];
-    NSMutableArray *unselected = self.screenTypes[1];
+    NSNumber *screenType = self.dataSource[indexPath.section][indexPath.row];
+    NSMutableArray *selected = self.dataSource[0];
+    NSMutableArray *unselected = self.dataSource[1];
     
     [selected addObject:screenType];
     [unselected removeObjectAtIndex:indexPath.row];
     [tableView beginUpdates];
     NSIndexPath *toIndexPath = [NSIndexPath indexPathForRow:selected.count - 1 inSection:0];
-    NSLog(@"select %@ to %@ select %@ unselect %@", indexPath, toIndexPath, @(selected.count), @(unselected.count));
     [tableView moveRowAtIndexPath:indexPath toIndexPath:toIndexPath];
     [tableView endUpdates];
     
@@ -127,9 +115,9 @@
 - (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 1) return;
     
-    NSNumber *screenType = self.screenTypes[indexPath.section][indexPath.row];
-    NSMutableArray *selected = self.screenTypes[0];
-    NSMutableArray *unselected = self.screenTypes[1];
+    NSNumber *screenType = self.dataSource[indexPath.section][indexPath.row];
+    NSMutableArray *selected = self.dataSource[0];
+    NSMutableArray *unselected = self.dataSource[1];
     [selected removeObjectAtIndex:indexPath.row];
     [unselected addObject:screenType];
     [unselected sortUsingComparator:^NSComparisonResult(NSNumber *  _Nonnull obj1, NSNumber * _Nonnull obj2) {
@@ -137,9 +125,8 @@
     }];
     
     NSInteger index = [unselected indexOfObject:screenType];
-    [tableView beginUpdates];
     NSIndexPath *toIndexPath = [NSIndexPath indexPathForRow:index inSection:1];
-    NSLog(@"deselect %@ to %@ select %@ unselect %@", indexPath, toIndexPath, @(selected.count), @(unselected.count));
+    [tableView beginUpdates];
     [tableView moveRowAtIndexPath:indexPath toIndexPath:toIndexPath];
     [tableView endUpdates];
     
@@ -148,19 +135,12 @@
 
 
 #pragma mark - UITableViewDataSource
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return self.screenTypes.count;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.screenTypes[section] count];
-}
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    LZScreenContentCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([LZScreenContentCell class]) forIndexPath:indexPath];
-    NSNumber *pageTypeNum = self.screenTypes[indexPath.section][indexPath.row];
-    
-    cell.textLabel.text = [self nameWithScreenType:pageTypeNum.integerValue];
+    LZBaseSetTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass(LZBaseSetTableViewCell.class) forIndexPath:indexPath];
+    NSNumber *pageTypeNum = self.dataSource[indexPath.section][indexPath.row];
+    cell.rightSelectImageView.hidden = NO;
+    cell.titleLabel.text = [self nameWithScreenType:pageTypeNum.integerValue];
+    cell.editingAccessoryView = [UIView new];
     return cell;
 }
 
@@ -170,7 +150,7 @@
     
     NSMutableArray *array = [NSMutableArray array];
     for (NSIndexPath *indexPath in indexPaths) {
-        NSNumber *screenType = self.screenTypes[indexPath.section][indexPath.row];
+        NSNumber *screenType = self.dataSource[indexPath.section][indexPath.row];
         [array addObject:screenType];
     }
     
@@ -179,30 +159,6 @@
 }
 
 #pragma mark - getter
-- (UITableView *)tableView {
-    if (!_tableView) {
-        _tableView = [[UITableView alloc] init];
-        _tableView.backgroundColor = [UIColor whiteColor];
-        _tableView.delegate = self;
-        _tableView.dataSource = self;
-        _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-        _tableView.allowsMultipleSelection = YES;
-        _tableView.allowsSelectionDuringEditing=YES;
-        _tableView.allowsMultipleSelectionDuringEditing = YES;
-        [_tableView setEditing:YES animated:YES];
-        [_tableView registerClass:[LZScreenContentCell class] forCellReuseIdentifier:NSStringFromClass([LZScreenContentCell class])];
-    }
-    return _tableView;
-}
-
-
-- (NSMutableArray<LZScreenContentModel *> *)modelAry {
-    if (!_modelAry) {
-        _modelAry = [[LZScreenContentModel cellModelList] mutableCopy];
-    }
-    return _modelAry;
-}
-
 - (NSArray<NSNumber *> *)allScreenTypes {
     if (!_allScreenTypes) {
         _allScreenTypes = @[
@@ -239,15 +195,6 @@
         ];
     }
     return _allScreenTypes;
-}
-
-- (NSMutableArray < NSMutableArray<NSNumber *> *> *)screenTypes {
-    if (!_screenTypes) {
-        _screenTypes = [NSMutableArray array];
-        [_screenTypes addObject:[NSMutableArray array]];
-        [_screenTypes addObject:[NSMutableArray array]];
-    }
-    return _screenTypes;
 }
 
 - (NSString *)nameWithScreenType:(LZA5UIPageType)screenType {

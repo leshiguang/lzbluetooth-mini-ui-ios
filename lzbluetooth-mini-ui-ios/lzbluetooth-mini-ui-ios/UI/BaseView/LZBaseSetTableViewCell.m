@@ -27,6 +27,23 @@
     }
 }
 
+- (void)setEditing:(BOOL)editing animated:(BOOL)animated {
+    [super setEditing:editing animated:NO];
+
+    //隐藏修改编辑模式下删除按钮图片
+    for (UIControl *control in self.subviews) {
+        if ([control isMemberOfClass:NSClassFromString(@"UITableViewCellEditControl")]) {
+            for (UIView *v in control.subviews)  {
+                if ([v isKindOfClass:[UIImageView class]]) {
+                    UIImageView *img = (UIImageView *)v;
+                    //网上有的方法让在这边修改图片，而不是再创建一个按钮，自己尝试了下发现有图片变形，或者移动cell时仍然会显示系统图片等问题，所以我没有采用这种方法，而是在这里设置为nil
+                    img.image = nil;
+                }
+            }
+        }
+    }
+}
+
 - (void)createUI {
     [self.contentView addSubview:self.titleLabel];
     [self.contentView addSubview:self.subContentLabel];

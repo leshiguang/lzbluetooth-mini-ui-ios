@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6017543225B6CA9600AC1695 /* LZLanguageSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6017543125B6CA9600AC1695 /* LZLanguageSettingViewController.m */; };
+		6017543725B6D90D00AC1695 /* LZBaseSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6017543625B6D90D00AC1695 /* LZBaseSettingViewController.m */; };
 		60C72C2C25B55F9B00E00276 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C72C2B25B55F9B00E00276 /* AppDelegate.m */; };
 		60C72C2F25B55F9B00E00276 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C72C2E25B55F9B00E00276 /* SceneDelegate.m */; };
 		60C72C3525B55F9B00E00276 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60C72C3325B55F9B00E00276 /* Main.storyboard */; };
@@ -87,6 +89,10 @@
 /* Begin PBXFileReference section */
 		163C92D1A499CB589DCA1962 /* Pods-lzbluetooth-mini-ui-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lzbluetooth-mini-ui-ios.debug.xcconfig"; path = "Target Support Files/Pods-lzbluetooth-mini-ui-ios/Pods-lzbluetooth-mini-ui-ios.debug.xcconfig"; sourceTree = "<group>"; };
 		18391318254DD260CC607D1A /* Pods-lzbluetooth-mini-ui-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lzbluetooth-mini-ui-ios.release.xcconfig"; path = "Target Support Files/Pods-lzbluetooth-mini-ui-ios/Pods-lzbluetooth-mini-ui-ios.release.xcconfig"; sourceTree = "<group>"; };
+		6017543025B6CA9600AC1695 /* LZLanguageSettingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LZLanguageSettingViewController.h; sourceTree = "<group>"; };
+		6017543125B6CA9600AC1695 /* LZLanguageSettingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LZLanguageSettingViewController.m; sourceTree = "<group>"; };
+		6017543525B6D90D00AC1695 /* LZBaseSettingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LZBaseSettingViewController.h; sourceTree = "<group>"; };
+		6017543625B6D90D00AC1695 /* LZBaseSettingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LZBaseSettingViewController.m; sourceTree = "<group>"; };
 		60C72C2725B55F9B00E00276 /* lzbluetooth-mini-ui-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "lzbluetooth-mini-ui-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		60C72C2A25B55F9B00E00276 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		60C72C2B25B55F9B00E00276 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -268,6 +274,24 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		6017542F25B6CA6200AC1695 /* Language */ = {
+			isa = PBXGroup;
+			children = (
+				6017543025B6CA9600AC1695 /* LZLanguageSettingViewController.h */,
+				6017543125B6CA9600AC1695 /* LZLanguageSettingViewController.m */,
+			);
+			path = Language;
+			sourceTree = "<group>";
+		};
+		6017543425B6D8F800AC1695 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				6017543525B6D90D00AC1695 /* LZBaseSettingViewController.h */,
+				6017543625B6D90D00AC1695 /* LZBaseSettingViewController.m */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
 		60C72C1E25B55F9B00E00276 = {
 			isa = PBXGroup;
 			children = (
@@ -343,6 +367,8 @@
 		60C72C5425B561D600E00276 /* DeviceSetting */ = {
 			isa = PBXGroup;
 			children = (
+				6017543425B6D8F800AC1695 /* Base */,
+				6017542F25B6CA6200AC1695 /* Language */,
 				60C72C5525B561D600E00276 /* dndMode */,
 				60C72C5C25B561D600E00276 /* screenOrientation */,
 				60C72C6325B561D600E00276 /* screenContent */,
@@ -524,17 +550,17 @@
 			isa = PBXGroup;
 			children = (
 				60C72CAC25B561D600E00276 /* LSWButton.h */,
+				60C72CBA25B561D700E00276 /* LSWButton.m */,
 				60C72CAD25B561D600E00276 /* weekPopup */,
+				60C72CB925B561D600E00276 /* LSWGradientView.h */,
 				60C72CB425B561D600E00276 /* LSWGradientView.m */,
 				60C72CB525B561D600E00276 /* LZBaseSetCellModel.h */,
-				60C72CB625B561D600E00276 /* LZBaseSetTableViewCell.h */,
-				60C72CB725B561D600E00276 /* LSRandomCodeInputView.h */,
 				60C72CB825B561D600E00276 /* LZBaseSetCellModel.m */,
-				60C72CB925B561D600E00276 /* LSWGradientView.h */,
-				60C72CBA25B561D700E00276 /* LSWButton.m */,
-				60C72CBB25B561D700E00276 /* pickerControl */,
+				60C72CB625B561D600E00276 /* LZBaseSetTableViewCell.h */,
 				60C72CC025B561D700E00276 /* LZBaseSetTableViewCell.m */,
+				60C72CB725B561D600E00276 /* LSRandomCodeInputView.h */,
 				60C72CC125B561D700E00276 /* LSRandomCodeInputView.m */,
+				60C72CBB25B561D700E00276 /* pickerControl */,
 			);
 			path = BaseView;
 			sourceTree = "<group>";
@@ -555,9 +581,9 @@
 		60C72CBB25B561D700E00276 /* pickerControl */ = {
 			isa = PBXGroup;
 			children = (
+				60C72CBE25B561D700E00276 /* LZPickerAnimator.h */,
 				60C72CBC25B561D700E00276 /* LZPickerAnimator.m */,
 				60C72CBD25B561D700E00276 /* LZSetPickerViewController.h */,
-				60C72CBE25B561D700E00276 /* LZPickerAnimator.h */,
 				60C72CBF25B561D700E00276 /* LZSetPickerViewController.m */,
 			);
 			path = pickerControl;
@@ -912,6 +938,7 @@
 				60C72D2625B561D700E00276 /* LZSetPopUpViewController.m in Sources */,
 				60C72D2125B561D700E00276 /* LZGoalSetViewController.m in Sources */,
 				60C72D0125B561D700E00276 /* LZDndModelCell.m in Sources */,
+				6017543725B6D90D00AC1695 /* LZBaseSettingViewController.m in Sources */,
 				60C72D0E25B561D700E00276 /* LZAddEventToRemindViewController.m in Sources */,
 				60C72D1325B561D700E00276 /* LZEventToRemindTableViewCell.m in Sources */,
 				60C72D0325B561D700E00276 /* LZScreenOrientationCell.m in Sources */,
@@ -931,6 +958,7 @@
 				60C72D3A25B561D700E00276 /* LZSearchDeviceViewController.m in Sources */,
 				60C72D0F25B561D700E00276 /* LZAddEventToRemindCellModel.m in Sources */,
 				60C72D3B25B561D700E00276 /* LSWBSBSelectDeviceView.m in Sources */,
+				6017543225B6CA9600AC1695 /* LZLanguageSettingViewController.m in Sources */,
 				60C72D3D25B561D700E00276 /* LSWMyDeviceListViewController.m in Sources */,
 				60C72D0625B561D700E00276 /* LZScreenContentViewController.m in Sources */,
 				60C72D7C25B5820500E00276 /* LZHRReminderViewController.m in Sources */,

@@ -5,11 +5,11 @@
 //  Created by tanjian on 2021/1/18.
 //
 
-#import "LZDeviceManagerViewController.h"
+#import "LZBaseSettingViewController.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface LZHRReminderViewController : LZDeviceManagerViewController
+@interface LZHRReminderViewController : LZBaseSettingViewController
 
 @end
 

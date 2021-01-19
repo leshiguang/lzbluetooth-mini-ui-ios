@@ -10,20 +10,6 @@
 #import "LZSettingTableViewCell.h"
 #import "LZSettingCellModel.h"
 
-#import "LZScreenContentViewController.h"
-#import "LZDialSetViewController.h"
-#import "LZGoalSetViewController.h"
-#import "LZEventToRemindViewController.h"
-#import "LZHeartRataWarningViewController.h"
-#import "LZMessageToRemindViewController.h"
-#import "LZNightModeViewController.h"
-#import "LZDndModeViewController.h"
-#import "LZScreenOrientationViewController.h"
-#import "LZSportTypeViewController.h"
-#import "LZTimeFormatViewController.h"
-#import "LZWearingHabitsViewController.h"
-
-
 
 @interface LZBraceletInfoViewController () <UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, strong) UITableView *tableView;
@@ -131,6 +117,12 @@
         case LZBraceletSettingTypeSmartHrDetection: {
             className = @"LZHRReminderViewController";
         }
+            break;
+        case LZBraceletSettingTypeLanguage: {
+            className = @"LZLanguageSettingViewController";
+            break;
+        }
+            
 
         default:
             break;

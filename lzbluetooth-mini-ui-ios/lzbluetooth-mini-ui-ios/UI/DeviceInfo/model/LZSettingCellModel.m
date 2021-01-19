@@ -55,11 +55,16 @@
     LZSettingCellModel *model16 = [[LZSettingCellModel alloc] initModelWithSetType:LZBraceletSettingTypeWristHabit cellStyle:DEVICESETCELLSTYLE_RIGHT_IMG titleStr:@"佩戴习惯" subStr:nil];
     [mAry addObject:model16];
     
-    LZSettingCellModel *model17 = [[LZSettingCellModel alloc] initModelWithSetType:DEVICESETTYPE_FOTA cellStyle:DEVICESETCELLSTYLE_RIGHT_IMG_SUBTITLE titleStr:@"固件升级" subStr:@"T14"];
+    LZSettingCellModel *model17 = [[LZSettingCellModel alloc] initModelWithSetType:LZBraceletSettingTypeLanguage cellStyle:DEVICESETCELLSTYLE_RIGHT_IMG titleStr:@"语言" subStr:nil];
     [mAry addObject:model17];
     
-    LZSettingCellModel *model18 = [[LZSettingCellModel alloc] initModelWithSetType:DEVICESETTYPE_UNBIND cellStyle:DEVICESETCELLSTYLE_UNBIND_DEVICE titleStr:nil subStr:nil];
-    [mAry addObject:model18];
+    LZSettingCellModel *otaModel = [[LZSettingCellModel alloc] initModelWithSetType:DEVICESETTYPE_FOTA cellStyle:DEVICESETCELLSTYLE_RIGHT_IMG_SUBTITLE titleStr:@"固件升级" subStr:@"T14"];
+    [mAry addObject:otaModel];
+    
+    
+    
+    LZSettingCellModel *unbindModel = [[LZSettingCellModel alloc] initModelWithSetType:DEVICESETTYPE_UNBIND cellStyle:DEVICESETCELLSTYLE_UNBIND_DEVICE titleStr:nil subStr:nil];
+    [mAry addObject:unbindModel];
     
     return [mAry copy];
 }

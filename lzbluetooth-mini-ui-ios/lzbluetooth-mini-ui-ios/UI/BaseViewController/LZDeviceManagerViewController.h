@@ -28,9 +28,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)sendData:(__kindof LZA5SettingData *)settingData;
 
-- (id<LZDeviceSettingProtocol>)settingData;
-
-
+- (__kindof LZA5SettingData *)settingData;
 
 @end
 

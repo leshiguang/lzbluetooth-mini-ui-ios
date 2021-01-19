@@ -50,7 +50,7 @@
     return [LZBluetooth getDeviceManagerWithDeviceType:LZDeviceTypeBracelet];
 }
 
-- (id<LZDeviceSettingProtocol>)settingData {
+- (__kindof LZA5SettingData *)settingData {
     id data = [LZDeviceSettingDBUtil getConfigWithMacString:self.device.mac settingType:self.settingType];
     if (data == nil) {
         NSString *clsName = lz_braceletSettingClass(self.settingType);
