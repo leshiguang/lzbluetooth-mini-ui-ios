@@ -78,6 +78,8 @@
     }
     
     [self updateUI];
+    
+    [vc dismissViewControllerAnimated:YES completion:nil];
 }
 
 #pragma mark - Event
