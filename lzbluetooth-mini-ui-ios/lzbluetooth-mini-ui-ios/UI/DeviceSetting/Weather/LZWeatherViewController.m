@@ -110,11 +110,6 @@
     vc.transitioningDelegate = self.pickerAnimotor;
     vc.delegate = self;
     
-    
-    [self presentViewController:vc animated:YES completion:^{
-            
-    }];
-    
     switch (indexPath.row) {
         case 0:
             vc.dataSoureAry = @[[self weatherCode]];
@@ -132,6 +127,8 @@
         default:
             break;
     }
+    
+    [self presentViewController:vc animated:YES completion:nil];
 }
 
 - (NSArray<LZBaseSetCellModel *> *)models {
