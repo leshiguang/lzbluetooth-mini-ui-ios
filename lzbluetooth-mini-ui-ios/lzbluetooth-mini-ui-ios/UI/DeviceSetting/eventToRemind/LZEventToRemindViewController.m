@@ -35,6 +35,13 @@
     
 }
 
+- (void)updateUIWithResult:(LZBluetoothErrorCode)result {
+    if (result == LZBluetoothErrorCodeSuccess) {
+        self.data = [self settingData];
+        [self updateUI];
+    }
+}
+
 - (void)updateUI {
     [self.tableView reloadData];
 }

@@ -30,7 +30,7 @@
 - (void)sendData:(__kindof LZA5SettingData *)settingData {
     [self showActivityIndicatorHUDWithMessage:nil];
     __weak typeof(self) weakSelf = self;
-    [self.device sendDataModel:settingData completion:^(LZBluetoothErrorCode result) {
+    [self.deviceManager sendDataModel:settingData macString:self.device.mac completion:^(LZBluetoothErrorCode result) {
         dispatch_async(dispatch_get_main_queue(), ^{
             [weakSelf hideActivityIndicatorHUD];
             if (result == LZBluetoothErrorCodeSuccess) {

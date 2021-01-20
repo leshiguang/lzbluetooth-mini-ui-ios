@@ -34,11 +34,10 @@ typedef enum : NSUInteger {
 @property (nonatomic, strong) LZPickerAnimator *pickerAnimotor;
 @property (nonatomic, assign) LZADDEVENTTOREMINDTYPE currentPickerType;
 
-@property (nonatomic, copy) NSArray *hoursAry;
-@property (nonatomic, copy) NSArray *minutesOrSecondsAry;
 @property (nonatomic, copy) NSArray *weekAry;
 @property (nonatomic, copy) NSArray *vibrationModelAry;
 @property (nonatomic, copy) NSArray *vibrationModelLeaveAry;
+@property (nonatomic, copy) NSArray *vibrationTimeAry;
 
 @property (nonatomic, assign) BOOL isCreate;
 
@@ -112,7 +111,7 @@ typedef enum : NSUInteger {
     LZBaseSetCellModel *model5 = self.modelAry[5];
     model5.subStr = self.vibrationModelLeaveAry[self.contentData.vibrationLevel1];
     LZBaseSetCellModel *model6 = self.modelAry[6];
-    model6.subStr = self.minutesOrSecondsAry[self.contentData.vibrationTime];
+    model6.subStr = self.vibrationTimeAry[MAX(0, self.contentData.vibrationTime - 1)];
     
     [self.tableView reloadData];
 }
@@ -219,7 +218,7 @@ typedef enum : NSUInteger {
     self.currentPickerType = model.setType;
     switch (model.setType) {
         case LZADDEVENTTOREMINDTYPE_REMIND_TIME:
-            vc.dataSoureAry = @[self.hoursAry, self.minutesOrSecondsAry];
+            vc.dataSoureAry = @[self.hours, self.minutes];
             [vc selectRow:self.contentData.hour inComponent:0 animated:NO];
             [vc selectRow:self.contentData.minute inComponent:1 animated:NO];
             break;
@@ -236,7 +235,7 @@ typedef enum : NSUInteger {
             [vc selectRow:self.contentData.vibrationLevel2 inComponent:0 animated:NO];
             break;
         case LZADDEVENTTOREMINDTYPE_VIBRATION_TIME:
-            vc.dataSoureAry = @[self.minutesOrSecondsAry];
+            vc.dataSoureAry = @[self.vibrationTimeAry];
             [vc selectRow:self.contentData.vibrationTime inComponent:0 animated:NO];
             break;
         default:
@@ -295,12 +294,10 @@ typedef enum : NSUInteger {
     switch (index) {
         case 0:
             return @"一";
-            break;
         case 1:
             return @"二";
         case 2:
             return @"三";
-            break;
         case 3:
             return @"四";
         case 4:
@@ -309,8 +306,6 @@ typedef enum : NSUInteger {
             return @"六";
         case 6:
             return @"日";
-            break;
-            
             
         default:
             break;
@@ -360,36 +355,23 @@ typedef enum : NSUInteger {
     return _sureBtn;
 }
 
-- (NSArray *)hoursAry {
-    if (!_hoursAry) {
-        _hoursAry = [[NSArray alloc] init];
-        NSMutableArray *mAry = [[NSMutableArray alloc] init];
-        for (int i = 0; i <= 24; i++) {
-            [mAry addObject:[NSString stringWithFormat:@"%@%d",i<10 ? @"0": @"",i]];
-        }
-        _hoursAry = [mAry copy];
-    }
-    return _hoursAry;
-}
-
-- (NSArray *)minutesOrSecondsAry {
-    if (!_minutesOrSecondsAry) {
-        _minutesOrSecondsAry = [[NSArray alloc] init];
-        NSMutableArray *mAry = [[NSMutableArray alloc] init];
-        for (int i = 0; i <= 60; i++) {
-            [mAry addObject:[NSString stringWithFormat:@"%@%d",i<10 ? @"0": @"",i]];
-        }
-        _minutesOrSecondsAry = [mAry copy];
-    }
-    return _minutesOrSecondsAry;
-}
-
 - (NSArray *)weekAry {
     if (!_weekAry) {
         _weekAry = [[NSArray alloc] init];
         _weekAry = @[@"星期一",@"星期二",@"星期三",@"星期四",@"星期五",@"星期六",@"星期日"];
     }
     return _weekAry;
+}
+
+- (NSArray *)vibrationTimeAry {
+    if (!_vibrationTimeAry) {
+        NSMutableArray *array = [NSMutableArray array];
+        for (int i = 1; i <= 60; i++) {
+            [array addObject:[NSString stringWithFormat:@"%d", i]];
+        }
+        _vibrationTimeAry = array;
+    }
+    return _vibrationTimeAry;
 }
 
 - (NSArray *)vibrationModelAry {
