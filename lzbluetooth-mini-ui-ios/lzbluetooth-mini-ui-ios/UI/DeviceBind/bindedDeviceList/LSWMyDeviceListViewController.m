@@ -255,7 +255,6 @@ typedef NS_ENUM(NSUInteger, LSDeviceListSection) {
     if (!_noDataImageView) {
         _noDataImageView = [UIImageView new];
         _noDataImageView.contentMode = UIViewContentModeScaleAspectFit;
-        [_noDataImageView setImage:[UIImage imageNamed:@"devicelist_empty"]];
         [_noDataImageView setHidden:YES];
     }
     return _noDataImageView;

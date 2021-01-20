@@ -5,11 +5,11 @@
 //  Created by wm on 2020/12/8.
 //
 
-#import "LZDeviceManagerViewController.h"
+#import "LZBaseSettingViewController.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface LZScreenOrientationViewController : LZDeviceManagerViewController
+@interface LZScreenOrientationViewController : LZBaseSettingViewController
 
 @end
 

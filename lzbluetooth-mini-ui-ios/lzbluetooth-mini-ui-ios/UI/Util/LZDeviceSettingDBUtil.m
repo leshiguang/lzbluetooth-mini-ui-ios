@@ -33,6 +33,28 @@
     [defalut setObject:toSaveDic forKey:macString];
 }
 
++ (nullable id<LZDeviceSettingProtocol>)getConfigWithMacString:(NSString *)macString
+                                                   settingType:(LZDeviceSettingType)settingType subType:(NSInteger)subType {
+    NSUserDefaults *defalut = [NSUserDefaults standardUserDefaults];
+    NSDictionary *temp = [defalut objectForKey:macString];
+    NSDictionary *dic = [temp objectForKey:[NSString stringWithFormat:@"%@.%@", @(settingType), @(subType)]];
+    NSString *clsName = lz_braceletSettingClass(settingType);
+    return [NSClassFromString(clsName) yy_modelWithDictionary:dic];
+}
+
++ (void)saveSettingData:(id<LZDeviceSettingProtocol>)settingData subType:(NSInteger)subType withMacString:(NSString *)macString {
+    NSUserDefaults *defalut = [NSUserDefaults standardUserDefaults];
+    NSObject *obj = settingData;
+    NSDictionary *settingDataDic = obj.yy_modelToJSONObject;
+    NSDictionary *temp = [defalut objectForKey:macString];
+    NSMutableDictionary *toSaveDic = [NSMutableDictionary dictionary];
+    if (temp) {
+        [toSaveDic setDictionary:temp];
+    }
+    [toSaveDic setObject:settingDataDic forKey:[NSString stringWithFormat:@"%@.%@", @(settingData.settingType), @(subType)]];
+    [defalut setObject:toSaveDic forKey:macString];
+}
+
 @end
 
 

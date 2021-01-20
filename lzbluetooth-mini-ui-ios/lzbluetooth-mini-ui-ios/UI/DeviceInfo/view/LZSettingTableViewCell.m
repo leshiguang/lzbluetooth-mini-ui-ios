@@ -15,6 +15,8 @@
 
 @implementation LZSettingTableViewCell
 
+@synthesize delegate;
+
 - (void)createUI {
     [super createUI];
     [self.unbindButton addTarget:self action:@selector(clickUnbindBut) forControlEvents:UIControlEventTouchUpInside];

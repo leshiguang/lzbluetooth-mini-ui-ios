@@ -6,8 +6,6 @@
 //
 
 #import "LZHeartRataWarningViewController.h"
-#import "LZHeartRateWarningCell.h"
-#import "LZHearRateWarningCellModel.h"
 #import <Masonry/Masonry.h>
 #import "LZPickerAnimator.h"
 #import "LZSetPickerViewController.h"
@@ -15,9 +13,13 @@
 static int minHr = 20;
 static int maxHr = 300;
 
-@interface LZHeartRataWarningViewController () <UITableViewDelegate, UITableViewDataSource, LZHeartRateWarningCellDelegate, LZSetPickerDelegate>
-@property (nonatomic, strong) UITableView *tableView;
-@property (nonatomic, copy) NSArray <LZHearRateWarningCellModel *> *modelAry;
+typedef NS_ENUM(NSUInteger, LZHearRateWarningStyle) {
+    LZHearRateWarningStyleSwitch,
+    LZHearRateWarningStyleZone,
+};
+
+@interface LZHeartRataWarningViewController () < LZBaseSetTableViewCellDelegate, LZSetPickerDelegate>
+@property (nonatomic, copy) NSArray <LZBaseSetCellModel *> *modelAry;
 @property (nonatomic, copy) NSArray *hearRateValueAry;
 
 @property (nonatomic, strong) LZA5SettingCustomSportHRSectionReminderData *data;
@@ -25,26 +27,19 @@ static int maxHr = 300;
 
 @implementation LZHeartRataWarningViewController
 
+@dynamic data;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"心率预警";
     self.view.backgroundColor = [UIColor whiteColor];
-    [self createUI];
-    self.data = self.settingData;
     [self updateUI];
 }
 
-- (void)createUI {
-    [self.view addSubview:self.tableView];
-    [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.mas_equalTo(self.view);
-    }];
-}
-
 - (void)updateUI {
-    LZHearRateWarningCellModel *model1 = self.modelAry[0];
+    LZBaseSetCellModel *model1 = self.modelAry[0];
     model1.switchIsOpne = self.data.enable;
-    LZHearRateWarningCellModel *model2 = self.modelAry[1];
+    LZBaseSetCellModel *model2 = self.modelAry[1];
     model2.subStr = [NSString stringWithFormat:@"%@~%@", @(self.data.minHr), @(self.data.maxHr)];
    
     [self.tableView reloadData];
@@ -65,14 +60,14 @@ static int maxHr = 300;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    LZHeartRateWarningCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([LZHeartRateWarningCell class]) forIndexPath:indexPath];
+    LZBaseSetTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([LZBaseSetTableViewCell class]) forIndexPath:indexPath];
     [cell updateCellWithModel:self.modelAry[indexPath.row]];
     cell.delegate = self;
     return cell;
 }
 
 #pragma mark - LZHeartRateWarningCellDelegate
-- (void)switchOn:(BOOL)isOn cellModle:(LZHearRateWarningCellModel *)cellModel {
+- (void)switchOn:(BOOL)isOn cellModle:(LZBaseSetCellModel *)cellModel {
     self.data.enable = isOn;
     [self sendData:self.data];
 }
@@ -89,7 +84,7 @@ static int maxHr = 300;
 
 #pragma mark - Private Methods
 
-- (void)handleCellClickWithModel:(LZHearRateWarningCellModel *)model {
+- (void)handleCellClickWithModel:(LZBaseSetCellModel *)model {
     if (model.setType == LZHearRateWarningStyleZone) {
         LZSetPickerViewController *vc = [[LZSetPickerViewController alloc] init];
         vc.modalPresentationStyle = UIModalPresentationCustom;
@@ -103,20 +98,15 @@ static int maxHr = 300;
 }
 
 #pragma mark - getter
-- (UITableView *)tableView {
-    if (!_tableView) {
-        _tableView = [[UITableView alloc] init];
-        _tableView.delegate = self;
-        _tableView.dataSource = self;
-        _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-        [_tableView registerClass:[LZHeartRateWarningCell class] forCellReuseIdentifier:NSStringFromClass([LZHeartRateWarningCell class])];
-    }
-    return _tableView;
-}
-
-- (NSArray<LZHearRateWarningCellModel *> *)modelAry {
+- (NSArray<LZBaseSetCellModel *> *)modelAry {
     if (!_modelAry) {
-        _modelAry = [LZHearRateWarningCellModel cellModelList];
+        NSMutableArray *mAry = [[NSMutableArray alloc] init];
+        LZBaseSetCellModel *model1 = [[LZBaseSetCellModel alloc] initModelWithSetType:LZHearRateWarningStyleSwitch cellStyle:DEVICESETCELLSTYLE_RIGHT_SWITCH titleStr:@"预警开关" subStr:nil];
+        [mAry addObject:model1];
+        
+        LZBaseSetCellModel *model2 = [[LZBaseSetCellModel alloc] initModelWithSetType:LZHearRateWarningStyleZone cellStyle:DEVICESETCELLSTYLE_RIGHT_IMG_SUBTITLE titleStr:@"心率区间" subStr:@"20~30"];
+        [mAry addObject:model2];
+        _modelAry = mAry;
     }
     return _modelAry;
 }

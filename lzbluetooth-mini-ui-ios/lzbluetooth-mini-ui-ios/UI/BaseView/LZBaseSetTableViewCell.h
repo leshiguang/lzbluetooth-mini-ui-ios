@@ -9,6 +9,13 @@
 #import "LZBaseSetCellModel.h"
 NS_ASSUME_NONNULL_BEGIN
 
+@class LZBaseSetCellModel;
+
+@protocol LZBaseSetTableViewCellDelegate <NSObject>
+
+- (void)switchOn:(BOOL)isOn cellModle:(LZBaseSetCellModel *)cellModel;
+
+@end
 
 @interface LZBaseSetTableViewCell : UITableViewCell
 
@@ -18,6 +25,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) UISwitch *switchControl;
 @property (nonatomic, strong) UIButton *unbindButton;
 @property (nonatomic, strong) UIImageView *rightSelectImageView;
+
+
+@property (nonatomic, weak) id <LZBaseSetTableViewCellDelegate> delegate;
 
 - (void)createUI;
 - (void)updateCellWithModel:(__kindof LZBaseSetCellModel *)cellModle;

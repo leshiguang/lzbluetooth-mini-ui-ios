@@ -7,34 +7,28 @@
 
 #import "LZWearingHabitsViewController.h"
 #import <Masonry/Masonry.h>
-#import "LZWearingHabitsModel.h"
-#import "LZWearingHabitsCell.h"
 
-@interface LZWearingHabitsViewController () <UITableViewDelegate, UITableViewDataSource>
-@property (nonatomic, strong) UITableView *tableView;
-@property (nonatomic, copy) NSArray <LZWearingHabitsModel *> * modelAry;
+@interface LZWearingHabitsViewController ()
+@property (nonatomic, copy) NSArray <LZBaseSetCellModel *> * modelAry;
 
 @property (nonatomic, strong) LZA5SettingWristHabitData *data;
 @end
 
 @implementation LZWearingHabitsViewController
 
+@synthesize data;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"佩戴习惯";
     self.view.backgroundColor = [UIColor whiteColor];
-    [self createUI];
     
-    self.data = [self settingData];
-    NSInteger index = self.data.displayMode == LZA5DisplayModeLeft ? 0 : 1;
-    [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:index inSection:0] animated:YES scrollPosition:UITableViewScrollPositionNone];
+    [self updateUI];
 }
 
-- (void)createUI {
-    [self.view addSubview:self.tableView];
-    [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.mas_equalTo(self.view);
-    }];
+- (void)updateUI {
+    NSInteger index = self.data.displayMode == LZA5DisplayModeLeft ? 0 : 1;
+    [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:index inSection:0] animated:YES scrollPosition:UITableViewScrollPositionNone];
 }
 
 #pragma mark - UITableViewDataSource
@@ -43,7 +37,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    LZWearingHabitsCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([LZWearingHabitsCell class]) forIndexPath:indexPath];
+    LZBaseSetTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([LZBaseSetTableViewCell class]) forIndexPath:indexPath];
     [cell updateCellWithModel:self.modelAry[indexPath.row]];
     return cell;
 }
@@ -55,27 +49,16 @@
     [self sendData:self.data];
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 50;
-}
-
-
 #pragma mark - getter
-- (UITableView *)tableView {
-    if (!_tableView) {
-        _tableView = [[UITableView alloc] init];
-        _tableView.delegate = self;
-        _tableView.dataSource = self;
-        _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-        [_tableView registerClass:[LZWearingHabitsCell class] forCellReuseIdentifier:NSStringFromClass([LZWearingHabitsCell class])];
-    }
-    return _tableView;
-}
-
-- (NSArray<LZWearingHabitsModel *> *)modelAry {
+- (NSArray<LZBaseSetCellModel *> *)modelAry {
     if (!_modelAry) {
-        _modelAry = [[NSArray alloc] init];
-        _modelAry = [LZWearingHabitsModel cellModelList];
+        NSMutableArray *mAry = [[NSMutableArray alloc] init];
+        LZBaseSetCellModel *model1 = [[LZBaseSetCellModel alloc] initModelWithSetType:0 cellStyle:DEVICESETCELLSTYLE_RIGHT_SELECTIMAGE titleStr:@"左手佩戴" subStr:nil];
+        [mAry addObject:model1];
+        
+        LZBaseSetCellModel *model2 = [[LZBaseSetCellModel alloc] initModelWithSetType:1 cellStyle:DEVICESETCELLSTYLE_RIGHT_SELECTIMAGE titleStr:@"右手佩戴" subStr:nil];
+        [mAry addObject:model2];
+        _modelAry = mAry;
     }
     return _modelAry;
 }

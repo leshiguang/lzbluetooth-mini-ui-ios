@@ -14,8 +14,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, readonly) UITableView *tableView;
 
-@property (nonatomic, readonly) NSMutableArray <NSMutableArray *> *dataSource;
-
 /// 数据
 @property (nonatomic, strong) T data;
 

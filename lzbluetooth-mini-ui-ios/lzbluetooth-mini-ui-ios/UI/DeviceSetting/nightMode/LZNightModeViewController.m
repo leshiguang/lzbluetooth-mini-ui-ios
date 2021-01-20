@@ -7,14 +7,13 @@
 
 #import "LZNightModeViewController.h"
 #import <Masonry/Masonry.h>
-#import "LZNightModelCell.h"
-#import "LZNightModelCellModel.h"
+
 #import "LZSetPickerViewController.h"
 #import "LZPickerAnimator.h"
 
-@interface LZNightModeViewController () <UITableViewDelegate, UITableViewDataSource, LZNightModelCellModelDelegate, LZSetPickerDelegate>
-@property (nonatomic,strong) UITableView *tableView;
-@property (nonatomic, copy) NSArray <LZNightModelCellModel *> *modelAry;
+@interface LZNightModeViewController () <LZBaseSetTableViewCellDelegate, LZSetPickerDelegate>
+
+@property (nonatomic, copy) NSArray <LZBaseSetCellModel *> *modelAry;
 
 @property (nonatomic, strong) LZA5SettingNightModeData *data;
 
@@ -25,36 +24,29 @@
 
 @implementation LZNightModeViewController
 
+@synthesize data;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"夜间模式";
     self.view.backgroundColor = [UIColor whiteColor];
-    [self createUI];
-    
-    self.data = [self settingData];
+ 
     [self updateUI];
 }
 
-- (void)createUI {
-    [self.view addSubview:self.tableView];
-    [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.mas_equalTo(self.view);
-    }];
-}
-
 - (void)updateUI {
-    LZNightModelCellModel *model0 = self.modelAry[0];
+    LZBaseSetCellModel *model0 = self.modelAry[0];
     model0.switchIsOpne = self.data.enable;
-    LZNightModelCellModel *model1 = self.modelAry[1];
+    LZBaseSetCellModel *model1 = self.modelAry[1];
     model1.subStr = [NSString stringWithFormat:@"%02d:%02d", self.data.startHour, self.data.startMinute];
-    LZNightModelCellModel *model2 = self.modelAry[2];
+    LZBaseSetCellModel *model2 = self.modelAry[2];
     model2.subStr = [NSString stringWithFormat:@"%02d:%02d", self.data.endHour, self.data.endMinute];
     [self.tableView reloadData];
     
 }
 
 #pragma mark - LZNightModelCellModelDelegate
-- (void)switchOn:(BOOL)isOn cellModle:(LZNightModelCellModel *_Nonnull)cellModel {
+- (void)switchOn:(BOOL)isOn cellModle:(LZBaseSetCellModel *_Nonnull)cellModel {
     self.data.enable = isOn;
     
     [self sendData:self.data];
@@ -102,7 +94,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    LZNightModelCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([LZNightModelCell class]) forIndexPath:indexPath];
+    LZBaseSetTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([LZBaseSetTableViewCell class]) forIndexPath:indexPath];
     [cell updateCellWithModel:self.modelAry[indexPath.row]];
     cell.delegate = self;
     return cell;
@@ -122,21 +114,16 @@
 }
 
 #pragma mark - getter
-- (UITableView *)tableView {
-    if (!_tableView) {
-        _tableView = [[UITableView alloc] init];
-        _tableView.delegate = self;
-        _tableView.dataSource = self;
-        _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-        [_tableView registerClass:[LZNightModelCell class] forCellReuseIdentifier:NSStringFromClass([LZNightModelCell class])];
-    }
-    return _tableView;
-}
-
-- (NSArray<LZNightModelCellModel *> *)modelAry {
+- (NSArray<LZBaseSetCellModel *> *)modelAry {
     if (!_modelAry) {
-        _modelAry = [[NSArray alloc] init];
-        _modelAry = [LZNightModelCellModel cellModelList];
+        LZBaseSetCellModel *model1 = [[LZBaseSetCellModel alloc] initModelWithSetType:0 cellStyle:DEVICESETCELLSTYLE_RIGHT_SWITCH titleStr:@"夜间模式开关" subStr:nil];
+        
+        LZBaseSetCellModel *model2 = [[LZBaseSetCellModel alloc] initModelWithSetType:1 cellStyle:DEVICESETCELLSTYLE_RIGHT_IMG_SUBTITLE titleStr:@"开始时间" subStr:@"15:32"];
+
+        
+        LZBaseSetCellModel *model3 = [[LZBaseSetCellModel alloc] initModelWithSetType:2 cellStyle:DEVICESETCELLSTYLE_RIGHT_IMG_SUBTITLE titleStr:@"结束时间" subStr:@"00:00"];
+
+        _modelAry = @[model1, model2, model3];
     }
     return _modelAry;
 }

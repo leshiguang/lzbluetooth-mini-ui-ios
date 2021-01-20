@@ -11,9 +11,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@protocol LZSettingTableViewCellDelegate <NSObject>
-
-- (void)switchOn:(BOOL)isOn cellModle:(LZSettingCellModel *)cellModel;
+@protocol LZSettingTableViewCellDelegate <LZBaseSetTableViewCellDelegate>
 
 - (void)unbindClick:(LZSettingCellModel *)cellModel;
 
@@ -21,7 +19,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface LZSettingTableViewCell : LZBaseSetTableViewCell
 
-@property (nonatomic, weak) id <LZSettingTableViewCellDelegate> delegate;
+@property (nonatomic, weak) id<LZSettingTableViewCellDelegate> delegate;
+
 
 @end
 

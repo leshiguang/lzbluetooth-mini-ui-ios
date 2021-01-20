@@ -5,16 +5,17 @@
 //  Created by wm on 2020/12/8.
 //
 
-#import "LZDeviceManagerViewController.h"
+#import "LZBaseSettingViewController.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface LZAddEventToRemindViewController : LZDeviceManagerViewController
+@interface LZAddEventToRemindViewController : LZBaseSettingViewController
 
 @property (nonatomic, strong) LZA5SettingEventRemindData *data;
 
 /// 如果没有就是新加
 @property (nonatomic, strong, nullable) LZA5SettingEventRemindContentData *contentData;
+
 
 
 @end

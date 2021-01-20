@@ -19,11 +19,25 @@ NS_ASSUME_NONNULL_BEGIN
 + (nullable id<LZDeviceSettingProtocol>)getConfigWithMacString:(NSString *)macString
                                           settingType:(LZDeviceSettingType)settingType;
 
-
 /// 存储设备信息
 /// @param settingData 设置信息
 /// @param macString Mac地址
 + (void)saveSettingData:(id<LZDeviceSettingProtocol>)settingData withMacString:(NSString *)macString;
+
+/// 存储某个设置信息里面的某个子类别 比如 鼓励目标，事件提醒
+/// @param settingData 设置信息
+/// @param subType 子类别
+/// @param macString mac地址
++ (void)saveSettingData:(id<LZDeviceSettingProtocol>)settingData subType:(NSInteger)subType withMacString:(NSString *)macString;
+
+
+/// 获取某个设置类别的子类别
+/// @param macString 设备信息
+/// @param settingType 设置类别
+/// @param subType 子类别
++ (nullable id<LZDeviceSettingProtocol>)getConfigWithMacString:(NSString *)macString
+                                                   settingType:(LZDeviceSettingType)settingType
+                                                       subType:(NSInteger)subType;
 
 @end
 

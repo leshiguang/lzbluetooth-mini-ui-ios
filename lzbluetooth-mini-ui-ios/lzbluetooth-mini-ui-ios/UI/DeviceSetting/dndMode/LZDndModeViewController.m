@@ -7,14 +7,12 @@
 
 #import "LZDndModeViewController.h"
 #import <Masonry/Masonry.h>
-#import "LZDndModelCell.h"
-#import "LZDndModelCellModel.h"
 #import "LZSetPickerViewController.h"
 #import "LZPickerAnimator.h"
 
-@interface LZDndModeViewController () <UITableViewDelegate, UITableViewDataSource, LZSetPickerDelegate, LZDndModelCellModelDelegate>
-@property (nonatomic,strong) UITableView *tableView;
-@property (nonatomic,copy) NSArray <LZDndModelCellModel *> *modelAry;
+@interface LZDndModeViewController () <LZSetPickerDelegate, LZBaseSetTableViewCellDelegate>
+
+@property (nonatomic,copy) NSArray <LZBaseSetCellModel *> *modelAry;
 
 @property (nonatomic, strong) LZA5SettingNoDisturbData *data;
 
@@ -24,40 +22,33 @@
 
 @implementation LZDndModeViewController
 
+@synthesize data;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"勿扰模式";
     self.view.backgroundColor = [UIColor whiteColor];
-    [self createUI];
-    
-    self.data = [self settingData];
     [self updateUI];
 }
 
-- (void)createUI {
-    [self.view addSubview:self.tableView];
-    [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.mas_equalTo(self.view);
-    }];
-}
 
 - (void)updateUI {
-    LZDndModelCellModel *model0 = self.modelAry[0];
+    LZBaseSetCellModel *model0 = self.modelAry[0];
     model0.switchIsOpne = self.data.enable;
-    LZDndModelCellModel *model1 = self.modelAry[1];
+    LZBaseSetCellModel *model1 = self.modelAry[1];
     model1.switchIsOpne = self.data.isEnableRaise;
-    LZDndModelCellModel *model2 = self.modelAry[2];
+    LZBaseSetCellModel *model2 = self.modelAry[2];
     model2.subStr = [NSString stringWithFormat:@"%02d:%02d", self.data.startHour, self.data.startMinute];
-    LZDndModelCellModel *model3 = self.modelAry[3];
+    LZBaseSetCellModel *model3 = self.modelAry[3];
     model3.subStr = [NSString stringWithFormat:@"%02d:%02d", self.data.endHour, self.data.endMinute];
     [self.tableView reloadData];
 }
 
-#pragma mark - LZDndModelCellModelDelegate
-- (void)switchOn:(BOOL)isOn cellModel:(LZDndModelCellModel *)cellModel {
-    if (cellModel.setType == LZDndModelSetTypeDndSwitch) {
+#pragma mark - LZBaseSetTableViewCellDelegate
+- (void)switchOn:(BOOL)isOn cellModle:(LZBaseSetCellModel *)cellModel {
+    if (cellModel.setType == 0) {
         self.data.enable = isOn;
-    } else if (cellModel.setType == LZDndModelSetTypeRaisedhandAgainstTheLight) {
+    } else if (cellModel.setType == 1) {
         self.data.isEnableRaise = isOn;
     }
     [self sendData:self.data];
@@ -91,18 +82,22 @@
 }
 
 #pragma mark - UITableViewDataSource
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
+}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.modelAry.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    LZDndModelCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([LZDndModelCell class]) forIndexPath:indexPath];
+    LZBaseSetTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([LZBaseSetTableViewCell class]) forIndexPath:indexPath];
     [cell updateCellWithModel:self.modelAry[indexPath.row]];
     cell.delegate = self;
     return cell;
 }
 
+#pragma mark - Private
 - (void)showPopupViewControllerWithIndex:(NSInteger)index {
     LZSetPickerViewController *vc = [[LZSetPickerViewController alloc] init];
     vc.modalPresentationStyle = UIModalPresentationCustom;
@@ -117,25 +112,24 @@
 }
 
 #pragma mark - getter
-- (UITableView *)tableView {
-    if (!_tableView) {
-        _tableView = [[UITableView alloc] init];
-        _tableView.delegate = self;
-        _tableView.dataSource = self;
-        _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-        [_tableView registerClass:[LZDndModelCell class] forCellReuseIdentifier:NSStringFromClass([LZDndModelCell class])];
-    }
-    return _tableView;
-}
-
-- (NSArray<LZDndModelCellModel *> *)modelAry {
+- (NSArray<LZBaseSetCellModel *> *)modelAry {
     if (!_modelAry) {
-        _modelAry = [[NSArray alloc] init];
-        _modelAry = [LZDndModelCellModel cellModelList];
+        NSMutableArray *array = [NSMutableArray array];
+        
+        LZBaseSetCellModel *model1 = [[LZBaseSetCellModel alloc] initModelWithSetType:0 cellStyle:DEVICESETCELLSTYLE_RIGHT_SWITCH titleStr:@"勿扰模式开关" subStr:nil];
+        [array addObject:model1];
+        
+        LZBaseSetCellModel *model2 = [[LZBaseSetCellModel alloc] initModelWithSetType:1 cellStyle:DEVICESETCELLSTYLE_RIGHT_SWITCH titleStr:@"是否允许抬手亮屏" subStr:nil];
+        [array addObject:model2];
+        
+        LZBaseSetCellModel *model3 = [[LZBaseSetCellModel alloc] initModelWithSetType:2 cellStyle:DEVICESETCELLSTYLE_RIGHT_SUBTITLE titleStr:@"开始时间" subStr:nil];
+        [array addObject:model3];
+        
+        LZBaseSetCellModel *model4 = [[LZBaseSetCellModel alloc] initModelWithSetType:3 cellStyle:DEVICESETCELLSTYLE_RIGHT_SUBTITLE titleStr:@"结束时间" subStr:nil];
+        [array addObject:model4];
+        _modelAry = array;
     }
     return _modelAry;
 }
-
-
 
 @end

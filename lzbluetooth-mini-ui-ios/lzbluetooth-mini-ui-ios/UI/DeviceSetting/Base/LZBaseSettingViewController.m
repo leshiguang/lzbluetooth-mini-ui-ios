@@ -12,8 +12,6 @@
 
 @property (nonatomic, strong) UITableView *tableView;
 
-@property (nonatomic, strong) NSMutableArray *dataSource;
-
 @end
 
 @implementation LZBaseSettingViewController
@@ -26,7 +24,9 @@
         make.edges.mas_equalTo(self.view);
     }];
     
-    self.data = [self settingData];
+    if (!self.data) {
+        self.data = [self settingData];
+    }
 }
 
 - (void)updateUIWithResult:(LZBluetoothErrorCode)result {
@@ -42,15 +42,19 @@
 
 #pragma mark - UITableViewDataSource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return self.dataSource.count;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.dataSource[section] count];
+    return 0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     return [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([LZBaseSetTableViewCell class]) forIndexPath:indexPath];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 50;
 }
 
 #pragma mark - getter
@@ -67,11 +71,5 @@
     return _tableView;
 }
 
-- (NSMutableArray *)dataSource {
-    if (!_dataSource) {
-        _dataSource = [NSMutableArray array];
-    }
-    return _dataSource;
-}
 
 @end

@@ -9,6 +9,12 @@
 #import <Masonry/Masonry.h>
 #import "LSWAppColorConfigrationMacro.h"
 
+@interface LZBaseSetTableViewCell ()
+
+@property (nonatomic, strong) LZBaseSetCellModel *cellModel;
+
+@end
+
 @implementation LZBaseSetTableViewCell
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
@@ -52,6 +58,8 @@
     [self.contentView addSubview:self.unbindButton];
     [self.contentView addSubview:self.rightSelectImageView];
     
+    [self.switchControl addTarget:self action:@selector(switchSatusChanged:) forControlEvents:UIControlEventValueChanged];
+    
     [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.leading.equalTo(self.contentView.mas_leading).with.offset(15);
         make.centerY.equalTo(self.contentView.mas_centerY);
@@ -89,6 +97,8 @@
 
 #pragma mark - public methods
 - (void)updateCellWithModel:(LZBaseSetCellModel *)cellModle {
+    self.cellModel = cellModle;
+    
     self.rightImage.hidden = YES;
     self.subContentLabel.hidden = YES;
     self.switchControl.hidden = YES;
@@ -142,6 +152,13 @@
             break;
         default:
             break;
+    }
+}
+
+#pragma mark - Event
+- (void)switchSatusChanged:(UISwitch *)switchControl {
+    if (self.delegate && [self.delegate respondsToSelector:@selector(switchOn:cellModle:)]) {
+        [self.delegate switchOn:switchControl.on cellModle:self.cellModel];
     }
 }
 

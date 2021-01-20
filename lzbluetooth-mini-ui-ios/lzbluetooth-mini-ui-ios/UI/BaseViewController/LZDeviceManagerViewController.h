@@ -29,6 +29,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)sendData:(__kindof LZA5SettingData *)settingData;
 
 - (__kindof LZA5SettingData *)settingData;
+- (__kindof LZA5SettingData *)settingDataWithSubType:(NSInteger)subType;
 
 @end
 

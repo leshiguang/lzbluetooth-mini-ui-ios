@@ -30,13 +30,11 @@
 - (void)sendData:(__kindof LZA5SettingData *)settingData {
     [self showActivityIndicatorHUDWithMessage:nil];
     __weak typeof(self) weakSelf = self;
-    NSString *mac = self.device.mac;
     [self.device sendDataModel:settingData completion:^(LZBluetoothErrorCode result) {
         dispatch_async(dispatch_get_main_queue(), ^{
             [weakSelf hideActivityIndicatorHUD];
-            
             if (result == LZBluetoothErrorCodeSuccess) {
-                [LZDeviceSettingDBUtil saveSettingData:settingData withMacString:mac];
+                [weakSelf saveSettingData:settingData];
                 [weakSelf showHintMessage:@"设置成功" duration:1];
             } else {
                 [weakSelf showHintMessage:@"设置失败" duration:1];
@@ -46,12 +44,35 @@
     }];
 }
 
+- (void)saveSettingData:(__kindof LZA5SettingData *)settingData {
+    NSString *mac = self.device.mac;
+    
+    /// 如果是目标 或者call
+    if (settingData.settingType == LZBraceletSettingTypeCallReminder) {
+        LZA5SettingCallReminderData *data = settingData;
+        [LZDeviceSettingDBUtil saveSettingData:settingData subType:data.reminderType withMacString:mac];
+    } else {
+        [LZDeviceSettingDBUtil saveSettingData:settingData withMacString:mac];
+    }
+    
+}
+
 - (id<LZDeviceManagerProtocol>)deviceManager {
     return [LZBluetooth getDeviceManagerWithDeviceType:LZDeviceTypeBracelet];
 }
 
 - (__kindof LZA5SettingData *)settingData {
     id data = [LZDeviceSettingDBUtil getConfigWithMacString:self.device.mac settingType:self.settingType];
+    if (data == nil) {
+        NSString *clsName = lz_braceletSettingClass(self.settingType);
+        return [[NSClassFromString(clsName) alloc] init];
+    } else {
+        return data;
+    }
+}
+
+- (__kindof LZA5SettingData *)settingDataWithSubType:(NSInteger)subType {
+    id data = [LZDeviceSettingDBUtil getConfigWithMacString:self.device.mac settingType:self.settingType subType:subType];
     if (data == nil) {
         NSString *clsName = lz_braceletSettingClass(self.settingType);
         return [[NSClassFromString(clsName) alloc] init];

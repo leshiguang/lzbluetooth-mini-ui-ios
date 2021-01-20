@@ -6,15 +6,12 @@
 //
 
 #import "LZMessageToRemindViewController.h"
-#import "LZMessageToRemindCell.h"
-#import "LZMessageToRemindCellModel.h"
 #import <Masonry/Masonry.h>
 
-@interface LZMessageToRemindViewController () <UITableViewDelegate, UITableViewDataSource, LZMessageToRemindCellDelegate>
-@property (nonatomic,strong) UITableView *tableView;
-@property (nonatomic,strong) NSArray <LZMessageToRemindCellModel *> *modelAry;
+@interface LZMessageToRemindViewController () <UITableViewDelegate, UITableViewDataSource, LZBaseSetTableViewCellDelegate>
 
-@property (nonatomic, strong) LZA5SettingCallReminderData *data;
+@property (nonatomic,strong) NSArray <LZBaseSetCellModel *> *modelAry;
+
 @end
 
 @implementation LZMessageToRemindViewController
@@ -22,29 +19,33 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"消息提醒";
-    self.view.backgroundColor = [UIColor whiteColor];
-    /// 这里没有读取缓存，因为比较特殊，每个设置，都是单独的
-    [self createUI];
+    
+    [self updateUI];
 }
 
-- (void)createUI {
-    [self.view addSubview:self.tableView];
-    [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.mas_equalTo(self.view);
+- (void)updateUI {
+    
+    [self.modelAry enumerateObjectsUsingBlock:^(LZBaseSetCellModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        LZA5SettingCallReminderData *data = [self settingDataWithSubType:obj.setType];
+        obj.switchIsOpne = data.enable;
     }];
+    
+    [self.tableView reloadData];
 }
-
+                  
 #pragma mark - LZMessageToRemindCellDelegate
-- (void)switchOn:(BOOL)isOn cellModle:(LZMessageToRemindCellModel *)cellModel {
-    self.data.reminderType = cellModel.setType;
-    self.data.enable = isOn;
-    self.data.delay = 3;
-    self.data.vibrationType = LZA5VibrationTypeAlways;
-    self.data.vibrationTime = 60;
-    self.data.vibrationLevel1 = 9;
-    self.data.vibrationLevel2 = 9;
+- (void)switchOn:(BOOL)isOn cellModle:(LZBaseSetCellModel *)cellModel {
+    
+    LZA5SettingCallReminderData *data = [[LZA5SettingCallReminderData alloc] init];
+    data.reminderType = cellModel.setType;
+    data.enable = isOn;
+    data.delay = 3;
+    data.vibrationType = LZA5VibrationTypeAlways;
+    data.vibrationTime = 60;
+    data.vibrationLevel1 = 9;
+    data.vibrationLevel2 = 9;
 
-    [self sendData:self.data];
+    [self sendData:data];
 }
 
 #pragma mark - UITableViewDelegate
@@ -53,33 +54,45 @@
 }
 
 #pragma mark - UITableViewDataSource
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.modelAry.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    LZMessageToRemindCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([LZMessageToRemindCell class]) forIndexPath:indexPath];
+    LZBaseSetTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([LZBaseSetTableViewCell class]) forIndexPath:indexPath];
     [cell updateCellWithModel:self.modelAry[indexPath.row]];
     cell.delegate = self;
     return cell;
 }
 
 #pragma mark - getter
-- (UITableView *)tableView {
-    if (!_tableView) {
-        _tableView = [[UITableView alloc] init];
-        _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-        _tableView.delegate = self;
-        _tableView.dataSource = self;
-        [_tableView registerClass:[LZMessageToRemindCell class] forCellReuseIdentifier:NSStringFromClass([LZMessageToRemindCell class])];
-    }
-    return _tableView;
-}
-
-- (NSArray<LZMessageToRemindCellModel *> *)modelAry {
+- (NSArray<LZBaseSetCellModel *> *)modelAry {
     if (!_modelAry) {
-        _modelAry = [[NSArray alloc] init];
-        _modelAry = [LZMessageToRemindCellModel cellModelList];
+         
+        NSMutableArray *mAry = [[NSMutableArray alloc] init];
+        LZBaseSetCellModel *model1 = [[LZBaseSetCellModel alloc] initModelWithSetType:LZA5CallReminderTypeWX cellStyle:DEVICESETCELLSTYLE_RIGHT_SWITCH titleStr:@"微信" subStr:nil];
+        [mAry addObject:model1];
+        
+        LZBaseSetCellModel *model2 = [[LZBaseSetCellModel alloc] initModelWithSetType:LZA5CallReminderTypeQQ cellStyle:DEVICESETCELLSTYLE_RIGHT_SWITCH titleStr:@"QQ" subStr:nil];
+        [mAry addObject:model2];
+        
+        LZBaseSetCellModel *model3 = [[LZBaseSetCellModel alloc] initModelWithSetType:LZA5CallReminderTypeSMS cellStyle:DEVICESETCELLSTYLE_RIGHT_SWITCH titleStr:@"短信" subStr:nil];
+        [mAry addObject:model3];
+        
+        LZBaseSetCellModel *model4 = [[LZBaseSetCellModel alloc] initModelWithSetType:LZA5CallReminderTypeDefault cellStyle:DEVICESETCELLSTYLE_RIGHT_SWITCH titleStr:@"来电提醒" subStr:nil];
+        [mAry addObject:model4];
+        
+        LZBaseSetCellModel *model5 = [[LZBaseSetCellModel alloc] initModelWithSetType:LZA5CallReminderTypeLost cellStyle:DEVICESETCELLSTYLE_RIGHT_SWITCH titleStr:@"断连提醒" subStr:nil];
+        [mAry addObject:model5];
+        
+        LZBaseSetCellModel *model6 = [[LZBaseSetCellModel alloc] initModelWithSetType:LZA5CallReminderTypeMsg cellStyle:DEVICESETCELLSTYLE_RIGHT_SWITCH titleStr:@"消息提醒" subStr:nil];
+        [mAry addObject:model6];
+        
+        _modelAry = mAry.copy;
     }
     return _modelAry;
 }

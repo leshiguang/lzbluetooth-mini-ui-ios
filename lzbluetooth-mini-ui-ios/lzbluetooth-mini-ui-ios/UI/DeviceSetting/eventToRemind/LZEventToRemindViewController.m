@@ -13,7 +13,7 @@
 #import "LSWAppColorConfigrationMacro.h"
 
 @interface LZEventToRemindViewController () <UITableViewDelegate, UITableViewDataSource>
-@property (nonatomic, strong) UITableView *tableView;
+
 @property (nonatomic, strong) UIButton *addEventToRemindBtn;
 
 @property (nonatomic, strong) LZA5SettingEventRemindData *data;
@@ -22,15 +22,20 @@
 
 @implementation LZEventToRemindViewController
 
+@dynamic data;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"事件提醒";
     self.view.backgroundColor = [UIColor whiteColor];
+    
+    [self.tableView registerClass:[LZEventToRemindTableViewCell class] forCellReuseIdentifier:NSStringFromClass(LZEventToRemindTableViewCell.class)];
     [self createUI];
+    [self updateUI];
     
 }
 
-- (void)updateUIWithResult:(LZBluetoothErrorCode)result {
+- (void)updateUI {
     [self.tableView reloadData];
 }
 
@@ -38,11 +43,11 @@
     [super viewWillAppear:animated];
     
     self.data = [self settingData];
-    [self.tableView reloadData];
+    [self updateUI];
 }
 
 - (void)createUI {
-    [self.view addSubview:self.tableView];
+    
     [self.view addSubview:self.addEventToRemindBtn];
     
     [self.addEventToRemindBtn mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -51,19 +56,9 @@
         make.right.equalTo(self.view).offset(-70);
         make.height.equalTo(@50);
     }];
-    
-    [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.view.mas_top).offset(0);
-        make.left.and.right.equalTo(self.view);
-        make.bottom.equalTo(self.addEventToRemindBtn.mas_top).offset(-10);
-    }];
 }
 
 #pragma mark - UITableViewDelegate
-//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-//    return 50;
-//}
-
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [self pushToAddEventToRemindWithIndexPath:indexPath];
 }
@@ -102,6 +97,7 @@
 #pragma mark - Private Methods
 - (void)pushToAddEventToRemindWithIndexPath:(nullable NSIndexPath *)indexPath {
     LZAddEventToRemindViewController *vc = [[LZAddEventToRemindViewController alloc] init];
+    vc.settingType = vc.settingType;
     vc.device = self.device;
     vc.data = self.data;
     if (indexPath) {
@@ -121,21 +117,6 @@
 
 
 #pragma mark - getter
-- (UITableView *)tableView {
-    if (!_tableView) {
-        _tableView = [[UITableView alloc] init];
-        _tableView.backgroundColor = [UIColor whiteColor];
-        _tableView.delegate = self;
-        _tableView.dataSource = self;
-        _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-        _tableView.tableFooterView = [UIView new];
-        _tableView.estimatedRowHeight = 50;
-        _tableView.rowHeight = UITableViewAutomaticDimension;
-        [_tableView registerClass:[LZEventToRemindTableViewCell class] forCellReuseIdentifier:NSStringFromClass([LZEventToRemindTableViewCell class])];
-    }
-    return _tableView;
-}
-
 - (UIButton *)addEventToRemindBtn {
     if (!_addEventToRemindBtn) {
         _addEventToRemindBtn = [UIButton buttonWithType:UIButtonTypeCustom];

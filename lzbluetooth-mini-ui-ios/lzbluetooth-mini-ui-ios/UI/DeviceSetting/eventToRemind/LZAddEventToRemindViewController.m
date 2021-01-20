@@ -6,8 +6,7 @@
 //
 
 #import "LZAddEventToRemindViewController.h"
-#import "LZAddEventToRemindCell.h"
-#import "LZAddEventToRemindCellModel.h"
+
 #import <Masonry/Masonry.h>
 #import "LZAddEventToRemindContentTableViewCell.h"
 #import "LZSetPickerViewController.h"
@@ -17,9 +16,20 @@
 #import "LSWAppFontConfigrationMacro.h"
 #import "LSWAppColorConfigrationMacro.h"
 
-@interface LZAddEventToRemindViewController () <UITableViewDelegate, UITableViewDataSource, LZSetPickerDelegate>
-@property (nonatomic, strong) UITableView *tableView;
-@property (nonatomic, strong) NSArray <LZAddEventToRemindCellModel *> * modelAry;
+
+typedef enum : NSUInteger {
+    LZADDEVENTTOREMINDTYPE_OPENR_EMIND,      //打开提醒
+    LZADDEVENTTOREMINDTYPE_REMIND_TIME,        //提醒时间
+    LZADDEVENTTOREMINDTYPE_REPEAT_TIME,         //每周重复时间
+    LZADDEVENTTOREMINDTYPE_VIBRATION_MODE,      //震动方式
+    LZADDEVENTTOREMINDTYPE_VIBRATION_LEAVE1,    //震动等级1
+    LZADDEVENTTOREMINDTYPE_VIBRATION_LEAVE2,    //震动等级2
+    LZADDEVENTTOREMINDTYPE_VIBRATION_TIME       //震动时长
+} LZADDEVENTTOREMINDTYPE;
+
+
+@interface LZAddEventToRemindViewController () <LZSetPickerDelegate>
+@property (nonatomic, strong) NSArray <LZBaseSetCellModel *> * modelAry;
 @property (nonatomic, strong) UIButton *sureBtn;
 @property (nonatomic, strong) LZPickerAnimator *pickerAnimotor;
 @property (nonatomic, assign) LZADDEVENTTOREMINDTYPE currentPickerType;
@@ -36,11 +46,15 @@
 
 @implementation LZAddEventToRemindViewController
 
+@synthesize data;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"事件提醒";
     self.view.backgroundColor = [UIColor whiteColor];
     [self createUI];
+    
+    [self.tableView registerClass:[LZAddEventToRemindContentTableViewCell class] forCellReuseIdentifier:NSStringFromClass(LZAddEventToRemindContentTableViewCell.class)];
     
     if (!self.contentData) {
         self.isCreate = YES;
@@ -59,7 +73,12 @@
     }
     
     [self updateUI];
-    
+}
+
+- (void)updateUIWithResult:(LZBluetoothErrorCode)result {
+    if (result == LZBluetoothErrorCodeSuccess) {
+        [self.navigationController popViewControllerAnimated:YES];
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -67,7 +86,7 @@
 }
 
 - (void)createUI {
-    [self.view addSubview:self.tableView];
+
     [self.view addSubview:self.sureBtn];
     
     [self.sureBtn mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -76,36 +95,29 @@
         make.right.equalTo(self.view).offset(-70);
         make.height.equalTo(@50);
     }];
-    
-    [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.view.mas_top).offset(0);
-        make.left.and.right.equalTo(self.view);
-        make.bottom.equalTo(self.sureBtn.mas_top).offset(-10);
-    }];
 }
 
 - (void)updateUI {
-    LZAddEventToRemindCellModel *model0 = self.modelAry[0];
+    LZBaseSetCellModel *model0 = self.modelAry[0];
     model0.switchIsOpne = self.contentData.enable;
     
-    LZAddEventToRemindCellModel *model1 = self.modelAry[1];
+    LZBaseSetCellModel *model1 = self.modelAry[1];
     model1.subStr = [NSString stringWithFormat:@"%02d:%02d", self.contentData.hour, self.contentData.minute];
-    LZAddEventToRemindCellModel *model2 = self.modelAry[2];
+    LZBaseSetCellModel *model2 = self.modelAry[2];
     model2.subStr = [self repeatTimeStringWithFlag:self.contentData.repeatFlag];
-    LZAddEventToRemindCellModel *model3 = self.modelAry[3];
+    LZBaseSetCellModel *model3 = self.modelAry[3];
     model3.subStr = self.vibrationModelAry[self.contentData.vibrationType];
-    LZAddEventToRemindCellModel *model4 = self.modelAry[4];
+    LZBaseSetCellModel *model4 = self.modelAry[4];
     model4.subStr = self.vibrationModelLeaveAry[self.contentData.vibrationLevel1];
-    LZAddEventToRemindCellModel *model5 = self.modelAry[5];
+    LZBaseSetCellModel *model5 = self.modelAry[5];
     model5.subStr = self.vibrationModelLeaveAry[self.contentData.vibrationLevel1];
-    LZAddEventToRemindCellModel *model6 = self.modelAry[6];
+    LZBaseSetCellModel *model6 = self.modelAry[6];
     model6.subStr = self.minutesOrSecondsAry[self.contentData.vibrationTime];
     
     [self.tableView reloadData];
 }
 
 #pragma mark - UITableViewDelegate
-
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row == self.modelAry.count) {
         return 110;
@@ -126,17 +138,22 @@
 
 #pragma mark - UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.modelAry.count+1;
+    return self.modelAry.count + 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row < self.modelAry.count) {
-        LZAddEventToRemindCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([LZAddEventToRemindCell class]) forIndexPath:indexPath];
+        LZBaseSetTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([LZBaseSetTableViewCell class]) forIndexPath:indexPath];
         [cell updateCellWithModel:self.modelAry[indexPath.row]];
         return cell;
     } else if (indexPath.row == self.modelAry.count) {
         LZAddEventToRemindContentTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([LZAddEventToRemindContentTableViewCell class]) forIndexPath:indexPath];
         cell.textView.text = self.contentData.des;
+        
+        __weak typeof(self) weakSelf = self;
+        cell.textViewDidChangeBlock = ^(NSString * _Nonnull text) {
+            weakSelf.contentData.des = text;
+        };
         return cell;
     }
     return nil;
@@ -173,7 +190,7 @@
 
 #pragma mark - Privates Methods
 
-- (void)showSetPopupWeek:(LZAddEventToRemindCellModel *)model {
+- (void)showSetPopupWeek:(LZBaseSetCellModel *)model {
     LZSetPopUpViewController *vc = [[LZSetPopUpViewController alloc] init];
     vc.modalPresentationStyle = UIModalPresentationCustom;
     LZSetPopUpAnimator *popUpAnimator = [[LZSetPopUpAnimator alloc] initWithPresentedViewController:self presentingViewController:vc];
@@ -193,7 +210,7 @@
     [self presentViewController:vc animated:NO completion:nil];
 }
 
-- (void)selectCellWihtModel:(LZAddEventToRemindCellModel *)model {
+- (void)selectCellWihtModel:(LZBaseSetCellModel *)model {
     LZSetPickerViewController *vc = [[LZSetPickerViewController alloc] init];
     vc.modalPresentationStyle = UIModalPresentationCustom;
     LZPickerAnimator *pickerAnimotor = [[LZPickerAnimator alloc] initWithPresentedViewController:self presentingViewController:vc];
@@ -241,9 +258,14 @@
         self.data.contentDatas = array;
         [self sendData:self.data];
     } else {
+        
+        NSInteger index = [self.data.contentDatas indexOfObject:self.contentData];
+        NSAssert(index != NSNotFound, @"出现了问题");
+        NSMutableArray *arr = self.data.contentDatas.mutableCopy;
+        [arr replaceObjectAtIndex:index withObject:self.contentData];
+        self.data.contentDatas = arr.copy;
         [self sendData:self.data];
     }
-    
 }
 
 #pragma mark - getter
@@ -296,22 +318,31 @@
     return @"";
 }
 
-- (UITableView *)tableView {
-    if (!_tableView) {
-        _tableView = [[UITableView alloc] init];
-        _tableView.delegate = self;
-        _tableView.dataSource = self;
-        _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-        [_tableView registerClass:[LZAddEventToRemindCell class] forCellReuseIdentifier:NSStringFromClass([LZAddEventToRemindCell class])];
-        [_tableView registerClass:[LZAddEventToRemindContentTableViewCell class] forCellReuseIdentifier:NSStringFromClass([LZAddEventToRemindContentTableViewCell class])];
-    }
-    return _tableView;
-}
-
-- (NSArray<LZAddEventToRemindCellModel *> *)modelAry {
+- (NSArray<LZBaseSetCellModel *> *)modelAry {
     if (!_modelAry) {
-        _modelAry = [[NSArray alloc] init];
-        _modelAry = [LZAddEventToRemindCellModel cellModelList];
+        NSMutableArray <LZBaseSetCellModel *> *mAry = [[NSMutableArray alloc] init];
+        
+        LZBaseSetCellModel *model1 = [[LZBaseSetCellModel alloc] initModelWithSetType:LZADDEVENTTOREMINDTYPE_OPENR_EMIND cellStyle:DEVICESETCELLSTYLE_RIGHT_SWITCH titleStr:@"打开提醒" subStr:nil];
+        [mAry addObject:model1];
+        
+        LZBaseSetCellModel *model2 = [[LZBaseSetCellModel alloc] initModelWithSetType:LZADDEVENTTOREMINDTYPE_REMIND_TIME cellStyle:DEVICESETCELLSTYLE_RIGHT_IMG_SUBTITLE titleStr:@"提醒时间" subStr:@"15:31"];
+        [mAry addObject:model2];
+        
+        LZBaseSetCellModel *model3 = [[LZBaseSetCellModel alloc] initModelWithSetType:LZADDEVENTTOREMINDTYPE_REPEAT_TIME cellStyle:DEVICESETCELLSTYLE_RIGHT_IMG_SUBTITLE titleStr:@"每周重复时间" subStr:@"星期一 星期二 星期三 星期四 星期五 星期六 星期天"];
+        [mAry addObject:model3];
+        
+        LZBaseSetCellModel *model4 = [[LZBaseSetCellModel alloc] initModelWithSetType:LZADDEVENTTOREMINDTYPE_VIBRATION_MODE cellStyle:DEVICESETCELLSTYLE_RIGHT_IMG_SUBTITLE titleStr:@"震动方式" subStr:nil];
+        [mAry addObject:model4];
+        
+        LZBaseSetCellModel *model5 = [[LZBaseSetCellModel alloc] initModelWithSetType:LZADDEVENTTOREMINDTYPE_VIBRATION_LEAVE1 cellStyle:DEVICESETCELLSTYLE_RIGHT_IMG_SUBTITLE titleStr:@"震动等级1" subStr:nil];
+        [mAry addObject:model5];
+        
+        LZBaseSetCellModel *model6 = [[LZBaseSetCellModel alloc] initModelWithSetType:LZADDEVENTTOREMINDTYPE_VIBRATION_LEAVE2 cellStyle:DEVICESETCELLSTYLE_RIGHT_IMG_SUBTITLE titleStr:@"震动等级2" subStr:nil];
+        [mAry addObject:model6];
+        
+        LZBaseSetCellModel *model7 = [[LZBaseSetCellModel alloc] initModelWithSetType:LZADDEVENTTOREMINDTYPE_VIBRATION_TIME cellStyle:DEVICESETCELLSTYLE_RIGHT_IMG_SUBTITLE titleStr:@"震动时长" subStr:nil];
+        [mAry addObject:model7];
+        _modelAry = mAry;
     }
     return _modelAry;
 }

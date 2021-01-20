@@ -7,58 +7,51 @@
 
 #import "LZGoalSetViewController.h"
 #import <Masonry/Masonry.h>
-#import "LZGoalSettingTableViewCell.h"
-#import "LZGoalSetModel.h"
+
 #import "LZSetPickerViewController.h"
 #import "LZPickerAnimator.h"
-#import "UIViewController+MBProgressHUD.h"
 
-@interface LZGoalSetViewController () <UITableViewDelegate, UITableViewDataSource, LZSetPickerDelegate, LZGoalSettingTableViewCellDelegate>
-@property (nonatomic, strong) UITableView *tableView;
-@property (nonatomic, strong) NSArray <LZGoalSetModel *> *modelAry;
+typedef enum : NSUInteger {
+    LZGOALSETTYPE_GOALSWITCH,   //目标开关
+    LZGOALSETTYPE_GOALTYPE,     //目标类型
+    LZGOALSETTYPE_GOALTNUM,     //目标值
+} LZGOALSETTYPE;
+
+@interface LZGoalSetViewController () <UITableViewDelegate, UITableViewDataSource, LZSetPickerDelegate, LZBaseSetTableViewCellDelegate>
+@property (nonatomic, strong) NSArray <LZBaseSetCellModel *> *modelAry;
 @property (nonatomic, strong) LZPickerAnimator *pickerAnimotor;
 
 @property (nonatomic, copy) NSArray *goalTypeAry;
 @property (nonatomic, copy) NSArray *goalNumAry;
 
 @property (nonatomic, assign,) LZGOALSETTYPE currentPickerType;
-@property (nonatomic, strong) LZA5SettingEncourageTargetData *targetCfg;
+@property (nonatomic, strong) LZA5SettingEncourageTargetData *data;
 
 @end
 
 @implementation LZGoalSetViewController
+@synthesize data;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"目标设置";
     self.view.backgroundColor = [UIColor whiteColor];
-    
-    self.targetCfg = [self settingData];
-    
-    [self createUI];
-    [self updateUI];
-    
-}
 
-- (void)createUI {
-    [self.view addSubview:self.tableView];
-    [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.mas_equalTo(self.view);
-    }];
+    [self updateUI];
 }
 
 - (void)updateUI {
     
     NSMutableArray *mAry = [self.modelAry mutableCopy];
-    LZGoalSetModel *model1 = mAry[0];
-    model1.switchIsOpne = self.targetCfg.enable;
+    LZBaseSetCellModel *model1 = mAry[0];
+    model1.switchIsOpne = self.data.enable;
     
-    LZGoalSetModel *model2 = mAry[1];
-    NSInteger index = MAX(0, self.targetCfg.targetType - 1) ;
+    LZBaseSetCellModel *model2 = mAry[1];
+    NSInteger index = MAX(0, self.data.targetType - 1) ;
     model2.subStr = self.goalTypeAry[index];
     
-    LZGoalSetModel *model3 = mAry[2];
-    model3.subStr = [@(self.targetCfg.value) stringValue];
+    LZBaseSetCellModel *model3 = mAry[2];
+    model3.subStr = [@(self.data.value) stringValue];
     
     self.modelAry = [mAry copy];
     [self.tableView reloadData];
@@ -78,19 +71,16 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    LZGoalSettingTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([LZGoalSettingTableViewCell class]) forIndexPath:indexPath];
-    if (!cell) {
-        cell = [[LZGoalSettingTableViewCell alloc] init];
-    }
+    LZBaseSetTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([LZBaseSetTableViewCell class]) forIndexPath:indexPath];
     cell.delegate = self;
     [cell updateCellWithModel:self.modelAry[indexPath.row]];
     return cell;
 }
 
 #pragma mark - LZGoalSettingTableViewCellDelegate
-- (void)switchOn:(BOOL)isOn cellModle:(LZGoalSetModel *)cellModel {
+- (void)switchOn:(BOOL)isOn cellModle:(LZBaseSetCellModel *)cellModel {
     if (cellModel.setType == LZGOALSETTYPE_GOALSWITCH) {
-        self.targetCfg.enable = isOn;
+        self.data.enable = isOn;
         [self setGoalWihtCfg];
     }
 }
@@ -127,12 +117,12 @@
     NSInteger row = [vc selectedRowInComponent:0];
     switch (self.currentPickerType) {
         case LZGOALSETTYPE_GOALTYPE:{
-            self.targetCfg.targetType = row + 1;
+            self.data.targetType = row + 1;
             break;
         }
             
         case LZGOALSETTYPE_GOALTNUM:{
-            self.targetCfg.value = row + 1;
+            self.data.value = row + 1;
             break;
         }
             
@@ -146,26 +136,24 @@
 
 #pragma mark - Private Methods
 - (void)setGoalWihtCfg {
-    [self sendData:self.targetCfg];
+    [self sendData:self.data];
 }
 
 
 #pragma mark - getter
-- (UITableView *)tableView {
-    if (!_tableView) {
-        _tableView = [[UITableView alloc] init];
-        _tableView.dataSource = self;
-        _tableView.delegate = self;
-        _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-        [_tableView registerClass:[LZGoalSettingTableViewCell class] forCellReuseIdentifier:NSStringFromClass([LZGoalSettingTableViewCell class])];
-    }
-    return _tableView;
-}
 
-- (NSArray<LZGoalSetModel *> *)modelAry {
+- (NSArray<LZBaseSetCellModel *> *)modelAry {
     if (!_modelAry) {
-        _modelAry = [[NSArray alloc] init];
-        _modelAry = [LZGoalSetModel cellModelList];
+        NSMutableArray <LZBaseSetCellModel *> *mAry = [[NSMutableArray alloc] init];
+        LZBaseSetCellModel *model1 = [[LZBaseSetCellModel alloc] initModelWithSetType:LZGOALSETTYPE_GOALSWITCH cellStyle:DEVICESETCELLSTYLE_RIGHT_SWITCH titleStr:@"目标开关" subStr:nil];
+        [mAry addObject:model1];
+        
+        LZBaseSetCellModel *model2 = [[LZBaseSetCellModel alloc] initModelWithSetType:LZGOALSETTYPE_GOALTYPE cellStyle:DEVICESETCELLSTYLE_RIGHT_IMG_SUBTITLE titleStr:@"目标类型" subStr:@"卡路里"];
+        [mAry addObject:model2];
+        
+        LZBaseSetCellModel *model3 = [[LZBaseSetCellModel alloc] initModelWithSetType:LZGOALSETTYPE_GOALTNUM cellStyle:DEVICESETCELLSTYLE_RIGHT_IMG_SUBTITLE titleStr:@"目标值" subStr:@"31.0"];
+        [mAry addObject:model3];
+        _modelAry = mAry;
     }
     return _modelAry;
 }
@@ -186,17 +174,6 @@
         _goalNumAry = [mAry copy];
     }
     return _goalNumAry;
-}
-
-- (LZA5SettingEncourageTargetData *)targetCfg {
-    if (!_targetCfg) {
-        LZA5SettingEncourageTargetData *cfg = [[LZA5SettingEncourageTargetData alloc] init];
-        cfg.targetType = LZA5TargetTypeStep;
-        cfg.enable = NO;
-        cfg.value = 2000;
-        _targetCfg = cfg;
-    }
-    return _targetCfg;
 }
 
 @end

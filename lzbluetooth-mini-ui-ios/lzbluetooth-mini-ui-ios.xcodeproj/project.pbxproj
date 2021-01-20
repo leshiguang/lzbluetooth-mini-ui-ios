@@ -22,43 +22,23 @@
 		60C72CFC25B561D700E00276 /* LZDeviceManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C72C4E25B561D600E00276 /* LZDeviceManagerViewController.m */; };
 		60C72CFD25B561D700E00276 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C72C5025B561D600E00276 /* MBProgressHUD.m */; };
 		60C72CFE25B561D700E00276 /* UIViewController+MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C72C5325B561D600E00276 /* UIViewController+MBProgressHUD.m */; };
-		60C72CFF25B561D700E00276 /* LZDndModelCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C72C5825B561D600E00276 /* LZDndModelCellModel.m */; };
 		60C72D0025B561D700E00276 /* LZDndModeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C72C5925B561D600E00276 /* LZDndModeViewController.m */; };
-		60C72D0125B561D700E00276 /* LZDndModelCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C72C5A25B561D600E00276 /* LZDndModelCell.m */; };
 		60C72D0225B561D700E00276 /* LZScreenOrientationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C72C5D25B561D600E00276 /* LZScreenOrientationViewController.m */; };
-		60C72D0325B561D700E00276 /* LZScreenOrientationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C72C5E25B561D600E00276 /* LZScreenOrientationCell.m */; };
-		60C72D0425B561D700E00276 /* LZScreenOrientationCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C72C6225B561D600E00276 /* LZScreenOrientationCellModel.m */; };
-		60C72D0525B561D700E00276 /* LZScreenContentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C72C6525B561D600E00276 /* LZScreenContentCell.m */; };
 		60C72D0625B561D700E00276 /* LZScreenContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C72C6625B561D600E00276 /* LZScreenContentViewController.m */; };
-		60C72D0725B561D700E00276 /* LZScreenContentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C72C6725B561D600E00276 /* LZScreenContentModel.m */; };
 		60C72D0825B561D700E00276 /* LZDialSetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C72C6B25B561D600E00276 /* LZDialSetViewController.m */; };
 		60C72D0925B561D700E00276 /* LZDialSetModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C72C6F25B561D600E00276 /* LZDialSetModel.m */; };
 		60C72D0A25B561D700E00276 /* LZDialSetCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C72C7025B561D600E00276 /* LZDialSetCollectionViewCell.m */; };
-		60C72D0B25B561D700E00276 /* LZMessageToRemindCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C72C7225B561D600E00276 /* LZMessageToRemindCellModel.m */; };
-		60C72D0C25B561D700E00276 /* LZMessageToRemindCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C72C7325B561D600E00276 /* LZMessageToRemindCell.m */; };
 		60C72D0D25B561D700E00276 /* LZMessageToRemindViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C72C7425B561D600E00276 /* LZMessageToRemindViewController.m */; };
 		60C72D0E25B561D700E00276 /* LZAddEventToRemindViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C72C7A25B561D600E00276 /* LZAddEventToRemindViewController.m */; };
-		60C72D0F25B561D700E00276 /* LZAddEventToRemindCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C72C8025B561D600E00276 /* LZAddEventToRemindCellModel.m */; };
 		60C72D1025B561D700E00276 /* LZEventToRemindViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C72C8125B561D600E00276 /* LZEventToRemindViewController.m */; };
-		60C72D1125B561D700E00276 /* LZAddEventToRemindCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C72C8225B561D600E00276 /* LZAddEventToRemindCell.m */; };
 		60C72D1225B561D700E00276 /* LZAddEventToRemindContentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C72C8325B561D600E00276 /* LZAddEventToRemindContentTableViewCell.m */; };
 		60C72D1325B561D700E00276 /* LZEventToRemindTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C72C8425B561D600E00276 /* LZEventToRemindTableViewCell.m */; };
-		60C72D1425B561D700E00276 /* LZNightModelCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C72C8825B561D600E00276 /* LZNightModelCell.m */; };
 		60C72D1525B561D700E00276 /* LZNightModeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C72C8925B561D600E00276 /* LZNightModeViewController.m */; };
-		60C72D1625B561D700E00276 /* LZNightModelCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C72C8B25B561D600E00276 /* LZNightModelCellModel.m */; };
 		60C72D1725B561D700E00276 /* LZHeartRataWarningViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C72C8F25B561D600E00276 /* LZHeartRataWarningViewController.m */; };
-		60C72D1825B561D700E00276 /* LZHeartRateWarningCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C72C9025B561D600E00276 /* LZHeartRateWarningCell.m */; };
-		60C72D1925B561D700E00276 /* LZHearRateWarningCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C72C9125B561D600E00276 /* LZHearRateWarningCellModel.m */; };
 		60C72D1A25B561D700E00276 /* LZTimeFormatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C72C9425B561D600E00276 /* LZTimeFormatViewController.m */; };
-		60C72D1B25B561D700E00276 /* LZTimeFormatModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C72C9725B561D600E00276 /* LZTimeFormatModel.m */; };
-		60C72D1C25B561D700E00276 /* LZTimeFormatCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C72C9925B561D600E00276 /* LZTimeFormatCell.m */; };
 		60C72D1D25B561D700E00276 /* LZSportTypeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C72C9C25B561D600E00276 /* LZSportTypeViewController.m */; };
 		60C72D1E25B561D700E00276 /* LZWearingHabitsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C72C9F25B561D600E00276 /* LZWearingHabitsViewController.m */; };
-		60C72D1F25B561D700E00276 /* LZWearingHabitsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C72CA125B561D600E00276 /* LZWearingHabitsModel.m */; };
-		60C72D2025B561D700E00276 /* LZWearingHabitsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C72CA225B561D600E00276 /* LZWearingHabitsCell.m */; };
 		60C72D2125B561D700E00276 /* LZGoalSetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C72CA525B561D600E00276 /* LZGoalSetViewController.m */; };
-		60C72D2225B561D700E00276 /* LZGoalSetModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C72CA625B561D600E00276 /* LZGoalSetModel.m */; };
-		60C72D2325B561D700E00276 /* LZGoalSettingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C72CA725B561D600E00276 /* LZGoalSettingTableViewCell.m */; };
 		60C72D2425B561D700E00276 /* LZSetPopUpAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C72CAE25B561D600E00276 /* LZSetPopUpAnimator.m */; };
 		60C72D2525B561D700E00276 /* LZSetPopUpTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C72CAF25B561D600E00276 /* LZSetPopUpTableViewCell.m */; };
 		60C72D2625B561D700E00276 /* LZSetPopUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C72CB025B561D600E00276 /* LZSetPopUpViewController.m */; };
@@ -122,22 +102,10 @@
 		60C72C5225B561D600E00276 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		60C72C5325B561D600E00276 /* UIViewController+MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+MBProgressHUD.m"; sourceTree = "<group>"; };
 		60C72C5625B561D600E00276 /* LZDndModeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZDndModeViewController.h; sourceTree = "<group>"; };
-		60C72C5725B561D600E00276 /* LZDndModelCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZDndModelCell.h; sourceTree = "<group>"; };
-		60C72C5825B561D600E00276 /* LZDndModelCellModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZDndModelCellModel.m; sourceTree = "<group>"; };
 		60C72C5925B561D600E00276 /* LZDndModeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZDndModeViewController.m; sourceTree = "<group>"; };
-		60C72C5A25B561D600E00276 /* LZDndModelCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZDndModelCell.m; sourceTree = "<group>"; };
-		60C72C5B25B561D600E00276 /* LZDndModelCellModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZDndModelCellModel.h; sourceTree = "<group>"; };
 		60C72C5D25B561D600E00276 /* LZScreenOrientationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZScreenOrientationViewController.m; sourceTree = "<group>"; };
-		60C72C5E25B561D600E00276 /* LZScreenOrientationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZScreenOrientationCell.m; sourceTree = "<group>"; };
-		60C72C5F25B561D600E00276 /* LZScreenOrientationCellModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZScreenOrientationCellModel.h; sourceTree = "<group>"; };
-		60C72C6025B561D600E00276 /* LZScreenOrientationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZScreenOrientationCell.h; sourceTree = "<group>"; };
 		60C72C6125B561D600E00276 /* LZScreenOrientationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZScreenOrientationViewController.h; sourceTree = "<group>"; };
-		60C72C6225B561D600E00276 /* LZScreenOrientationCellModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZScreenOrientationCellModel.m; sourceTree = "<group>"; };
-		60C72C6425B561D600E00276 /* LZScreenContentModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZScreenContentModel.h; sourceTree = "<group>"; };
-		60C72C6525B561D600E00276 /* LZScreenContentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZScreenContentCell.m; sourceTree = "<group>"; };
 		60C72C6625B561D600E00276 /* LZScreenContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZScreenContentViewController.m; sourceTree = "<group>"; };
-		60C72C6725B561D600E00276 /* LZScreenContentModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZScreenContentModel.m; sourceTree = "<group>"; };
-		60C72C6825B561D600E00276 /* LZScreenContentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZScreenContentCell.h; sourceTree = "<group>"; };
 		60C72C6925B561D600E00276 /* LZScreenContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZScreenContentViewController.h; sourceTree = "<group>"; };
 		60C72C6B25B561D600E00276 /* LZDialSetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZDialSetViewController.m; sourceTree = "<group>"; };
 		60C72C6C25B561D600E00276 /* LZDialSetCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZDialSetCollectionViewCell.h; sourceTree = "<group>"; };
@@ -145,56 +113,28 @@
 		60C72C6E25B561D600E00276 /* LZDialSetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZDialSetViewController.h; sourceTree = "<group>"; };
 		60C72C6F25B561D600E00276 /* LZDialSetModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZDialSetModel.m; sourceTree = "<group>"; };
 		60C72C7025B561D600E00276 /* LZDialSetCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZDialSetCollectionViewCell.m; sourceTree = "<group>"; };
-		60C72C7225B561D600E00276 /* LZMessageToRemindCellModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZMessageToRemindCellModel.m; sourceTree = "<group>"; };
-		60C72C7325B561D600E00276 /* LZMessageToRemindCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZMessageToRemindCell.m; sourceTree = "<group>"; };
 		60C72C7425B561D600E00276 /* LZMessageToRemindViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZMessageToRemindViewController.m; sourceTree = "<group>"; };
-		60C72C7525B561D600E00276 /* LZMessageToRemindCellModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZMessageToRemindCellModel.h; sourceTree = "<group>"; };
 		60C72C7625B561D600E00276 /* LZMessageToRemindViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZMessageToRemindViewController.h; sourceTree = "<group>"; };
-		60C72C7725B561D600E00276 /* LZMessageToRemindCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZMessageToRemindCell.h; sourceTree = "<group>"; };
-		60C72C7925B561D600E00276 /* LZAddEventToRemindCellModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZAddEventToRemindCellModel.h; sourceTree = "<group>"; };
 		60C72C7A25B561D600E00276 /* LZAddEventToRemindViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZAddEventToRemindViewController.m; sourceTree = "<group>"; };
-		60C72C7B25B561D600E00276 /* LZAddEventToRemindCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZAddEventToRemindCell.h; sourceTree = "<group>"; };
 		60C72C7C25B561D600E00276 /* LZEventToRemindViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZEventToRemindViewController.h; sourceTree = "<group>"; };
 		60C72C7D25B561D600E00276 /* LZEventToRemindTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZEventToRemindTableViewCell.h; sourceTree = "<group>"; };
 		60C72C7E25B561D600E00276 /* LZAddEventToRemindContentTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZAddEventToRemindContentTableViewCell.h; sourceTree = "<group>"; };
 		60C72C7F25B561D600E00276 /* LZAddEventToRemindViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZAddEventToRemindViewController.h; sourceTree = "<group>"; };
-		60C72C8025B561D600E00276 /* LZAddEventToRemindCellModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZAddEventToRemindCellModel.m; sourceTree = "<group>"; };
 		60C72C8125B561D600E00276 /* LZEventToRemindViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZEventToRemindViewController.m; sourceTree = "<group>"; };
-		60C72C8225B561D600E00276 /* LZAddEventToRemindCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZAddEventToRemindCell.m; sourceTree = "<group>"; };
 		60C72C8325B561D600E00276 /* LZAddEventToRemindContentTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZAddEventToRemindContentTableViewCell.m; sourceTree = "<group>"; };
 		60C72C8425B561D600E00276 /* LZEventToRemindTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZEventToRemindTableViewCell.m; sourceTree = "<group>"; };
 		60C72C8625B561D600E00276 /* LZNightModeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZNightModeViewController.h; sourceTree = "<group>"; };
-		60C72C8725B561D600E00276 /* LZNightModelCellModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZNightModelCellModel.h; sourceTree = "<group>"; };
-		60C72C8825B561D600E00276 /* LZNightModelCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZNightModelCell.m; sourceTree = "<group>"; };
 		60C72C8925B561D600E00276 /* LZNightModeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZNightModeViewController.m; sourceTree = "<group>"; };
-		60C72C8A25B561D600E00276 /* LZNightModelCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZNightModelCell.h; sourceTree = "<group>"; };
-		60C72C8B25B561D600E00276 /* LZNightModelCellModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZNightModelCellModel.m; sourceTree = "<group>"; };
-		60C72C8D25B561D600E00276 /* LZHeartRateWarningCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZHeartRateWarningCell.h; sourceTree = "<group>"; };
-		60C72C8E25B561D600E00276 /* LZHearRateWarningCellModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZHearRateWarningCellModel.h; sourceTree = "<group>"; };
 		60C72C8F25B561D600E00276 /* LZHeartRataWarningViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZHeartRataWarningViewController.m; sourceTree = "<group>"; };
-		60C72C9025B561D600E00276 /* LZHeartRateWarningCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZHeartRateWarningCell.m; sourceTree = "<group>"; };
-		60C72C9125B561D600E00276 /* LZHearRateWarningCellModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZHearRateWarningCellModel.m; sourceTree = "<group>"; };
 		60C72C9225B561D600E00276 /* LZHeartRataWarningViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZHeartRataWarningViewController.h; sourceTree = "<group>"; };
 		60C72C9425B561D600E00276 /* LZTimeFormatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZTimeFormatViewController.m; sourceTree = "<group>"; };
-		60C72C9525B561D600E00276 /* LZTimeFormatModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZTimeFormatModel.h; sourceTree = "<group>"; };
-		60C72C9625B561D600E00276 /* LZTimeFormatCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZTimeFormatCell.h; sourceTree = "<group>"; };
-		60C72C9725B561D600E00276 /* LZTimeFormatModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZTimeFormatModel.m; sourceTree = "<group>"; };
 		60C72C9825B561D600E00276 /* LZTimeFormatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZTimeFormatViewController.h; sourceTree = "<group>"; };
-		60C72C9925B561D600E00276 /* LZTimeFormatCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZTimeFormatCell.m; sourceTree = "<group>"; };
 		60C72C9B25B561D600E00276 /* LZSportTypeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZSportTypeViewController.h; sourceTree = "<group>"; };
 		60C72C9C25B561D600E00276 /* LZSportTypeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZSportTypeViewController.m; sourceTree = "<group>"; };
-		60C72C9E25B561D600E00276 /* LZWearingHabitsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZWearingHabitsModel.h; sourceTree = "<group>"; };
 		60C72C9F25B561D600E00276 /* LZWearingHabitsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZWearingHabitsViewController.m; sourceTree = "<group>"; };
-		60C72CA025B561D600E00276 /* LZWearingHabitsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZWearingHabitsCell.h; sourceTree = "<group>"; };
-		60C72CA125B561D600E00276 /* LZWearingHabitsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZWearingHabitsModel.m; sourceTree = "<group>"; };
-		60C72CA225B561D600E00276 /* LZWearingHabitsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZWearingHabitsCell.m; sourceTree = "<group>"; };
 		60C72CA325B561D600E00276 /* LZWearingHabitsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZWearingHabitsViewController.h; sourceTree = "<group>"; };
 		60C72CA525B561D600E00276 /* LZGoalSetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZGoalSetViewController.m; sourceTree = "<group>"; };
-		60C72CA625B561D600E00276 /* LZGoalSetModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZGoalSetModel.m; sourceTree = "<group>"; };
-		60C72CA725B561D600E00276 /* LZGoalSettingTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZGoalSettingTableViewCell.m; sourceTree = "<group>"; };
 		60C72CA825B561D600E00276 /* LZGoalSetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZGoalSetViewController.h; sourceTree = "<group>"; };
-		60C72CA925B561D600E00276 /* LZGoalSettingTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZGoalSettingTableViewCell.h; sourceTree = "<group>"; };
-		60C72CAA25B561D600E00276 /* LZGoalSetModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZGoalSetModel.h; sourceTree = "<group>"; };
 		60C72CAC25B561D600E00276 /* LSWButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSWButton.h; sourceTree = "<group>"; };
 		60C72CAE25B561D600E00276 /* LZSetPopUpAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZSetPopUpAnimator.m; sourceTree = "<group>"; };
 		60C72CAF25B561D600E00276 /* LZSetPopUpTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZSetPopUpTableViewCell.m; sourceTree = "<group>"; };
@@ -397,9 +337,9 @@
 		60C72C4F25B561D600E00276 /* HUD */ = {
 			isa = PBXGroup;
 			children = (
+				60C72C5225B561D600E00276 /* MBProgressHUD.h */,
 				60C72C5025B561D600E00276 /* MBProgressHUD.m */,
 				60C72C5125B561D600E00276 /* UIViewController+MBProgressHUD.h */,
-				60C72C5225B561D600E00276 /* MBProgressHUD.h */,
 				60C72C5325B561D600E00276 /* UIViewController+MBProgressHUD.m */,
 			);
 			path = HUD;
@@ -435,10 +375,6 @@
 			children = (
 				60C72C5625B561D600E00276 /* LZDndModeViewController.h */,
 				60C72C5925B561D600E00276 /* LZDndModeViewController.m */,
-				60C72C5B25B561D600E00276 /* LZDndModelCellModel.h */,
-				60C72C5825B561D600E00276 /* LZDndModelCellModel.m */,
-				60C72C5725B561D600E00276 /* LZDndModelCell.h */,
-				60C72C5A25B561D600E00276 /* LZDndModelCell.m */,
 			);
 			path = dndMode;
 			sourceTree = "<group>";
@@ -448,10 +384,6 @@
 			children = (
 				60C72C6125B561D600E00276 /* LZScreenOrientationViewController.h */,
 				60C72C5D25B561D600E00276 /* LZScreenOrientationViewController.m */,
-				60C72C6025B561D600E00276 /* LZScreenOrientationCell.h */,
-				60C72C5E25B561D600E00276 /* LZScreenOrientationCell.m */,
-				60C72C5F25B561D600E00276 /* LZScreenOrientationCellModel.h */,
-				60C72C6225B561D600E00276 /* LZScreenOrientationCellModel.m */,
 			);
 			path = screenOrientation;
 			sourceTree = "<group>";
@@ -459,10 +391,6 @@
 		60C72C6325B561D600E00276 /* screenContent */ = {
 			isa = PBXGroup;
 			children = (
-				60C72C6425B561D600E00276 /* LZScreenContentModel.h */,
-				60C72C6725B561D600E00276 /* LZScreenContentModel.m */,
-				60C72C6825B561D600E00276 /* LZScreenContentCell.h */,
-				60C72C6525B561D600E00276 /* LZScreenContentCell.m */,
 				60C72C6925B561D600E00276 /* LZScreenContentViewController.h */,
 				60C72C6625B561D600E00276 /* LZScreenContentViewController.m */,
 			);
@@ -485,10 +413,6 @@
 		60C72C7125B561D600E00276 /* messageToRemind */ = {
 			isa = PBXGroup;
 			children = (
-				60C72C7525B561D600E00276 /* LZMessageToRemindCellModel.h */,
-				60C72C7225B561D600E00276 /* LZMessageToRemindCellModel.m */,
-				60C72C7725B561D600E00276 /* LZMessageToRemindCell.h */,
-				60C72C7325B561D600E00276 /* LZMessageToRemindCell.m */,
 				60C72C7625B561D600E00276 /* LZMessageToRemindViewController.h */,
 				60C72C7425B561D600E00276 /* LZMessageToRemindViewController.m */,
 			);
@@ -498,12 +422,8 @@
 		60C72C7825B561D600E00276 /* eventToRemind */ = {
 			isa = PBXGroup;
 			children = (
-				60C72C7925B561D600E00276 /* LZAddEventToRemindCellModel.h */,
-				60C72C8025B561D600E00276 /* LZAddEventToRemindCellModel.m */,
 				60C72C7F25B561D600E00276 /* LZAddEventToRemindViewController.h */,
 				60C72C7A25B561D600E00276 /* LZAddEventToRemindViewController.m */,
-				60C72C7B25B561D600E00276 /* LZAddEventToRemindCell.h */,
-				60C72C8225B561D600E00276 /* LZAddEventToRemindCell.m */,
 				60C72C7C25B561D600E00276 /* LZEventToRemindViewController.h */,
 				60C72C8125B561D600E00276 /* LZEventToRemindViewController.m */,
 				60C72C7D25B561D600E00276 /* LZEventToRemindTableViewCell.h */,
@@ -521,10 +441,6 @@
 			children = (
 				60C72C8625B561D600E00276 /* LZNightModeViewController.h */,
 				60C72C8925B561D600E00276 /* LZNightModeViewController.m */,
-				60C72C8725B561D600E00276 /* LZNightModelCellModel.h */,
-				60C72C8B25B561D600E00276 /* LZNightModelCellModel.m */,
-				60C72C8A25B561D600E00276 /* LZNightModelCell.h */,
-				60C72C8825B561D600E00276 /* LZNightModelCell.m */,
 			);
 			path = nightMode;
 			sourceTree = "<group>";
@@ -532,10 +448,6 @@
 		60C72C8C25B561D600E00276 /* heartRateWarning */ = {
 			isa = PBXGroup;
 			children = (
-				60C72C8D25B561D600E00276 /* LZHeartRateWarningCell.h */,
-				60C72C9025B561D600E00276 /* LZHeartRateWarningCell.m */,
-				60C72C8E25B561D600E00276 /* LZHearRateWarningCellModel.h */,
-				60C72C9125B561D600E00276 /* LZHearRateWarningCellModel.m */,
 				60C72C9225B561D600E00276 /* LZHeartRataWarningViewController.h */,
 				60C72C8F25B561D600E00276 /* LZHeartRataWarningViewController.m */,
 			);
@@ -547,10 +459,6 @@
 			children = (
 				60C72C9825B561D600E00276 /* LZTimeFormatViewController.h */,
 				60C72C9425B561D600E00276 /* LZTimeFormatViewController.m */,
-				60C72C9525B561D600E00276 /* LZTimeFormatModel.h */,
-				60C72C9725B561D600E00276 /* LZTimeFormatModel.m */,
-				60C72C9625B561D600E00276 /* LZTimeFormatCell.h */,
-				60C72C9925B561D600E00276 /* LZTimeFormatCell.m */,
 			);
 			path = timeFormat;
 			sourceTree = "<group>";
@@ -567,12 +475,8 @@
 		60C72C9D25B561D600E00276 /* wearingHabits */ = {
 			isa = PBXGroup;
 			children = (
-				60C72C9E25B561D600E00276 /* LZWearingHabitsModel.h */,
-				60C72CA125B561D600E00276 /* LZWearingHabitsModel.m */,
 				60C72CA325B561D600E00276 /* LZWearingHabitsViewController.h */,
 				60C72C9F25B561D600E00276 /* LZWearingHabitsViewController.m */,
-				60C72CA025B561D600E00276 /* LZWearingHabitsCell.h */,
-				60C72CA225B561D600E00276 /* LZWearingHabitsCell.m */,
 			);
 			path = wearingHabits;
 			sourceTree = "<group>";
@@ -582,10 +486,6 @@
 			children = (
 				60C72CA825B561D600E00276 /* LZGoalSetViewController.h */,
 				60C72CA525B561D600E00276 /* LZGoalSetViewController.m */,
-				60C72CAA25B561D600E00276 /* LZGoalSetModel.h */,
-				60C72CA625B561D600E00276 /* LZGoalSetModel.m */,
-				60C72CA925B561D600E00276 /* LZGoalSettingTableViewCell.h */,
-				60C72CA725B561D600E00276 /* LZGoalSettingTableViewCell.m */,
 			);
 			path = goalSetting;
 			sourceTree = "<group>";
@@ -937,22 +837,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				60C72D2A25B561D700E00276 /* LZPickerAnimator.m in Sources */,
-				60C72D1C25B561D700E00276 /* LZTimeFormatCell.m in Sources */,
 				60C72D2525B561D700E00276 /* LZSetPopUpTableViewCell.m in Sources */,
-				60C72D1B25B561D700E00276 /* LZTimeFormatModel.m in Sources */,
 				60C72D1025B561D700E00276 /* LZEventToRemindViewController.m in Sources */,
 				6017545025B70B9E00AC1695 /* LZSwimingViewController.m in Sources */,
 				60C72D2D25B561D700E00276 /* LSRandomCodeInputView.m in Sources */,
-				60C72D2225B561D700E00276 /* LZGoalSetModel.m in Sources */,
 				60C72CFD25B561D700E00276 /* MBProgressHUD.m in Sources */,
 				60C72DBA25B5BA1800E00276 /* LZA5SettingEventRemindData+YYModel.m in Sources */,
-				60C72D0425B561D700E00276 /* LZScreenOrientationCellModel.m in Sources */,
 				60C72D2925B561D700E00276 /* LSWButton.m in Sources */,
-				60C72D1825B561D700E00276 /* LZHeartRateWarningCell.m in Sources */,
 				60C72D1725B561D700E00276 /* LZHeartRataWarningViewController.m in Sources */,
-				60C72D1925B561D700E00276 /* LZHearRateWarningCellModel.m in Sources */,
-				60C72D1125B561D700E00276 /* LZAddEventToRemindCell.m in Sources */,
-				60C72D0725B561D700E00276 /* LZScreenContentModel.m in Sources */,
 				60C72D1A25B561D700E00276 /* LZTimeFormatViewController.m in Sources */,
 				60C72D0D25B561D700E00276 /* LZMessageToRemindViewController.m in Sources */,
 				60C72D3325B561D700E00276 /* LZSettingTableViewCell.m in Sources */,
@@ -961,49 +853,37 @@
 				60C72D3525B561D700E00276 /* LSWEnterRandomCodeView.m in Sources */,
 				60C72C2C25B55F9B00E00276 /* AppDelegate.m in Sources */,
 				60C72D0825B561D700E00276 /* LZDialSetViewController.m in Sources */,
-				60C72D1625B561D700E00276 /* LZNightModelCellModel.m in Sources */,
 				6017546125B718B600AC1695 /* LZA5SettingWeatherData+YYModel.m in Sources */,
-				60C72D2325B561D700E00276 /* LZGoalSettingTableViewCell.m in Sources */,
 				60C72CFC25B561D700E00276 /* LZDeviceManagerViewController.m in Sources */,
-				60C72D0525B561D700E00276 /* LZScreenContentCell.m in Sources */,
 				60C72D0A25B561D700E00276 /* LZDialSetCollectionViewCell.m in Sources */,
 				60C72D2B25B561D700E00276 /* LZSetPickerViewController.m in Sources */,
 				60C72D3125B561D700E00276 /* LZBraceletInfoViewController.m in Sources */,
 				60C72D1525B561D700E00276 /* LZNightModeViewController.m in Sources */,
 				60C72D3425B561D700E00276 /* LZSearchBindContainerViewController.m in Sources */,
 				60C72D6225B5658A00E00276 /* LZViewController.m in Sources */,
-				60C72D0C25B561D700E00276 /* LZMessageToRemindCell.m in Sources */,
-				60C72D0B25B561D700E00276 /* LZMessageToRemindCellModel.m in Sources */,
 				60C72D3E25B561D700E00276 /* LSWMineBraceletTableViewCell.m in Sources */,
 				60C72D0225B561D700E00276 /* LZScreenOrientationViewController.m in Sources */,
 				60C72D2725B561D700E00276 /* LSWGradientView.m in Sources */,
 				60C72D1D25B561D700E00276 /* LZSportTypeViewController.m in Sources */,
-				60C72D2025B561D700E00276 /* LZWearingHabitsCell.m in Sources */,
 				60C72D1225B561D700E00276 /* LZAddEventToRemindContentTableViewCell.m in Sources */,
 				60C72D3825B561D700E00276 /* LSWBluetoothSearchingDeviceView.m in Sources */,
 				60C72D2625B561D700E00276 /* LZSetPopUpViewController.m in Sources */,
 				60C72D2125B561D700E00276 /* LZGoalSetViewController.m in Sources */,
-				60C72D0125B561D700E00276 /* LZDndModelCell.m in Sources */,
 				6017543725B6D90D00AC1695 /* LZBaseSettingViewController.m in Sources */,
 				60C72D0E25B561D700E00276 /* LZAddEventToRemindViewController.m in Sources */,
 				60C72D1325B561D700E00276 /* LZEventToRemindTableViewCell.m in Sources */,
-				60C72D0325B561D700E00276 /* LZScreenOrientationCell.m in Sources */,
 				60C72D3625B561D700E00276 /* LSWBindingDeviceView.m in Sources */,
 				60C72D3225B561D700E00276 /* LZSettingCellModel.m in Sources */,
 				60C72D3C25B561D700E00276 /* LZChooseBindDeviceViewController.m in Sources */,
 				60C72D2825B561D700E00276 /* LZBaseSetCellModel.m in Sources */,
 				60C72D3025B561D700E00276 /* LZDeviceSettingDBUtil.m in Sources */,
-				60C72D1425B561D700E00276 /* LZNightModelCell.m in Sources */,
 				60C72C3D25B55F9C00E00276 /* main.m in Sources */,
 				60C72CFE25B561D700E00276 /* UIViewController+MBProgressHUD.m in Sources */,
-				60C72D1F25B561D700E00276 /* LZWearingHabitsModel.m in Sources */,
-				60C72CFF25B561D700E00276 /* LZDndModelCellModel.m in Sources */,
 				6017545D25B70BCA00AC1695 /* LZWeatherViewController.m in Sources */,
 				60C72D0925B561D700E00276 /* LZDialSetModel.m in Sources */,
 				60C72D3925B561D700E00276 /* LSCircleWaveAnimationView.m in Sources */,
 				60C72D2C25B561D700E00276 /* LZBaseSetTableViewCell.m in Sources */,
 				60C72D3A25B561D700E00276 /* LZSearchDeviceViewController.m in Sources */,
-				60C72D0F25B561D700E00276 /* LZAddEventToRemindCellModel.m in Sources */,
 				60C72D3B25B561D700E00276 /* LSWBSBSelectDeviceView.m in Sources */,
 				6017543225B6CA9600AC1695 /* LZLanguageSettingViewController.m in Sources */,
 				60C72D3D25B561D700E00276 /* LSWMyDeviceListViewController.m in Sources */,

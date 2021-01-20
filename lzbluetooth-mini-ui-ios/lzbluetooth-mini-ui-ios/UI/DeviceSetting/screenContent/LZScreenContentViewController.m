@@ -20,6 +20,8 @@
 
 @property (nonatomic, strong) LZA5SettingCustomScreenData *data;
 
+@property (nonatomic, strong) NSMutableArray <NSMutableArray *> *dataSource;
+
 @end
 
 @implementation LZScreenContentViewController
@@ -34,9 +36,6 @@
     self.tableView.allowsSelectionDuringEditing = YES;
     self.tableView.allowsMultipleSelectionDuringEditing = YES;
     [self.tableView setEditing:YES animated:YES];
-    
-    [self.dataSource addObject:[NSMutableArray array]];
-    [self.dataSource addObject:[NSMutableArray array]];
     
     [self updateUI];
 }
@@ -136,6 +135,14 @@
 
 
 #pragma mark - UITableViewDataSource
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return self.dataSource.count;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return [self.dataSource[section] count];
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     LZBaseSetTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass(LZBaseSetTableViewCell.class) forIndexPath:indexPath];
     NSNumber *pageTypeNum = self.dataSource[indexPath.section][indexPath.row];
@@ -261,6 +268,15 @@
         default:
             break;
     }
+}
+
+- (NSMutableArray<NSMutableArray *> *)dataSource {
+    if (!_dataSource) {
+        _dataSource = [NSMutableArray array];
+        [_dataSource addObject:[NSMutableArray array]];
+        [_dataSource addObject:[NSMutableArray array]];
+    }
+    return _dataSource;
 }
 
 @end

@@ -7,39 +7,32 @@
 
 #import "LZScreenOrientationViewController.h"
 #import <Masonry/Masonry.h>
-#import "LZScreenOrientationCellModel.h"
-#import "LZScreenOrientationCell.h"
 
 @interface LZScreenOrientationViewController () <UITableViewDelegate, UITableViewDataSource>
-@property (nonatomic, strong) UITableView *tableView;
-@property (nonatomic, strong) NSArray <LZScreenOrientationCellModel *> *modelAry;
+
+@property (nonatomic, strong) NSArray <LZBaseSetCellModel *> *modelAry;
 @property (nonatomic, strong) LZA5SettingScreenDirectionData *data;
 
 @end
 
 @implementation LZScreenOrientationViewController
 
+@dynamic data;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"屏幕方向";
     self.view.backgroundColor = [UIColor whiteColor];
-    [self createUI];
-    self.data = [self settingData];
+    [self updateUI];
+}
+
+- (void)updateUI {
+    [self.tableView reloadData];
     NSInteger index = self.data.screenDirection == LZA5ScreenDirectionH ? 0 : 1;
     [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:index inSection:0] animated:YES scrollPosition:UITableViewScrollPositionNone];
 }
 
-- (void)createUI {
-    [self.view addSubview:self.tableView];
-    [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.mas_equalTo(self.view);
-    }];
-}
-
 #pragma mark - UITableViewDelegate
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 50;
-}
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     self.data.screenDirection = indexPath.row == 0 ? LZA5ScreenDirectionH : LZA5ScreenDirectionV;
@@ -53,26 +46,21 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    LZScreenOrientationCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([LZScreenOrientationCell class]) forIndexPath:indexPath];
+    LZBaseSetTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([LZBaseSetTableViewCell class]) forIndexPath:indexPath];
     [cell updateCellWithModel:self.modelAry[indexPath.row]];
     return cell;
 }
 
 #pragma mark - getter
-- (UITableView *)tableView {
-    if (!_tableView) {
-        _tableView = [[UITableView alloc] init];
-        _tableView.delegate = self;
-        _tableView.dataSource = self;
-        _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-        [_tableView registerClass:[LZScreenOrientationCell class] forCellReuseIdentifier:NSStringFromClass([LZScreenOrientationCell class])];
-    }
-    return _tableView;
-}
-
-- (NSArray<LZScreenOrientationCellModel *> *)modelAry {
+- (NSArray<LZBaseSetCellModel *> *)modelAry {
     if (!_modelAry) {
-        _modelAry = [LZScreenOrientationCellModel cellModelList];
+        NSMutableArray *mAry = [[NSMutableArray alloc] init];
+        LZBaseSetCellModel *model1 = [[LZBaseSetCellModel alloc] initModelWithSetType:0 cellStyle:DEVICESETCELLSTYLE_RIGHT_SELECTIMAGE titleStr:@"水平" subStr:nil];
+        [mAry addObject:model1];
+        
+        LZBaseSetCellModel *model2 = [[LZBaseSetCellModel alloc] initModelWithSetType:1 cellStyle:DEVICESETCELLSTYLE_RIGHT_SELECTIMAGE titleStr:@"垂直" subStr:nil];
+        [mAry addObject:model2];
+        _modelAry = mAry;
     }
     return _modelAry;
 }
