@@ -47,10 +47,11 @@
     [selected removeAllObjects];
     [unselected removeAllObjects];
     
+    if (self.data.listPage) {
+        [selected addObjectsFromArray:self.data.listPage];
+    }
     [self.allScreenTypes enumerateObjectsUsingBlock:^(NSNumber * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        if ([self.data.listPage containsObject:obj]) {
-            [selected addObject:obj];
-        } else {
+        if (![self.data.listPage containsObject:obj]) {
             [unselected addObject:obj];
         }
     }];
@@ -146,15 +147,8 @@
 
 #pragma mark - private Methods
 - (void)updateCellSelect {
-    NSArray <NSIndexPath *> *indexPaths = self.tableView.indexPathsForSelectedRows;
-    
-    NSMutableArray *array = [NSMutableArray array];
-    for (NSIndexPath *indexPath in indexPaths) {
-        NSNumber *screenType = self.dataSource[indexPath.section][indexPath.row];
-        [array addObject:screenType];
-    }
-    
-    self.data.listPage = array;
+    NSMutableArray *array = self.dataSource[0];
+    self.data.listPage = array.copy;
     [self sendData:self.data];
 }
 
