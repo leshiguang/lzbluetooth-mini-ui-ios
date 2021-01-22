@@ -55,22 +55,6 @@ typedef enum : NSUInteger {
     
     [self.tableView registerClass:[LZAddEventToRemindContentTableViewCell class] forCellReuseIdentifier:NSStringFromClass(LZAddEventToRemindContentTableViewCell.class)];
     
-    if (!self.contentData) {
-        self.isCreate = YES;
-        LZA5SettingEventRemindContentData *contentData = [[LZA5SettingEventRemindContentData alloc] init];
-        contentData.des = @"闹钟1";
-        contentData.index = self.data.contentDatas.lastObject.index + 1;
-        contentData.enable = YES;
-        contentData.hour = 8;
-        contentData.minute = 0;
-        contentData.repeatFlag = LZA5RepeatTimeFlagAll;
-        contentData.vibrationType = LZA5VibrationTypeAlways;
-        contentData.vibrationTime = 60;
-        contentData.vibrationLevel1 = 9;
-        contentData.vibrationLevel2 = 9;
-        self.contentData = contentData;
-    }
-    
     [self updateUI];
 }
 
@@ -248,27 +232,34 @@ typedef enum : NSUInteger {
 
 #pragma mark - evnet
 - (void)clickSureBtn:(UIButton *)btn {
-    if (self.isCreate) {
-        NSMutableArray *array = [NSMutableArray array];
-        if (self.data.contentDatas) {
-            [array addObjectsFromArray:self.data.contentDatas];
-        }
-        [array addObject:self.contentData];
-        self.data.contentDatas = array;
-        [self sendData:self.data];
-    } else {
-        
-        NSInteger index = [self.data.contentDatas indexOfObject:self.contentData];
-        NSAssert(index != NSNotFound, @"出现了问题");
-        NSMutableArray *arr = self.data.contentDatas.mutableCopy;
-        [arr replaceObjectAtIndex:index withObject:self.contentData];
-        self.data.contentDatas = arr.copy;
-        [self sendData:self.data];
-    }
+    /// 目前闹钟只支持发送一个闹钟
+    self.data.contentDatas = @[self.contentData];
+    [self sendData:self.data];
+//    if (self.isCreate) {
+//        NSMutableArray *array = [NSMutableArray array];
+//        if (self.data.contentDatas) {
+//            [array addObjectsFromArray:self.data.contentDatas];
+//        }
+//        [array addObject:self.contentData];
+//        self.data.contentDatas = array;
+//        [self sendData:self.data];
+//    } else {
+//
+//        NSInteger index = [self.data.contentDatas indexOfObject:self.contentData];
+//        NSAssert(index != NSNotFound, @"出现了问题");
+//        NSMutableArray *arr = self.data.contentDatas.mutableCopy;
+//        [arr replaceObjectAtIndex:index withObject:self.contentData];
+//        self.data.contentDatas = arr.copy;
+//        [self sendData:self.data];
+//    }
 }
 
 #pragma mark - getter
 - (NSString *)repeatTimeStringWithFlag:(LZA5RepeatTimeFlag)flag {
+    if (flag == LZA5RepeatTimeFlagNon) {
+        return @"不重复";
+    }
+    
     if (flag == LZA5RepeatTimeFlagAll) {
         return @"每天";
     }

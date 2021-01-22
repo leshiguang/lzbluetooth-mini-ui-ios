@@ -44,15 +44,20 @@
     }];
 }
 
+
 - (void)saveSettingData:(__kindof LZA5SettingData *)settingData {
     NSString *mac = self.device.mac;
     
-    /// 如果是目标 或者call
-    if (settingData.settingType == LZBraceletSettingTypeCallReminder) {
-        LZA5SettingCallReminderData *data = settingData;
-        [LZDeviceSettingDBUtil saveSettingData:settingData subType:data.reminderType withMacString:mac];
-    } else {
-        [LZDeviceSettingDBUtil saveSettingData:settingData withMacString:mac];
+    switch (settingData.settingType) {
+        case LZBraceletSettingTypeMsgReminder:
+            [LZDeviceSettingDBUtil setCallReminder:settingData macString:mac];
+            break;
+        case LZBraceletSettingTypeEventReminder:
+            [LZDeviceSettingDBUtil setEventReminder:settingData macString:mac];
+            break;
+        default:
+            [LZDeviceSettingDBUtil saveSettingDatas:settingData withMacString:mac];
+            break;
     }
     
 }
@@ -62,23 +67,17 @@
 }
 
 - (__kindof LZA5SettingData *)settingData {
-    id data = [LZDeviceSettingDBUtil getConfigWithMacString:self.device.mac settingType:self.settingType];
+    id data = [LZDeviceSettingDBUtil getConfigsWithMacString:self.device.mac settingType:self.settingType];
     if (data == nil) {
-        NSString *clsName = lz_braceletSettingClass(self.settingType);
-        return [[NSClassFromString(clsName) alloc] init];
+        return [self defaultData];
     } else {
         return data;
     }
 }
 
-- (__kindof LZA5SettingData *)settingDataWithSubType:(NSInteger)subType {
-    id data = [LZDeviceSettingDBUtil getConfigWithMacString:self.device.mac settingType:self.settingType subType:subType];
-    if (data == nil) {
-        NSString *clsName = lz_braceletSettingClass(self.settingType);
-        return [[NSClassFromString(clsName) alloc] init];
-    } else {
-        return data;
-    }
+- (nullable NSArray <__kindof LZA5SettingData *> *)settingDatas {
+    NSArray *datas = [LZDeviceSettingDBUtil getConfigsWithMacString:self.device.mac settingType:self.settingType];
+    return datas;
 }
 
 - (NSArray<NSString *> *)hours {
@@ -101,6 +100,11 @@
         _minutes = array;
     }
     return _minutes;
+}
+
+- (id)defaultData {
+    NSString *clsName = lz_braceletSettingClass(self.settingType);
+    return [[NSClassFromString(clsName) alloc] init];
 }
 
 

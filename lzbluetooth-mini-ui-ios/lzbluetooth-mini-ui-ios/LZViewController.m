@@ -26,6 +26,8 @@
     self.protocolList = @[
         @"设备列表",
         @"搜索绑定",
+        @"清除所有设备",
+        @"销毁设备管理器",
     ];
     
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
@@ -65,6 +67,16 @@
         }
         case 1: {
             vc = [[LZSearchBindContainerViewController alloc] init];
+            break;
+        }
+        case 2: {
+            id<LZDeviceManagerProtocol> deviceManager = [LZBluetooth getDeviceManagerWithDeviceType:LZDeviceTypeBracelet];
+            [deviceManager deleteAll];
+            break;
+        }
+        case 3: {
+            [LZBluetooth destroy];
+            break;
         }
         default:
             break;

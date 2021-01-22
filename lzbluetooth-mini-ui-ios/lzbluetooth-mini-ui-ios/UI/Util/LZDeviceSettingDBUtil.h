@@ -12,32 +12,22 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface LZDeviceSettingDBUtil : NSObject
 
-/// 获取设置项所对应的配置，如果没有设置过，则为默认
-/// @param macString 设备的Mac地址
-/// @param settingType 设置类型
-/// @return 设置项model
-+ (nullable id<LZDeviceSettingProtocol>)getConfigWithMacString:(NSString *)macString
-                                          settingType:(LZDeviceSettingType)settingType;
 
-/// 存储设备信息
-/// @param settingData 设置信息
+/// 获取设置
 /// @param macString Mac地址
-+ (void)saveSettingData:(id<LZDeviceSettingProtocol>)settingData withMacString:(NSString *)macString;
+/// @param settingType 类型
++ (nullable id)getConfigsWithMacString:(NSString *)macString settingType:(LZDeviceSettingType)settingType;
 
-/// 存储某个设置信息里面的某个子类别 比如 鼓励目标，事件提醒
-/// @param settingData 设置信息
-/// @param subType 子类别
-/// @param macString mac地址
-+ (void)saveSettingData:(id<LZDeviceSettingProtocol>)settingData subType:(NSInteger)subType withMacString:(NSString *)macString;
+/// 存储设备信息 这里是替换
+/// @param settingDatas 设置信息，可以是数组，不过是数组的时候需要settingType一致
+/// @param macString Mac地址
++ (void)saveSettingDatas:(id)settingDatas withMacString:(NSString *)macString;
 
++ (void)setEventReminder:(LZA5SettingEventRemindData *)data macString:(NSString *)macString;
 
-/// 获取某个设置类别的子类别
-/// @param macString 设备信息
-/// @param settingType 设置类别
-/// @param subType 子类别
-+ (nullable id<LZDeviceSettingProtocol>)getConfigWithMacString:(NSString *)macString
-                                                   settingType:(LZDeviceSettingType)settingType
-                                                       subType:(NSInteger)subType;
++ (void)removeEventReminder:(LZA5SettingEventRemindContentData *)contentData macString:(NSString *)macString;
+
++ (void)setCallReminder:(LZA5SettingMessageReminderData *)data macString:(NSString *)macString;
 
 @end
 

@@ -42,6 +42,10 @@ typedef enum : NSUInteger {
 
 - (void)updateUI {
     
+    if (self.data.targetType == 0) {
+        self.data.targetType = 1;
+    }
+    
     NSMutableArray *mAry = [self.modelAry mutableCopy];
     LZBaseSetCellModel *model1 = mAry[0];
     model1.switchIsOpne = self.data.enable;

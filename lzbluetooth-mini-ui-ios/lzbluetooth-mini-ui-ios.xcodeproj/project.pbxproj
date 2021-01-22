@@ -51,7 +51,6 @@
 		60C72D2D25B561D700E00276 /* LSRandomCodeInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C72CC125B561D700E00276 /* LSRandomCodeInputView.m */; };
 		60C72D3025B561D700E00276 /* LZDeviceSettingDBUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C72CCA25B561D700E00276 /* LZDeviceSettingDBUtil.m */; };
 		60C72D3125B561D700E00276 /* LZBraceletInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C72CCD25B561D700E00276 /* LZBraceletInfoViewController.m */; };
-		60C72D3225B561D700E00276 /* LZSettingCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C72CD025B561D700E00276 /* LZSettingCellModel.m */; };
 		60C72D3325B561D700E00276 /* LZSettingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C72CD425B561D700E00276 /* LZSettingTableViewCell.m */; };
 		60C72D3425B561D700E00276 /* LZSearchBindContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C72CD725B561D700E00276 /* LZSearchBindContainerViewController.m */; };
 		60C72D3525B561D700E00276 /* LSWEnterRandomCodeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C72CDA25B561D700E00276 /* LSWEnterRandomCodeView.m */; };
@@ -159,8 +158,6 @@
 		60C72CCA25B561D700E00276 /* LZDeviceSettingDBUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZDeviceSettingDBUtil.m; sourceTree = "<group>"; };
 		60C72CCD25B561D700E00276 /* LZBraceletInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZBraceletInfoViewController.m; sourceTree = "<group>"; };
 		60C72CCE25B561D700E00276 /* LZBraceletInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZBraceletInfoViewController.h; sourceTree = "<group>"; };
-		60C72CD025B561D700E00276 /* LZSettingCellModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZSettingCellModel.m; sourceTree = "<group>"; };
-		60C72CD125B561D700E00276 /* LZSettingCellModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZSettingCellModel.h; sourceTree = "<group>"; };
 		60C72CD325B561D700E00276 /* LZSettingTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZSettingTableViewCell.h; sourceTree = "<group>"; };
 		60C72CD425B561D700E00276 /* LZSettingTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZSettingTableViewCell.m; sourceTree = "<group>"; };
 		60C72CD725B561D700E00276 /* LZSearchBindContainerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZSearchBindContainerViewController.m; sourceTree = "<group>"; };
@@ -564,8 +561,6 @@
 		60C72CCF25B561D700E00276 /* model */ = {
 			isa = PBXGroup;
 			children = (
-				60C72CD125B561D700E00276 /* LZSettingCellModel.h */,
-				60C72CD025B561D700E00276 /* LZSettingCellModel.m */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -873,7 +868,6 @@
 				60C72D0E25B561D700E00276 /* LZAddEventToRemindViewController.m in Sources */,
 				60C72D1325B561D700E00276 /* LZEventToRemindTableViewCell.m in Sources */,
 				60C72D3625B561D700E00276 /* LSWBindingDeviceView.m in Sources */,
-				60C72D3225B561D700E00276 /* LZSettingCellModel.m in Sources */,
 				60C72D3C25B561D700E00276 /* LZChooseBindDeviceViewController.m in Sources */,
 				60C72D2825B561D700E00276 /* LZBaseSetCellModel.m in Sources */,
 				60C72D3025B561D700E00276 /* LZDeviceSettingDBUtil.m in Sources */,

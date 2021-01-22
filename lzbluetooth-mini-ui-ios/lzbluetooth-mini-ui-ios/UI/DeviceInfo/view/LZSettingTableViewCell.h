@@ -6,14 +6,13 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "LZSettingCellModel.h"
 #import "LZBaseSetTableViewCell.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @protocol LZSettingTableViewCellDelegate <LZBaseSetTableViewCellDelegate>
 
-- (void)unbindClick:(LZSettingCellModel *)cellModel;
+- (void)unbindClick:(LZBaseSetCellModel *)cellModel;
 
 @end
 

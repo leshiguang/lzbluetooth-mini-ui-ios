@@ -26,6 +26,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) UIButton *unbindButton;
 @property (nonatomic, strong) UIImageView *rightSelectImageView;
 
+@property (nonatomic, strong) LZBaseSetCellModel *cellModel;
+
 
 @property (nonatomic, weak) id <LZBaseSetTableViewCellDelegate> delegate;
 

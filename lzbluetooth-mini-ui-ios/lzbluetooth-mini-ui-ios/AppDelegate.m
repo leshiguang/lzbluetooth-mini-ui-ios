@@ -43,7 +43,7 @@
 
 - (void)deviceDidUpdateBatteryStatus:(id<LZDeviceProtocol>)device {
     NSLog(@"收到电量 %@", device.batteryInfo);
-    NSLog(@"deviceId %@ sn %@", device.deviceId, device.sn);
+    NSLog(@"deviceId %@ sn %@ %@", device.deviceId, device.sn, device.deviceInfo);
 }
 
 @end

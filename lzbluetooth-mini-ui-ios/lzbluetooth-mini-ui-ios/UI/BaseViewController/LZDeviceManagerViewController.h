@@ -29,7 +29,11 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)sendData:(__kindof LZA5SettingData *)settingData;
 
 - (__kindof LZA5SettingData *)settingData;
-- (__kindof LZA5SettingData *)settingDataWithSubType:(NSInteger)subType;
+
+/// 根据当前的设置类型获取设置列表
+- (nullable NSArray <__kindof LZA5SettingData *> *)settingDatas;
+
+- (id)defaultData;
 
 @end
 

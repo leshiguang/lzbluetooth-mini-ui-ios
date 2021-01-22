@@ -42,7 +42,6 @@ typedef NS_ENUM(NSUInteger, LSDeviceListSection) {
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.automaticallyAdjustsScrollViewInsets = YES;
     self.view.backgroundColor = [UIColor whiteColor];
     
     [self createUI];

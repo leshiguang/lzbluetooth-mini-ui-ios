@@ -6,13 +6,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "LZBaseSetTableViewCell.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface LZEventToRemindTableViewCell : UITableViewCell
-@property (nonatomic,strong) UILabel *timeLabel;
-@property (nonatomic,strong) UILabel *eventLabel;
-@property (nonatomic,strong) UIImageView *delectImageView;
+@interface LZEventToRemindTableViewCell : LZBaseSetTableViewCell
 
 @end
 

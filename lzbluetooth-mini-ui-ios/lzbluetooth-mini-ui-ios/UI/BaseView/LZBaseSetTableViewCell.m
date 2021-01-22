@@ -11,8 +11,6 @@
 
 @interface LZBaseSetTableViewCell ()
 
-@property (nonatomic, strong) LZBaseSetCellModel *cellModel;
-
 @end
 
 @implementation LZBaseSetTableViewCell
@@ -115,8 +113,17 @@
         case DEVICESETCELLSTYLE_RIGHT_SWITCH: {
             self.titleLabel.hidden = NO;
             self.titleLabel.text = cellModle.titleStr;
+            self.subContentLabel.text = cellModle.subStr;
+            self.subContentLabel.hidden = NO;
+            self.subContentLabel.textAlignment = NSTextAlignmentLeft;
             self.switchControl.hidden = NO;
             [self.switchControl setOn:cellModle.switchIsOpne];
+            
+            [self.subContentLabel mas_updateConstraints:^(MASConstraintMaker *make) {
+                make.leading.equalTo(self.titleLabel.mas_trailing).with.offset(20);
+                make.trailing.equalTo(self.contentView.mas_trailing).with.offset(-15);
+                make.centerY.equalTo(self.contentView.mas_centerY);
+            }];
         }
             break;
         case DEVICESETCELLSTYLE_RIGHT_SUBTITLE: {
@@ -170,6 +177,8 @@
         _titleLabel.font = [UIFont systemFontOfSize:16];
         _titleLabel.textColor = [UIColor blackColor];
         _titleLabel.textAlignment = NSTextAlignmentLeft;
+        
+        [_titleLabel setContentHuggingPriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisHorizontal];
     }
     return _titleLabel;
 }
@@ -182,6 +191,8 @@
         _subContentLabel.textColor = UIColorFromHex(0xB6B6B6);
         _subContentLabel.textAlignment = NSTextAlignmentRight;
         _subContentLabel.hidden = YES;
+        
+        [_titleLabel setContentHuggingPriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisHorizontal];
     }
     return _subContentLabel;
 }
