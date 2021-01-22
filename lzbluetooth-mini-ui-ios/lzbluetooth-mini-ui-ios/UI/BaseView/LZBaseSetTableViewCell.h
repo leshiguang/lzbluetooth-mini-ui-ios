@@ -29,7 +29,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) LZBaseSetCellModel *cellModel;
 
 
-@property (nonatomic, weak) id <LZBaseSetTableViewCellDelegate> delegate;
+@property (nonatomic, weak, nullable) id <LZBaseSetTableViewCellDelegate> delegate;
 
 - (void)createUI;
 - (void)updateCellWithModel:(__kindof LZBaseSetCellModel *)cellModle;

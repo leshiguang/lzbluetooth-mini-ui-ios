@@ -98,7 +98,7 @@
 
 #pragma mark - 筛选设备
 - (void)gatherSearchedRawDeviceInfo:(LZBaseDevice *)rawDeviceInfo {
-    NSLog(@"-----%@", rawDeviceInfo);
+
     
     self.rawDeviceInfoDict[rawDeviceInfo.mac] = rawDeviceInfo;
 }
@@ -117,7 +117,8 @@
         }
         return NSOrderedDescending;
     }];
-    NSLog(@"%@", rawDeviceInfos);
+    
+    
     return rawDeviceInfos;
 }
 

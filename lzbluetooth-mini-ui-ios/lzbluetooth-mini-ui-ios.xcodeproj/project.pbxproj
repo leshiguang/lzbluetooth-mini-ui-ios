@@ -66,6 +66,7 @@
 		60C72D6225B5658A00E00276 /* LZViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C72D6125B5658A00E00276 /* LZViewController.m */; };
 		60C72D7C25B5820500E00276 /* LZHRReminderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C72D7B25B5820500E00276 /* LZHRReminderViewController.m */; };
 		60C72DBA25B5BA1800E00276 /* LZA5SettingEventRemindData+YYModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C72DB925B5BA1800E00276 /* LZA5SettingEventRemindData+YYModel.m */; };
+		60DC7BD725BAC2D8000E50EC /* LZInputStringTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 60DC7BD625BAC2D8000E50EC /* LZInputStringTableViewCell.m */; };
 		72498FC97642C58CEA56EE92 /* Pods_lzbluetooth_mini_ui_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 972BCE45267335CFDDEDEB02 /* Pods_lzbluetooth_mini_ui_ios.framework */; };
 /* End PBXBuildFile section */
 
@@ -191,6 +192,8 @@
 		60C72D7B25B5820500E00276 /* LZHRReminderViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LZHRReminderViewController.m; sourceTree = "<group>"; };
 		60C72DB825B5BA1800E00276 /* LZA5SettingEventRemindData+YYModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LZA5SettingEventRemindData+YYModel.h"; sourceTree = "<group>"; };
 		60C72DB925B5BA1800E00276 /* LZA5SettingEventRemindData+YYModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "LZA5SettingEventRemindData+YYModel.m"; sourceTree = "<group>"; };
+		60DC7BD525BAC2D8000E50EC /* LZInputStringTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LZInputStringTableViewCell.h; sourceTree = "<group>"; };
+		60DC7BD625BAC2D8000E50EC /* LZInputStringTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LZInputStringTableViewCell.m; sourceTree = "<group>"; };
 		972BCE45267335CFDDEDEB02 /* Pods_lzbluetooth_mini_ui_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_lzbluetooth_mini_ui_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -499,6 +502,8 @@
 				60C72CB825B561D600E00276 /* LZBaseSetCellModel.m */,
 				60C72CB625B561D600E00276 /* LZBaseSetTableViewCell.h */,
 				60C72CC025B561D700E00276 /* LZBaseSetTableViewCell.m */,
+				60DC7BD525BAC2D8000E50EC /* LZInputStringTableViewCell.h */,
+				60DC7BD625BAC2D8000E50EC /* LZInputStringTableViewCell.m */,
 				60C72CB725B561D600E00276 /* LSRandomCodeInputView.h */,
 				60C72CC125B561D700E00276 /* LSRandomCodeInputView.m */,
 				60C72CBB25B561D700E00276 /* pickerControl */,
@@ -882,6 +887,7 @@
 				6017543225B6CA9600AC1695 /* LZLanguageSettingViewController.m in Sources */,
 				60C72D3D25B561D700E00276 /* LSWMyDeviceListViewController.m in Sources */,
 				60C72D0625B561D700E00276 /* LZScreenContentViewController.m in Sources */,
+				60DC7BD725BAC2D8000E50EC /* LZInputStringTableViewCell.m in Sources */,
 				60C72D7C25B5820500E00276 /* LZHRReminderViewController.m in Sources */,
 				6017545725B70BB400AC1695 /* LZUnitViewController.m in Sources */,
 				60C72D0025B561D700E00276 /* LZDndModeViewController.m in Sources */,
