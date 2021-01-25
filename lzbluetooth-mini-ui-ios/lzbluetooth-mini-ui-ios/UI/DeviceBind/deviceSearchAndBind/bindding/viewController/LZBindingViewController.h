@@ -16,6 +16,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 @interface LZBindingViewController : LZDeviceManagerViewController
+
+@property (nonatomic, assign) BOOL needToStarting;
 @property (nonatomic, weak) id <LZBindingDelegate> delegate;
 @end
 

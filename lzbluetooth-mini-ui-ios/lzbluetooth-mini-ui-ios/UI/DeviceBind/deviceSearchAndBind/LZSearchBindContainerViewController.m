@@ -52,17 +52,20 @@
 
 #pragma mark - LZSearchDeviceDelegate
 - (void)searchDevice:(NSArray<LZBaseDevice *> *)deviceInfos {
-    if (deviceInfos.count > 1) {
+    if (deviceInfos.count > 1 && NO) {
         self.chooseBindVC.rawDeviceInfos = deviceInfos;
         [self replaceController:self.currentVC newController:self.chooseBindVC];
     } else {
-        
+        self.bindingVC.device = deviceInfos.firstObject;
+        self.bindingVC.needToStarting = NO;
+        [self replaceController:self.currentVC newController:self.bindingVC];
     }
 }
 
 #pragma mark - LZChooseBindDeviceDelegate
 - (void)chooseDevice:(LZBaseDevice *)deviceInfo {
     self.bindingVC.device = deviceInfo;
+    self.bindingVC.needToStarting = YES;
     [self replaceController:self.currentVC newController:self.bindingVC];
 }
 
@@ -73,6 +76,7 @@
     [self addChildViewController:self.searchVC];
     [self.view addSubview:self.searchVC.view];
     self.currentVC = self.searchVC;
+    
 }
 
 

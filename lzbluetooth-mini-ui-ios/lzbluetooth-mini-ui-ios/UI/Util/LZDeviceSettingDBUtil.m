@@ -167,6 +167,31 @@
     }
 }
 
++ (NSString *)titleWithSettingType:(LZDeviceSettingType)settingType {
+    switch (settingType) {
+        case LZBraceletSettingTypeDial: return @"表盘样式";
+        case LZBraceletSettingTypeTargetEncourage: return @"目标设置";
+        case LZBraceletSettingTypeEventReminder: return @"闹钟";
+        case LZBraceletSettingTypeCustomSportHrReminder: return @"心率预警";
+        case LZBraceletSettingTypeSmartHrDetection: return @"心率监测";
+        case LZBraceletSettingTypeMsgReminder: return @"消息提醒";
+        case LZBraceletSettingTypeNightMode: return @"夜间模式";
+        case LZBraceletSettingTypeNoDisturb: return @"勿扰模式";
+        case LZBraceletSettingTypeScreenDirection: return @"屏幕方向";
+        case LZBraceletSettingTypeTimeMode: return @"时间制式";
+        case LZBraceletSettingTypeWristHabit: return @"佩戴习惯";
+        case LZBraceletSettingTypeCustomScreen: return @"自定义屏幕";
+        case LZBraceletSettingTypeLanguage: return @"语言";
+        case LZBraceletSettingTypeSwiming: return @"游泳";
+        case LZBraceletSettingTypeWeather: return @"天气";
+        case LZBraceletSettingTypeUnit: return @"单位";
+            
+        default:
+            NSAssert(NO, @"未处理类型 %@", @(settingType));
+            break;
+    }
+    return @"";
+}
 
 @end
 

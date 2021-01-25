@@ -13,6 +13,7 @@
 		6017545725B70BB400AC1695 /* LZUnitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6017545625B70BB400AC1695 /* LZUnitViewController.m */; };
 		6017545D25B70BCA00AC1695 /* LZWeatherViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6017545C25B70BCA00AC1695 /* LZWeatherViewController.m */; };
 		6017546125B718B600AC1695 /* LZA5SettingWeatherData+YYModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6017546025B718B600AC1695 /* LZA5SettingWeatherData+YYModel.m */; };
+		609DA7F225BEA51A0051D403 /* LZBaseDeviceInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 609DA7F125BEA51A0051D403 /* LZBaseDeviceInfoViewController.m */; };
 		60C72C2C25B55F9B00E00276 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C72C2B25B55F9B00E00276 /* AppDelegate.m */; };
 		60C72C2F25B55F9B00E00276 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C72C2E25B55F9B00E00276 /* SceneDelegate.m */; };
 		60C72C3525B55F9B00E00276 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60C72C3325B55F9B00E00276 /* Main.storyboard */; };
@@ -85,6 +86,8 @@
 		6017545C25B70BCA00AC1695 /* LZWeatherViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LZWeatherViewController.m; sourceTree = "<group>"; };
 		6017545F25B718B600AC1695 /* LZA5SettingWeatherData+YYModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LZA5SettingWeatherData+YYModel.h"; sourceTree = "<group>"; };
 		6017546025B718B600AC1695 /* LZA5SettingWeatherData+YYModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "LZA5SettingWeatherData+YYModel.m"; sourceTree = "<group>"; };
+		609DA7F025BEA51A0051D403 /* LZBaseDeviceInfoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LZBaseDeviceInfoViewController.h; sourceTree = "<group>"; };
+		609DA7F125BEA51A0051D403 /* LZBaseDeviceInfoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LZBaseDeviceInfoViewController.m; sourceTree = "<group>"; };
 		60C72C2725B55F9B00E00276 /* lzbluetooth-mini-ui-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "lzbluetooth-mini-ui-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		60C72C2A25B55F9B00E00276 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		60C72C2B25B55F9B00E00276 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -559,6 +562,8 @@
 			children = (
 				60C72CCE25B561D700E00276 /* LZBraceletInfoViewController.h */,
 				60C72CCD25B561D700E00276 /* LZBraceletInfoViewController.m */,
+				609DA7F025BEA51A0051D403 /* LZBaseDeviceInfoViewController.h */,
+				609DA7F125BEA51A0051D403 /* LZBaseDeviceInfoViewController.m */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -591,10 +596,10 @@
 		60C72CD625B561D700E00276 /* deviceSearchAndBind */ = {
 			isa = PBXGroup;
 			children = (
+				60C72CEA25B561D700E00276 /* LZSearchBindContainerViewController.h */,
 				60C72CD725B561D700E00276 /* LZSearchBindContainerViewController.m */,
 				60C72CD825B561D700E00276 /* bindding */,
 				60C72CE125B561D700E00276 /* searchDevice */,
-				60C72CEA25B561D700E00276 /* LZSearchBindContainerViewController.h */,
 				60C72CEB25B561D700E00276 /* chooseBindDevice */,
 			);
 			path = deviceSearchAndBind;
@@ -623,8 +628,8 @@
 		60C72CDE25B561D700E00276 /* viewController */ = {
 			isa = PBXGroup;
 			children = (
-				60C72CDF25B561D700E00276 /* LZBindingViewController.m */,
 				60C72CE025B561D700E00276 /* LZBindingViewController.h */,
+				60C72CDF25B561D700E00276 /* LZBindingViewController.m */,
 			);
 			path = viewController;
 			sourceTree = "<group>";
@@ -652,8 +657,8 @@
 		60C72CE725B561D700E00276 /* viewController */ = {
 			isa = PBXGroup;
 			children = (
-				60C72CE825B561D700E00276 /* LZSearchDeviceViewController.m */,
 				60C72CE925B561D700E00276 /* LZSearchDeviceViewController.h */,
+				60C72CE825B561D700E00276 /* LZSearchDeviceViewController.m */,
 			);
 			path = viewController;
 			sourceTree = "<group>";
@@ -688,9 +693,9 @@
 		60C72CF225B561D700E00276 /* bindedDeviceList */ = {
 			isa = PBXGroup;
 			children = (
+				60C72CF725B561D700E00276 /* LSWMyDeviceListViewController.h */,
 				60C72CF325B561D700E00276 /* LSWMyDeviceListViewController.m */,
 				60C72CF425B561D700E00276 /* view */,
-				60C72CF725B561D700E00276 /* LSWMyDeviceListViewController.h */,
 			);
 			path = bindedDeviceList;
 			sourceTree = "<group>";
@@ -878,6 +883,7 @@
 				60C72D3025B561D700E00276 /* LZDeviceSettingDBUtil.m in Sources */,
 				60C72C3D25B55F9C00E00276 /* main.m in Sources */,
 				60C72CFE25B561D700E00276 /* UIViewController+MBProgressHUD.m in Sources */,
+				609DA7F225BEA51A0051D403 /* LZBaseDeviceInfoViewController.m in Sources */,
 				6017545D25B70BCA00AC1695 /* LZWeatherViewController.m in Sources */,
 				60C72D0925B561D700E00276 /* LZDialSetModel.m in Sources */,
 				60C72D3925B561D700E00276 /* LSCircleWaveAnimationView.m in Sources */,

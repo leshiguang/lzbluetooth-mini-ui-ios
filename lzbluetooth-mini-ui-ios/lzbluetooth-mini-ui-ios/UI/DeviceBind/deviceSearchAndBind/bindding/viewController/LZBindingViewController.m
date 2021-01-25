@@ -49,10 +49,19 @@
 }
 
 - (void)setUpBindingDeviceView{
-    [self.bindingDeviceView changeBindingStateTo:LSWDeviceBindingStateBinding];
-    
-    [self.bindingDeviceView setDeviceName:self.device.name imageUrl:nil placeHolderImage:nil];
-    [self startPairDeviceInfo:self.device];
+    /// 有且需要去绑定
+    if (self.device) {
+        if (self.needToStarting) {
+            [self.bindingDeviceView changeBindingStateTo:LSWDeviceBindingStateBinding];
+            [self startPairDeviceInfo:self.device];
+        } else {
+            [self.bindingDeviceView changeBindingStateTo:LSWDeviceBindingStateWaitingBind];
+        }
+        
+        [self.bindingDeviceView setDeviceName:self.device.name imageUrl:nil placeHolderImage:nil];
+    } else {
+        [self.bindingDeviceView changeBindingStateTo:LSWDeviceBindingStateBindFailed];
+    }
 }
 
 
@@ -78,6 +87,12 @@
                 [self.deviceManager confirmSuccess:YES macString:device.mac deviceType:device.deviceType];
                 
                 break;
+            case LZBindStateInputUserNumberAndBindResult:
+                [self.deviceManager inputUserNumber:1 bindResult:1 macString:device.mac deviceType:device.deviceType];
+                break;
+            case LZBindStateUnregister:
+                /// 需要注册
+                break;
             case LZBindStateSuccessful:
                 self.bindedDevice = device;
                 [self _handleBindStatusSuccess];
@@ -98,6 +113,7 @@
     switch (actionType) {
         case LSWBindingViewDeviceTapActionTypeBindNow:{
             if (self.device) {
+                [self.bindingDeviceView changeBindingStateTo:LSWDeviceBindingStateBinding];
                 [self startPairDeviceInfo:self.device];
             }
         }

@@ -29,6 +29,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (void)setCallReminder:(LZA5SettingMessageReminderData *)data macString:(NSString *)macString;
 
+
+/// 设置类型
+/// @param settingType 设置类型
++ (NSString *)titleWithSettingType:(LZDeviceSettingType)settingType;
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -51,7 +51,9 @@
         make.edges.equalTo(self.view);
     }];
     
+    [self.searchingView setNeedsLayout];
     [self.searchingView layoutIfNeeded];
+    
 }
 
 #pragma mark - search
@@ -87,6 +89,7 @@
     } else {
         //没有搜索到任何设备
         [self clearGatheredRawDeviceInfo];
+        
     }
 }
 
@@ -98,8 +101,6 @@
 
 #pragma mark - 筛选设备
 - (void)gatherSearchedRawDeviceInfo:(LZBaseDevice *)rawDeviceInfo {
-
-    
     self.rawDeviceInfoDict[rawDeviceInfo.mac] = rawDeviceInfo;
 }
 
@@ -151,4 +152,7 @@
     }
     return _rawDeviceInfoDict;
 }
+
+
+
 @end
