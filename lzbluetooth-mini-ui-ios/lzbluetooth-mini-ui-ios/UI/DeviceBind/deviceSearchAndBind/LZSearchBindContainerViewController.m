@@ -52,7 +52,7 @@
 
 #pragma mark - LZSearchDeviceDelegate
 - (void)searchDevice:(NSArray<LZBaseDevice *> *)deviceInfos {
-    if (deviceInfos.count > 1 && NO) {
+    if (deviceInfos.count > 1) {
         self.chooseBindVC.rawDeviceInfos = deviceInfos;
         [self replaceController:self.currentVC newController:self.chooseBindVC];
     } else {

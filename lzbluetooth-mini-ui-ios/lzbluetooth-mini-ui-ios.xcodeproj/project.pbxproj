@@ -68,6 +68,7 @@
 		60C72D7C25B5820500E00276 /* LZHRReminderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C72D7B25B5820500E00276 /* LZHRReminderViewController.m */; };
 		60C72DBA25B5BA1800E00276 /* LZA5SettingEventRemindData+YYModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C72DB925B5BA1800E00276 /* LZA5SettingEventRemindData+YYModel.m */; };
 		60DC7BD725BAC2D8000E50EC /* LZInputStringTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 60DC7BD625BAC2D8000E50EC /* LZInputStringTableViewCell.m */; };
+		60E28F8425C192220025B510 /* LZHrSectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60E28F8325C192220025B510 /* LZHrSectionViewController.m */; };
 		72498FC97642C58CEA56EE92 /* Pods_lzbluetooth_mini_ui_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 972BCE45267335CFDDEDEB02 /* Pods_lzbluetooth_mini_ui_ios.framework */; };
 /* End PBXBuildFile section */
 
@@ -197,6 +198,8 @@
 		60C72DB925B5BA1800E00276 /* LZA5SettingEventRemindData+YYModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "LZA5SettingEventRemindData+YYModel.m"; sourceTree = "<group>"; };
 		60DC7BD525BAC2D8000E50EC /* LZInputStringTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LZInputStringTableViewCell.h; sourceTree = "<group>"; };
 		60DC7BD625BAC2D8000E50EC /* LZInputStringTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LZInputStringTableViewCell.m; sourceTree = "<group>"; };
+		60E28F8225C192220025B510 /* LZHrSectionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LZHrSectionViewController.h; sourceTree = "<group>"; };
+		60E28F8325C192220025B510 /* LZHrSectionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LZHrSectionViewController.m; sourceTree = "<group>"; };
 		972BCE45267335CFDDEDEB02 /* Pods_lzbluetooth_mini_ui_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_lzbluetooth_mini_ui_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -351,6 +354,7 @@
 		60C72C5425B561D600E00276 /* DeviceSetting */ = {
 			isa = PBXGroup;
 			children = (
+				60E28F8125C191870025B510 /* HrSection */,
 				6017545A25B70BBD00AC1695 /* Weather */,
 				6017545325B70BA000AC1695 /* Unit */,
 				6017544D25B70B8800AC1695 /* Swiming */,
@@ -517,12 +521,12 @@
 		60C72CAD25B561D600E00276 /* weekPopup */ = {
 			isa = PBXGroup;
 			children = (
-				60C72CAE25B561D600E00276 /* LZSetPopUpAnimator.m */,
-				60C72CAF25B561D600E00276 /* LZSetPopUpTableViewCell.m */,
-				60C72CB025B561D600E00276 /* LZSetPopUpViewController.m */,
 				60C72CB125B561D600E00276 /* LZSetPopUpAnimator.h */,
+				60C72CAE25B561D600E00276 /* LZSetPopUpAnimator.m */,
 				60C72CB225B561D600E00276 /* LZSetPopUpTableViewCell.h */,
+				60C72CAF25B561D600E00276 /* LZSetPopUpTableViewCell.m */,
 				60C72CB325B561D600E00276 /* LZSetPopUpViewController.h */,
+				60C72CB025B561D600E00276 /* LZSetPopUpViewController.m */,
 			);
 			path = weekPopup;
 			sourceTree = "<group>";
@@ -647,9 +651,9 @@
 			isa = PBXGroup;
 			children = (
 				60C72CE325B561D700E00276 /* LSCircleWaveAnimationView.h */,
-				60C72CE425B561D700E00276 /* LSWBluetoothSearchingDeviceView.m */,
-				60C72CE525B561D700E00276 /* LSWBluetoothSearchingDeviceView.h */,
 				60C72CE625B561D700E00276 /* LSCircleWaveAnimationView.m */,
+				60C72CE525B561D700E00276 /* LSWBluetoothSearchingDeviceView.h */,
+				60C72CE425B561D700E00276 /* LSWBluetoothSearchingDeviceView.m */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -726,6 +730,15 @@
 				60C72D7B25B5820500E00276 /* LZHRReminderViewController.m */,
 			);
 			path = HrSmarkReminder;
+			sourceTree = "<group>";
+		};
+		60E28F8125C191870025B510 /* HrSection */ = {
+			isa = PBXGroup;
+			children = (
+				60E28F8225C192220025B510 /* LZHrSectionViewController.h */,
+				60E28F8325C192220025B510 /* LZHrSectionViewController.m */,
+			);
+			path = HrSection;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -872,6 +885,7 @@
 				60C72D1D25B561D700E00276 /* LZSportTypeViewController.m in Sources */,
 				60C72D1225B561D700E00276 /* LZAddEventToRemindContentTableViewCell.m in Sources */,
 				60C72D3825B561D700E00276 /* LSWBluetoothSearchingDeviceView.m in Sources */,
+				60E28F8425C192220025B510 /* LZHrSectionViewController.m in Sources */,
 				60C72D2625B561D700E00276 /* LZSetPopUpViewController.m in Sources */,
 				60C72D2125B561D700E00276 /* LZGoalSetViewController.m in Sources */,
 				6017543725B6D90D00AC1695 /* LZBaseSettingViewController.m in Sources */,
@@ -1044,6 +1058,8 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Q4ULFJ6L7N;
+				EXCLUDED_ARCHS = armv7;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "";
 				INFOPLIST_FILE = "lzbluetooth-mini-ui-ios/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1064,6 +1080,8 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Q4ULFJ6L7N;
+				EXCLUDED_ARCHS = armv7;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "";
 				INFOPLIST_FILE = "lzbluetooth-mini-ui-ios/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (

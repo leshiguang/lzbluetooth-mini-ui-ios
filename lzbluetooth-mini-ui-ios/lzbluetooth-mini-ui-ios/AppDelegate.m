@@ -19,7 +19,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     [LZBluetooth initWithAppId:@"com.leshiguang.saas.rbac.demo.appid"];
-    id<LZDeviceManagerProtocol> deviceManager = [LZBluetooth getDeviceManagerWithDeviceType:LZDeviceTypeScale];
+    id<LZDeviceManagerProtocol> deviceManager = [LZBluetooth getDeviceManagerWithDeviceType:LZDeviceTypeBracelet];
     deviceManager.delegate = self;
     
     LZUserInfoConfig *userConfig = [[LZUserInfoConfig alloc] init];

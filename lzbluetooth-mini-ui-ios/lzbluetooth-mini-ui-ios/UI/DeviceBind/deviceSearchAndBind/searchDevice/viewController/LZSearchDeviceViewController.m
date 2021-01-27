@@ -73,7 +73,14 @@
         }];
 
     } else {
-//        [weakSelf.openBluetoothAlertView show];
+        UIAlertController *vc = [UIAlertController alertControllerWithTitle:@"蓝牙不可用" message:@"请确保蓝牙可用" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *action = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            
+        }];
+        [vc addAction:action];
+        [self presentViewController:vc animated:YES completion:^{
+                    
+        }];
     };
 
 }

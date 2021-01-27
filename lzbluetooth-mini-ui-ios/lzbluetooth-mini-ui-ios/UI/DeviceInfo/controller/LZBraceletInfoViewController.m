@@ -143,6 +143,11 @@ typedef enum : NSUInteger {
         }
         case LZBraceletSettingTypeUnit: {
             className = @"LZUnitViewController";
+            break;
+        }
+        case LZBraceletSettingTypeHrSection: {
+            className = @"LZHrSectionViewController";
+            break;
         }
           
         default:
@@ -260,6 +265,9 @@ typedef enum : NSUInteger {
         
         LZBaseSetCellModel *model20 = [[LZBaseSetCellModel alloc] initModelWithSetType:LZBraceletSettingTypeUnit cellStyle:DEVICESETCELLSTYLE_RIGHT_IMG titleStr:@"单位" subStr:nil];
         [mAry addObject:model20];
+        
+        LZBaseSetCellModel *model21 = [[LZBaseSetCellModel alloc] initModelWithSetType:LZBraceletSettingTypeHrSection cellStyle:DEVICESETCELLSTYLE_RIGHT_IMG titleStr:@"心率区间" subStr:nil];
+        [mAry addObject:model21];
         
         LZBaseSetCellModel *otaModel = [[LZBaseSetCellModel alloc] initModelWithSetType:DEVICESETTYPE_FOTA cellStyle:DEVICESETCELLSTYLE_RIGHT_IMG_SUBTITLE titleStr:@"固件升级" subStr:@""];
         [mAry addObject:otaModel];

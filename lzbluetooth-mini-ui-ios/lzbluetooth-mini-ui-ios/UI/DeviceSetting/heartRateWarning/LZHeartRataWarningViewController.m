@@ -74,7 +74,7 @@ typedef NS_ENUM(NSUInteger, LZHearRateWarningStyle) {
 
 - (void)pickerViewControllerDidSelect:(LZSetPickerViewController *)vc {
     self.data.minHr = [vc selectedRowInComponent:0] + minHr;
-    self.data.maxHr = [vc selectedRowInComponent:1] + maxHr;
+    self.data.maxHr = [vc selectedRowInComponent:1] + minHr;
     
     [vc dismissViewControllerAnimated:YES completion:^{
             
