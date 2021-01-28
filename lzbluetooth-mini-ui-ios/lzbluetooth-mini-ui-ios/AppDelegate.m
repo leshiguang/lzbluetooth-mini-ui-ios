@@ -33,7 +33,7 @@
 
 #pragma mark - LZDeviceDelegate
 - (void)device:(id<LZDeviceProtocol>)device didReceiveMeasurementData:(id<LZMeasurementDataProtocol>)measurementData {
-    NSLog(@"收到测量数据 %@", measurementData);
+    NSLog(@"%@ 收到测量数据 %@", device.mac, [(NSObject *)measurementData yy_modelToJSONString]);
     
 }
 
@@ -42,8 +42,11 @@
 }
 
 - (void)deviceDidUpdateBatteryStatus:(id<LZDeviceProtocol>)device {
-    NSLog(@"收到电量 %@", device.batteryInfo);
-    NSLog(@"deviceId %@ sn %@ %@", device.deviceId, device.sn, device.deviceInfo);
+    NSLog(@"%@ 收到电量 %@", device.mac, [device.batteryInfo yy_modelToJSONString]);
+}
+
+- (void)deviceDidReadyToReceiveData:(id<LZDeviceProtocol>)device {
+    NSLog(@"%@ 开始准备接受", device.mac);
 }
 
 @end
