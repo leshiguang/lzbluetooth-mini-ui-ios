@@ -81,71 +81,71 @@ typedef enum : NSUInteger {
         case DEVICESETTYPE_UNBIND:
             [self unbindClick:model];
             break;
-        case LZBraceletSettingTypeDial: {
+        case LZDeviceSettingTypeDial: {
             className = @"LZDialSetViewController";
         }
             break;
-        case LZBraceletSettingTypeTargetEncourage: {
+        case LZDeviceSettingTypeTargetEncourage: {
             className = @"LZGoalSetViewController";
         }
             break;
-        case LZBraceletSettingTypeEventReminder: {
+        case LZDeviceSettingTypeEventReminder: {
             className = @"LZEventToRemindViewController";
         }
             break;
-        case LZBraceletSettingTypeCustomSportHrReminder: {
+        case LZDeviceSettingTypeCustomSportHrReminder: {
             className = @"LZHeartRataWarningViewController";
         }
             break;
-        case LZBraceletSettingTypeMsgReminder: {
+        case LZDeviceSettingTypeMsgReminder: {
             className = @"LZMessageToRemindViewController";
         }
             break;
-        case LZBraceletSettingTypeNightMode: {
+        case LZDeviceSettingTypeNightMode: {
             className = @"LZNightModeViewController";
         }
             break;
-        case LZBraceletSettingTypeNoDisturb: {
+        case LZDeviceSettingTypeNoDisturb: {
             className = @"LZDndModeViewController";
         }
             break;
-        case LZBraceletSettingTypeScreenDirection: {
+        case LZDeviceSettingTypeScreenDirection: {
             className = @"LZScreenOrientationViewController";
         }
             break;
-        case LZBraceletSettingTypeTimeMode: {
+        case LZDeviceSettingTypeTimeMode: {
             className = @"LZTimeFormatViewController";
         }
             break;
-        case LZBraceletSettingTypeWristHabit: {
+        case LZDeviceSettingTypeWristHabit: {
             className = @"LZWearingHabitsViewController";
         }
             break;
-        case LZBraceletSettingTypeCustomScreen: {
+        case LZDeviceSettingTypeCustomScreen: {
             className = @"LZScreenContentViewController";
         }
             break;
-        case LZBraceletSettingTypeSmartHrDetection: {
+        case LZDeviceSettingTypeSmartHrDetection: {
             className = @"LZHRReminderViewController";
         }
             break;
-        case LZBraceletSettingTypeLanguage: {
+        case LZDeviceSettingTypeLanguage: {
             className = @"LZLanguageSettingViewController";
             break;
         }
-        case LZBraceletSettingTypeSwiming: {
+        case LZDeviceSettingTypeSwiming: {
             className = @"LZSwimingViewController";
             break;
         }
-        case LZBraceletSettingTypeWeather: {
+        case LZDeviceSettingTypeWeather: {
             className = @"LZWeatherViewController";
             break;
         }
-        case LZBraceletSettingTypeUnit: {
+        case LZDeviceSettingTypeUnit: {
             className = @"LZUnitViewController";
             break;
         }
-        case LZBraceletSettingTypeHrSection: {
+        case LZDeviceSettingTypeHrSection: {
             className = @"LZHrSectionViewController";
             break;
         }
@@ -218,55 +218,55 @@ typedef enum : NSUInteger {
         LZBaseSetCellModel *model3 = [[LZBaseSetCellModel alloc] initModelWithSetType:DEVICESETTYPE_SN cellStyle:DEVICESETCELLSTYLE_RIGHT_SUBTITLE titleStr:@"sn" subStr:@""];
         [mAry addObject:model3];
         
-        LZBaseSetCellModel *model4 = [[LZBaseSetCellModel alloc] initModelWithSetType:LZBraceletSettingTypeDial cellStyle:DEVICESETCELLSTYLE_RIGHT_IMG titleStr:@"表盘样式" subStr:nil];
+        LZBaseSetCellModel *model4 = [[LZBaseSetCellModel alloc] initModelWithSetType:LZDeviceSettingTypeDial cellStyle:DEVICESETCELLSTYLE_RIGHT_IMG titleStr:@"表盘样式" subStr:nil];
         [mAry addObject:model4];
         
-        LZBaseSetCellModel *model5 = [[LZBaseSetCellModel alloc] initModelWithSetType:LZBraceletSettingTypeTargetEncourage cellStyle:DEVICESETCELLSTYLE_RIGHT_IMG titleStr:@"目标设置" subStr:nil];
+        LZBaseSetCellModel *model5 = [[LZBaseSetCellModel alloc] initModelWithSetType:LZDeviceSettingTypeTargetEncourage cellStyle:DEVICESETCELLSTYLE_RIGHT_IMG titleStr:@"目标设置" subStr:nil];
         [mAry addObject:model5];
         
-        LZBaseSetCellModel *model6 = [[LZBaseSetCellModel alloc] initModelWithSetType:LZBraceletSettingTypeEventReminder cellStyle:DEVICESETCELLSTYLE_RIGHT_IMG titleStr:@"事件提醒" subStr:nil];
+        LZBaseSetCellModel *model6 = [[LZBaseSetCellModel alloc] initModelWithSetType:LZDeviceSettingTypeEventReminder cellStyle:DEVICESETCELLSTYLE_RIGHT_IMG titleStr:@"事件提醒" subStr:nil];
         [mAry addObject:model6];
         
-        LZBaseSetCellModel *model7 = [[LZBaseSetCellModel alloc] initModelWithSetType:LZBraceletSettingTypeCustomSportHrReminder cellStyle:DEVICESETCELLSTYLE_RIGHT_IMG titleStr:@"心率预警" subStr:nil];
+        LZBaseSetCellModel *model7 = [[LZBaseSetCellModel alloc] initModelWithSetType:LZDeviceSettingTypeCustomSportHrReminder cellStyle:DEVICESETCELLSTYLE_RIGHT_IMG titleStr:@"心率预警" subStr:nil];
         [mAry addObject:model7];
         
-        LZBaseSetCellModel *model8 = [[LZBaseSetCellModel alloc] initModelWithSetType:LZBraceletSettingTypeSmartHrDetection cellStyle:DEVICESETCELLSTYLE_RIGHT_IMG titleStr:@"心率监测" subStr:nil];
+        LZBaseSetCellModel *model8 = [[LZBaseSetCellModel alloc] initModelWithSetType:LZDeviceSettingTypeSmartHrDetection cellStyle:DEVICESETCELLSTYLE_RIGHT_IMG titleStr:@"心率监测" subStr:nil];
         [mAry addObject:model8];
         
-        LZBaseSetCellModel *model9 = [[LZBaseSetCellModel alloc] initModelWithSetType:LZBraceletSettingTypeMsgReminder cellStyle:DEVICESETCELLSTYLE_RIGHT_IMG titleStr:@"消息提醒" subStr:nil];
+        LZBaseSetCellModel *model9 = [[LZBaseSetCellModel alloc] initModelWithSetType:LZDeviceSettingTypeMsgReminder cellStyle:DEVICESETCELLSTYLE_RIGHT_IMG titleStr:@"消息提醒" subStr:nil];
         [mAry addObject:model9];
         
-        LZBaseSetCellModel *model10 = [[LZBaseSetCellModel alloc] initModelWithSetType:LZBraceletSettingTypeNightMode cellStyle:DEVICESETCELLSTYLE_RIGHT_IMG titleStr:@"夜间模式" subStr:nil];
+        LZBaseSetCellModel *model10 = [[LZBaseSetCellModel alloc] initModelWithSetType:LZDeviceSettingTypeNightMode cellStyle:DEVICESETCELLSTYLE_RIGHT_IMG titleStr:@"夜间模式" subStr:nil];
         [mAry addObject:model10];
         
-        LZBaseSetCellModel *model11 = [[LZBaseSetCellModel alloc] initModelWithSetType:LZBraceletSettingTypeNoDisturb cellStyle:DEVICESETCELLSTYLE_RIGHT_IMG titleStr:@"勿扰模式" subStr:nil];
+        LZBaseSetCellModel *model11 = [[LZBaseSetCellModel alloc] initModelWithSetType:LZDeviceSettingTypeNoDisturb cellStyle:DEVICESETCELLSTYLE_RIGHT_IMG titleStr:@"勿扰模式" subStr:nil];
         [mAry addObject:model11];
         
-        LZBaseSetCellModel *model12 = [[LZBaseSetCellModel alloc] initModelWithSetType:LZBraceletSettingTypeScreenDirection cellStyle:DEVICESETCELLSTYLE_RIGHT_IMG titleStr:@"屏幕方向" subStr:nil];
+        LZBaseSetCellModel *model12 = [[LZBaseSetCellModel alloc] initModelWithSetType:LZDeviceSettingTypeScreenDirection cellStyle:DEVICESETCELLSTYLE_RIGHT_IMG titleStr:@"屏幕方向" subStr:nil];
         [mAry addObject:model12];
 
-        LZBaseSetCellModel *model14 = [[LZBaseSetCellModel alloc] initModelWithSetType:LZBraceletSettingTypeCustomScreen cellStyle:DEVICESETCELLSTYLE_RIGHT_IMG titleStr:@"屏幕内容" subStr:nil];
+        LZBaseSetCellModel *model14 = [[LZBaseSetCellModel alloc] initModelWithSetType:LZDeviceSettingTypeCustomScreen cellStyle:DEVICESETCELLSTYLE_RIGHT_IMG titleStr:@"屏幕内容" subStr:nil];
         [mAry addObject:model14];
 
-        LZBaseSetCellModel *model15 = [[LZBaseSetCellModel alloc] initModelWithSetType:LZBraceletSettingTypeTimeMode cellStyle:DEVICESETCELLSTYLE_RIGHT_IMG titleStr:@"时间制式" subStr:nil];
+        LZBaseSetCellModel *model15 = [[LZBaseSetCellModel alloc] initModelWithSetType:LZDeviceSettingTypeTimeMode cellStyle:DEVICESETCELLSTYLE_RIGHT_IMG titleStr:@"时间制式" subStr:nil];
         [mAry addObject:model15];
         
-        LZBaseSetCellModel *model16 = [[LZBaseSetCellModel alloc] initModelWithSetType:LZBraceletSettingTypeWristHabit cellStyle:DEVICESETCELLSTYLE_RIGHT_IMG titleStr:@"佩戴习惯" subStr:nil];
+        LZBaseSetCellModel *model16 = [[LZBaseSetCellModel alloc] initModelWithSetType:LZDeviceSettingTypeWristHabit cellStyle:DEVICESETCELLSTYLE_RIGHT_IMG titleStr:@"佩戴习惯" subStr:nil];
         [mAry addObject:model16];
         
-        LZBaseSetCellModel *model17 = [[LZBaseSetCellModel alloc] initModelWithSetType:LZBraceletSettingTypeLanguage cellStyle:DEVICESETCELLSTYLE_RIGHT_IMG titleStr:@"语言" subStr:nil];
+        LZBaseSetCellModel *model17 = [[LZBaseSetCellModel alloc] initModelWithSetType:LZDeviceSettingTypeLanguage cellStyle:DEVICESETCELLSTYLE_RIGHT_IMG titleStr:@"语言" subStr:nil];
         [mAry addObject:model17];
         
-        LZBaseSetCellModel *model18 = [[LZBaseSetCellModel alloc] initModelWithSetType:LZBraceletSettingTypeSwiming cellStyle:DEVICESETCELLSTYLE_RIGHT_IMG titleStr:@"游泳" subStr:nil];
+        LZBaseSetCellModel *model18 = [[LZBaseSetCellModel alloc] initModelWithSetType:LZDeviceSettingTypeSwiming cellStyle:DEVICESETCELLSTYLE_RIGHT_IMG titleStr:@"游泳" subStr:nil];
         [mAry addObject:model18];
         
-        LZBaseSetCellModel *model19 = [[LZBaseSetCellModel alloc] initModelWithSetType:LZBraceletSettingTypeWeather cellStyle:DEVICESETCELLSTYLE_RIGHT_IMG titleStr:@"天气" subStr:nil];
+        LZBaseSetCellModel *model19 = [[LZBaseSetCellModel alloc] initModelWithSetType:LZDeviceSettingTypeWeather cellStyle:DEVICESETCELLSTYLE_RIGHT_IMG titleStr:@"天气" subStr:nil];
         [mAry addObject:model19];
         
-        LZBaseSetCellModel *model20 = [[LZBaseSetCellModel alloc] initModelWithSetType:LZBraceletSettingTypeUnit cellStyle:DEVICESETCELLSTYLE_RIGHT_IMG titleStr:@"单位" subStr:nil];
+        LZBaseSetCellModel *model20 = [[LZBaseSetCellModel alloc] initModelWithSetType:LZDeviceSettingTypeUnit cellStyle:DEVICESETCELLSTYLE_RIGHT_IMG titleStr:@"单位" subStr:nil];
         [mAry addObject:model20];
         
-        LZBaseSetCellModel *model21 = [[LZBaseSetCellModel alloc] initModelWithSetType:LZBraceletSettingTypeHrSection cellStyle:DEVICESETCELLSTYLE_RIGHT_IMG titleStr:@"心率区间" subStr:nil];
+        LZBaseSetCellModel *model21 = [[LZBaseSetCellModel alloc] initModelWithSetType:LZDeviceSettingTypeHrSection cellStyle:DEVICESETCELLSTYLE_RIGHT_IMG titleStr:@"心率区间" subStr:nil];
         [mAry addObject:model21];
         
         LZBaseSetCellModel *otaModel = [[LZBaseSetCellModel alloc] initModelWithSetType:DEVICESETTYPE_FOTA cellStyle:DEVICESETCELLSTYLE_RIGHT_IMG_SUBTITLE titleStr:@"固件升级" subStr:@""];
@@ -279,5 +279,7 @@ typedef enum : NSUInteger {
     }
     return _dataSourceAry;
 }
+
+
 
 @end

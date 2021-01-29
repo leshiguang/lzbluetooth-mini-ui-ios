@@ -8,10 +8,11 @@
 #import "LZWeatherViewController.h"
 #import "LZSetPickerViewController.h"
 #import "LZPickerAnimator.h"
+#import "UIViewController+MBProgressHUD.h"
 
 @interface LZWeatherViewController () <LZSetPickerDelegate>
 
-@property (nonatomic, strong) LZA5SettingWeatherData *data;
+@property (nonatomic, strong) LZWeatherData *data;
 @property (nonatomic, strong) NSArray <LZBaseSetCellModel *> *models;
 
 @property (nonatomic, strong) LZPickerAnimator *pickerAnimotor;
@@ -25,9 +26,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"天气设置";
+    self.data.updateTime = [[NSDate date] timeIntervalSince1970];
+    UIBarButtonItem *requestItem = [[UIBarButtonItem alloc] initWithTitle:@"请求" style:UIBarButtonItemStylePlain target:self action:@selector(requestItemClicked:)];
     
-    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithTitle:@"发送" style:UIBarButtonItemStylePlain target:self action:@selector(rightItemClicked:)];
-    self.navigationItem.rightBarButtonItem = rightItem;
+    UIBarButtonItem *okItem = [[UIBarButtonItem alloc] initWithTitle:@"发送" style:UIBarButtonItemStylePlain target:self action:@selector(okItemClicked:)];
+    self.navigationItem.rightBarButtonItems = @[requestItem, okItem];
     [self updateUI];
 }
 
@@ -37,13 +40,13 @@
     LZBaseSetCellModel *model2 = self.models[2];
     LZBaseSetCellModel *model3 = self.models[3];
     
-    LZA5SettingWeatherContentData *contentData = self.data.contentDatas.firstObject;
+    LZWeatherDayData *contentData = self.data.weatherFutures.firstObject;
     if (contentData == nil) {
-        contentData = [LZA5SettingWeatherContentData new];
-        self.data.contentDatas = @[contentData];
+        contentData = [LZWeatherDayData new];
+        self.data.weatherFutures = @[contentData];
     }
     
-    model0.subStr = [self stringWithWeatherCode:contentData.weatherCode];
+    model0.subStr = [self stringWithWeatherCode:contentData.weatherState];
     model1.subStr = [NSString stringWithFormat:@"%@ 摄氏度", @(contentData.temperature1)];
     model2.subStr = [NSString stringWithFormat:@"%@ 摄氏度" , @(contentData.temperature2)];
     model3.subStr = [NSString stringWithFormat:@"%@", @(contentData.aqi)];
@@ -57,11 +60,11 @@
     NSInteger index = self.tableView.indexPathForSelectedRow.row;
     NSInteger row = [vc selectedRowInComponent:0];
     
-    LZA5SettingWeatherContentData *contentData = self.data.contentDatas.firstObject;
+    LZWeatherDayData *contentData = self.data.weatherFutures.firstObject;
     
     switch (index) {
         case 0:
-            contentData.weatherCode = row;
+            contentData.weatherState = row;
             break;
         case 1:
             contentData.temperature1 = row - 100;
@@ -83,9 +86,25 @@
 }
 
 #pragma mark - Event
-- (void)rightItemClicked:(id)sender {
+- (void)requestItemClicked:(id)sender {
+    double latitude = 31.209086100260418;
+    double longitude = 121.40808648003473;
+    __weak typeof(self) weakSelf = self;
+    [self showActivityIndicatorViewWithTitle:@""];
+    [LZBluetooth requestWeatherWithLng:longitude lat:latitude completion:^(NSInteger code, NSString * _Nonnull msg, LZWeatherData * _Nonnull data) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [weakSelf hideActivityIndicatorHUD];
+            [weakSelf showHintMessage:msg duration:1.5];
+            if (data) {
+                weakSelf.data = data;
+                [weakSelf updateUI];
+            }
+        });
+    }];
+}
+
+- (void)okItemClicked:(id)sender {
     /// 这里测试，暂时就发送一个数据
-    self.data.utc = (UInt32)[[NSDate date] timeIntervalSince1970];
     [self sendData:self.data];
 }
 
@@ -249,6 +268,5 @@
     }
     return array;
 }
-
 
 @end

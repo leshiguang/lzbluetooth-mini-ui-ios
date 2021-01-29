@@ -9,7 +9,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface LZA5SettingWeatherData (YYModel)
+@interface LZWeatherData (YYModel)
 
 @end
 

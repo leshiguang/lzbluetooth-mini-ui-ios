@@ -27,7 +27,7 @@
 //    NSAssert(NO, @"需要重写该方法来");
 }
 
-- (void)sendData:(__kindof LZA5SettingData *)settingData {
+- (void)sendData:(id<LZDeviceSettingProtocol>)settingData {
     [self showActivityIndicatorHUDWithMessage:nil];
     __weak typeof(self) weakSelf = self;
     [self.deviceManager sendDataModel:settingData macString:self.device.mac completion:^(LZBluetoothErrorCode result) {
@@ -45,15 +45,15 @@
 }
 
 
-- (void)saveSettingData:(__kindof LZA5SettingData *)settingData {
+- (void)saveSettingData:(id<LZDeviceSettingProtocol>)settingData {
     NSString *mac = self.device.mac;
     
     switch (settingData.settingType) {
-        case LZBraceletSettingTypeMsgReminder:
-            [LZDeviceSettingDBUtil setCallReminder:settingData macString:mac];
+        case LZDeviceSettingTypeMsgReminder:
+            [LZDeviceSettingDBUtil setCallReminder:(LZA5SettingMessageReminderData *)settingData macString:mac];
             break;
-        case LZBraceletSettingTypeEventReminder:
-            [LZDeviceSettingDBUtil setEventReminder:settingData macString:mac];
+        case LZDeviceSettingTypeEventReminder:
+            [LZDeviceSettingDBUtil setEventReminder:(LZA5SettingEventRemindData *)settingData macString:mac];
             break;
         default:
             [LZDeviceSettingDBUtil saveSettingDatas:settingData withMacString:mac];

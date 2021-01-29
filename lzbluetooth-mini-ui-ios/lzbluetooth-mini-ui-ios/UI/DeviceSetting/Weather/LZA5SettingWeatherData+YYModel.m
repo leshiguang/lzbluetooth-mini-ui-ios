@@ -7,11 +7,11 @@
 
 #import "LZA5SettingWeatherData+YYModel.h"
 
-@implementation LZA5SettingWeatherData (YYModel)
+@implementation LZWeatherData (YYModel)
 
 + (NSDictionary *)modelContainerPropertyGenericClass {
     // value should be Class or Class name.
-    return @{@"contentDatas" : [LZA5SettingWeatherContentData class]};
+    return @{@"weatherFutures" : [LZWeatherDayData class]};
 }
 
 

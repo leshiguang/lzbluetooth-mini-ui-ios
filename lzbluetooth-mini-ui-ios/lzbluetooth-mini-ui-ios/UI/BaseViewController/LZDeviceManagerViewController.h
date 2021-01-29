@@ -18,7 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong, nullable) LZBaseDevice *device;
 
 /// 设置类型
-@property (nonatomic, assign) LZBraceletSettingType settingType;
+@property (nonatomic, assign) LZDeviceSettingType settingType;
 
 @property (nonatomic, strong) NSArray <NSString *> *hours;
 @property (nonatomic, strong) NSArray <NSString *> *minutes;
@@ -26,12 +26,12 @@ NS_ASSUME_NONNULL_BEGIN
 /// 可以重写方法刷新UI
 - (void)updateUIWithResult:(LZBluetoothErrorCode)result;
 
-- (void)sendData:(__kindof LZA5SettingData *)settingData;
+- (void)sendData:(id<LZDeviceSettingProtocol>)settingData;
 
 - (__kindof LZA5SettingData *)settingData;
 
 /// 根据当前的设置类型获取设置列表
-- (nullable NSArray <__kindof LZA5SettingData *> *)settingDatas;
+- (nullable NSArray <id<LZDeviceSettingProtocol>> *)settingDatas;
 
 - (id)defaultData;
 

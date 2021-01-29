@@ -103,7 +103,7 @@
         eventData.day = components.day;
     }
     
-    LZA5SettingEventRemindData *tempData = [self getConfigsWithMacString:macString settingType:LZBraceletSettingTypeEventReminder];
+    LZA5SettingEventRemindData *tempData = [self getConfigsWithMacString:macString settingType:LZDeviceSettingTypeEventReminder];
     NSArray *list = tempData.contentDatas;
     if (list && list.count > 0) {
         __block NSInteger index = NSNotFound;
@@ -127,7 +127,7 @@
 }
 
 + (void)removeEventReminder:(LZA5SettingEventRemindContentData *)contentData macString:(NSString *)macString {
-    LZA5SettingEventRemindData *tempData = [self getConfigsWithMacString:macString settingType:LZBraceletSettingTypeEventReminder];
+    LZA5SettingEventRemindData *tempData = [self getConfigsWithMacString:macString settingType:LZDeviceSettingTypeEventReminder];
     if (!tempData || !tempData.contentDatas) {
         return;
     }
@@ -147,7 +147,7 @@
 }
 
 + (void)setCallReminder:(LZA5SettingMessageReminderData *)data macString:(NSString *)macString {
-    NSArray *list = [self getConfigsWithMacString:macString settingType:LZBraceletSettingTypeMsgReminder];
+    NSArray *list = [self getConfigsWithMacString:macString settingType:LZDeviceSettingTypeMsgReminder];
     if (list && list.count > 0) {
         __block NSInteger index = NSNotFound;
         [list enumerateObjectsUsingBlock:^(LZA5SettingMessageReminderData * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
@@ -169,22 +169,22 @@
 
 + (NSString *)titleWithSettingType:(LZDeviceSettingType)settingType {
     switch (settingType) {
-        case LZBraceletSettingTypeDial: return @"表盘样式";
-        case LZBraceletSettingTypeTargetEncourage: return @"目标设置";
-        case LZBraceletSettingTypeEventReminder: return @"闹钟";
-        case LZBraceletSettingTypeCustomSportHrReminder: return @"心率预警";
-        case LZBraceletSettingTypeSmartHrDetection: return @"心率监测";
-        case LZBraceletSettingTypeMsgReminder: return @"消息提醒";
-        case LZBraceletSettingTypeNightMode: return @"夜间模式";
-        case LZBraceletSettingTypeNoDisturb: return @"勿扰模式";
-        case LZBraceletSettingTypeScreenDirection: return @"屏幕方向";
-        case LZBraceletSettingTypeTimeMode: return @"时间制式";
-        case LZBraceletSettingTypeWristHabit: return @"佩戴习惯";
-        case LZBraceletSettingTypeCustomScreen: return @"自定义屏幕";
-        case LZBraceletSettingTypeLanguage: return @"语言";
-        case LZBraceletSettingTypeSwiming: return @"游泳";
-        case LZBraceletSettingTypeWeather: return @"天气";
-        case LZBraceletSettingTypeUnit: return @"单位";
+        case LZDeviceSettingTypeDial: return @"表盘样式";
+        case LZDeviceSettingTypeTargetEncourage: return @"目标设置";
+        case LZDeviceSettingTypeEventReminder: return @"闹钟";
+        case LZDeviceSettingTypeCustomSportHrReminder: return @"心率预警";
+        case LZDeviceSettingTypeSmartHrDetection: return @"心率监测";
+        case LZDeviceSettingTypeMsgReminder: return @"消息提醒";
+        case LZDeviceSettingTypeNightMode: return @"夜间模式";
+        case LZDeviceSettingTypeNoDisturb: return @"勿扰模式";
+        case LZDeviceSettingTypeScreenDirection: return @"屏幕方向";
+        case LZDeviceSettingTypeTimeMode: return @"时间制式";
+        case LZDeviceSettingTypeWristHabit: return @"佩戴习惯";
+        case LZDeviceSettingTypeCustomScreen: return @"自定义屏幕";
+        case LZDeviceSettingTypeLanguage: return @"语言";
+        case LZDeviceSettingTypeSwiming: return @"游泳";
+        case LZDeviceSettingTypeWeather: return @"天气";
+        case LZDeviceSettingTypeUnit: return @"单位";
             
         default:
             NSAssert(NO, @"未处理类型 %@", @(settingType));

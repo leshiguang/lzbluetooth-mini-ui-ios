@@ -89,67 +89,67 @@ typedef NS_ENUM(NSUInteger, LZDeviceInfoType) {
         case DEVICESETTYPE_UNBIND:
             [self unbindClick:model];
             break;
-        case LZBraceletSettingTypeDial: {
+        case LZDeviceSettingTypeDial: {
             className = @"LZDialSetViewController";
         }
             break;
-        case LZBraceletSettingTypeTargetEncourage: {
+        case LZDeviceSettingTypeTargetEncourage: {
             className = @"LZGoalSetViewController";
         }
             break;
-        case LZBraceletSettingTypeEventReminder: {
+        case LZDeviceSettingTypeEventReminder: {
             className = @"LZEventToRemindViewController";
         }
             break;
-        case LZBraceletSettingTypeCustomSportHrReminder: {
+        case LZDeviceSettingTypeCustomSportHrReminder: {
             className = @"LZHeartRataWarningViewController";
         }
             break;
-        case LZBraceletSettingTypeMsgReminder: {
+        case LZDeviceSettingTypeMsgReminder: {
             className = @"LZMessageToRemindViewController";
         }
             break;
-        case LZBraceletSettingTypeNightMode: {
+        case LZDeviceSettingTypeNightMode: {
             className = @"LZNightModeViewController";
         }
             break;
-        case LZBraceletSettingTypeNoDisturb: {
+        case LZDeviceSettingTypeNoDisturb: {
             className = @"LZDndModeViewController";
         }
             break;
-        case LZBraceletSettingTypeScreenDirection: {
+        case LZDeviceSettingTypeScreenDirection: {
             className = @"LZScreenOrientationViewController";
         }
             break;
-        case LZBraceletSettingTypeTimeMode: {
+        case LZDeviceSettingTypeTimeMode: {
             className = @"LZTimeFormatViewController";
         }
             break;
-        case LZBraceletSettingTypeWristHabit: {
+        case LZDeviceSettingTypeWristHabit: {
             className = @"LZWearingHabitsViewController";
         }
             break;
-        case LZBraceletSettingTypeCustomScreen: {
+        case LZDeviceSettingTypeCustomScreen: {
             className = @"LZScreenContentViewController";
         }
             break;
-        case LZBraceletSettingTypeSmartHrDetection: {
+        case LZDeviceSettingTypeSmartHrDetection: {
             className = @"LZHRReminderViewController";
         }
             break;
-        case LZBraceletSettingTypeLanguage: {
+        case LZDeviceSettingTypeLanguage: {
             className = @"LZLanguageSettingViewController";
             break;
         }
-        case LZBraceletSettingTypeSwiming: {
+        case LZDeviceSettingTypeSwiming: {
             className = @"LZSwimingViewController";
             break;
         }
-        case LZBraceletSettingTypeWeather: {
+        case LZDeviceSettingTypeWeather: {
             className = @"LZWeatherViewController";
             break;
         }
-        case LZBraceletSettingTypeUnit: {
+        case LZDeviceSettingTypeUnit: {
             className = @"LZUnitViewController";
         }
           
@@ -252,22 +252,22 @@ typedef NS_ENUM(NSUInteger, LZDeviceInfoType) {
 
 - (NSArray <NSNumber *> *)braceletSupportSettings {
     return @[
-        @(LZBraceletSettingTypeDial),
-        @(LZBraceletSettingTypeTargetEncourage),
-        @(LZBraceletSettingTypeEventReminder),
-        @(LZBraceletSettingTypeCustomSportHrReminder),
-        @(LZBraceletSettingTypeSmartHrDetection),
-        @(LZBraceletSettingTypeMsgReminder),
-        @(LZBraceletSettingTypeNightMode),
-        @(LZBraceletSettingTypeNoDisturb),
-        @(LZBraceletSettingTypeScreenDirection),
-        @(LZBraceletSettingTypeTimeMode),
-        @(LZBraceletSettingTypeWristHabit),
-        @(LZBraceletSettingTypeCustomScreen),
-        @(LZBraceletSettingTypeLanguage),
-        @(LZBraceletSettingTypeSwiming),
-        @(LZBraceletSettingTypeWeather),
-        @(LZBraceletSettingTypeUnit),
+        @(LZDeviceSettingTypeDial),
+        @(LZDeviceSettingTypeTargetEncourage),
+        @(LZDeviceSettingTypeEventReminder),
+        @(LZDeviceSettingTypeCustomSportHrReminder),
+        @(LZDeviceSettingTypeSmartHrDetection),
+        @(LZDeviceSettingTypeMsgReminder),
+        @(LZDeviceSettingTypeNightMode),
+        @(LZDeviceSettingTypeNoDisturb),
+        @(LZDeviceSettingTypeScreenDirection),
+        @(LZDeviceSettingTypeTimeMode),
+        @(LZDeviceSettingTypeWristHabit),
+        @(LZDeviceSettingTypeCustomScreen),
+        @(LZDeviceSettingTypeLanguage),
+        @(LZDeviceSettingTypeSwiming),
+        @(LZDeviceSettingTypeWeather),
+        @(LZDeviceSettingTypeUnit),
     ];
 }
 
