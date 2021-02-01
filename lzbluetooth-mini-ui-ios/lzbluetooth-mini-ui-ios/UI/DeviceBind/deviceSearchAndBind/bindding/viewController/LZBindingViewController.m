@@ -8,7 +8,7 @@
 #import "LZBindingViewController.h"
 #import "LSWBindingDeviceView.h"
 #import <Masonry/Masonry.h>
-#import "LZBraceletInfoViewController.h"
+#import "LZBaseDeviceInfoViewController.h"
 #import "UIViewController+MBProgressHUD.h"
 #import <LZBluetooth/LZBluetooth.h>
 
@@ -209,7 +209,7 @@
 #pragma mark -
 - (void)showCurrentBindedDevice {
     if (self.bindedDevice) {
-        LZBraceletInfoViewController *vc = [[LZBraceletInfoViewController alloc] init];
+        LZBaseDeviceInfoViewController *vc = [[LZBaseDeviceInfoViewController alloc] init];
         vc.device = self.bindedDevice;
         [self.navigationController pushViewController:vc animated:YES];
         NSMutableArray *mAryVC = [[NSMutableArray alloc] initWithArray:self.navigationController.viewControllers];
