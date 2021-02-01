@@ -10,7 +10,7 @@
 #import "LSWMineBraceletTableViewCell.h"
 #import <Masonry/Masonry.h>
 #import "LZSearchBindContainerViewController.h"
-#import "LZBaseDeviceInfoViewController.h"
+#import "LZBraceletInfoViewController.h"
 #import "LSWAppFontConfigrationMacro.h"
 #import "LSWAppColorConfigrationMacro.h"
 
@@ -124,7 +124,7 @@ typedef NS_ENUM(NSUInteger, LSDeviceListSection) {
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     LZBaseDevice *device = self.devices[indexPath.section][indexPath.row];
-    LZBaseDeviceInfoViewController *vc = [[LZBaseDeviceInfoViewController alloc] init];
+    LZBraceletInfoViewController *vc = [[LZBraceletInfoViewController alloc] init];
     vc.device = device;
     [self.navigationController pushViewController:vc animated:YES];
 
