@@ -82,16 +82,13 @@
                 /// 需要你输入随机码
                 [self _handleBindStatusInputRandomCodeWihtLength:6];
                 break;
-            case LZBindStateMatchingConfirmation:
-                /// 这里你可以自己调用自己的服务器接口，将绑定关系存入远程服务器，然后根据结果调用确认
-                [self.deviceManager confirmSuccess:YES macString:device.mac deviceType:device.deviceType];
                 
-                break;
             case LZBindStateInputUserNumberAndBindResult:
+                /// 这个是体脂秤需要使用的，手环不会回调这个状态
                 [self.deviceManager inputUserNumber:1 bindResult:1 macString:device.mac deviceType:device.deviceType];
                 break;
             case LZBindStateUnregister:
-                /// 需要注册
+                /// 这个是体脂秤需要使用的，手环不会回调这个状态
                 break;
             case LZBindStateSuccessful:
                 self.bindedDevice = device;
