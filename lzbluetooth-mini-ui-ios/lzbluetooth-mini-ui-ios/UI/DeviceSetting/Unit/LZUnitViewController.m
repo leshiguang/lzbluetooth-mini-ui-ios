@@ -38,19 +38,27 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+
     return 2;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     LZBaseSetTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass(LZBaseSetTableViewCell.class) forIndexPath:indexPath];
+
+    
     cell.titleLabel.text = [self titleWithUnit:indexPath.row];
+
     cell.rightSelectImageView.hidden = NO;
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    self.data.unit = indexPath.row;
-    [self sendData:self.data];
+
+
+    LZA5SettingUnitData *data = [[LZA5SettingUnitData alloc] init];
+    data.unit = indexPath.row;
+    [self sendData:data];
+    
 }
 
 - (NSString *)titleWithUnit:(UInt8)unit {

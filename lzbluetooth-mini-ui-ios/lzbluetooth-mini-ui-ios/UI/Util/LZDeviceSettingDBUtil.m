@@ -185,8 +185,10 @@
         case LZDeviceSettingTypeSwiming: return @"游泳";
         case LZDeviceSettingTypeWeather: return @"天气";
         case LZDeviceSettingTypeUnit: return @"单位";
+
         case LZDeviceSettingTypeScaleUnit: return @"体重单位";
         case LZDeviceSettingTypeWifiScan: return @"扫描wifi热点";
+
             
         default:
             NSAssert(NO, @"未处理类型 %@", @(settingType));
