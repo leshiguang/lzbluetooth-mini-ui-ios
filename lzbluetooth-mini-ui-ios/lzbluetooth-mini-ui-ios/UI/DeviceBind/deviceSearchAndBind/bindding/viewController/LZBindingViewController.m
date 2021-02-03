@@ -8,7 +8,7 @@
 #import "LZBindingViewController.h"
 #import "LSWBindingDeviceView.h"
 #import <Masonry/Masonry.h>
-#import "LZBraceletInfoViewController.h"
+#import "LZBaseDeviceInfoViewController.h"
 #import "UIViewController+MBProgressHUD.h"
 #import <LZBluetooth/LZBluetooth.h>
 
@@ -82,11 +82,7 @@
                 /// 需要你输入随机码
                 [self _handleBindStatusInputRandomCodeWihtLength:6];
                 break;
-            case LZBindStateMatchingConfirmation:
-                /// 这里你可以自己调用自己的服务器接口，将绑定关系存入远程服务器，然后根据结果调用确认
-                [self.deviceManager confirmSuccess:YES macString:device.mac deviceType:device.deviceType];
                 
-                break;
             case LZBindStateInputUserNumberAndBindResult:
                 [self.deviceManager inputUserNumber:1 bindResult:1 macString:device.mac deviceType:device.deviceType];
                 break;
@@ -209,7 +205,7 @@
 #pragma mark -
 - (void)showCurrentBindedDevice {
     if (self.bindedDevice) {
-        LZBraceletInfoViewController *vc = [[LZBraceletInfoViewController alloc] init];
+        LZBaseDeviceInfoViewController *vc = [[LZBaseDeviceInfoViewController alloc] init];
         vc.device = self.bindedDevice;
         [self.navigationController pushViewController:vc animated:YES];
         NSMutableArray *mAryVC = [[NSMutableArray alloc] initWithArray:self.navigationController.viewControllers];

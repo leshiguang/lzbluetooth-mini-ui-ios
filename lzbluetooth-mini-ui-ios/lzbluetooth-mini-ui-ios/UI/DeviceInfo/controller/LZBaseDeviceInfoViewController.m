@@ -151,6 +151,14 @@ typedef NS_ENUM(NSUInteger, LZDeviceInfoType) {
         }
         case LZDeviceSettingTypeUnit: {
             className = @"LZUnitViewController";
+            break;
+        }
+        case LZDeviceSettingTypeScaleUnit: {
+            className = @"LZScaleUnitViewController";
+            break;
+        }
+        case LZDeviceSettingTypeWifiScan: {
+            className = @"LZWifiSettingViewController";
         }
           
         default:
@@ -273,6 +281,8 @@ typedef NS_ENUM(NSUInteger, LZDeviceInfoType) {
 
 - (NSArray <NSNumber *> *)scaleSupportSettings {
     return @[
+        @(LZDeviceSettingTypeWifiScan),
+        @(LZDeviceSettingTypeScaleUnit)
     ];
 }
 

@@ -13,6 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @protocol LZBaseSetTableViewCellDelegate <NSObject>
 
+@optional
 - (void)switchOn:(BOOL)isOn cellModle:(LZBaseSetCellModel *)cellModel;
 
 @end

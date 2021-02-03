@@ -163,7 +163,7 @@
     NSString *macString = self.device.mac;
     [self showActivityIndicatorHUDWithMessage:nil];
     __weak typeof(self) weakSelf = self;
-    [self.deviceManager sendDataModel:data macString:macString completion:^(LZBluetoothErrorCode result) {
+    [self.deviceManager sendDataModel:data macString:macString completion:^(LZBluetoothErrorCode result, id resp) {
         dispatch_async(dispatch_get_main_queue(), ^{
             [weakSelf hideActivityIndicatorHUD];
             if (result == LZBluetoothErrorCodeSuccess) {

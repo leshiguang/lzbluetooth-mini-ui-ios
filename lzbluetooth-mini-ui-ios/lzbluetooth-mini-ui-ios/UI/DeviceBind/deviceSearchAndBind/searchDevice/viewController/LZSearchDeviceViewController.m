@@ -144,7 +144,7 @@
 
 - (void)startSearchDeviceTimeoutTimer {
     [self stopSearchDeviceTimeoutTimer];
-    self.searchDeviceTimeoutTimer = [NSTimer scheduledTimerWithTimeInterval:10 target:self selector:@selector(searchDeviceTimeoutTimerTimeout:) userInfo:nil repeats:NO];
+    self.searchDeviceTimeoutTimer = [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(searchDeviceTimeoutTimerTimeout:) userInfo:nil repeats:NO];
 }
 
 #pragma mark - getter
