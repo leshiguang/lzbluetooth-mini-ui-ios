@@ -91,7 +91,7 @@
     double longitude = 121.40808648003473;
     __weak typeof(self) weakSelf = self;
     [self showActivityIndicatorViewWithTitle:@""];
-    [LZBluetooth requestWeatherWithLng:longitude lat:latitude completion:^(NSInteger code, NSString * _Nonnull msg, LZWeatherData * _Nonnull data) {
+    [LZBluetooth requestWeatherWithLng:longitude lat:latitude adcode:@"310105" completion:^(NSInteger code, NSString * _Nonnull msg, LZWeatherData * _Nonnull data) {
         dispatch_async(dispatch_get_main_queue(), ^{
             [weakSelf hideActivityIndicatorHUD];
             [weakSelf showHintMessage:msg duration:1.5];
