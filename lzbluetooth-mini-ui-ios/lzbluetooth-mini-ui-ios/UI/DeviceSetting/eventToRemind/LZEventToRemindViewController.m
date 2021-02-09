@@ -18,7 +18,7 @@
 
 @property (nonatomic, strong) UIButton *addEventToRemindBtn;
 
-@property (nonatomic, strong) LZA5SettingEventRemindData *data;
+@property (nonatomic, strong) NSArray <LZA5SettingEventRemindData *> *data;
 
 @property (nonatomic, strong) NSArray <LZBaseSetCellModel *> *dataSource;
 
@@ -52,7 +52,7 @@
 
 - (void)updateUI {
     NSMutableArray *array = [NSMutableArray array];
-    [self.data.contentDatas enumerateObjectsUsingBlock:^(LZA5SettingEventRemindContentData * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+    [self.data enumerateObjectsUsingBlock:^(LZA5SettingEventRemindData * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         NSString *title = [NSString stringWithFormat:@"%02d:%02d", obj.hour, obj.minute];
         LZBaseSetCellModel *model = [[LZBaseSetCellModel alloc] initModelWithSetType:idx cellStyle:DEVICESETCELLSTYLE_RIGHT_SWITCH titleStr:title subStr:obj.des];
         model.switchIsOpne = [self checkIfClockClosedWithContentData:obj];
@@ -83,25 +83,19 @@
 
 #pragma mark - LZBaseSetTableViewCellDelegate
 - (void)switchOn:(BOOL)isOn cellModle:(LZBaseSetCellModel *)cellModel {
-    LZA5SettingEventRemindContentData *contentData = self.data.contentDatas[cellModel.setType];
+    LZA5SettingEventRemindData *contentData = self.data[cellModel.setType];
     contentData.enable = isOn;
-    LZA5SettingEventRemindData *data = [[LZA5SettingEventRemindData alloc] init];
-    data.contentDatas = @[contentData];
-    [self sendData:data];
+    [self sendData:contentData];
 }
 
 #pragma mark - UITableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (self.data.contentDatas.count >= self.limit) {
-        [self showHintMessage:[NSString stringWithFormat:@"%@", @(self.limit)] duration:1.5];
-        return;
-    }
     [self pushToAddEventToRemindWithIndexPath:indexPath];
 }
 
 #pragma mark - UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.data.contentDatas.count;
+    return self.data.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -125,6 +119,10 @@
 
 #pragma mark - event
 - (void)clickAddEventToRemindBtn {
+    if (self.data.count >= 5) {
+        [self showHintMessage:@"最多支持5个闹钟" duration:1.5];
+        return;
+    }
     [self pushToAddEventToRemindWithIndexPath:nil];
 }
 
@@ -135,45 +133,45 @@
     vc.device = self.device;
     vc.data = self.data;
     if (indexPath) {
-        vc.contentData = self.data.contentDatas[indexPath.row];
+        vc.editData = self.data[indexPath.row];
     } else {
-        LZA5SettingEventRemindContentData *contentData = [[LZA5SettingEventRemindContentData alloc] init];
-        contentData.des = @"闹钟1";
-        contentData.index = [self indexWithData:self.data];
+        int index = [self indexWithData:self.data];
+        LZA5SettingEventRemindData *contentData = [[LZA5SettingEventRemindData alloc] init];
+        contentData.des = [NSString stringWithFormat:@"闹钟 %d", index];
+        contentData.index = index;
         contentData.enable = YES;
         contentData.hour = 8;
         contentData.minute = 0;
         contentData.repeatFlag = LZA5RepeatTimeFlagAll;
         contentData.vibrationType = LZA5VibrationTypeAlways;
-        contentData.vibrationTime = 60;
+        contentData.vibrationTime = 30;
         contentData.vibrationLevel1 = 9;
         contentData.vibrationLevel2 = 9;
-        vc.contentData = contentData;
+        vc.editData = contentData;
     }
     [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (void)deleteWithIndexPath:(NSIndexPath *)indexPath {
     /// 删除闹钟，实际上是关闭相对应的闹钟，不过在存储的时候可以删除缓存
-    LZA5SettingEventRemindContentData *contentData = self.data.contentDatas[indexPath.row];
+    LZA5SettingEventRemindData *contentData = self.data[indexPath.row];
     contentData.enable = NO;
     
-    LZA5SettingEventRemindData *data = [[LZA5SettingEventRemindData alloc] init];
-    data.contentDatas = @[contentData];
-    NSString *macString = self.device.mac;
     [self showActivityIndicatorHUDWithMessage:nil];
     __weak typeof(self) weakSelf = self;
-    [self.deviceManager sendDataModel:data macString:macString completion:^(LZBluetoothErrorCode result, id resp) {
+    
+    [self.deviceManager sendDataModel:contentData macString:self.device.mac completion:^(LZBluetoothErrorCode result, id  _Nullable response) {
         dispatch_async(dispatch_get_main_queue(), ^{
             [weakSelf hideActivityIndicatorHUD];
+            
             if (result == LZBluetoothErrorCodeSuccess) {
-                [weakSelf showHintMessage:@"设置成功" duration:1];
-                [LZDeviceSettingDBUtil removeEventReminder:contentData macString:macString];
-                weakSelf.data = [weakSelf settingData];
-                [weakSelf updateUI];
+                [weakSelf showHintMessage:@"设置成功" duration:1.5];
+                [LZDeviceSettingDBUtil removeEventReminder:contentData macString:weakSelf.device.mac];
             } else {
-                [weakSelf showHintMessage:@"设置失败" duration:1];
+                [weakSelf showHintMessage:@"设置失败" duration:1.5];
             }
+            weakSelf.data = [weakSelf settingData];
+            [weakSelf updateUI];
         });
     }];
 }
@@ -193,15 +191,11 @@
     return _addEventToRemindBtn;
 }
 
-- (BOOL)checkIfClockClosedWithContentData:(LZA5SettingEventRemindContentData *)contentData {
+- (BOOL)checkIfClockClosedWithContentData:(LZA5SettingEventRemindData *)contentData {
     if (contentData.enable && contentData.repeatFlag == LZA5RepeatTimeFlagNon) {
-        NSDateComponents *components = [[NSDateComponents alloc] init];
-        components.year = contentData.year;
-        components.month = contentData.month;
-        components.day = contentData.day;
-        components.hour = contentData.hour;
-        components.minute = contentData.minute;
-        NSDate *date = [[NSCalendar currentCalendar] dateFromComponents:components];
+        
+        NSDate *date = [NSDate dateWithTimeIntervalSince1970:contentData.ringTime / 1000];
+        
         if ([date compare:[NSDate date]] == NSOrderedDescending) {
             return YES;
         } else {
@@ -211,20 +205,25 @@
     return contentData.enable;
 }
 
-- (NSInteger)indexWithData:(LZA5SettingEventRemindData *)data {
+- (int)indexWithData:(NSArray < LZA5SettingEventRemindData *> *)data {
     NSMutableSet *set = [[NSMutableSet alloc] initWithCapacity:self.limit];
     
-    [data.contentDatas enumerateObjectsUsingBlock:^(LZA5SettingEventRemindContentData * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+    [data enumerateObjectsUsingBlock:^(LZA5SettingEventRemindData * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         [set addObject:@(obj.index)];
     }];
     
-    NSInteger index = 0;
+    int index = 0;
     for (int i = 1; i <= self.limit; i++) {
         if (![set containsObject:@(i)]) {
             index = i;
+            break;
         }
     }
     return index;
+}
+
+- (id)defaultData {
+    return @[];
 }
 
 @end

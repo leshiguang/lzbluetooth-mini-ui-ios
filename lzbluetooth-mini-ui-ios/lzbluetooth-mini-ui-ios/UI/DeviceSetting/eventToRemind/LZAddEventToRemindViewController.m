@@ -82,22 +82,26 @@ typedef enum : NSUInteger {
 
 - (void)updateUI {
     LZBaseSetCellModel *model0 = self.modelAry[0];
-    model0.switchIsOpne = self.contentData.enable;
+    model0.switchIsOpne = self.editData.enable;
     
     LZBaseSetCellModel *model1 = self.modelAry[1];
-    model1.subStr = [NSString stringWithFormat:@"%02d:%02d", self.contentData.hour, self.contentData.minute];
+    model1.subStr = [NSString stringWithFormat:@"%02d:%02d", self.editData.hour, self.editData.minute];
     LZBaseSetCellModel *model2 = self.modelAry[2];
-    model2.subStr = [self repeatTimeStringWithFlag:self.contentData.repeatFlag];
+    model2.subStr = [self repeatTimeStringWithFlag:self.editData.repeatFlag];
     LZBaseSetCellModel *model3 = self.modelAry[3];
-    model3.subStr = self.vibrationModelAry[self.contentData.vibrationType];
+    model3.subStr = self.vibrationModelAry[self.editData.vibrationType];
     LZBaseSetCellModel *model4 = self.modelAry[4];
-    model4.subStr = self.vibrationModelLeaveAry[self.contentData.vibrationLevel1];
+    model4.subStr = self.vibrationModelLeaveAry[self.editData.vibrationLevel1];
     LZBaseSetCellModel *model5 = self.modelAry[5];
-    model5.subStr = self.vibrationModelLeaveAry[self.contentData.vibrationLevel1];
+    model5.subStr = self.vibrationModelLeaveAry[self.editData.vibrationLevel1];
     LZBaseSetCellModel *model6 = self.modelAry[6];
-    model6.subStr = self.vibrationTimeAry[MAX(0, self.contentData.vibrationTime - 1)];
+    model6.subStr = self.vibrationTimeAry[MAX(0, self.editData.vibrationTime - 1)];
     
     [self.tableView reloadData];
+}
+
+- (void)switchOn:(BOOL)isOn cellModle:(LZBaseSetCellModel *)cellModel {
+    self.editData.enable = isOn;
 }
 
 #pragma mark - UITableViewDelegate
@@ -128,14 +132,15 @@ typedef enum : NSUInteger {
     if (indexPath.row < self.modelAry.count) {
         LZBaseSetTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([LZBaseSetTableViewCell class]) forIndexPath:indexPath];
         [cell updateCellWithModel:self.modelAry[indexPath.row]];
+        cell.delegate = self;
         return cell;
     } else if (indexPath.row == self.modelAry.count) {
         LZAddEventToRemindContentTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([LZAddEventToRemindContentTableViewCell class]) forIndexPath:indexPath];
-        cell.textView.text = self.contentData.des;
+        cell.textView.text = self.editData.des;
         
         __weak typeof(self) weakSelf = self;
         cell.textViewDidChangeBlock = ^(NSString * _Nonnull text) {
-            weakSelf.contentData.des = text;
+            weakSelf.editData.des = text;
         };
         return cell;
     }
@@ -148,21 +153,21 @@ typedef enum : NSUInteger {
     switch (self.currentPickerType) {
         case LZADDEVENTTOREMINDTYPE_REMIND_TIME: {
             NSInteger min = [vc selectedRowInComponent:1];
-            self.contentData.hour = row;
-            self.contentData.minute = min;
+            self.editData.hour = row;
+            self.editData.minute = min;
             break;
         }
         case LZADDEVENTTOREMINDTYPE_VIBRATION_MODE:
-            self.contentData.vibrationType = row;
+            self.editData.vibrationType = row;
             break;
         case LZADDEVENTTOREMINDTYPE_VIBRATION_LEAVE1:
-            self.contentData.vibrationLevel1 = row;
+            self.editData.vibrationLevel1 = row;
             break;
         case LZADDEVENTTOREMINDTYPE_VIBRATION_LEAVE2:
-            self.contentData.vibrationLevel2 = row ;
+            self.editData.vibrationLevel2 = row ;
             break;
         case LZADDEVENTTOREMINDTYPE_VIBRATION_TIME:
-            self.contentData.vibrationTime = row;
+            self.editData.vibrationTime = row;
             break;
         default:
             break;
@@ -181,12 +186,12 @@ typedef enum : NSUInteger {
     vc.dataSoureAry = self.weekAry;
     __weak typeof(self) weakSelf = self;
     vc.sureBlock = ^(NSArray<NSIndexPath *> * _Nonnull ary) {
-        NSLog(@"%@", ary);
+//        NSLog(@"%@", ary);
         __block LZA5RepeatTimeFlag flag = LZA5RepeatTimeFlagNon;
         [ary enumerateObjectsUsingBlock:^(NSIndexPath * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
             flag |= (1 << obj.row);
         }];
-        weakSelf.contentData.repeatFlag = flag;
+        weakSelf.editData.repeatFlag = flag;
         [weakSelf updateUI];
     };
     self.currentPickerType = model.setType;
@@ -203,24 +208,24 @@ typedef enum : NSUInteger {
     switch (model.setType) {
         case LZADDEVENTTOREMINDTYPE_REMIND_TIME:
             vc.dataSoureAry = @[self.hours, self.minutes];
-            [vc selectRow:self.contentData.hour inComponent:0 animated:NO];
-            [vc selectRow:self.contentData.minute inComponent:1 animated:NO];
+            [vc selectRow:self.editData.hour inComponent:0 animated:NO];
+            [vc selectRow:self.editData.minute inComponent:1 animated:NO];
             break;
         case LZADDEVENTTOREMINDTYPE_VIBRATION_MODE:
             vc.dataSoureAry = @[self.vibrationModelAry];
-            [vc selectRow:self.contentData.vibrationType inComponent:0 animated:NO];
+            [vc selectRow:self.editData.vibrationType inComponent:0 animated:NO];
             break;
         case LZADDEVENTTOREMINDTYPE_VIBRATION_LEAVE1:
             vc.dataSoureAry = @[self.vibrationModelLeaveAry];
-            [vc selectRow:self.contentData.vibrationLevel1 inComponent:0 animated:NO];
+            [vc selectRow:self.editData.vibrationLevel1 inComponent:0 animated:NO];
             break;
         case LZADDEVENTTOREMINDTYPE_VIBRATION_LEAVE2:
             vc.dataSoureAry = @[self.vibrationModelLeaveAry];
-            [vc selectRow:self.contentData.vibrationLevel2 inComponent:0 animated:NO];
+            [vc selectRow:self.editData.vibrationLevel2 inComponent:0 animated:NO];
             break;
         case LZADDEVENTTOREMINDTYPE_VIBRATION_TIME:
             vc.dataSoureAry = @[self.vibrationTimeAry];
-            [vc selectRow:self.contentData.vibrationTime inComponent:0 animated:NO];
+            [vc selectRow:self.editData.vibrationTime inComponent:0 animated:NO];
             break;
         default:
             break;
@@ -232,9 +237,7 @@ typedef enum : NSUInteger {
 
 #pragma mark - evnet
 - (void)clickSureBtn:(UIButton *)btn {
-    /// 目前闹钟只支持发送一个闹钟
-    self.data.contentDatas = @[self.contentData];
-    [self sendData:self.data];
+    [self sendData:self.editData];
 //    if (self.isCreate) {
 //        NSMutableArray *array = [NSMutableArray array];
 //        if (self.data.contentDatas) {

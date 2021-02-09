@@ -30,7 +30,7 @@
 - (void)sendData:(id<LZDeviceSettingProtocol>)settingData {
     [self showActivityIndicatorHUDWithMessage:nil];
     __weak typeof(self) weakSelf = self;
-    [self.deviceManager sendDataModel:settingData macString:self.device.mac completion:^(LZBluetoothErrorCode result, id resp) {
+    [self.deviceManager sendDataModel:settingData macString:self.device.mac completion:^(LZBluetoothErrorCode result) {
         dispatch_async(dispatch_get_main_queue(), ^{
             [weakSelf hideActivityIndicatorHUD];
             if (result == LZBluetoothErrorCodeSuccess) {
@@ -43,7 +43,6 @@
         });
     }];
 }
-
 
 - (void)saveSettingData:(id<LZDeviceSettingProtocol>)settingData {
     NSString *mac = self.device.mac;
@@ -59,14 +58,13 @@
             [LZDeviceSettingDBUtil saveSettingDatas:settingData withMacString:mac];
             break;
     }
-    
 }
 
 - (id<LZDeviceManagerProtocol>)deviceManager {
     return [LZBluetooth getDeviceManagerWithDeviceType:LZDeviceTypeBracelet];
 }
 
-- (__kindof LZA5SettingData *)settingData {
+- (id)settingData {
     id data = [LZDeviceSettingDBUtil getConfigsWithMacString:self.device.mac settingType:self.settingType];
     if (data == nil) {
         return [self defaultData];
@@ -103,7 +101,7 @@
 }
 
 - (id)defaultData {
-    NSString *clsName = lz_braceletSettingClass(self.settingType);
+    NSString *clsName = lz_deviceSettingClass(self.settingType);
     return [[NSClassFromString(clsName) alloc] init];
 }
 

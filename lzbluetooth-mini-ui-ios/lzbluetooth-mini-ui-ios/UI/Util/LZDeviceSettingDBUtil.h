@@ -25,7 +25,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (void)setEventReminder:(LZA5SettingEventRemindData *)data macString:(NSString *)macString;
 
-+ (void)removeEventReminder:(LZA5SettingEventRemindContentData *)contentData macString:(NSString *)macString;
++ (void)removeEventReminder:(LZA5SettingEventRemindData *)contentData macString:(NSString *)macString;
 
 + (void)setCallReminder:(LZA5SettingMessageReminderData *)data macString:(NSString *)macString;
 

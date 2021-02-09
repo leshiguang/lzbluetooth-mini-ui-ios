@@ -11,10 +11,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface LZAddEventToRemindViewController : LZBaseSettingViewController
 
-@property (nonatomic, strong) LZA5SettingEventRemindData *data;
-
 /// 如果没有就是新加
-@property (nonatomic, strong, nullable) LZA5SettingEventRemindContentData *contentData;
+@property (nonatomic, strong, nullable) LZA5SettingEventRemindData *editData;
 
 
 @end

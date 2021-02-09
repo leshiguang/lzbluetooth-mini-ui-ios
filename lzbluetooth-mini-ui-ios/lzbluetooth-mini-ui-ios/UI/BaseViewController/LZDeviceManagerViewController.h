@@ -28,7 +28,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)sendData:(id<LZDeviceSettingProtocol>)settingData;
 
-- (__kindof LZA5SettingData *)settingData;
+- (id)settingData;
 
 /// 根据当前的设置类型获取设置列表
 - (nullable NSArray <id<LZDeviceSettingProtocol>> *)settingDatas;

@@ -89,6 +89,7 @@
                 break;
             case LZBindStateUnregister:
                 /// 这个是体脂秤需要使用的，手环不会回调这个状态
+                [self.deviceManager registWithDeviceId:device.mac macString:device.mac deviceType:device.deviceType];
                 break;
             case LZBindStateSuccessful:
                 self.bindedDevice = device;

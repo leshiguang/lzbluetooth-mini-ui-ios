@@ -14,7 +14,7 @@
     NSUserDefaults *defalut = [NSUserDefaults standardUserDefaults];
     NSDictionary *temp = [defalut objectForKey:macString];
     NSDictionary *dic = [temp objectForKey:[NSString stringWithFormat:@"%@", @(settingType)]];
-    NSString *clsName = lz_braceletSettingClass(settingType);
+    NSString *clsName = lz_deviceSettingClass(settingType);
     Class cls = NSClassFromString(clsName);
     if (dic && [dic isKindOfClass:[NSDictionary class]]) {
         return [cls yy_modelWithDictionary:dic];
@@ -73,66 +73,48 @@
 
 /// 最加存储在某个数组里面
 + (void)setEventReminder:(LZA5SettingEventRemindData *)data macString:(NSString *)macString {
-    LZA5SettingEventRemindContentData *eventData = data.contentDatas.firstObject;
-    if (!eventData) {
-        return;
-    }
     
     NSDate *now = [NSDate date];
     NSDateComponents *components = [[NSCalendar currentCalendar] components:NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay | NSCalendarUnitHour | NSCalendarUnitMinute fromDate:now];
+    components.hour = data.hour;
+    components.minute = data.minute;
     
-    /// 只有当闹钟开启，并且是一次性的时候才做这个处理
-    if (eventData.enable == YES && eventData.repeatFlag == LZA5RepeatTimeFlagNon) {
-        /// 如果这个闹钟在今天还没有过
-        if (components.hour * 60 + components.minute < (eventData.hour * 60 + eventData.minute)) {
-            eventData.year = (int)components.year;
-            eventData.month = components.month;
-            eventData.day = components.day;
-        } else {
-            NSDate *date = [now dateByAddingTimeInterval:24 * 60 * 60];
-            components.hour = eventData.hour;
-            components.minute = eventData.minute;
-            components = [[NSCalendar currentCalendar] components:NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay | NSCalendarUnitHour | NSCalendarUnitMinute fromDate:date];
-            eventData.year = (int)components.year;
-            eventData.month = components.month;
-            eventData.day = components.day;
-        }
-    } else {
-        eventData.year = (int)components.year;
-        eventData.month = components.month;
-        eventData.day = components.day;
+    NSDate *result = [[NSCalendar currentCalendar] dateFromComponents:components];
+    if ([result compare:now] == NSOrderedAscending) {
+        result = [result dateByAddingTimeInterval:24 * 60 * 60];
     }
     
-    LZA5SettingEventRemindData *tempData = [self getConfigsWithMacString:macString settingType:LZDeviceSettingTypeEventReminder];
-    NSArray *list = tempData.contentDatas;
-    if (list && list.count > 0) {
+    data.ringTime = result.timeIntervalSince1970 * 1000;
+    
+    NSArray <LZA5SettingEventRemindData *> *list = [self getConfigsWithMacString:macString settingType:LZDeviceSettingTypeEventReminder];
+    
+    if (list && [list isKindOfClass:[NSArray class]] && list.count > 0) {
         __block NSInteger index = NSNotFound;
         
-        [list enumerateObjectsUsingBlock:^(LZA5SettingEventRemindContentData * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            if (obj.index == eventData.index) {
+        [list enumerateObjectsUsingBlock:^(LZA5SettingEventRemindData * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            if (obj.index == data.index) {
                 index = idx;
             }
         }];
         NSMutableArray *array = list.mutableCopy;
         if (index == NSNotFound) {
-            [array addObject:eventData];
+            [array addObject:data];
         } else {
-            [array replaceObjectAtIndex:index withObject:eventData];
+            [array replaceObjectAtIndex:index withObject:data];
         }
-        tempData.contentDatas = array;
-        [self saveSettingDatas:tempData withMacString:macString];
+        [self saveSettingDatas:array withMacString:macString];
     } else {
-        [self saveSettingDatas:data withMacString:macString];
+        [self saveSettingDatas:@[data] withMacString:macString];
     }
 }
 
-+ (void)removeEventReminder:(LZA5SettingEventRemindContentData *)contentData macString:(NSString *)macString {
-    LZA5SettingEventRemindData *tempData = [self getConfigsWithMacString:macString settingType:LZDeviceSettingTypeEventReminder];
-    if (!tempData || !tempData.contentDatas) {
++ (void)removeEventReminder:(LZA5SettingEventRemindData *)contentData macString:(NSString *)macString {
+    NSArray <LZA5SettingEventRemindData *> *list = [self getConfigsWithMacString:macString settingType:LZDeviceSettingTypeEventReminder];
+    if (!list || ![list isKindOfClass:[NSArray class]] || !list.count) {
         return;
     }
     __block NSInteger index = NSNotFound;
-    [tempData.contentDatas enumerateObjectsUsingBlock:^(LZA5SettingEventRemindContentData * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+    [list enumerateObjectsUsingBlock:^(LZA5SettingEventRemindData * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         if (obj.index == contentData.index) {
             index = idx;
             *stop = YES;
@@ -140,9 +122,9 @@
     }];
     
     if (index != NSNotFound) {
-        NSMutableArray *array = [tempData.contentDatas mutableCopy];
+        NSMutableArray *array = [list mutableCopy];
         [array removeObjectAtIndex:index];
-        [self saveSettingDatas:tempData withMacString:macString];
+        [self saveSettingDatas:contentData withMacString:macString];
     }
 }
 
