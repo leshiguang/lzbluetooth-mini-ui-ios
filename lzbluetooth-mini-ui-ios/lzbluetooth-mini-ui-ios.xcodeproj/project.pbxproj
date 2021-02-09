@@ -14,8 +14,6 @@
 		6017545D25B70BCA00AC1695 /* LZWeatherViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6017545C25B70BCA00AC1695 /* LZWeatherViewController.m */; };
 		6017546125B718B600AC1695 /* LZA5SettingWeatherData+YYModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6017546025B718B600AC1695 /* LZA5SettingWeatherData+YYModel.m */; };
 		609DA7F225BEA51A0051D403 /* LZBaseDeviceInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 609DA7F125BEA51A0051D403 /* LZBaseDeviceInfoViewController.m */; };
-		60A765C625C825A1004A58B8 /* LZWifiSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A765C525C825A1004A58B8 /* LZWifiSettingViewController.m */; };
-		60A765CB25C8264B004A58B8 /* LZScaleUnitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A765CA25C8264B004A58B8 /* LZScaleUnitViewController.m */; };
 		60C72C2C25B55F9B00E00276 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C72C2B25B55F9B00E00276 /* AppDelegate.m */; };
 		60C72C2F25B55F9B00E00276 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C72C2E25B55F9B00E00276 /* SceneDelegate.m */; };
 		60C72C3525B55F9B00E00276 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60C72C3325B55F9B00E00276 /* Main.storyboard */; };
@@ -888,7 +886,6 @@
 			files = (
 				60C72D2A25B561D700E00276 /* LZPickerAnimator.m in Sources */,
 				60C72D2525B561D700E00276 /* LZSetPopUpTableViewCell.m in Sources */,
-				60A765C625C825A1004A58B8 /* LZWifiSettingViewController.m in Sources */,
 				60C72D1025B561D700E00276 /* LZEventToRemindViewController.m in Sources */,
 				6017545025B70B9E00AC1695 /* LZSwimingViewController.m in Sources */,
 				60C72D2D25B561D700E00276 /* LSRandomCodeInputView.m in Sources */,
@@ -898,7 +895,6 @@
 				60C72D1725B561D700E00276 /* LZHeartRataWarningViewController.m in Sources */,
 				60C72D1A25B561D700E00276 /* LZTimeFormatViewController.m in Sources */,
 				60C72D0D25B561D700E00276 /* LZMessageToRemindViewController.m in Sources */,
-				60A765CB25C8264B004A58B8 /* LZScaleUnitViewController.m in Sources */,
 				60C72D3325B561D700E00276 /* LZSettingTableViewCell.m in Sources */,
 				60C72D2425B561D700E00276 /* LZSetPopUpAnimator.m in Sources */,
 				60C72D3725B561D700E00276 /* LZBindingViewController.m in Sources */,
