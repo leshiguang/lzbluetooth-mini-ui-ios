@@ -100,6 +100,10 @@
                 [self _handleBindStatusFailedWithNetCode:bindState];
                 break;
             }
+            case LZBindStateInputRandomNumberError: {
+                [self _handleBindStatusInputRndomCodeError];
+                break;
+            }
             default:
                 break;
         }
@@ -162,6 +166,12 @@
         [self showHintMessage:@"随机码错误" duration:2];
         [self.bindingDeviceView.enterRandomCodeView clearAndReset];
     }
+}
+
+- (void)_handleBindStatusInputRndomCodeError {
+    self.isInputCodeError = NO;
+    [self showHintMessage:@"随机码错误" duration:2];
+    [self.bindingDeviceView.enterRandomCodeView clearAndReset];
 }
 
 - (void)_handleBindStatusSuccess{
