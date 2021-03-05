@@ -171,7 +171,7 @@
         case LZDeviceSettingTypeScaleUnit: return @"体重单位";
         case LZDeviceSettingTypeWifiScan: return @"扫描wifi热点";
 
-            
+        case LZDeviceSettingTypeSedentaryRemainder: return @"久坐提醒";
         default:
             NSAssert(NO, @"未处理类型 %@", @(settingType));
             break;

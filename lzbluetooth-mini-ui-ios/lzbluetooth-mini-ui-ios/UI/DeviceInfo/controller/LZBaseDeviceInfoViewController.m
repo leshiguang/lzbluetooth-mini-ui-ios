@@ -161,7 +161,10 @@ typedef NS_ENUM(NSUInteger, LZDeviceInfoType) {
         case LZDeviceSettingTypeWifiScan: {
             className = @"LZWifiSettingViewController";
         }
-
+        case LZDeviceSettingTypeSedentaryRemainder: {
+            className = @"LZLongSitViewController";
+            break;
+        }
           
         default:
             break;
@@ -278,6 +281,7 @@ typedef NS_ENUM(NSUInteger, LZDeviceInfoType) {
         @(LZDeviceSettingTypeSwiming),
         @(LZDeviceSettingTypeWeather),
         @(LZDeviceSettingTypeUnit),
+        @(LZDeviceSettingTypeSedentaryRemainder)
     ];
 }
 

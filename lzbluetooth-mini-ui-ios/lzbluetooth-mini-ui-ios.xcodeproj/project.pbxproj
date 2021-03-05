@@ -13,6 +13,7 @@
 		6017545725B70BB400AC1695 /* LZUnitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6017545625B70BB400AC1695 /* LZUnitViewController.m */; };
 		6017545D25B70BCA00AC1695 /* LZWeatherViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6017545C25B70BCA00AC1695 /* LZWeatherViewController.m */; };
 		6017546125B718B600AC1695 /* LZA5SettingWeatherData+YYModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6017546025B718B600AC1695 /* LZA5SettingWeatherData+YYModel.m */; };
+		605CB42225F2353B00EEFBEC /* LZLongSitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 605CB42025F2353B00EEFBEC /* LZLongSitViewController.m */; };
 		609DA7F225BEA51A0051D403 /* LZBaseDeviceInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 609DA7F125BEA51A0051D403 /* LZBaseDeviceInfoViewController.m */; };
 		60C72C2C25B55F9B00E00276 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C72C2B25B55F9B00E00276 /* AppDelegate.m */; };
 		60C72C2F25B55F9B00E00276 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C72C2E25B55F9B00E00276 /* SceneDelegate.m */; };
@@ -51,7 +52,6 @@
 		60C72D2C25B561D700E00276 /* LZBaseSetTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C72CC025B561D700E00276 /* LZBaseSetTableViewCell.m */; };
 		60C72D2D25B561D700E00276 /* LSRandomCodeInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C72CC125B561D700E00276 /* LSRandomCodeInputView.m */; };
 		60C72D3025B561D700E00276 /* LZDeviceSettingDBUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C72CCA25B561D700E00276 /* LZDeviceSettingDBUtil.m */; };
-		60C72D3125B561D700E00276 /* LZBraceletInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C72CCD25B561D700E00276 /* LZBraceletInfoViewController.m */; };
 		60C72D3325B561D700E00276 /* LZSettingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C72CD425B561D700E00276 /* LZSettingTableViewCell.m */; };
 		60C72D3425B561D700E00276 /* LZSearchBindContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C72CD725B561D700E00276 /* LZSearchBindContainerViewController.m */; };
 		60C72D3525B561D700E00276 /* LSWEnterRandomCodeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C72CDA25B561D700E00276 /* LSWEnterRandomCodeView.m */; };
@@ -87,6 +87,8 @@
 		6017545C25B70BCA00AC1695 /* LZWeatherViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LZWeatherViewController.m; sourceTree = "<group>"; };
 		6017545F25B718B600AC1695 /* LZA5SettingWeatherData+YYModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LZA5SettingWeatherData+YYModel.h"; sourceTree = "<group>"; };
 		6017546025B718B600AC1695 /* LZA5SettingWeatherData+YYModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "LZA5SettingWeatherData+YYModel.m"; sourceTree = "<group>"; };
+		605CB42025F2353B00EEFBEC /* LZLongSitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZLongSitViewController.m; sourceTree = "<group>"; };
+		605CB42125F2353B00EEFBEC /* LZLongSitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZLongSitViewController.h; sourceTree = "<group>"; };
 		607D10FD25CA770D0036A1FD /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		607D110025CA77170036A1FD /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		607D110325CA77280036A1FD /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
@@ -172,8 +174,6 @@
 		60C72CC125B561D700E00276 /* LSRandomCodeInputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSRandomCodeInputView.m; sourceTree = "<group>"; };
 		60C72CC325B561D700E00276 /* LZDeviceSettingDBUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZDeviceSettingDBUtil.h; sourceTree = "<group>"; };
 		60C72CCA25B561D700E00276 /* LZDeviceSettingDBUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZDeviceSettingDBUtil.m; sourceTree = "<group>"; };
-		60C72CCD25B561D700E00276 /* LZBraceletInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZBraceletInfoViewController.m; sourceTree = "<group>"; };
-		60C72CCE25B561D700E00276 /* LZBraceletInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZBraceletInfoViewController.h; sourceTree = "<group>"; };
 		60C72CD325B561D700E00276 /* LZSettingTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZSettingTableViewCell.h; sourceTree = "<group>"; };
 		60C72CD425B561D700E00276 /* LZSettingTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZSettingTableViewCell.m; sourceTree = "<group>"; };
 		60C72CD725B561D700E00276 /* LZSearchBindContainerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZSearchBindContainerViewController.m; sourceTree = "<group>"; };
@@ -299,6 +299,15 @@
 			path = Weather;
 			sourceTree = "<group>";
 		};
+		605CB41F25F2353B00EEFBEC /* longSitReminder */ = {
+			isa = PBXGroup;
+			children = (
+				605CB42125F2353B00EEFBEC /* LZLongSitViewController.h */,
+				605CB42025F2353B00EEFBEC /* LZLongSitViewController.m */,
+			);
+			path = longSitReminder;
+			sourceTree = "<group>";
+		};
 		60A765C325C82584004A58B8 /* Wifi */ = {
 			isa = PBXGroup;
 			children = (
@@ -383,6 +392,7 @@
 		60C72C5425B561D600E00276 /* DeviceSetting */ = {
 			isa = PBXGroup;
 			children = (
+				605CB41F25F2353B00EEFBEC /* longSitReminder */,
 				60A765C325C82584004A58B8 /* Wifi */,
 				60E28F8125C191870025B510 /* HrSection */,
 				6017545A25B70BBD00AC1695 /* Weather */,
@@ -594,8 +604,6 @@
 		60C72CCC25B561D700E00276 /* controller */ = {
 			isa = PBXGroup;
 			children = (
-				60C72CCE25B561D700E00276 /* LZBraceletInfoViewController.h */,
-				60C72CCD25B561D700E00276 /* LZBraceletInfoViewController.m */,
 				609DA7F025BEA51A0051D403 /* LZBaseDeviceInfoViewController.h */,
 				609DA7F125BEA51A0051D403 /* LZBaseDeviceInfoViewController.m */,
 			);
@@ -885,6 +893,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				60C72D2A25B561D700E00276 /* LZPickerAnimator.m in Sources */,
+				605CB42225F2353B00EEFBEC /* LZLongSitViewController.m in Sources */,
 				60C72D2525B561D700E00276 /* LZSetPopUpTableViewCell.m in Sources */,
 				60C72D1025B561D700E00276 /* LZEventToRemindViewController.m in Sources */,
 				6017545025B70B9E00AC1695 /* LZSwimingViewController.m in Sources */,
@@ -905,7 +914,6 @@
 				60C72CFC25B561D700E00276 /* LZDeviceManagerViewController.m in Sources */,
 				60C72D0A25B561D700E00276 /* LZDialSetCollectionViewCell.m in Sources */,
 				60C72D2B25B561D700E00276 /* LZSetPickerViewController.m in Sources */,
-				60C72D3125B561D700E00276 /* LZBraceletInfoViewController.m in Sources */,
 				60C72D1525B561D700E00276 /* LZNightModeViewController.m in Sources */,
 				60C72D3425B561D700E00276 /* LZSearchBindContainerViewController.m in Sources */,
 				60C72D6225B5658A00E00276 /* LZViewController.m in Sources */,
