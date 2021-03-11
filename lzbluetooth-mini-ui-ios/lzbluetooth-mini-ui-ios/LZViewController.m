@@ -11,9 +11,24 @@
 #import "LSWMyDeviceListViewController.h"
 #import "LZSearchBindContainerViewController.h"
 
-@interface LZViewController ()
+#import "LZInputStringTableViewCell.h"
 
-@property (nonatomic, strong) NSArray <NSString *> *protocolList;
+typedef NS_ENUM(NSUInteger, LZCellType) {
+    LZCellTypeNormal,
+    LZCellTypeInput,
+};
+
+typedef NS_ENUM(NSUInteger, LZCellTag) {
+    LZCellTagDeviceList,
+    LZCellTagDeviceSearch,
+    LZCellTagDeviceMonitor,
+    LZCellTagClear,
+    LZCellTagDestroy,
+};
+
+@interface LZViewController () <LZInputStringTableViewCellDelegate>
+
+@property (nonatomic, strong) NSArray <NSMutableDictionary *> *protocolList;
 
 @end
 
@@ -24,22 +39,42 @@
     [super viewDidLoad];
     
     self.protocolList = @[
-        @"设备列表",
-        @"搜索绑定",
-        @"清除所有设备",
-        @"销毁设备管理器",
+        @{
+            @"title": @"设备列表",
+            @"cellType": @(LZCellTypeNormal),
+            @"cellTag": @(LZCellTagDeviceList),
+        }.mutableCopy,
+        @{
+            @"title": @"搜索绑定",
+            @"cellType": @(LZCellTypeNormal),
+            @"cellTag": @(LZCellTagDeviceSearch),
+        }.mutableCopy,
+        @{
+            @"title": @"监听某个设备",
+            @"cellType": @(LZCellTypeInput),
+            @"mac": @"cffbd0cdb33f",
+            @"cellTag": @(LZCellTagDeviceMonitor),
+        }.mutableCopy,
+        @{
+            @"title": @"清除所有设备",
+            @"cellType": @(LZCellTypeNormal),
+            @"cellTag": @(LZCellTagClear),
+        }.mutableCopy,
+        @{
+            @"title": @"销毁设备管理器",
+            @"cellType": @(LZCellTypeNormal),
+            @"cellTag": @(LZCellTagDestroy),
+        }.mutableCopy,
     ];
     
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
-    
+    [self.tableView registerClass:[LZInputStringTableViewCell class] forCellReuseIdentifier:NSStringFromClass(LZInputStringTableViewCell.class)];
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-}
-
-- (void)viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:animated];
+#pragma mark - LZInputStringTableViewCellDelegate
+- (void)inputTableViewCellDidInputString:(NSString *)string cellModle:(LZBaseSetCellModel *)cellModel {
+    NSMutableDictionary *dic = self.protocolList[2];
+    dic[@"mac"] = string;
 }
 
 #pragma mark - UITableViewDataSource
@@ -49,32 +84,61 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+    UITableViewCell *cell = nil;
     
-    NSString *string = self.protocolList[indexPath.row];
+    NSDictionary *dic = self.protocolList[indexPath.row];
+    LZCellType cellType = [dic[@"cellType"] integerValue];
+    NSString *title = dic[@"title"];
     
-    cell.textLabel.text = string;
+    switch (cellType) {
+        case LZCellTypeNormal: {
+            cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+            cell.textLabel.text = title;
+            break;
+        }
+        case LZCellTypeInput: {
+            LZInputStringTableViewCell *tempCell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass(LZInputStringTableViewCell.class) forIndexPath:indexPath];
+            
+            tempCell.textField.placeholder = @"请输入12位的mac地址";
+            tempCell.textField.text = dic[@"mac"];
+            
+            tempCell.delegate = self;
+            cell = tempCell;
+            
+            break;
+        }
+    }
     
     return cell;
 }
 #pragma mark - UITableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     UIViewController *vc = nil;
-    switch (indexPath.row) {
-        case 0: {
+    NSDictionary *dic = self.protocolList[indexPath.row];
+    LZCellTag tag = [dic[@"cellTag"] integerValue];
+    switch (tag) {
+        case LZCellTagDeviceList: {
             vc = [[LSWMyDeviceListViewController alloc] init];
             break;
         }
-        case 1: {
+        case LZCellTagDeviceSearch: {
             vc = [[LZSearchBindContainerViewController alloc] init];
             break;
         }
-        case 2: {
+        case LZCellTagDeviceMonitor: {
+            NSString *mac = dic[@"mac"];
+            if (mac && mac.length == 12) {
+                id<LZDeviceManagerProtocol> deviceManager = [LZBluetooth getDeviceManagerWithDeviceType:LZDeviceTypeBracelet];
+                [deviceManager addMonitorDeviceWithMacString:mac.uppercaseString deviceType:LZDeviceTypeBracelet];
+            }
+            break;
+        }
+        case LZCellTagClear: {
             id<LZDeviceManagerProtocol> deviceManager = [LZBluetooth getDeviceManagerWithDeviceType:LZDeviceTypeBracelet];
             [deviceManager deleteAll];
             break;
         }
-        case 3: {
+        case LZCellTagDestroy: {
             [LZBluetooth destroy];
             break;
         }
