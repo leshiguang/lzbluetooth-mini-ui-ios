@@ -172,6 +172,7 @@
         case LZDeviceSettingTypeWifiScan: return @"扫描wifi热点";
 
         case LZDeviceSettingTypeSedentaryRemainder: return @"久坐提醒";
+        case LZDeviceSettingTypeRealtimeHR: return @"实时心率";
         default:
             NSAssert(NO, @"未处理类型 %@", @(settingType));
             break;

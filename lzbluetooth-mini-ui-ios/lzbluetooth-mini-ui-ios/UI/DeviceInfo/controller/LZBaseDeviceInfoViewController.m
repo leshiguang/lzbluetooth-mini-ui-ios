@@ -15,8 +15,10 @@ typedef enum : NSUInteger {
     DEVICESETTYPE_DEVICE_NAME,                          //设备名称
     DEVICESETTYPE_MAC,                                  //MAC地址
     DEVICESETTYPE_SN,
+    DEVICESETTYPE_REMLTIMEHR, // 实时心率
     DEVICESETTYPE_FOTA, //固件升级
     DEVICESETTYPE_UNBIND, //解除绑定
+    
 } DEVICESETTYPE;
 
 typedef NS_ENUM(NSUInteger, LZDeviceInfoType) {
@@ -165,6 +167,10 @@ typedef NS_ENUM(NSUInteger, LZDeviceInfoType) {
             className = @"LZLongSitViewController";
             break;
         }
+        case LZDeviceSettingTypeRealtimeHR: {
+            className = @"LZReadRealTimeHRViewController";
+            break;
+        }
           
         default:
             break;
@@ -281,7 +287,8 @@ typedef NS_ENUM(NSUInteger, LZDeviceInfoType) {
         @(LZDeviceSettingTypeSwiming),
         @(LZDeviceSettingTypeWeather),
         @(LZDeviceSettingTypeUnit),
-        @(LZDeviceSettingTypeSedentaryRemainder)
+        @(LZDeviceSettingTypeSedentaryRemainder),
+        @(LZDeviceSettingTypeRealtimeHR)
     ];
 }
 
