@@ -131,7 +131,6 @@
     LZAddEventToRemindViewController *vc = [[LZAddEventToRemindViewController alloc] init];
     vc.settingType = vc.settingType;
     vc.device = self.device;
-    vc.data = self.data;
     if (indexPath) {
         vc.editData = self.data[indexPath.row];
     } else {
@@ -160,13 +159,13 @@
     [self showActivityIndicatorHUDWithMessage:nil];
     __weak typeof(self) weakSelf = self;
     
-    [self.deviceManager sendDataModel:contentData macString:self.device.mac completion:^(LZBluetoothErrorCode result, id  _Nullable response) {
+    [self.deviceManager sendDataModel:contentData macString:self.device.macAddress completion:^(LZBluetoothErrorCode result, id  _Nullable response) {
         dispatch_async(dispatch_get_main_queue(), ^{
             [weakSelf hideActivityIndicatorHUD];
             
             if (result == LZBluetoothErrorCodeSuccess) {
                 [weakSelf showHintMessage:@"设置成功" duration:1.5];
-                [LZDeviceSettingDBUtil removeEventReminder:contentData macString:weakSelf.device.mac];
+                [LZDeviceSettingDBUtil removeEventReminder:contentData macString:weakSelf.device.macAddress];
             } else {
                 [weakSelf showHintMessage:@"设置失败" duration:1.5];
             }

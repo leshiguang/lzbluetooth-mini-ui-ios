@@ -71,7 +71,7 @@
 }
 
 - (void)canclePairingRawDeviceInfo:(LZBaseDevice *)rawDeviceInfo {
-    [self.deviceManager cancelBindWithMacString:rawDeviceInfo.mac];
+    [self.deviceManager cancelBindWithMacString:rawDeviceInfo.macAddress];
 }
 
 #pragma mark - LSDeviceManagerDelegate
@@ -85,11 +85,11 @@
                 
             case LZBindStateInputUserNumberAndBindResult:
                 /// 这个是体脂秤需要使用的，手环不会回调这个状态
-                [self.deviceManager inputUserNumber:1 bindResult:1 macString:device.mac deviceType:device.deviceType];
+                [self.deviceManager inputUserNumber:1 bindResult:1 macString:device.macAddress deviceType:device.deviceType];
                 break;
             case LZBindStateUnregister:
                 /// 这个是体脂秤需要使用的，手环不会回调这个状态
-                [self.deviceManager registWithDeviceId:device.mac macString:device.mac deviceType:device.deviceType];
+                [self.deviceManager registWithDeviceId:device.macAddress macString:device.macAddress deviceType:device.deviceType];
                 break;
             case LZBindStateSuccessful:
                 self.bindedDevice = device;
@@ -148,7 +148,7 @@
 #pragma mark - LSWEnterRandomCodeViewDelegate
 - (void)enterRandomCodeView:(LSWEnterRandomCodeView *)enterRandomCodeView didEnterCode:(NSString *)code {
     [self.bindingDeviceView.enterRandomCodeView hideKeyboard];
-    [self.deviceManager inputRandomCode:code macString:self.device.mac deviceType:self.device.deviceType];
+    [self.deviceManager inputRandomCode:code macString:self.device.macAddress deviceType:self.device.deviceType];
 }
 
 #pragma mark - 绑定回调处理

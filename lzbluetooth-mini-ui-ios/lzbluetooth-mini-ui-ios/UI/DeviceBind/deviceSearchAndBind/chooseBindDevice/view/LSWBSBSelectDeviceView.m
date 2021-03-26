@@ -77,7 +77,7 @@
 
 - (void)setUpWithRawDeviceInfo:(LZBaseDevice *)rawDeviceInfo productInfo:(LZBaseDevice *)productInfo isUseProductInfoName:(BOOL)isUseProductInfoName showTagView:(BOOL)showTagView {
 #if DEBUG
-    self.titleLabel.text = [NSString stringWithFormat:@"%@ %@", rawDeviceInfo.name, rawDeviceInfo.mac];
+    self.titleLabel.text = [NSString stringWithFormat:@"%@ %@", rawDeviceInfo.name, rawDeviceInfo.macAddress];
 #else
     self.titleLabel.text = rawDeviceInfo.name;
 #endif

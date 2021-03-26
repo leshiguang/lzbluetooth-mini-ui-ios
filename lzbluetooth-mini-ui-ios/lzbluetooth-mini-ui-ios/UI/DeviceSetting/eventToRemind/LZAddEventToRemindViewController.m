@@ -28,7 +28,7 @@ typedef enum : NSUInteger {
 } LZADDEVENTTOREMINDTYPE;
 
 
-@interface LZAddEventToRemindViewController () <LZSetPickerDelegate>
+@interface LZAddEventToRemindViewController () <LZSetPickerDelegate, LZBaseSetTableViewCellDelegate>
 @property (nonatomic, strong) NSArray <LZBaseSetCellModel *> * modelAry;
 @property (nonatomic, strong) UIButton *sureBtn;
 @property (nonatomic, strong) LZPickerAnimator *pickerAnimotor;

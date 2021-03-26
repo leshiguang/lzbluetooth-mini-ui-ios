@@ -110,7 +110,7 @@
 
 #pragma mark - 筛选设备
 - (void)gatherSearchedRawDeviceInfo:(LZBaseDevice *)rawDeviceInfo {
-    self.rawDeviceInfoDict[rawDeviceInfo.mac] = rawDeviceInfo;
+    self.rawDeviceInfoDict[rawDeviceInfo.macAddress] = rawDeviceInfo;
 }
 
 - (void)clearGatheredRawDeviceInfo {

@@ -16,6 +16,7 @@
 		6017546125B718B600AC1695 /* LZA5SettingWeatherData+YYModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6017546025B718B600AC1695 /* LZA5SettingWeatherData+YYModel.m */; };
 		605CB42225F2353B00EEFBEC /* LZLongSitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 605CB42025F2353B00EEFBEC /* LZLongSitViewController.m */; };
 		609DA7F225BEA51A0051D403 /* LZBaseDeviceInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 609DA7F125BEA51A0051D403 /* LZBaseDeviceInfoViewController.m */; };
+		60A71F88260E0E1800DB6EB6 /* LZScaleUnitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A765CA25C8264B004A58B8 /* LZScaleUnitViewController.m */; };
 		60C72C2C25B55F9B00E00276 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C72C2B25B55F9B00E00276 /* AppDelegate.m */; };
 		60C72C2F25B55F9B00E00276 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C72C2E25B55F9B00E00276 /* SceneDelegate.m */; };
 		60C72C3525B55F9B00E00276 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60C72C3325B55F9B00E00276 /* Main.storyboard */; };
@@ -935,6 +936,7 @@
 				60C72D0225B561D700E00276 /* LZScreenOrientationViewController.m in Sources */,
 				60C72D2725B561D700E00276 /* LSWGradientView.m in Sources */,
 				60C72D1D25B561D700E00276 /* LZSportTypeViewController.m in Sources */,
+				60A71F88260E0E1800DB6EB6 /* LZScaleUnitViewController.m in Sources */,
 				60C72D1225B561D700E00276 /* LZAddEventToRemindContentTableViewCell.m in Sources */,
 				60C72D3825B561D700E00276 /* LSWBluetoothSearchingDeviceView.m in Sources */,
 				60E28F8425C192220025B510 /* LZHrSectionViewController.m in Sources */,

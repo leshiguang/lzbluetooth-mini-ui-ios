@@ -60,7 +60,7 @@ typedef NS_ENUM(NSUInteger, LZDeviceInfoType) {
                 obj.subStr = self.device.name;
                 break;
             case DEVICESETTYPE_MAC:
-                obj.subStr = self.device.mac;
+                obj.subStr = self.device.macAddress;
                 break;
             case DEVICESETTYPE_SN:
                 obj.subStr = self.device.sn;
@@ -79,7 +79,7 @@ typedef NS_ENUM(NSUInteger, LZDeviceInfoType) {
 #pragma mark - LZSettingTableViewCellDelegate
 - (void)unbindClick:(LZBaseSetCellModel *)cellModel {
 //    __weak typeof(self) weakSelf = self;
-    [self.deviceManager deleteMonitorDeviceWithMacString:self.device.mac];
+    [self.deviceManager deleteMonitorDeviceWithMacString:self.device.macAddress];
     [self.navigationController popViewControllerAnimated:YES];
 }
 
@@ -162,6 +162,7 @@ typedef NS_ENUM(NSUInteger, LZDeviceInfoType) {
         }
         case LZDeviceSettingTypeWifiScan: {
             className = @"LZWifiSettingViewController";
+            break;
         }
         case LZDeviceSettingTypeSedentaryRemainder: {
             className = @"LZLongSitViewController";

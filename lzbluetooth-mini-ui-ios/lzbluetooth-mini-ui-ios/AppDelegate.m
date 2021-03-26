@@ -21,8 +21,8 @@
     [LZBluetooth initWithAppId:@"com.leshiguang.saas.rbac.demo.appid"];
     id<LZDeviceManagerProtocol> deviceManager = [LZBluetooth getDeviceManagerWithDeviceTypes:@[
         @(LZDeviceTypeBracelet),
-//        @(LZDeviceTypeScale),
-//        @(LZDeviceTypeBloodPressure)
+        @(LZDeviceTypeScale),
+        @(LZDeviceTypeBloodPressure)
     ]];
     deviceManager.delegate = self;
     
@@ -39,6 +39,10 @@
 - (void)device:(id<LZDeviceProtocol>)device didReceiveMeasurementData:(id<LZMeasurementDataProtocol>)measurementData {
     NSLog(@"%@ 收到测量数据 %@", device.mac, measurementData);
     
+    if (measurementData.measurementDataType == LZBraceletMeasurementDataTypeSleep) {
+        LZA5SleepData *sleepData = (LZA5SleepData *)measurementData;
+        NSLog(@"睡眠数据 %@", sleepData);
+    }
 }
 
 - (void)deviceDidUpdateConnectStatus:(id<LZDeviceProtocol>)device {

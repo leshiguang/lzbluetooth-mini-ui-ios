@@ -12,7 +12,7 @@ target 'lzbluetooth-mini-ui-ios' do
   pod "CocoaDebug" , "1.4.8"
   pod "YYModel"
 
-  pod "LZBluetooth", "1.6.1"
+  pod "LZBluetooth", "1.6.3"
 #pod 'LZBluetooth', :path => '../../lzbluetoothmini'
 
 

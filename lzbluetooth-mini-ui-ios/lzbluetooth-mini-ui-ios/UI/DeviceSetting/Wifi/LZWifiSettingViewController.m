@@ -38,7 +38,7 @@
     wifiScanData.showHidden = YES;
     __weak typeof(self) weakSelf = self;
     [self showActivityIndicatorHUDWithMessage:nil];
-    [self.deviceManager sendDataModel:wifiScanData macString:self.device.mac completion:^(LZBluetoothErrorCode result, id resp) {
+    [self.deviceManager sendDataModel:wifiScanData macString:self.device.macAddress completion:^(LZBluetoothErrorCode result, id resp) {
         dispatch_async(dispatch_get_main_queue(), ^{
             [weakSelf hideActivityIndicatorHUD];
             if (result == LZBluetoothErrorCodeSuccess) {
@@ -92,7 +92,7 @@
     LZWifiReset *data = [[LZWifiReset alloc] init];
     [self showActivityIndicatorHUDWithMessage:nil];
     __weak typeof(self) weakSelf = self;
-    [self.deviceManager sendDataModel:data macString:self.device.mac completion:^(LZBluetoothErrorCode result, id resp) {
+    [self.deviceManager sendDataModel:data macString:self.device.macAddress completion:^(LZBluetoothErrorCode result, id resp) {
         dispatch_async(dispatch_get_main_queue(), ^{
             [weakSelf hideActivityIndicatorHUD];
             if (result == LZBluetoothErrorCodeSuccess) {

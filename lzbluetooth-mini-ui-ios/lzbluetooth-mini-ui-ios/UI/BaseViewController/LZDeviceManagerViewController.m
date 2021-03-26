@@ -30,7 +30,7 @@
 - (void)sendData:(id<LZDeviceSettingProtocol>)settingData {
     [self showActivityIndicatorHUDWithMessage:nil];
     __weak typeof(self) weakSelf = self;
-    [self.deviceManager sendDataModel:settingData macString:self.device.mac completion:^(LZBluetoothErrorCode result, id resp) {
+    [self.deviceManager sendDataModel:settingData macString:self.device.macAddress completion:^(LZBluetoothErrorCode result, id resp) {
         dispatch_async(dispatch_get_main_queue(), ^{
             [weakSelf hideActivityIndicatorHUD];
             if (result == LZBluetoothErrorCodeSuccess) {
@@ -45,7 +45,7 @@
 }
 
 - (void)saveSettingData:(id<LZDeviceSettingProtocol>)settingData {
-    NSString *mac = self.device.mac;
+    NSString *mac = self.device.macAddress;
     
     switch (settingData.settingType) {
         case LZDeviceSettingTypeMsgReminder:
@@ -65,7 +65,7 @@
 }
 
 - (id)settingData {
-    id data = [LZDeviceSettingDBUtil getConfigsWithMacString:self.device.mac settingType:self.settingType];
+    id data = [LZDeviceSettingDBUtil getConfigsWithMacString:self.device.macAddress settingType:self.settingType];
     if (data == nil) {
         return [self defaultData];
     } else {
@@ -74,7 +74,7 @@
 }
 
 - (nullable NSArray <__kindof LZA5SettingData *> *)settingDatas {
-    NSArray *datas = [LZDeviceSettingDBUtil getConfigsWithMacString:self.device.mac settingType:self.settingType];
+    NSArray *datas = [LZDeviceSettingDBUtil getConfigsWithMacString:self.device.macAddress settingType:self.settingType];
     return datas;
 }
 
