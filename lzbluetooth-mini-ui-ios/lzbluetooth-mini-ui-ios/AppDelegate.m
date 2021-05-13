@@ -8,21 +8,51 @@
 #import "AppDelegate.h"
 #import <LZBluetooth/LZBluetooth.h>
 #import <YYModel/YYModel.h>
+#import <ExternalAccessory/ExternalAccessory.h>
+
+//#import "LZDataUtil.h"
+//#import "LZDataStream.h"
+
 
 @interface AppDelegate () <LZDeviceDelegate>
 
 @end
+
+
 
 @implementation AppDelegate
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
+//    LZDataStream *stream = [LZDataStream streamWithCapacity:32];
+//    NSLog(@"data0 %@", stream.data);
+//    [stream writeByte:1];
+//    NSLog(@"data1 %@", stream.data);
+//    [stream writeByte:2];
+//    NSLog(@"data2 %@", stream.data);
+//    [stream writeByte:3];
+//    NSLog(@"data3 %@", stream.data);
+    
+    Byte byte[] = { 0xb0, 0x38, 0x50, 0x60};
+//    double ret =  lzz_sfloat_value(byte);
+//    NSLog(@"ret %f", ret);
+//    [self init_crc_table];
+    NSString *hexString = @"97DE117D5FCC";
+//    NSData *data = [LZDataUtil convertHexStrToData:hexString];
+//    NSData *reData = [LZDataUtil reverseData:data];
+//    NSString *retString = [LZDataUtil hexStringFromData:reData];
+    
+    
+    
+//    @"lxe105d9c5fdf0cc93"
     [LZBluetooth initWithAppId:@"com.leshiguang.saas.rbac.demo.appid"];
     id<LZDeviceManagerProtocol> deviceManager = [LZBluetooth getDeviceManagerWithDeviceTypes:@[
         @(LZDeviceTypeBracelet),
         @(LZDeviceTypeScale),
-        @(LZDeviceTypeBloodPressure)
+        @(LZDeviceTypeBloodPressure),
+//        @(LZDeviceTypeAlice),
+//        @(LZDeviceTypeGlu)
     ]];
     deviceManager.delegate = self;
     
@@ -34,6 +64,8 @@
     };
     return YES;
 }
+
+
 
 #pragma mark - LZDeviceDelegate
 - (void)device:(id<LZDeviceProtocol>)device didReceiveMeasurementData:(id<LZMeasurementDataProtocol>)measurementData {

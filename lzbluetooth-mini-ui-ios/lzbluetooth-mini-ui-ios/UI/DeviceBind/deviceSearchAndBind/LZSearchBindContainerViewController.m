@@ -33,6 +33,12 @@
     [super viewWillAppear:animated];
 }
 
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    
+    [self.deviceManager stopSearch];
+}
+
 - (void)defaultUI {
     self.searchVC = [[LZSearchDeviceViewController alloc] init];
     self.searchVC.delegate = self;

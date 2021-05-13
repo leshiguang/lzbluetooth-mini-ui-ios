@@ -35,7 +35,7 @@
 - (void)scanItemClicked:(id)sender {
     LZWifiScanData *wifiScanData = [[LZWifiScanData alloc] init];
     wifiScanData.scanType = 1;
-    wifiScanData.showHidden = YES;
+    wifiScanData.showHidden = NO;
     __weak typeof(self) weakSelf = self;
     [self showActivityIndicatorHUDWithMessage:nil];
     [self.deviceManager sendDataModel:wifiScanData macString:self.device.macAddress completion:^(LZBluetoothErrorCode result, id resp) {
@@ -138,6 +138,7 @@
 #pragma mark - Private
 
 - (LZBaseSetCellModel *)modelWithWifiData:(LZWifiData *)data {
+    data.password = @"life8511";
     LZBaseSetCellModel *model = [[LZBaseSetCellModel alloc] initModelWithSetType:0 cellStyle:DEVICESETCELLSTYLE_RIGHT_SELECTIMAGE titleStr:data.ssid subStr:data.password];
     return model;
 }

@@ -91,6 +91,9 @@ typedef NS_ENUM(NSUInteger, LZDeviceInfoType) {
         case DEVICESETTYPE_UNBIND:
             [self unbindClick:model];
             break;
+        case DEVICESETTYPE_FOTA:
+            className = @"LZOTAViewController";
+            break;
         case LZDeviceSettingTypeDial: {
             className = @"LZDialSetViewController";
         }

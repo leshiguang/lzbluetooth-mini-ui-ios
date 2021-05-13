@@ -24,6 +24,7 @@ typedef NS_ENUM(NSUInteger, LZCellTag) {
     LZCellTagDeviceMonitor,
     LZCellTagClear,
     LZCellTagDestroy,
+    LZCellTagAliceOta,
 };
 
 @interface LZViewController () <LZInputStringTableViewCellDelegate>
@@ -52,7 +53,7 @@ typedef NS_ENUM(NSUInteger, LZCellTag) {
         @{
             @"title": @"监听某个设备",
             @"cellType": @(LZCellTypeInput),
-            @"mac": @"cffbd0cdb33f",
+            @"mac": @"CC5F7D11DE97",
             @"cellTag": @(LZCellTagDeviceMonitor),
         }.mutableCopy,
         @{
@@ -65,6 +66,12 @@ typedef NS_ENUM(NSUInteger, LZCellTag) {
             @"cellType": @(LZCellTypeNormal),
             @"cellTag": @(LZCellTagDestroy),
         }.mutableCopy,
+        @{
+            @"title": @"alice ota",
+            @"cellType": @(LZCellTypeNormal),
+            @"cellTag": @(LZCellTagAliceOta),
+        }
+        
     ];
     
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
@@ -140,6 +147,13 @@ typedef NS_ENUM(NSUInteger, LZCellTag) {
         }
         case LZCellTagDestroy: {
             [LZBluetooth destroy];
+            break;
+        }
+        case LZCellTagAliceOta: {
+            Class cls = NSClassFromString(@"LZOTAViewController");
+            if (cls) {
+                vc = [[cls alloc] init];
+            }
             break;
         }
         default:

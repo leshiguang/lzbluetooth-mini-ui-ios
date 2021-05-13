@@ -87,10 +87,13 @@
                 /// 这个是体脂秤需要使用的，手环不会回调这个状态
                 [self.deviceManager inputUserNumber:1 bindResult:1 macString:device.macAddress deviceType:device.deviceType];
                 break;
-            case LZBindStateUnregister:
-                /// 这个是体脂秤需要使用的，手环不会回调这个状态
-                [self.deviceManager registWithDeviceId:device.macAddress macString:device.macAddress deviceType:device.deviceType];
-                break;
+//            case LZBindStateUnregister: {
+//                /// 这个是体脂秤需要使用的，手环不会回调这个状态
+//                
+//                [self.deviceManager registWithDeviceId:device.macAddress macString:device.macAddress deviceType:device.deviceType];
+//                break;
+//            }
+                
             case LZBindStateSuccessful:
                 self.bindedDevice = device;
                 [self _handleBindStatusSuccess];
@@ -105,6 +108,7 @@
                 break;
             }
             default:
+                [self _handleBindStatusFailedWithNetCode:bindState];
                 break;
         }
     });
@@ -141,6 +145,7 @@
         }
             break;
         default:
+            
             break;
     }
 }
