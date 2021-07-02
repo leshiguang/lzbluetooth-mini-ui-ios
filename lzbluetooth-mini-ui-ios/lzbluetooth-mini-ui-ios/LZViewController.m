@@ -10,8 +10,9 @@
 #import <LZBluetooth/LZBluetooth.h>
 #import "LSWMyDeviceListViewController.h"
 #import "LZSearchBindContainerViewController.h"
-
 #import "LZInputStringTableViewCell.h"
+
+@import SGQRCode;
 
 typedef NS_ENUM(NSUInteger, LZCellType) {
     LZCellTypeNormal,
@@ -25,6 +26,7 @@ typedef NS_ENUM(NSUInteger, LZCellTag) {
     LZCellTagClear,
     LZCellTagDestroy,
     LZCellTagAliceOta,
+    LZCellTagQrcode,
 };
 
 @interface LZViewController () <LZInputStringTableViewCellDelegate>
@@ -53,7 +55,8 @@ typedef NS_ENUM(NSUInteger, LZCellTag) {
         @{
             @"title": @"监听某个设备",
             @"cellType": @(LZCellTypeInput),
-            @"mac": @"CC5F7D11DE97",
+            @"deviceType": @(LZDeviceTypeBloodPressure),
+            @"mac": @"C4E73880EA8E",
             @"cellTag": @(LZCellTagDeviceMonitor),
         }.mutableCopy,
         @{
@@ -70,8 +73,12 @@ typedef NS_ENUM(NSUInteger, LZCellTag) {
             @"title": @"alice ota",
             @"cellType": @(LZCellTypeNormal),
             @"cellTag": @(LZCellTagAliceOta),
-        }
-        
+        }.mutableCopy,
+        @{
+            @"title": @"二维码扫描",
+            @"cellType": @(LZCellTypeNormal),
+            @"cellTag": @(LZCellTagQrcode),
+        }.mutableCopy,
     ];
     
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
@@ -134,9 +141,10 @@ typedef NS_ENUM(NSUInteger, LZCellTag) {
         }
         case LZCellTagDeviceMonitor: {
             NSString *mac = dic[@"mac"];
+            LZDeviceType deviceType = [dic[@"deviceType"] unsignedIntegerValue];
             if (mac && mac.length == 12) {
-                id<LZDeviceManagerProtocol> deviceManager = [LZBluetooth getDeviceManagerWithDeviceType:LZDeviceTypeBracelet];
-                [deviceManager addMonitorDeviceWithMacString:mac.uppercaseString deviceType:LZDeviceTypeBracelet];
+                id<LZDeviceManagerProtocol> deviceManager = [LZBluetooth getDeviceManagerWithDeviceType:deviceType];
+                [deviceManager addMonitorDeviceWithMacString:mac.uppercaseString deviceType:deviceType];
             }
             break;
         }
@@ -154,6 +162,35 @@ typedef NS_ENUM(NSUInteger, LZCellTag) {
             if (cls) {
                 vc = [[cls alloc] init];
             }
+            break;
+        }
+        case LZCellTagQrcode: {
+            __weak typeof(self) weakSelf = self;
+            SGQRCodeObtain *obtain = [SGQRCodeObtain QRCodeObtain];
+            /// 创建二维码扫描
+            SGQRCodeObtainConfigure *configure = [SGQRCodeObtainConfigure QRCodeObtainConfigure];
+            [obtain establishQRCodeObtainScanWithController:self.navigationController configure:configure];
+            // 二维码扫描回调方法
+            [obtain setBlockWithQRCodeObtainScanResult:^(SGQRCodeObtain *obtain, NSString *result) {
+                NSLog(@"%@ %@", obtain, result);
+            }];
+            // 二维码扫描开启方法: 需手动开启
+            [obtain startRunningWithBefore:^{
+                // 在此可添加 HUD
+            } completion:^{
+                // 在此可移除 HUD
+            }];
+            // 根据外界光线强弱值判断是否自动开启手电筒
+            [obtain setBlockWithQRCodeObtainScanBrightness:^(SGQRCodeObtain *obtain, CGFloat brightness) {
+                NSLog(@"%@ %f", obtain, brightness);
+            }];
+            
+            /// 从相册中读取二维码
+//            [obtain establishAuthorizationQRCodeObtainAlbumWithController:self];
+//            // 从相册中读取图片上的二维码回调方法
+//            [obtain setBlockWithQRCodeObtainAlbumResult:^(SGQRCodeObtain *obtain, NSString *result) {
+//                NSLog(@"%@ %@", obtain, result);
+//            }];
             break;
         }
         default:

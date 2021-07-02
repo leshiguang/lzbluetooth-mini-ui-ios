@@ -17,6 +17,7 @@
 		6019CB1A2613401800C24A0C /* LZOTAViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6019CB182613401800C24A0C /* LZOTAViewController.m */; };
 		6019CB1B2613401800C24A0C /* LZOTAViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6019CB192613401800C24A0C /* LZOTAViewController.xib */; };
 		6019CB1E2613474600C24A0C /* 431B2H1004_1010T211_000A3.1.0_0.0.0D150_000_6D04BCBC.lzo.lsf in Resources */ = {isa = PBXBuildFile; fileRef = 6019CB1D2613474600C24A0C /* 431B2H1004_1010T211_000A3.1.0_0.0.0D150_000_6D04BCBC.lzo.lsf */; };
+		6040509D2653AB8D00A20B1B /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6040509C2653AB8D00A20B1B /* CoreBluetooth.framework */; };
 		605CB42225F2353B00EEFBEC /* LZLongSitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 605CB42025F2353B00EEFBEC /* LZLongSitViewController.m */; };
 		6061513C261C4C3E0085D36B /* 439B0H1003_1003T010_010A0.0.0_3.4.51D232_232_9F3CB799.lzo.lsf in Resources */ = {isa = PBXBuildFile; fileRef = 6061513B261C4C3D0085D36B /* 439B0H1003_1003T010_010A0.0.0_3.4.51D232_232_9F3CB799.lzo.lsf */; };
 		609DA7F225BEA51A0051D403 /* LZBaseDeviceInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 609DA7F125BEA51A0051D403 /* LZBaseDeviceInfoViewController.m */; };
@@ -100,6 +101,7 @@
 		6019CB182613401800C24A0C /* LZOTAViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LZOTAViewController.m; sourceTree = "<group>"; };
 		6019CB192613401800C24A0C /* LZOTAViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LZOTAViewController.xib; sourceTree = "<group>"; };
 		6019CB1D2613474600C24A0C /* 431B2H1004_1010T211_000A3.1.0_0.0.0D150_000_6D04BCBC.lzo.lsf */ = {isa = PBXFileReference; lastKnownFileType = file; path = 431B2H1004_1010T211_000A3.1.0_0.0.0D150_000_6D04BCBC.lzo.lsf; sourceTree = "<group>"; };
+		6040509C2653AB8D00A20B1B /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 		605CB42025F2353B00EEFBEC /* LZLongSitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZLongSitViewController.m; sourceTree = "<group>"; };
 		605CB42125F2353B00EEFBEC /* LZLongSitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZLongSitViewController.h; sourceTree = "<group>"; };
 		6061513B261C4C3D0085D36B /* 439B0H1003_1003T010_010A0.0.0_3.4.51D232_232_9F3CB799.lzo.lsf */ = {isa = PBXFileReference; lastKnownFileType = file; path = 439B0H1003_1003T010_010A0.0.0_3.4.51D232_232_9F3CB799.lzo.lsf; sourceTree = "<group>"; };
@@ -233,6 +235,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6040509D2653AB8D00A20B1B /* CoreBluetooth.framework in Frameworks */,
 				72498FC97642C58CEA56EE92 /* Pods_lzbluetooth_mini_ui_ios.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -252,6 +255,7 @@
 		5DC7912FA63CC3B901D1ECA5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6040509C2653AB8D00A20B1B /* CoreBluetooth.framework */,
 				607D110C25CA775D0036A1FD /* ExternalAccessory.framework */,
 				607D110A25CA77510036A1FD /* SystemConfiguration.framework */,
 				607D110725CA77430036A1FD /* Security.framework */,
@@ -1139,12 +1143,15 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = Q4ULFJ6L7N;
+				ENABLE_BITCODE = YES;
 				EXCLUDED_ARCHS = armv7;
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/lzbluetooth-mini-ui-ios/Frameworks",
+					"$(PROJECT_DIR)/lzbluetooth-mini-ui-ios",
 				);
 				INFOPLIST_FILE = "lzbluetooth-mini-ui-ios/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -1152,7 +1159,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.lifesense.sdk.lzbluetooth-mini-ui-ios";
+				PRODUCT_BUNDLE_IDENTIFIER = com.lifesense.test.BluetoothDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1165,12 +1172,15 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = Q4ULFJ6L7N;
+				ENABLE_BITCODE = YES;
 				EXCLUDED_ARCHS = armv7;
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/lzbluetooth-mini-ui-ios/Frameworks",
+					"$(PROJECT_DIR)/lzbluetooth-mini-ui-ios",
 				);
 				INFOPLIST_FILE = "lzbluetooth-mini-ui-ios/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -1178,7 +1188,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.lifesense.sdk.lzbluetooth-mini-ui-ios";
+				PRODUCT_BUNDLE_IDENTIFIER = com.lifesense.test.BluetoothDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

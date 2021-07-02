@@ -183,6 +183,17 @@
     [self stopRandomCodeTimer];
     self.isInputCodeError = NO;
     [self.bindingDeviceView changeBindingStateTo:LSWDeviceBindingStateBindSucceed];
+//    LZWifiScanData *scanData = [[LZWifiScanData alloc] init];
+//    scanData.scanType = 1;
+//    scanData.showHidden = NO;
+//    __weak typeof(self) weakSelf  = self;
+//    [self.deviceManager sendDataModel:scanData macString:self.bindedDevice.mac completion:^(LZBluetoothErrorCode result, id  _Nullable response) {
+//        NSLog(@"result %@ %@", @(result), response);
+//        dispatch_async(dispatch_get_main_queue(), ^{
+//            [weakSelf showHintMessage:[NSString stringWithFormat:@"%@ %@", @(result), response] duration:2];
+//        });
+//        
+//    }];
 }
 
 - (void)_handleBindStatusFailedWithNetCode:(NSInteger)netCode{
