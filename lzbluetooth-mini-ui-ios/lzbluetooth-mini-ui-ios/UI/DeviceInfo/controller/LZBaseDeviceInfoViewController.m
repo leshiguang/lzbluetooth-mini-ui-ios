@@ -175,6 +175,10 @@ typedef NS_ENUM(NSUInteger, LZDeviceInfoType) {
             className = @"LZReadRealTimeHRViewController";
             break;
         }
+        case LZDeviceSettingTypeScaleHR: {
+            className = @"LZHeartRateViewController";
+            break;
+        }
           
         default:
             break;
@@ -299,7 +303,8 @@ typedef NS_ENUM(NSUInteger, LZDeviceInfoType) {
 - (NSArray <NSNumber *> *)scaleSupportSettings {
     return @[
         @(LZDeviceSettingTypeWifiScan),
-        @(LZDeviceSettingTypeScaleUnit)
+        @(LZDeviceSettingTypeScaleUnit),
+        @(LZDeviceSettingTypeScaleHR),
     ];
 }
 

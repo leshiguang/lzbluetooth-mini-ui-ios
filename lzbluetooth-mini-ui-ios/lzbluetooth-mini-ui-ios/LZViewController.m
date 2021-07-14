@@ -12,8 +12,6 @@
 #import "LZSearchBindContainerViewController.h"
 #import "LZInputStringTableViewCell.h"
 
-@import SGQRCode;
-
 typedef NS_ENUM(NSUInteger, LZCellType) {
     LZCellTypeNormal,
     LZCellTypeInput,
@@ -26,7 +24,7 @@ typedef NS_ENUM(NSUInteger, LZCellTag) {
     LZCellTagClear,
     LZCellTagDestroy,
     LZCellTagAliceOta,
-    LZCellTagQrcode,
+    
 };
 
 @interface LZViewController () <LZInputStringTableViewCellDelegate>
@@ -74,11 +72,7 @@ typedef NS_ENUM(NSUInteger, LZCellTag) {
             @"cellType": @(LZCellTypeNormal),
             @"cellTag": @(LZCellTagAliceOta),
         }.mutableCopy,
-        @{
-            @"title": @"二维码扫描",
-            @"cellType": @(LZCellTypeNormal),
-            @"cellTag": @(LZCellTagQrcode),
-        }.mutableCopy,
+       
     ];
     
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
@@ -164,35 +158,7 @@ typedef NS_ENUM(NSUInteger, LZCellTag) {
             }
             break;
         }
-        case LZCellTagQrcode: {
-            __weak typeof(self) weakSelf = self;
-            SGQRCodeObtain *obtain = [SGQRCodeObtain QRCodeObtain];
-            /// 创建二维码扫描
-            SGQRCodeObtainConfigure *configure = [SGQRCodeObtainConfigure QRCodeObtainConfigure];
-            [obtain establishQRCodeObtainScanWithController:self.navigationController configure:configure];
-            // 二维码扫描回调方法
-            [obtain setBlockWithQRCodeObtainScanResult:^(SGQRCodeObtain *obtain, NSString *result) {
-                NSLog(@"%@ %@", obtain, result);
-            }];
-            // 二维码扫描开启方法: 需手动开启
-            [obtain startRunningWithBefore:^{
-                // 在此可添加 HUD
-            } completion:^{
-                // 在此可移除 HUD
-            }];
-            // 根据外界光线强弱值判断是否自动开启手电筒
-            [obtain setBlockWithQRCodeObtainScanBrightness:^(SGQRCodeObtain *obtain, CGFloat brightness) {
-                NSLog(@"%@ %f", obtain, brightness);
-            }];
-            
-            /// 从相册中读取二维码
-//            [obtain establishAuthorizationQRCodeObtainAlbumWithController:self];
-//            // 从相册中读取图片上的二维码回调方法
-//            [obtain setBlockWithQRCodeObtainAlbumResult:^(SGQRCodeObtain *obtain, NSString *result) {
-//                NSLog(@"%@ %@", obtain, result);
-//            }];
-            break;
-        }
+
         default:
             break;
     }

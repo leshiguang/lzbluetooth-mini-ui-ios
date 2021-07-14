@@ -173,6 +173,7 @@
 
         case LZDeviceSettingTypeSedentaryRemainder: return @"久坐提醒";
         case LZDeviceSettingTypeRealtimeHR: return @"实时心率";
+        case LZDeviceSettingTypeScaleHR: return @"体重心率开关";
         default:
             NSAssert(NO, @"未处理类型 %@", @(settingType));
             break;

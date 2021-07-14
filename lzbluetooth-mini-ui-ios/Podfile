@@ -12,12 +12,18 @@ target 'lzbluetooth-mini-ui-ios' do
   pod "CocoaDebug" , "1.4.8"
   pod "YYModel"
 
-  pod "LZBluetooth", "1.6.11"
-#pod 'LZBluetooth', :path => '../../lzbluetoothmini'
+#  pod "LZBluetooth", "1.6.11"
+pod 'LZBluetooth', :path => '../../lzbluetoothmini'
 
 
   pod "IQKeyboardManager"
   
   
 
+end
+
+target 'SwiftDemo' do
+  use_frameworks!
+  pod 'LZBluetooth', :path => '../../lzbluetoothmini'
+  pod "SnapKit"
 end

@@ -23,6 +23,14 @@
 		609DA7F225BEA51A0051D403 /* LZBaseDeviceInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 609DA7F125BEA51A0051D403 /* LZBaseDeviceInfoViewController.m */; };
 		60AF93C5262426E700CEE84B /* LZWifiSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A765C525C825A1004A58B8 /* LZWifiSettingViewController.m */; };
 		60AF93C7262426FA00CEE84B /* LZScaleUnitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A765CA25C8264B004A58B8 /* LZScaleUnitViewController.m */; };
+		60B0CDB8269DBACB00F303BA /* LZHeartRateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60B0CDB7269DBACB00F303BA /* LZHeartRateViewController.m */; };
+		60C59D1A2692A9A000AB7587 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C59D192692A9A000AB7587 /* AppDelegate.swift */; };
+		60C59D1C2692A9A000AB7587 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C59D1B2692A9A000AB7587 /* SceneDelegate.swift */; };
+		60C59D1E2692A9A000AB7587 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C59D1D2692A9A000AB7587 /* ViewController.swift */; };
+		60C59D212692A9A000AB7587 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60C59D1F2692A9A000AB7587 /* Main.storyboard */; };
+		60C59D232692A9A800AB7587 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 60C59D222692A9A800AB7587 /* Assets.xcassets */; };
+		60C59D262692A9A800AB7587 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60C59D242692A9A800AB7587 /* LaunchScreen.storyboard */; };
+		60C59D2E2692ADA600AB7587 /* DeviceListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C59D2D2692ADA600AB7587 /* DeviceListTableViewController.swift */; };
 		60C72C2C25B55F9B00E00276 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C72C2B25B55F9B00E00276 /* AppDelegate.m */; };
 		60C72C2F25B55F9B00E00276 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C72C2E25B55F9B00E00276 /* SceneDelegate.m */; };
 		60C72C3525B55F9B00E00276 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60C72C3325B55F9B00E00276 /* Main.storyboard */; };
@@ -78,6 +86,7 @@
 		60DC7BD725BAC2D8000E50EC /* LZInputStringTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 60DC7BD625BAC2D8000E50EC /* LZInputStringTableViewCell.m */; };
 		60E28F8425C192220025B510 /* LZHrSectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60E28F8325C192220025B510 /* LZHrSectionViewController.m */; };
 		72498FC97642C58CEA56EE92 /* Pods_lzbluetooth_mini_ui_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 972BCE45267335CFDDEDEB02 /* Pods_lzbluetooth_mini_ui_ios.framework */; };
+		E825A18B3E885AA8E498E0D8 /* Pods_SwiftDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C14BFD79FB11F2DC294DFA6B /* Pods_SwiftDemo.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -118,6 +127,17 @@
 		60A765C525C825A1004A58B8 /* LZWifiSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZWifiSettingViewController.m; sourceTree = "<group>"; };
 		60A765C925C8264B004A58B8 /* LZScaleUnitViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LZScaleUnitViewController.h; sourceTree = "<group>"; };
 		60A765CA25C8264B004A58B8 /* LZScaleUnitViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LZScaleUnitViewController.m; sourceTree = "<group>"; };
+		60B0CDB6269DBACB00F303BA /* LZHeartRateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZHeartRateViewController.h; sourceTree = "<group>"; };
+		60B0CDB7269DBACB00F303BA /* LZHeartRateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZHeartRateViewController.m; sourceTree = "<group>"; };
+		60C59D172692A99F00AB7587 /* SwiftDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		60C59D192692A9A000AB7587 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		60C59D1B2692A9A000AB7587 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		60C59D1D2692A9A000AB7587 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		60C59D202692A9A000AB7587 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		60C59D222692A9A800AB7587 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		60C59D252692A9A800AB7587 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		60C59D272692A9A800AB7587 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		60C59D2D2692ADA600AB7587 /* DeviceListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceListTableViewController.swift; sourceTree = "<group>"; };
 		60C72C2725B55F9B00E00276 /* lzbluetooth-mini-ui-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "lzbluetooth-mini-ui-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		60C72C2A25B55F9B00E00276 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		60C72C2B25B55F9B00E00276 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -227,10 +247,21 @@
 		60DC7BD625BAC2D8000E50EC /* LZInputStringTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LZInputStringTableViewCell.m; sourceTree = "<group>"; };
 		60E28F8225C192220025B510 /* LZHrSectionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LZHrSectionViewController.h; sourceTree = "<group>"; };
 		60E28F8325C192220025B510 /* LZHrSectionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LZHrSectionViewController.m; sourceTree = "<group>"; };
+		7541D723871F55F169B5FF0B /* Pods-SwiftDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftDemo.debug.xcconfig"; path = "Target Support Files/Pods-SwiftDemo/Pods-SwiftDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		972BCE45267335CFDDEDEB02 /* Pods_lzbluetooth_mini_ui_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_lzbluetooth_mini_ui_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C14BFD79FB11F2DC294DFA6B /* Pods_SwiftDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D94EE2D73445AE7298CD7519 /* Pods-SwiftDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftDemo.release.xcconfig"; path = "Target Support Files/Pods-SwiftDemo/Pods-SwiftDemo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		60C59D142692A99F00AB7587 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E825A18B3E885AA8E498E0D8 /* Pods_SwiftDemo.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		60C72C2425B55F9B00E00276 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -248,6 +279,8 @@
 			children = (
 				163C92D1A499CB589DCA1962 /* Pods-lzbluetooth-mini-ui-ios.debug.xcconfig */,
 				18391318254DD260CC607D1A /* Pods-lzbluetooth-mini-ui-ios.release.xcconfig */,
+				7541D723871F55F169B5FF0B /* Pods-SwiftDemo.debug.xcconfig */,
+				D94EE2D73445AE7298CD7519 /* Pods-SwiftDemo.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -264,6 +297,7 @@
 				607D110025CA77170036A1FD /* libz.tbd */,
 				607D10FD25CA770D0036A1FD /* libc++.tbd */,
 				972BCE45267335CFDDEDEB02 /* Pods_lzbluetooth_mini_ui_ios.framework */,
+				C14BFD79FB11F2DC294DFA6B /* Pods_SwiftDemo.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -356,10 +390,35 @@
 			path = Wifi;
 			sourceTree = "<group>";
 		};
+		60B0CDB5269DBACB00F303BA /* A6HeartRate */ = {
+			isa = PBXGroup;
+			children = (
+				60B0CDB6269DBACB00F303BA /* LZHeartRateViewController.h */,
+				60B0CDB7269DBACB00F303BA /* LZHeartRateViewController.m */,
+			);
+			path = A6HeartRate;
+			sourceTree = "<group>";
+		};
+		60C59D182692A99F00AB7587 /* SwiftDemo */ = {
+			isa = PBXGroup;
+			children = (
+				60C59D192692A9A000AB7587 /* AppDelegate.swift */,
+				60C59D1B2692A9A000AB7587 /* SceneDelegate.swift */,
+				60C59D1D2692A9A000AB7587 /* ViewController.swift */,
+				60C59D2D2692ADA600AB7587 /* DeviceListTableViewController.swift */,
+				60C59D1F2692A9A000AB7587 /* Main.storyboard */,
+				60C59D222692A9A800AB7587 /* Assets.xcassets */,
+				60C59D242692A9A800AB7587 /* LaunchScreen.storyboard */,
+				60C59D272692A9A800AB7587 /* Info.plist */,
+			);
+			path = SwiftDemo;
+			sourceTree = "<group>";
+		};
 		60C72C1E25B55F9B00E00276 = {
 			isa = PBXGroup;
 			children = (
 				60C72C2925B55F9B00E00276 /* lzbluetooth-mini-ui-ios */,
+				60C59D182692A99F00AB7587 /* SwiftDemo */,
 				60C72C2825B55F9B00E00276 /* Products */,
 				32E64A343887CFDCACA5EEFA /* Pods */,
 				5DC7912FA63CC3B901D1ECA5 /* Frameworks */,
@@ -370,6 +429,7 @@
 			isa = PBXGroup;
 			children = (
 				60C72C2725B55F9B00E00276 /* lzbluetooth-mini-ui-ios.app */,
+				60C59D172692A99F00AB7587 /* SwiftDemo.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -431,6 +491,7 @@
 		60C72C5425B561D600E00276 /* DeviceSetting */ = {
 			isa = PBXGroup;
 			children = (
+				60B0CDB5269DBACB00F303BA /* A6HeartRate */,
 				6019CA422611FA8600C24A0C /* OTA */,
 				6015D47526035D4500E18527 /* ReadRealTimeHr */,
 				605CB41F25F2353B00EEFBEC /* longSitReminder */,
@@ -823,6 +884,25 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		60C59D162692A99F00AB7587 /* SwiftDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 60C59D2A2692A9A800AB7587 /* Build configuration list for PBXNativeTarget "SwiftDemo" */;
+			buildPhases = (
+				6619B013C7F64F3146BB5174 /* [CP] Check Pods Manifest.lock */,
+				60C59D132692A99F00AB7587 /* Sources */,
+				60C59D142692A99F00AB7587 /* Frameworks */,
+				60C59D152692A99F00AB7587 /* Resources */,
+				DAD488A01FC9BAF172416B0B /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SwiftDemo;
+			productName = SwiftDemo;
+			productReference = 60C59D172692A99F00AB7587 /* SwiftDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
 		60C72C2625B55F9B00E00276 /* lzbluetooth-mini-ui-ios */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 60C72C4025B55F9C00E00276 /* Build configuration list for PBXNativeTarget "lzbluetooth-mini-ui-ios" */;
@@ -848,8 +928,12 @@
 		60C72C1F25B55F9B00E00276 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 1240;
 				LastUpgradeCheck = 1220;
 				TargetAttributes = {
+					60C59D162692A99F00AB7587 = {
+						CreatedOnToolsVersion = 12.4;
+					};
 					60C72C2625B55F9B00E00276 = {
 						CreatedOnToolsVersion = 12.2;
 					};
@@ -869,11 +953,22 @@
 			projectRoot = "";
 			targets = (
 				60C72C2625B55F9B00E00276 /* lzbluetooth-mini-ui-ios */,
+				60C59D162692A99F00AB7587 /* SwiftDemo */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		60C59D152692A99F00AB7587 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				60C59D262692A9A800AB7587 /* LaunchScreen.storyboard in Resources */,
+				60C59D232692A9A800AB7587 /* Assets.xcassets in Resources */,
+				60C59D212692A9A000AB7587 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		60C72C2525B55F9B00E00276 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -912,6 +1007,28 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		6619B013C7F64F3146BB5174 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SwiftDemo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 		DA696BDF73C8A8E8AAC2344D /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -929,9 +1046,37 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-lzbluetooth-mini-ui-ios/Pods-lzbluetooth-mini-ui-ios-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		DAD488A01FC9BAF172416B0B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SwiftDemo/Pods-SwiftDemo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SwiftDemo/Pods-SwiftDemo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SwiftDemo/Pods-SwiftDemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		60C59D132692A99F00AB7587 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				60C59D1E2692A9A000AB7587 /* ViewController.swift in Sources */,
+				60C59D2E2692ADA600AB7587 /* DeviceListTableViewController.swift in Sources */,
+				60C59D1A2692A9A000AB7587 /* AppDelegate.swift in Sources */,
+				60C59D1C2692A9A000AB7587 /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		60C72C2325B55F9B00E00276 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -963,6 +1108,7 @@
 				60C72D3425B561D700E00276 /* LZSearchBindContainerViewController.m in Sources */,
 				60C72D6225B5658A00E00276 /* LZViewController.m in Sources */,
 				60C72D3E25B561D700E00276 /* LSWMineBraceletTableViewCell.m in Sources */,
+				60B0CDB8269DBACB00F303BA /* LZHeartRateViewController.m in Sources */,
 				60C72D0225B561D700E00276 /* LZScreenOrientationViewController.m in Sources */,
 				60C72D2725B561D700E00276 /* LSWGradientView.m in Sources */,
 				60C72D1D25B561D700E00276 /* LZSportTypeViewController.m in Sources */,
@@ -1005,6 +1151,22 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		60C59D1F2692A9A000AB7587 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				60C59D202692A9A000AB7587 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		60C59D242692A9A800AB7587 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				60C59D252692A9A800AB7587 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
 		60C72C3325B55F9B00E00276 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -1024,6 +1186,52 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		60C59D282692A9A800AB7587 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7541D723871F55F169B5FF0B /* Pods-SwiftDemo.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Q4ULFJ6L7N;
+				INFOPLIST_FILE = SwiftDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.lifesense.sdk.SwiftDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		60C59D292692A9A800AB7587 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D94EE2D73445AE7298CD7519 /* Pods-SwiftDemo.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Q4ULFJ6L7N;
+				INFOPLIST_FILE = SwiftDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.lifesense.sdk.SwiftDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		60C72C3E25B55F9C00E00276 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1197,6 +1405,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		60C59D2A2692A9A800AB7587 /* Build configuration list for PBXNativeTarget "SwiftDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				60C59D282692A9A800AB7587 /* Debug */,
+				60C59D292692A9A800AB7587 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		60C72C2225B55F9B00E00276 /* Build configuration list for PBXProject "lzbluetooth-mini-ui-ios" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
