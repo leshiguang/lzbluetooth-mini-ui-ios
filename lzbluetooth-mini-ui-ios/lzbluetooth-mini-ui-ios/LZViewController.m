@@ -54,7 +54,7 @@ typedef NS_ENUM(NSUInteger, LZCellTag) {
             @"title": @"监听某个设备",
             @"cellType": @(LZCellTypeInput),
             @"deviceType": @(LZDeviceTypeBloodPressure),
-            @"mac": @"C4E73880EA8E",
+            @"mac": @"D0843DF14561",
             @"cellTag": @(LZCellTagDeviceMonitor),
         }.mutableCopy,
         @{

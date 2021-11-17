@@ -175,8 +175,12 @@ typedef NS_ENUM(NSUInteger, LZDeviceInfoType) {
             className = @"LZReadRealTimeHRViewController";
             break;
         }
-        case LZDeviceSettingTypeScaleHR: {
-            className = @"LZHeartRateViewController";
+//        case LZDeviceSettingTypeScaleHR: {
+//            className = @"LZHeartRateViewController";
+//            break;
+//        }
+        case 0xffffffff: {
+            className = @"LZTestTableViewController";
             break;
         }
           
@@ -296,7 +300,8 @@ typedef NS_ENUM(NSUInteger, LZDeviceInfoType) {
         @(LZDeviceSettingTypeWeather),
         @(LZDeviceSettingTypeUnit),
         @(LZDeviceSettingTypeSedentaryRemainder),
-        @(LZDeviceSettingTypeRealtimeHR)
+        @(LZDeviceSettingTypeRealtimeHR),
+        @(0xffffffff),
     ];
 }
 
@@ -304,7 +309,7 @@ typedef NS_ENUM(NSUInteger, LZDeviceInfoType) {
     return @[
         @(LZDeviceSettingTypeWifiScan),
         @(LZDeviceSettingTypeScaleUnit),
-        @(LZDeviceSettingTypeScaleHR),
+//        @(LZDeviceSettingTypeScaleHR),
     ];
 }
 

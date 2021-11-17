@@ -34,11 +34,11 @@
 //    [stream writeByte:3];
 //    NSLog(@"data3 %@", stream.data);
     
-    Byte byte[] = { 0xb0, 0x38, 0x50, 0x60};
+//    Byte byte[] = { 0xb0, 0x38, 0x50, 0x60};
 //    double ret =  lzz_sfloat_value(byte);
 //    NSLog(@"ret %f", ret);
 //    [self init_crc_table];
-    NSString *hexString = @"97DE117D5FCC";
+//    NSString *hexString = @"97DE117D5FCC";
 //    NSData *data = [LZDataUtil convertHexStrToData:hexString];
 //    NSData *reData = [LZDataUtil reverseData:data];
 //    NSString *retString = [LZDataUtil hexStringFromData:reData];
@@ -46,11 +46,11 @@
     
     
 //    @"lxe105d9c5fdf0cc93"
-    [LZBluetooth initWithAppId:@"com.leshiguang.saas.rbac.demo.appid"];
+    [LZBluetooth initWithAppId:@"lx60ea22583d67ff24"];
     id<LZDeviceManagerProtocol> deviceManager = [LZBluetooth getDeviceManagerWithDeviceTypes:@[
         @(LZDeviceTypeBracelet),
-        @(LZDeviceTypeScale),
-        @(LZDeviceTypeBloodPressure),
+//        @(LZDeviceTypeScale),
+//        @(LZDeviceTypeBloodPressure),
 //        @(LZDeviceTypeAlice),
 //        @(LZDeviceTypeGlu)
     ]];
@@ -69,7 +69,7 @@
 
 #pragma mark - LZDeviceDelegate
 - (void)device:(id<LZDeviceProtocol>)device didReceiveMeasurementData:(id<LZMeasurementDataProtocol>)measurementData {
-    NSLog(@"%@ 收到测量数据 %@", device.mac, measurementData);
+    NSLog(@"%@ 收到测量数据 %@", device.mac, [(NSObject *)measurementData yy_modelToJSONString]);
     
     if (measurementData.measurementDataType == LZBraceletMeasurementDataTypeSleep) {
         LZA5SleepData *sleepData = (LZA5SleepData *)measurementData;

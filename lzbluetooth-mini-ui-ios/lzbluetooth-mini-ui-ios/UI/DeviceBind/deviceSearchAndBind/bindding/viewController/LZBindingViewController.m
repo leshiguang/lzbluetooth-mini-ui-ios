@@ -107,6 +107,14 @@
                 [self _handleBindStatusInputRndomCodeError];
                 break;
             }
+            case LZBindStateAwaitUserConfirm: {
+                // 提示用户需要去点击手环上的按钮
+                break;
+            }
+            case LZBindStateUserCanceled: {
+                [self _handleBindStatusFailedWithNetCode:bindState];
+                break;
+            }
             default:
                 [self _handleBindStatusFailedWithNetCode:bindState];
                 break;

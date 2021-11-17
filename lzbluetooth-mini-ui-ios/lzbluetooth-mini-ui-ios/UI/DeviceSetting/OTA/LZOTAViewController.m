@@ -20,7 +20,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"ota升级";
-    self.path = [[NSBundle mainBundle] pathForResource:@"439B0H1003_1003T010_010A0.0.0_3.4.51D232_232_9F3CB799.lzo" ofType:@"lsf"];
+    self.path = [[NSBundle mainBundle] pathForResource:@"431B3H1004_1010T311_000A3.1.0_0.0.0D150_000_994E57A4" ofType:@"lsf"];
+    
+    NSLog(@"deviceInfo %@", self.device.deviceInfo);
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
@@ -40,7 +42,8 @@
     
     NSURL *url = [NSURL fileURLWithPath:self.path];
     __weak typeof(self) weakSelf = self;
-    [self.deviceManager otaWithMacString:@"D8D3557DDC00" deviceType:LZDeviceTypeAlice path:url progress:^(double progress) {
+    NSLog(@"mac %@", self.device.mac);
+    [self.deviceManager otaWithMacString:self.device.mac deviceType:LZDeviceTypeBracelet path:url progress:^(double progress) {
         dispatch_async(dispatch_get_main_queue(), ^{
             weakSelf.progressView.progress = progress;
         });
