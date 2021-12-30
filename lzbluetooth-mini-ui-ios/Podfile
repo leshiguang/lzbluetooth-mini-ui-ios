@@ -13,7 +13,7 @@ target 'lzbluetooth-mini-ui-ios' do
   pod "Masonry"
 #  pod "CocoaDebug", "1.4.8"
   pod "YYModel"
-  pod "LZBluetooth", "1.7.0"
+  pod "LZBluetooth", "1.7.1"
 
 
   pod "IQKeyboardManager"

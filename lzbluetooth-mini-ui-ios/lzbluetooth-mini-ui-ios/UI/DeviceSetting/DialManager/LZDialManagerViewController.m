@@ -8,7 +8,10 @@
 #import "LZDialManagerViewController.h"
 
 typedef NS_ENUM(NSUInteger, LZUIDialAction) {
-    LZUIDialActionPush,
+   
+    LZUIDialActionPushPhoto,
+    LZUIDialActionPushYun1,
+    LZUIDialActionPushYun2,
     LZUIDialActionDelete,
     LZUIDialActionSelect1,
     LZUIDialActionSelect2,
@@ -33,7 +36,9 @@ typedef NS_ENUM(NSUInteger, LZUIDialAction) {
     [super viewDidLoad];
     
     self.list = @[
-        @(LZUIDialActionPush),
+        @(LZUIDialActionPushPhoto),
+        @(LZUIDialActionPushYun1),
+        @(LZUIDialActionPushYun2),
         @(LZUIDialActionDelete),
         @(LZUIDialActionSelect1),
         @(LZUIDialActionSelect2),
@@ -69,21 +74,26 @@ typedef NS_ENUM(NSUInteger, LZUIDialAction) {
     LZUIDialAction action = [self.list[indexPath.row] integerValue];
     switch (action) {
             
-        case LZUIDialActionPush: {
-            [self pushDial];
+        case LZUIDialActionPushPhoto: {
+            [self pushPhoto];
             break;
         }
-            
+        case LZUIDialActionPushYun1: {
+            [self pushYun1];
+            break;
+        }
+        case LZUIDialActionPushYun2: {
+            [self pushYun2];
+            break;
+        }
         case LZUIDialActionDelete:{
             [self deleteDial];
             break;
         }
-            
         case LZUIDialActionSelect1:{
             [self selectDiaWithIndex:1];
             break;
         }
-            
         case LZUIDialActionSelect2:{
             [self selectDiaWithIndex:2];
             break;
@@ -125,14 +135,20 @@ typedef NS_ENUM(NSUInteger, LZUIDialAction) {
         NSLog(@"表盘删除 result %@", @(result));
     }];
 }
+
+- (void)pushPhoto {
     
-- (void)pushDial {
-//    NSString *path = [[NSBundle mainBundle] pathForResource:@"WatchFace-Simulation3.lzo" ofType:@"lsf"];
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"WatchFace-Custom-lzo" ofType:@"lsf"];
+    UIImage *image = [UIImage imageNamed:@"home_page_bluetooth"];
+    NSData *data = [LZDialUtil packingWatchFaceFileWithImage:image width:120 height:240 previewWidth:90 previewHeight:180 model:self.device.deviceInfo[kLZBluetoothDeviceInfoKeyModelName]];
     
-    NSData *data = [NSData dataWithContentsOfFile:path];
+//    NSString *path = [[NSBundle mainBundle] pathForResource:@"WatchFace-Custom" ofType:@"bin"];
+//
+//    NSData *data = [NSData dataWithContentsOfFile:path];
+//    NSData *result = [LZDialUtil compressWithData:data fileName:@"WatchFace-Custom" model:@"456B1"];
+    
     LZA5SettingPushDialData *temp = [LZA5SettingPushDialData new];
     temp.id = @"5";
+    // hr 相册表盘位置固定在5的位置
     temp.dialIndex = 5;
     temp.dialType = 1;
     temp.fileBuf = data;
@@ -145,7 +161,49 @@ typedef NS_ENUM(NSUInteger, LZUIDialAction) {
     [self.device sendDataModel:temp completion:^(LZBluetoothErrorCode result, id  _Nullable response) {
         NSLog(@"表盘发送 result %@", @(result));
     }];
+}
+
+- (void)pushYun1 {
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"WatchFace124.lzo" ofType:@"lsf"];
     
+    NSData *data = [NSData dataWithContentsOfFile:path];
+    LZA5SettingPushDialData *temp = [LZA5SettingPushDialData new];
+    temp.id = @"6";
+    // hr 6云端表盘控制位置在 6与7的位置
+    temp.dialIndex = 6;
+    temp.dialType = 0;
+    temp.fileBuf = data;
+    temp.backgroundImageName = @"test";
+    temp.fileName = @"test";
+    temp.progress = ^(double progress) {
+        NSLog(@"进度 %@", @(progress));
+    };
+    
+    [self.device sendDataModel:temp completion:^(LZBluetoothErrorCode result, id  _Nullable response) {
+        NSLog(@"表盘发送 result %@", @(result));
+    }];
+}
+
+- (void)pushYun2 {
+    
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"WatchFace124.lzo" ofType:@"lsf"];
+    
+    NSData *data = [NSData dataWithContentsOfFile:path];
+    LZA5SettingPushDialData *temp = [LZA5SettingPushDialData new];
+    temp.id = @"7";
+    // hr 6云端表盘控制位置在 6与7的位置
+    temp.dialIndex = 7;
+    temp.dialType = 0;
+    temp.fileBuf = data;
+    temp.backgroundImageName = @"test";
+    temp.fileName = @"test";
+    temp.progress = ^(double progress) {
+        NSLog(@"进度 %@", @(progress));
+    };
+    
+    [self.device sendDataModel:temp completion:^(LZBluetoothErrorCode result, id  _Nullable response) {
+        NSLog(@"表盘发送 result %@", @(result));
+    }];
 }
     
 - (void)selectDiaWithIndex:(UInt32)index {
@@ -159,9 +217,12 @@ typedef NS_ENUM(NSUInteger, LZUIDialAction) {
 
 - (NSString *)titleFor:(LZUIDialAction)action {
     switch (action) {
-            
-        case LZUIDialActionPush:
-            return @"推送表盘";
+        case LZUIDialActionPushPhoto:
+            return @"推送相册表盘";
+        case LZUIDialActionPushYun1:
+            return @"推送云端表盘1";
+        case LZUIDialActionPushYun2:
+            return @"推送云端表盘2";
         case LZUIDialActionDelete:
             return @"删除表盘";
         case LZUIDialActionSelect1:

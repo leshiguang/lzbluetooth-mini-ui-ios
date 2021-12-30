@@ -10,6 +10,7 @@
 #import "LZDialManagerViewController.h"
 
 
+
 typedef NS_ENUM(NSUInteger, LZUISettingType) {
     // 手环
 LZUISettingTypeHeartRateWarning = 1,    // M6心率检测
@@ -58,8 +59,18 @@ LZUISettingTypeSyncAllData = 36,  // 同步所有数据
 LZUISettingTypeDrinkReminder = 37,  // 喝水提醒
 
 LZUISettingTypeEncourageTarget = 38,  // 目标提醒
-        // common
+    
+LZUISettingTypeMioBeginJump = 0x0701,  // 开始跳绳
+LZUISettingTypeMioEndJump = 0x0702,  // 结束跳绳
+    
+LZUISettingTypeMcuBoxTiming = 0x0801,  // 药盒设置时间
+LZUISettingTypeMcuBoxSyncData = 0x0802,  // 药盒获取信息
+LZUISettingTypeMcuBoxFind = 0x0803,     // 发现药盒
+    
+ // common
 LZUISettingTypeOta = 0xf0001,            // Ota
+    
+
 };
 
 @interface LZTestTableViewController ()
@@ -73,21 +84,40 @@ LZUISettingTypeOta = 0xf0001,            // Ota
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.list = @[
-        @(LZUISettingTypeHeartRateWarning),
-        @(LZUISettingTypeSportHrWarniing),
-        @(LZUISettingTypeRighteSwipeDisplay),
-        @(LZUISettingTypeSleepOximetry),
-        @(LZUISettingTypeSedentaryRemind),
-        @(LZUISettingTypeSleepRemind),
-        @(LZUISettingTypeEventRemind),
-        @(LZUISettingTypeTimeFormat),
-        @(LZUISettingTypeDialManager),
-        @(LZUISettingTypeCustomScreen),
-        @(LZUISettingTypeNightMode),
-        @(LZUISettingTypeTarget),
-        @(LZUISettingTypeSyncData),
-    ];
+    if (self.device.deviceType == LZDeviceTypeBracelet) {
+        self.list = @[
+            @(LZUISettingTypeHeartRateWarning),
+            @(LZUISettingTypeSportHrWarniing),
+            @(LZUISettingTypeRighteSwipeDisplay),
+            @(LZUISettingTypeSleepOximetry),
+            @(LZUISettingTypeSedentaryRemind),
+            @(LZUISettingTypeSleepRemind),
+            @(LZUISettingTypeEventRemind),
+            @(LZUISettingTypeTimeFormat),
+            @(LZUISettingTypeDialManager),
+            @(LZUISettingTypeCustomScreen),
+            @(LZUISettingTypeNightMode),
+            @(LZUISettingTypeTarget),
+            @(LZUISettingTypeSyncData),
+        ];
+    } else if (self.device.deviceType == LZDeviceTypeMio) {
+        self.list = @[
+            @(LZUISettingTypeMioBeginJump),
+            @(LZUISettingTypeMioEndJump),
+        ];
+    } else if (self.device.deviceType == LZDeviceTypeMcu) {
+        self.list = @[
+            @(LZUISettingTypeMcuBoxTiming),
+            @(LZUISettingTypeMcuBoxSyncData),
+            @(LZUISettingTypeMcuBoxFind)
+        ];
+    }
+    
+    
+        
+        
+        
+        
     [self.tableView registerNib:[UINib nibWithNibName:@"LZTestTableViewCell" bundle:nil] forCellReuseIdentifier:NSStringFromClass(LZTestTableViewCell.class)];
 }
 
@@ -141,7 +171,7 @@ LZUISettingTypeOta = 0xf0001,            // Ota
             LZA5SettingMutipleData *temp = [LZA5SettingMutipleData new];
             LZMSetting *obj = [[LZMSetting alloc] init];
             obj.tag = LZSettingTagBloodOxygen;
-            obj.value = 2; // 参考自定义表盘类型
+            obj.value = 1;
             temp.settings = @[obj];
             setting = temp;
             break;
@@ -235,6 +265,46 @@ LZUISettingTypeOta = 0xf0001,            // Ota
             break;
         }
             
+        case LZUISettingTypeMioBeginJump: {
+            LZMioBeginToJumpSetting *temp = [LZMioBeginToJumpSetting new];
+            temp.jumpMode = LZMioJumpModeNumberCountdown;
+            temp.settingContent = 11;
+            temp.utc = (UInt32)([NSDate date].timeIntervalSince1970);
+            temp.numberOfCountdown = 4;
+            setting = temp;
+            break;
+        }
+            
+        case LZUISettingTypeMioEndJump: {
+            LZMioEndToJumpSetting *temp = [LZMioEndToJumpSetting new];
+            setting = temp;
+            break;
+        }
+        case LZUISettingTypeMcuBoxTiming: {
+            LZMcuTimingSetting *temp = [LZMcuTimingSetting new];
+            temp.index = 1;
+            LZMcuTimeData *time = [LZMcuTimeData new];
+            
+            NSCalendar *calendar = [NSCalendar currentCalendar];
+            NSDateComponents *comp = [calendar components:NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay | NSCalendarUnitWeekday | NSCalendarUnitHour | NSCalendarUnitMinute fromDate:[NSDate date]];
+            time.hour = (UInt32)comp.hour;
+            time.min = (UInt32)comp.minute + 1;
+            time.sec = 0;
+            time.week = 127;
+            temp.times = @[time];
+            setting = temp;
+            break;
+        }
+        case LZUISettingTypeMcuBoxSyncData: {
+            LZMcuSyncData *temp = [LZMcuSyncData new];
+            setting = temp;
+            break;
+        }
+        case LZUISettingTypeMcuBoxFind: {
+            LZMcuFindBoxSetting *temp = [LZMcuFindBoxSetting new];
+            setting = temp;
+            break;
+        }
             
         default:
             break;
@@ -249,6 +319,10 @@ LZUISettingTypeOta = 0xf0001,            // Ota
 - (void)getButtonClicked:(UIButton *)sender {
     LZUISettingType settingType = sender.tag;
     LZA5GetSettingType type = 0;
+    if (self.device.deviceType != LZDeviceTypeBracelet || [self.device.deviceInfo[kLZBluetoothDeviceInfoKeyModelName] containsString:@"456"]) {
+        NSLog(@"不支持");
+        return;
+    }
     switch (settingType) {
         case LZUISettingTypeHeartRateWarning:
             type = LZA5GetSettingTypeHeartRateWarningSetting;
@@ -308,7 +382,6 @@ LZUISettingTypeOta = 0xf0001,            // Ota
 - (NSString *)titleWithType:(LZUISettingType)settingType {
     switch (settingType) {
         case LZUISettingTypeHeartRateWarning:
-            
             return @"心率检测";
         case LZUISettingTypeSportHrWarniing:
             return @"运动心率检测";
@@ -335,6 +408,17 @@ LZUISettingTypeOta = 0xf0001,            // Ota
         case LZUISettingTypeSyncData:
             return @"拉取数据";
             
+        case LZUISettingTypeMioBeginJump:
+            return @"开始跳绳";
+        case LZUISettingTypeMioEndJump:
+            return @"结束跳绳";
+            
+        case LZUISettingTypeMcuBoxSyncData:
+            return @"获取药盒数据";
+        case LZUISettingTypeMcuBoxTiming:
+            return @"设置定时时间";
+        case LZUISettingTypeMcuBoxFind:
+            return @"发现药盒";
         default:
             break;
     }

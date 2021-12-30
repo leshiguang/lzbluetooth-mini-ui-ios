@@ -49,7 +49,7 @@
     [LZBluetooth initWithAppId:@"lx60ea22583d67ff24"];
     id<LZDeviceManagerProtocol> deviceManager = [LZBluetooth getDeviceManagerWithDeviceTypes:@[
         @(LZDeviceTypeBracelet),
-//        @(LZDeviceTypeScale),
+        @(LZDeviceTypeScale),
 //        @(LZDeviceTypeBloodPressure),
 //        @(LZDeviceTypeAlice),
 //        @(LZDeviceTypeGlu)
