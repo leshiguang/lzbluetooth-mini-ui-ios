@@ -139,7 +139,20 @@ typedef NS_ENUM(NSUInteger, LZUIDialAction) {
 - (void)pushPhoto {
     
     UIImage *image = [UIImage imageNamed:@"home_page_bluetooth"];
-    NSData *data = [LZDialUtil packingWatchFaceFileWithImage:image width:120 height:240 previewWidth:90 previewHeight:180 model:self.device.deviceInfo[kLZBluetoothDeviceInfoKeyModelName]];
+    NSString *model = self.device.deviceInfo[kLZBluetoothDeviceInfoKeyModelName];
+    NSData *data = nil;
+    if ([model containsString:@"456"]) {
+        data = [LZDialUtil packingWatchFaceFileWithImage:image size:CGSizeMake(120, 240) previewSize:CGSizeMake(90, 180) model:model];
+    } else if ([model containsString:@"437"]) {
+        data = [LZDialUtil packingWatchFaceFileWithImage:image size:CGSizeMake(240, 240) previewSize:CGSizeMake(148, 148) model:model];
+    } else if ([model containsString:@"460"]) {
+        NSString *path = [[NSBundle mainBundle] pathForResource:@"template" ofType:@"bin"];
+        NSData *templateData = [NSData dataWithContentsOfFile:path];
+        data = [LZDialUtil packingWatchFaceFileWithTemplateData:templateData image:image size:CGSizeMake(320, 385) previewSize:CGSizeMake(256, 308) model:model];
+    } else {
+        NSAssert(NO, @"不支持相册表盘");
+    }
+    
     
 //    NSString *path = [[NSBundle mainBundle] pathForResource:@"WatchFace-Custom" ofType:@"bin"];
 //
@@ -154,6 +167,9 @@ typedef NS_ENUM(NSUInteger, LZUIDialAction) {
     temp.fileBuf = data;
     temp.backgroundImageName = @"test";
     temp.fileName = @"test";
+    static UInt32 styleId = 0;
+    temp.styleId = styleId;
+    styleId += 1;
     temp.progress = ^(double progress) {
         NSLog(@"进度 %@", @(progress));
     };

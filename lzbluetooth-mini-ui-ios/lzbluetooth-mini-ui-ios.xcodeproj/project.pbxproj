@@ -34,6 +34,7 @@
 		607C36BF27146C250035DC6F /* 431B3H1004_1004T313_311A3.1.0_3.4.48D150_150_6890AA21.lzo.lsf in Resources */ = {isa = PBXBuildFile; fileRef = 607C36BE27146C250035DC6F /* 431B3H1004_1004T313_311A3.1.0_3.4.48D150_150_6890AA21.lzo.lsf */; };
 		607C36C127146E490035DC6F /* 431B3H1004_1010T311_000A3.1.0_0.0.0D150_000_994E57A4.lsf in Resources */ = {isa = PBXBuildFile; fileRef = 607C36C027146E490035DC6F /* 431B3H1004_1010T311_000A3.1.0_0.0.0D150_000_994E57A4.lsf */; };
 		609DA7F225BEA51A0051D403 /* LZBaseDeviceInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 609DA7F125BEA51A0051D403 /* LZBaseDeviceInfoViewController.m */; };
+		60A9F8C3278DB85700303C28 /* template.bin in Resources */ = {isa = PBXBuildFile; fileRef = 60A9F8C2278DB85700303C28 /* template.bin */; };
 		60AF93C5262426E700CEE84B /* LZWifiSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A765C525C825A1004A58B8 /* LZWifiSettingViewController.m */; };
 		60AF93C7262426FA00CEE84B /* LZScaleUnitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A765CA25C8264B004A58B8 /* LZScaleUnitViewController.m */; };
 		60B0CDB8269DBACB00F303BA /* LZHeartRateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60B0CDB7269DBACB00F303BA /* LZHeartRateViewController.m */; };
@@ -157,6 +158,7 @@
 		60A765C525C825A1004A58B8 /* LZWifiSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZWifiSettingViewController.m; sourceTree = "<group>"; };
 		60A765C925C8264B004A58B8 /* LZScaleUnitViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LZScaleUnitViewController.h; sourceTree = "<group>"; };
 		60A765CA25C8264B004A58B8 /* LZScaleUnitViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LZScaleUnitViewController.m; sourceTree = "<group>"; };
+		60A9F8C2278DB85700303C28 /* template.bin */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; path = template.bin; sourceTree = "<group>"; };
 		60B0CDB6269DBACB00F303BA /* LZHeartRateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZHeartRateViewController.h; sourceTree = "<group>"; };
 		60B0CDB7269DBACB00F303BA /* LZHeartRateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZHeartRateViewController.m; sourceTree = "<group>"; };
 		60B0CEA026B14DFA00F303BA /* GBF-2008-BF1_JIN_Combine_OTA_V1.4.0.24_HRC_0xFCD1_20201113.bin */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; path = "GBF-2008-BF1_JIN_Combine_OTA_V1.4.0.24_HRC_0xFCD1_20201113.bin"; sourceTree = "<group>"; };
@@ -425,6 +427,7 @@
 		604E1B3C274509B900A84516 /* resouce */ = {
 			isa = PBXGroup;
 			children = (
+				60A9F8C2278DB85700303C28 /* template.bin */,
 				604E1B4327452A8300A84516 /* WatchFace-Custom-lzo.lsf */,
 				604E1B3F2745276C00A84516 /* WatchFace-Simulation3.lzo.lsf */,
 				604E1B3D27450A4600A84516 /* WatchFace124.lzo.lsf */,
@@ -1054,6 +1057,7 @@
 				60C72C3725B55F9C00E00276 /* Assets.xcassets in Resources */,
 				60C72C3525B55F9B00E00276 /* Main.storyboard in Resources */,
 				604E1B402745276D00A84516 /* WatchFace-Simulation3.lzo.lsf in Resources */,
+				60A9F8C3278DB85700303C28 /* template.bin in Resources */,
 				607C36C127146E490035DC6F /* 431B3H1004_1010T311_000A3.1.0_0.0.0D150_000_994E57A4.lsf in Resources */,
 				604E1B4427452A8400A84516 /* WatchFace-Custom-lzo.lsf in Resources */,
 			);

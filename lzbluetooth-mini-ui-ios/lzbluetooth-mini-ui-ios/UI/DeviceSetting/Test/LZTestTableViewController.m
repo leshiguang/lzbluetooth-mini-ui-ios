@@ -56,9 +56,13 @@ LZUISettingTypeSyncData = 35,   // 同步数据
 
 LZUISettingTypeSyncAllData = 36,  // 同步所有数据
 
+
 LZUISettingTypeDrinkReminder = 37,  // 喝水提醒
 
 LZUISettingTypeEncourageTarget = 38,  // 目标提醒
+    
+LZUISettingTypeRealtimeHROpen = 40, // 实时心率开
+LZUISettingTypeRealtimeHRClose = 41,   // 实时心率关
     
 LZUISettingTypeMioBeginJump = 0x0701,  // 开始跳绳
 LZUISettingTypeMioEndJump = 0x0702,  // 结束跳绳
@@ -84,22 +88,64 @@ LZUISettingTypeOta = 0xf0001,            // Ota
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    NSString *model = self.device.deviceInfo[kLZBluetoothDeviceInfoKeyModelName];
+    
     if (self.device.deviceType == LZDeviceTypeBracelet) {
-        self.list = @[
-            @(LZUISettingTypeHeartRateWarning),
-            @(LZUISettingTypeSportHrWarniing),
-            @(LZUISettingTypeRighteSwipeDisplay),
-            @(LZUISettingTypeSleepOximetry),
-            @(LZUISettingTypeSedentaryRemind),
-            @(LZUISettingTypeSleepRemind),
-            @(LZUISettingTypeEventRemind),
-            @(LZUISettingTypeTimeFormat),
-            @(LZUISettingTypeDialManager),
-            @(LZUISettingTypeCustomScreen),
-            @(LZUISettingTypeNightMode),
-            @(LZUISettingTypeTarget),
-            @(LZUISettingTypeSyncData),
-        ];
+        if ([model containsString:@"456"] || [model containsString:@"437"]) {
+            // HR6 || 小方表
+            self.list = @[
+                @(LZUISettingTypeHeartRateWarning),
+                @(LZUISettingTypeSportHrWarniing),
+                @(LZUISettingTypeRighteSwipeDisplay),
+                @(LZUISettingTypeSleepOximetry),
+                @(LZUISettingTypeSedentaryRemind),
+                @(LZUISettingTypeSleepRemind),
+                @(LZUISettingTypeEventRemind),
+                @(LZUISettingTypeTimeFormat),
+                @(LZUISettingTypeDialManager),
+                @(LZUISettingTypeCustomScreen),
+                @(LZUISettingTypeNightMode),
+                @(LZUISettingTypeTarget),
+                @(LZUISettingTypeSyncData),
+            ];
+        } else if ([model containsString:@"460"]) {
+            // 大方表
+            self.list = @[
+                @(LZUISettingTypeHeartRateWarning),
+                @(LZUISettingTypeSportHrWarniing),
+                @(LZUISettingTypeSleepOximetry),
+                @(LZUISettingTypeSedentaryRemind),
+                @(LZUISettingTypeSleepRemind),
+                @(LZUISettingTypeEventRemind),
+                @(LZUISettingTypeTimeFormat),
+                @(LZUISettingTypeDialManager),
+                @(LZUISettingTypeCustomScreen),
+                @(LZUISettingTypeNightMode),
+                @(LZUISettingTypeTarget),
+                @(LZUISettingTypeSyncData),
+            ];
+            
+        } else if ([model containsString:@"431"]) {
+            // memboHR2
+            self.list = @[
+                @(LZUISettingTypeHeartRateWarning),
+                @(LZUISettingTypeSedentaryRemind),
+                @(LZUISettingTypeEventRemind),
+                @(LZUISettingTypeTimeFormat),
+                @(LZUISettingTypeCustomScreen),
+                @(LZUISettingTypeNightMode),
+                @(LZUISettingTypeTarget),
+                @(LZUISettingTypeRealtimeHROpen),
+                @(LZUISettingTypeRealtimeHRClose),
+                @(LZUISettingTypeMsgSend),
+                @(LZUISettingTypeHeartRateSwitch),
+                @(LZUISettingTypeCallMsgSend),
+            ];
+            
+        } else {
+            NSAssert(NO, @"不支持的设备");
+        }
+        
     } else if (self.device.deviceType == LZDeviceTypeMio) {
         self.list = @[
             @(LZUISettingTypeMioBeginJump),
@@ -113,11 +159,6 @@ LZUISettingTypeOta = 0xf0001,            // Ota
         ];
     }
     
-    
-        
-        
-        
-        
     [self.tableView registerNib:[UINib nibWithNibName:@"LZTestTableViewCell" bundle:nil] forCellReuseIdentifier:NSStringFromClass(LZTestTableViewCell.class)];
 }
 
@@ -205,9 +246,7 @@ LZUISettingTypeOta = 0xf0001,            // Ota
                 }];
             }
             
-            
             return;
-            break;
         }
             
         case LZUISettingTypeTimeFormat: {
@@ -302,6 +341,18 @@ LZUISettingTypeOta = 0xf0001,            // Ota
         }
         case LZUISettingTypeMcuBoxFind: {
             LZMcuFindBoxSetting *temp = [LZMcuFindBoxSetting new];
+            setting = temp;
+            break;
+        }
+        case LZUISettingTypeRealtimeHROpen: {
+            LZA5SettingRealTimeHeartRateSwitchData *temp = [LZA5SettingRealTimeHeartRateSwitchData new];
+            temp.enable = YES;
+            setting = temp;
+            break;
+        }
+        case LZUISettingTypeRealtimeHRClose: {
+            LZA5SettingRealTimeHeartRateSwitchData *temp = [LZA5SettingRealTimeHeartRateSwitchData new];
+            temp.enable = NO;
             setting = temp;
             break;
         }
@@ -419,6 +470,10 @@ LZUISettingTypeOta = 0xf0001,            // Ota
             return @"设置定时时间";
         case LZUISettingTypeMcuBoxFind:
             return @"发现药盒";
+        case LZUISettingTypeRealtimeHROpen:
+            return @"实时心率开";
+        case LZUISettingTypeRealtimeHRClose:
+            return @"实时心率关";
         default:
             break;
     }
