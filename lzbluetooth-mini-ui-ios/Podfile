@@ -19,11 +19,10 @@ target 'lzbluetooth-mini-ui-ios' do
   pod "IQKeyboardManager"
 end
 
-#target 'SwiftDemo' do
-#  use_frameworks!
-#  pod "LZBluetooth", "1.6.13"
-##  pod 'LZBluetooth', :path => '../../lzbluetoothmini'
-#  pod "SnapKit"
-#end
+target 'SwiftDemo' do
+  use_frameworks!
+  pod "LZBluetooth", "1.7.2"
+  pod "SnapKit"
+end
 
 
