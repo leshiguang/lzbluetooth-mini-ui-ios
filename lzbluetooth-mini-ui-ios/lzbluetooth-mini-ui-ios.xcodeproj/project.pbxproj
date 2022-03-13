@@ -102,13 +102,11 @@
 		60DC7BD725BAC2D8000E50EC /* LZInputStringTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 60DC7BD625BAC2D8000E50EC /* LZInputStringTableViewCell.m */; };
 		60E28F8425C192220025B510 /* LZHrSectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60E28F8325C192220025B510 /* LZHrSectionViewController.m */; };
 		72498FC97642C58CEA56EE92 /* Pods_lzbluetooth_mini_ui_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 972BCE45267335CFDDEDEB02 /* Pods_lzbluetooth_mini_ui_ios.framework */; };
-		8A37B42997BB671133256DA3 /* Pods_SwiftDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B14899D1EF4F0A4073A092A /* Pods_SwiftDemo.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		163C92D1A499CB589DCA1962 /* Pods-lzbluetooth-mini-ui-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lzbluetooth-mini-ui-ios.debug.xcconfig"; path = "Target Support Files/Pods-lzbluetooth-mini-ui-ios/Pods-lzbluetooth-mini-ui-ios.debug.xcconfig"; sourceTree = "<group>"; };
 		18391318254DD260CC607D1A /* Pods-lzbluetooth-mini-ui-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lzbluetooth-mini-ui-ios.release.xcconfig"; path = "Target Support Files/Pods-lzbluetooth-mini-ui-ios/Pods-lzbluetooth-mini-ui-ios.release.xcconfig"; sourceTree = "<group>"; };
-		3AA4C58609F64426D753F1D5 /* Pods-SwiftDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftDemo.release.xcconfig"; path = "Target Support Files/Pods-SwiftDemo/Pods-SwiftDemo.release.xcconfig"; sourceTree = "<group>"; };
 		6015D47626035D7000E18527 /* LZReadRealTimeHRViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LZReadRealTimeHRViewController.h; sourceTree = "<group>"; };
 		6015D47726035D7000E18527 /* LZReadRealTimeHRViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LZReadRealTimeHRViewController.m; sourceTree = "<group>"; };
 		6017543025B6CA9600AC1695 /* LZLanguageSettingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LZLanguageSettingViewController.h; sourceTree = "<group>"; };
@@ -283,9 +281,7 @@
 		60DC7BD625BAC2D8000E50EC /* LZInputStringTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LZInputStringTableViewCell.m; sourceTree = "<group>"; };
 		60E28F8225C192220025B510 /* LZHrSectionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LZHrSectionViewController.h; sourceTree = "<group>"; };
 		60E28F8325C192220025B510 /* LZHrSectionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LZHrSectionViewController.m; sourceTree = "<group>"; };
-		8B14899D1EF4F0A4073A092A /* Pods_SwiftDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		972BCE45267335CFDDEDEB02 /* Pods_lzbluetooth_mini_ui_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_lzbluetooth_mini_ui_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C456C2C4B6D3D8FAECC1B8A6 /* Pods-SwiftDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftDemo.debug.xcconfig"; path = "Target Support Files/Pods-SwiftDemo/Pods-SwiftDemo.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -293,7 +289,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8A37B42997BB671133256DA3 /* Pods_SwiftDemo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -314,8 +309,6 @@
 			children = (
 				163C92D1A499CB589DCA1962 /* Pods-lzbluetooth-mini-ui-ios.debug.xcconfig */,
 				18391318254DD260CC607D1A /* Pods-lzbluetooth-mini-ui-ios.release.xcconfig */,
-				C456C2C4B6D3D8FAECC1B8A6 /* Pods-SwiftDemo.debug.xcconfig */,
-				3AA4C58609F64426D753F1D5 /* Pods-SwiftDemo.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -332,7 +325,6 @@
 				607D110025CA77170036A1FD /* libz.tbd */,
 				607D10FD25CA770D0036A1FD /* libc++.tbd */,
 				972BCE45267335CFDDEDEB02 /* Pods_lzbluetooth_mini_ui_ios.framework */,
-				8B14899D1EF4F0A4073A092A /* Pods_SwiftDemo.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -966,11 +958,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 60C59D2A2692A9A800AB7587 /* Build configuration list for PBXNativeTarget "SwiftDemo" */;
 			buildPhases = (
-				4D9EF313D546001E124616AA /* [CP] Check Pods Manifest.lock */,
 				60C59D132692A99F00AB7587 /* Sources */,
 				60C59D142692A99F00AB7587 /* Frameworks */,
 				60C59D152692A99F00AB7587 /* Resources */,
-				4896FFFFD07FFB8D7D24F109 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1092,45 +1082,6 @@
 			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-lzbluetooth-mini-ui-ios-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		4896FFFFD07FFB8D7D24F109 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-SwiftDemo/Pods-SwiftDemo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-SwiftDemo/Pods-SwiftDemo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SwiftDemo/Pods-SwiftDemo-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		4D9EF313D546001E124616AA /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-SwiftDemo-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1282,7 +1233,6 @@
 /* Begin XCBuildConfiguration section */
 		60C59D282692A9A800AB7587 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C456C2C4B6D3D8FAECC1B8A6 /* Pods-SwiftDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -1305,7 +1255,6 @@
 		};
 		60C59D292692A9A800AB7587 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3AA4C58609F64426D753F1D5 /* Pods-SwiftDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

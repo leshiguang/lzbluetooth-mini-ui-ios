@@ -6,10 +6,12 @@
 //
 
 #import "AppDelegate.h"
-#import <LZBluetooth/LZBluetooth.h>
+
 #import <YYModel/YYModel.h>
 #import <ExternalAccessory/ExternalAccessory.h>
 
+@import LZBluetooth;
+@import LZBracelet;
 //#import "LZDataUtil.h"
 //#import "LZDataStream.h"
 
@@ -43,10 +45,11 @@
 //    NSData *reData = [LZDataUtil reverseData:data];
 //    NSString *retString = [LZDataUtil hexStringFromData:reData];
     
-    
-    
-//    @"lxe105d9c5fdf0cc93"
-    [LZBluetooth initWithAppId:@"lx60ea22583d67ff24"];
+    // 请使用自己的appId
+    [LZBluetooth initWithAppId:@"xxxxxxxxx"  options:@{
+        @"debug": @YES,
+        @"associatedId": @"xxxx"
+    }];
     id<LZDeviceManagerProtocol> deviceManager = [LZBluetooth getDeviceManagerWithDeviceTypes:@[
         @(LZDeviceTypeBracelet),
         @(LZDeviceTypeScale),

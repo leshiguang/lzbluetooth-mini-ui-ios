@@ -9,6 +9,8 @@
 #import "LZTestTableViewCell.h"
 #import "LZDialManagerViewController.h"
 
+@import LZSkip;
+@import LZBox;
 
 
 typedef NS_ENUM(NSUInteger, LZUISettingType) {

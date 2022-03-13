@@ -6,7 +6,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <LZBluetooth/LZBluetooth.h>
+@import LZBracelet;
 
 NS_ASSUME_NONNULL_BEGIN
 
