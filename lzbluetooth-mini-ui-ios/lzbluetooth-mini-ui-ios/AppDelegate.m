@@ -47,6 +47,7 @@
     
     // 请使用自己的appId
     [LZBluetooth initWithAppId:@"xxxxxxxxx"  options:@{
+        @"ctei": @NO,
         @"debug": @YES,
         @"associatedId": @"xxxx"
     }];
