@@ -5,7 +5,7 @@
 //  Created by tanjian on 2021/1/18.
 //
 
-#import <LZBluetooth/LZBluetooth.h>
+@import LZBracelet;
 
 NS_ASSUME_NONNULL_BEGIN
 

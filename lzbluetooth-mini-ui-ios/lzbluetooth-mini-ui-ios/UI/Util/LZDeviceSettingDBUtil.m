@@ -8,6 +8,12 @@
 #import "LZDeviceSettingDBUtil.h"
 #import <YYModel/YYModel.h>
 
+@import LZScale;
+
+#if __has_include(<LZBracelet/LZBracelet.h>)
+@import LZBracelet;
+#endif
+
 @implementation LZDeviceSettingDBUtil
 
 + (nullable id)getConfigsWithMacString:(NSString *)macString settingType:(LZDeviceSettingType)settingType {

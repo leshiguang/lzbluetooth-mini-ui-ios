@@ -7,6 +7,8 @@
 
 #import "LZHeartRateViewController.h"
 
+@import LZScale;
+
 @interface LZHeartRateViewController ()
 
 @property (nonatomic, strong) LZA6HearRateSwitchSettingData *data;

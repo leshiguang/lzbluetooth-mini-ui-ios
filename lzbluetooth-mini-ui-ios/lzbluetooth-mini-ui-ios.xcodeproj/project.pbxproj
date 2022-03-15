@@ -23,17 +23,20 @@
 		604E1B372744E92200A84516 /* LZTestTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 604E1B352744E92200A84516 /* LZTestTableViewCell.xib */; };
 		604E1B3B2745042E00A84516 /* LZDialManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 604E1B3A2745042D00A84516 /* LZDialManagerViewController.m */; };
 		604E1B3E27450A4600A84516 /* WatchFace124.lzo.lsf in Resources */ = {isa = PBXBuildFile; fileRef = 604E1B3D27450A4600A84516 /* WatchFace124.lzo.lsf */; };
-		604E1B402745276D00A84516 /* WatchFace-Simulation3.lzo.lsf in Resources */ = {isa = PBXBuildFile; fileRef = 604E1B3F2745276C00A84516 /* WatchFace-Simulation3.lzo.lsf */; };
 		604E1B422745281D00A84516 /* WatchFace-Custom.bin in Resources */ = {isa = PBXBuildFile; fileRef = 604E1B412745281D00A84516 /* WatchFace-Custom.bin */; };
 		604E1B4427452A8400A84516 /* WatchFace-Custom-lzo.lsf in Resources */ = {isa = PBXBuildFile; fileRef = 604E1B4327452A8300A84516 /* WatchFace-Custom-lzo.lsf */; };
 		605CB42225F2353B00EEFBEC /* LZLongSitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 605CB42025F2353B00EEFBEC /* LZLongSitViewController.m */; };
 		6061513C261C4C3E0085D36B /* 439B0H1003_1003T010_010A0.0.0_3.4.51D232_232_9F3CB799.lzo.lsf in Resources */ = {isa = PBXBuildFile; fileRef = 6061513B261C4C3D0085D36B /* 439B0H1003_1003T010_010A0.0.0_3.4.51D232_232_9F3CB799.lzo.lsf */; };
+		607AB6C62758F593002CD92A /* LZMedicineBoxManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 607AB6C52758F592002CD92A /* LZMedicineBoxManagerViewController.m */; };
+		607AB6C92758F5A8002CD92A /* LZJumpManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 607AB6C82758F5A8002CD92A /* LZJumpManagerViewController.m */; };
 		607C36B927144EBA0035DC6F /* 431D7H1004_1010T217_000A3.1.0_0.0.0D150_000_781F657B.lsf in Resources */ = {isa = PBXBuildFile; fileRef = 607C36B827144EBA0035DC6F /* 431D7H1004_1010T217_000A3.1.0_0.0.0D150_000_781F657B.lsf */; };
 		607C36BB271453E10035DC6F /* 431B0H1004_1010T212_000A3.1.0_0.0.0D150_000_53C9C4D2.lzo.lsf in Resources */ = {isa = PBXBuildFile; fileRef = 607C36BA271453E10035DC6F /* 431B0H1004_1010T212_000A3.1.0_0.0.0D150_000_53C9C4D2.lzo.lsf */; };
 		607C36BD271469380035DC6F /* 431D7H1004_1010T218_000A3.1.0_0.0.0D150_000_41BD765B.lsf in Resources */ = {isa = PBXBuildFile; fileRef = 607C36BC271469380035DC6F /* 431D7H1004_1010T218_000A3.1.0_0.0.0D150_000_41BD765B.lsf */; };
 		607C36BF27146C250035DC6F /* 431B3H1004_1004T313_311A3.1.0_3.4.48D150_150_6890AA21.lzo.lsf in Resources */ = {isa = PBXBuildFile; fileRef = 607C36BE27146C250035DC6F /* 431B3H1004_1004T313_311A3.1.0_3.4.48D150_150_6890AA21.lzo.lsf */; };
 		607C36C127146E490035DC6F /* 431B3H1004_1010T311_000A3.1.0_0.0.0D150_000_994E57A4.lsf in Resources */ = {isa = PBXBuildFile; fileRef = 607C36C027146E490035DC6F /* 431B3H1004_1010T311_000A3.1.0_0.0.0D150_000_994E57A4.lsf */; };
 		609DA7F225BEA51A0051D403 /* LZBaseDeviceInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 609DA7F125BEA51A0051D403 /* LZBaseDeviceInfoViewController.m */; };
+		60A9F898278C26EC00303C28 /* template.bin in Resources */ = {isa = PBXBuildFile; fileRef = 60A9F897278C26EC00303C28 /* template.bin */; };
+		60A9F89A278C2AB300303C28 /* 460B3H1003_1003T008_008A0.0.0_3.4.51D242_242_B423E4CF.lzo.lsf in Resources */ = {isa = PBXBuildFile; fileRef = 60A9F899278C2AB300303C28 /* 460B3H1003_1003T008_008A0.0.0_3.4.51D242_242_B423E4CF.lzo.lsf */; };
 		60AF93C5262426E700CEE84B /* LZWifiSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A765C525C825A1004A58B8 /* LZWifiSettingViewController.m */; };
 		60AF93C7262426FA00CEE84B /* LZScaleUnitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A765CA25C8264B004A58B8 /* LZScaleUnitViewController.m */; };
 		60B0CDB8269DBACB00F303BA /* LZHeartRateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60B0CDB7269DBACB00F303BA /* LZHeartRateViewController.m */; };
@@ -133,12 +136,15 @@
 		604E1B392745042D00A84516 /* LZDialManagerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LZDialManagerViewController.h; sourceTree = "<group>"; };
 		604E1B3A2745042D00A84516 /* LZDialManagerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LZDialManagerViewController.m; sourceTree = "<group>"; };
 		604E1B3D27450A4600A84516 /* WatchFace124.lzo.lsf */ = {isa = PBXFileReference; lastKnownFileType = file; path = WatchFace124.lzo.lsf; sourceTree = "<group>"; };
-		604E1B3F2745276C00A84516 /* WatchFace-Simulation3.lzo.lsf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WatchFace-Simulation3.lzo.lsf"; sourceTree = "<group>"; };
 		604E1B412745281D00A84516 /* WatchFace-Custom.bin */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; path = "WatchFace-Custom.bin"; sourceTree = "<group>"; };
 		604E1B4327452A8300A84516 /* WatchFace-Custom-lzo.lsf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WatchFace-Custom-lzo.lsf"; sourceTree = "<group>"; };
 		605CB42025F2353B00EEFBEC /* LZLongSitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZLongSitViewController.m; sourceTree = "<group>"; };
 		605CB42125F2353B00EEFBEC /* LZLongSitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZLongSitViewController.h; sourceTree = "<group>"; };
 		6061513B261C4C3D0085D36B /* 439B0H1003_1003T010_010A0.0.0_3.4.51D232_232_9F3CB799.lzo.lsf */ = {isa = PBXFileReference; lastKnownFileType = file; path = 439B0H1003_1003T010_010A0.0.0_3.4.51D232_232_9F3CB799.lzo.lsf; sourceTree = "<group>"; };
+		607AB6C42758F592002CD92A /* LZMedicineBoxManagerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LZMedicineBoxManagerViewController.h; sourceTree = "<group>"; };
+		607AB6C52758F592002CD92A /* LZMedicineBoxManagerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LZMedicineBoxManagerViewController.m; sourceTree = "<group>"; };
+		607AB6C72758F5A8002CD92A /* LZJumpManagerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LZJumpManagerViewController.h; sourceTree = "<group>"; };
+		607AB6C82758F5A8002CD92A /* LZJumpManagerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LZJumpManagerViewController.m; sourceTree = "<group>"; };
 		607C36B827144EBA0035DC6F /* 431D7H1004_1010T217_000A3.1.0_0.0.0D150_000_781F657B.lsf */ = {isa = PBXFileReference; lastKnownFileType = file; path = 431D7H1004_1010T217_000A3.1.0_0.0.0D150_000_781F657B.lsf; sourceTree = "<group>"; };
 		607C36BA271453E10035DC6F /* 431B0H1004_1010T212_000A3.1.0_0.0.0D150_000_53C9C4D2.lzo.lsf */ = {isa = PBXFileReference; lastKnownFileType = file; path = 431B0H1004_1010T212_000A3.1.0_0.0.0D150_000_53C9C4D2.lzo.lsf; sourceTree = "<group>"; };
 		607C36BC271469380035DC6F /* 431D7H1004_1010T218_000A3.1.0_0.0.0D150_000_41BD765B.lsf */ = {isa = PBXFileReference; lastKnownFileType = file; path = 431D7H1004_1010T218_000A3.1.0_0.0.0D150_000_41BD765B.lsf; sourceTree = "<group>"; };
@@ -157,6 +163,8 @@
 		60A765C525C825A1004A58B8 /* LZWifiSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZWifiSettingViewController.m; sourceTree = "<group>"; };
 		60A765C925C8264B004A58B8 /* LZScaleUnitViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LZScaleUnitViewController.h; sourceTree = "<group>"; };
 		60A765CA25C8264B004A58B8 /* LZScaleUnitViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LZScaleUnitViewController.m; sourceTree = "<group>"; };
+		60A9F897278C26EC00303C28 /* template.bin */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; path = template.bin; sourceTree = "<group>"; };
+		60A9F899278C2AB300303C28 /* 460B3H1003_1003T008_008A0.0.0_3.4.51D242_242_B423E4CF.lzo.lsf */ = {isa = PBXFileReference; lastKnownFileType = file; path = 460B3H1003_1003T008_008A0.0.0_3.4.51D242_242_B423E4CF.lzo.lsf; sourceTree = "<group>"; };
 		60B0CDB6269DBACB00F303BA /* LZHeartRateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZHeartRateViewController.h; sourceTree = "<group>"; };
 		60B0CDB7269DBACB00F303BA /* LZHeartRateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZHeartRateViewController.m; sourceTree = "<group>"; };
 		60B0CEA026B14DFA00F303BA /* GBF-2008-BF1_JIN_Combine_OTA_V1.4.0.24_HRC_0xFCD1_20201113.bin */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; path = "GBF-2008-BF1_JIN_Combine_OTA_V1.4.0.24_HRC_0xFCD1_20201113.bin"; sourceTree = "<group>"; };
@@ -388,6 +396,7 @@
 		6019CA422611FA8600C24A0C /* OTA */ = {
 			isa = PBXGroup;
 			children = (
+				60A9F899278C2AB300303C28 /* 460B3H1003_1003T008_008A0.0.0_3.4.51D242_242_B423E4CF.lzo.lsf */,
 				607C36C027146E490035DC6F /* 431B3H1004_1010T311_000A3.1.0_0.0.0D150_000_994E57A4.lsf */,
 				60B0CEA026B14DFA00F303BA /* GBF-2008-BF1_JIN_Combine_OTA_V1.4.0.24_HRC_0xFCD1_20201113.bin */,
 				60B0CEA426B3A2C400F303BA /* bk3432_ble_app_app.bin */,
@@ -426,8 +435,8 @@
 			isa = PBXGroup;
 			children = (
 				604E1B4327452A8300A84516 /* WatchFace-Custom-lzo.lsf */,
-				604E1B3F2745276C00A84516 /* WatchFace-Simulation3.lzo.lsf */,
 				604E1B3D27450A4600A84516 /* WatchFace124.lzo.lsf */,
+				60A9F897278C26EC00303C28 /* template.bin */,
 				604E1B412745281D00A84516 /* WatchFace-Custom.bin */,
 			);
 			path = resouce;
@@ -440,6 +449,24 @@
 				605CB42025F2353B00EEFBEC /* LZLongSitViewController.m */,
 			);
 			path = longSitReminder;
+			sourceTree = "<group>";
+		};
+		607AB6C22758F511002CD92A /* JumpManager */ = {
+			isa = PBXGroup;
+			children = (
+				607AB6C72758F5A8002CD92A /* LZJumpManagerViewController.h */,
+				607AB6C82758F5A8002CD92A /* LZJumpManagerViewController.m */,
+			);
+			path = JumpManager;
+			sourceTree = "<group>";
+		};
+		607AB6C32758F52D002CD92A /* MedicineBoxManager */ = {
+			isa = PBXGroup;
+			children = (
+				607AB6C42758F592002CD92A /* LZMedicineBoxManagerViewController.h */,
+				607AB6C52758F592002CD92A /* LZMedicineBoxManagerViewController.m */,
+			);
+			path = MedicineBoxManager;
 			sourceTree = "<group>";
 		};
 		60A765C325C82584004A58B8 /* Wifi */ = {
@@ -553,6 +580,8 @@
 		60C72C5425B561D600E00276 /* DeviceSetting */ = {
 			isa = PBXGroup;
 			children = (
+				607AB6C32758F52D002CD92A /* MedicineBoxManager */,
+				607AB6C22758F511002CD92A /* JumpManager */,
 				604E1B382744EB5900A84516 /* DialManager */,
 				604E1AF92744A74200A84516 /* Test */,
 				60B0CDB5269DBACB00F303BA /* A6HeartRate */,
@@ -1047,13 +1076,14 @@
 				607C36BD271469380035DC6F /* 431D7H1004_1010T218_000A3.1.0_0.0.0D150_000_41BD765B.lsf in Resources */,
 				607C36B927144EBA0035DC6F /* 431D7H1004_1010T217_000A3.1.0_0.0.0D150_000_781F657B.lsf in Resources */,
 				6019CB1E2613474600C24A0C /* 431B2H1004_1010T211_000A3.1.0_0.0.0D150_000_6D04BCBC.lzo.lsf in Resources */,
+				60A9F89A278C2AB300303C28 /* 460B3H1003_1003T008_008A0.0.0_3.4.51D242_242_B423E4CF.lzo.lsf in Resources */,
 				604E1B3E27450A4600A84516 /* WatchFace124.lzo.lsf in Resources */,
 				604E1B422745281D00A84516 /* WatchFace-Custom.bin in Resources */,
 				607C36BB271453E10035DC6F /* 431B0H1004_1010T212_000A3.1.0_0.0.0D150_000_53C9C4D2.lzo.lsf in Resources */,
 				607C36BF27146C250035DC6F /* 431B3H1004_1004T313_311A3.1.0_3.4.48D150_150_6890AA21.lzo.lsf in Resources */,
 				60C72C3725B55F9C00E00276 /* Assets.xcassets in Resources */,
 				60C72C3525B55F9B00E00276 /* Main.storyboard in Resources */,
-				604E1B402745276D00A84516 /* WatchFace-Simulation3.lzo.lsf in Resources */,
+				60A9F898278C26EC00303C28 /* template.bin in Resources */,
 				607C36C127146E490035DC6F /* 431B3H1004_1010T311_000A3.1.0_0.0.0D150_000_994E57A4.lsf in Resources */,
 				604E1B4427452A8400A84516 /* WatchFace-Custom-lzo.lsf in Resources */,
 			);
@@ -1149,7 +1179,9 @@
 				60C72D3E25B561D700E00276 /* LSWMineBraceletTableViewCell.m in Sources */,
 				60B0CDB8269DBACB00F303BA /* LZHeartRateViewController.m in Sources */,
 				60C72D0225B561D700E00276 /* LZScreenOrientationViewController.m in Sources */,
+				607AB6C62758F593002CD92A /* LZMedicineBoxManagerViewController.m in Sources */,
 				60C72D2725B561D700E00276 /* LSWGradientView.m in Sources */,
+				607AB6C92758F5A8002CD92A /* LZJumpManagerViewController.m in Sources */,
 				60C72D1D25B561D700E00276 /* LZSportTypeViewController.m in Sources */,
 				60C72D1225B561D700E00276 /* LZAddEventToRemindContentTableViewCell.m in Sources */,
 				60C72D3825B561D700E00276 /* LSWBluetoothSearchingDeviceView.m in Sources */,

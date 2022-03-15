@@ -6,7 +6,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <LZBluetooth/LZBluetooth.h>
+
+//@import LZScale;
+@import LZBluetooth;
+@import LZBracelet;
 
 NS_ASSUME_NONNULL_BEGIN
 

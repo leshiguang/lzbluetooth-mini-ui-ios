@@ -10,7 +10,8 @@
 #import <Masonry/Masonry.h>
 #import "LZBaseDeviceInfoViewController.h"
 #import "UIViewController+MBProgressHUD.h"
-#import <LZBluetooth/LZBluetooth.h>
+
+@import LZBluetooth;
 
 @interface LZBindingViewController () <LSWBindingDeviceViewDelegate, LSWEnterRandomCodeViewDelegate, LZDeviceBindDelegate>
 @property (nonatomic, strong) LSWBindingDeviceView *bindingDeviceView;
@@ -104,7 +105,7 @@
                 break;
             }
             case LZBindStateInputRandomNumberError: {
-                [self _handleBindStatusInputRndomCodeError];
+//                [self _handleBindStatusInputRndomCodeError];
                 break;
             }
             case LZBindStateAwaitUserConfirm: {

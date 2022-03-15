@@ -6,7 +6,15 @@
 //
 
 #import "AppDelegate.h"
-#import <LZBluetooth/LZBluetooth.h>
+
+//@import LZBluetooth;
+@import LZBluetooth;
+@import LZBracelet;
+@import LZScale;
+@import LZBloodPressure;
+@import LZBox;
+@import LZSkip;
+
 #import <YYModel/YYModel.h>
 #import <ExternalAccessory/ExternalAccessory.h>
 
@@ -19,49 +27,35 @@
 @end
 
 
-
 @implementation AppDelegate
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
-//    LZDataStream *stream = [LZDataStream streamWithCapacity:32];
-//    NSLog(@"data0 %@", stream.data);
-//    [stream writeByte:1];
-//    NSLog(@"data1 %@", stream.data);
-//    [stream writeByte:2];
-//    NSLog(@"data2 %@", stream.data);
-//    [stream writeByte:3];
-//    NSLog(@"data3 %@", stream.data);
-    
-//    Byte byte[] = { 0xb0, 0x38, 0x50, 0x60};
-//    double ret =  lzz_sfloat_value(byte);
-//    NSLog(@"ret %f", ret);
-//    [self init_crc_table];
-//    NSString *hexString = @"97DE117D5FCC";
-//    NSData *data = [LZDataUtil convertHexStrToData:hexString];
-//    NSData *reData = [LZDataUtil reverseData:data];
-//    NSString *retString = [LZDataUtil hexStringFromData:reData];
-    
-    
-    
 //    @"lxe105d9c5fdf0cc93"
-    [LZBluetooth initWithAppId:@"lx60ea22583d67ff24"];
+    [LZBluetooth initWithAppId:@"lx99c41eaa523f62f2" options:@{
+    
+        @"debug": @YES,
+        @"associatedId": @"13265792174"
+    }];
+    
     id<LZDeviceManagerProtocol> deviceManager = [LZBluetooth getDeviceManagerWithDeviceTypes:@[
         @(LZDeviceTypeBracelet),
-//        @(LZDeviceTypeScale),
-//        @(LZDeviceTypeBloodPressure),
-//        @(LZDeviceTypeAlice),
-//        @(LZDeviceTypeGlu)
+        @(LZDeviceTypeScale),
+        @(LZDeviceTypeBloodPressure),
+        @(LZDeviceTypeMio),
+        @(LZDeviceTypeMcu)
     ]];
     deviceManager.delegate = self;
     
     LZUserInfoConfig *userConfig = [[LZUserInfoConfig alloc] init];
     deviceManager.userInfoConfig = userConfig;
     
+    NSLog(@"sdkVersion %@", LZBluetooth.version);
     [LZLogger shareInstance].loggerHandler = ^(LZLoggerLevel level, NSString * _Nonnull msg) {
         NSLog(@"[%@]%@", @(level), msg);
     };
+    
     return YES;
 }
 
@@ -69,7 +63,8 @@
 
 #pragma mark - LZDeviceDelegate
 - (void)device:(id<LZDeviceProtocol>)device didReceiveMeasurementData:(id<LZMeasurementDataProtocol>)measurementData {
-    NSLog(@"%@ 收到测量数据 %@", device.mac, [(NSObject *)measurementData yy_modelToJSONString]);
+    NSLog(@"app ====== %@ 收到测量数据 %@", device.mac, [(NSObject *)measurementData yy_modelToJSONString]);
+    NSString *model = device.deviceInfo[kLZBluetoothDeviceInfoKeyModelName];
     
     if (measurementData.measurementDataType == LZBraceletMeasurementDataTypeSleep) {
         LZA5SleepData *sleepData = (LZA5SleepData *)measurementData;
@@ -78,11 +73,11 @@
 }
 
 - (void)deviceDidUpdateConnectStatus:(id<LZDeviceProtocol>)device {
-    NSLog(@"连接状态发生变化 %ld", device.connectStatus);
+    NSLog(@"app ======连接状态发生变化 %ld", device.connectStatus);
 }
 
 - (void)deviceDidUpdateBatteryStatus:(id<LZDeviceProtocol>)device {
-    NSLog(@"%@ 收到电量 %@", device.mac, [device.batteryInfo yy_modelToJSONString]);
+    NSLog(@"app ====== %@ 收到电量 %@", device.mac, [device.batteryInfo yy_modelToJSONString]);
 }
 
 - (void)deviceDidReadyToReceiveData:(id<LZDeviceProtocol>)device {

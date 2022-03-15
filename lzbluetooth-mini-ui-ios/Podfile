@@ -1,5 +1,5 @@
 # Uncomment the next line to define a global platform for your project
-# platform :ios, '9.0'
+platform :ios, '9.0'
 source 'https://github.com/leshiguang/cocoapods.git'
 source 'https://github.com/CocoaPods/Specs.git'
 
@@ -11,11 +11,16 @@ target 'lzbluetooth-mini-ui-ios' do
 #                   "layoutCache[(id)currentClass] = ivars;")
   pod "SDWebImage"
   pod "Masonry"
-  pod "CocoaDebug", "1.4.8"
+#  pod "CocoaDebug", "1.4.8"
   pod "YYModel"
 
 #  pod "LZBluetooth", "1.6.13"
-pod 'LZBluetooth', :path => '../../lzbluetoothmini'
+pod 'LZBluetooth', "2.0.0"
+pod 'LZBracelet'
+pod 'LZScale'
+pod 'LZBox'
+pod 'LZBloodPressure'
+pod 'LZSkip'
 
 
   pod "IQKeyboardManager"
@@ -23,7 +28,7 @@ end
 
 #target 'SwiftDemo' do
 #  use_frameworks!
-#  pod "LZBluetooth", "1.6.13"
+#  pod "LZBluetooth"
 ##  pod 'LZBluetooth', :path => '../../lzbluetoothmini'
 #  pod "SnapKit"
 #end
