@@ -32,5 +32,3 @@ end
 ##  pod 'LZBluetooth', :path => '../../lzbluetoothmini'
 #  pod "SnapKit"
 #end
-
-

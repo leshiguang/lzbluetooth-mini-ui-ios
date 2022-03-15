@@ -7,6 +7,7 @@
 
 #import "LZDeviceSettingDBUtil.h"
 #import <YYModel/YYModel.h>
+@import LZScale;
 
 @import LZScale;
 

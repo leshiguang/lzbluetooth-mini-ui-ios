@@ -56,7 +56,7 @@ class DeviceListTableViewController: UITableViewController, LZDeviceDelegate {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         let device = deviceList[indexPath.row];
-        cell.textLabel?.text = "\(device.name!) \(device.mac!) \(device.rssi ?? 0)";
+        cell.textLabel?.text = "\(device.name!) \(device.mac) \(device.rssi ?? 0)";
         return cell
     }
     
