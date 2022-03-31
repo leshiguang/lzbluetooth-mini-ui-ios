@@ -15,11 +15,11 @@ target 'lzbluetooth-mini-ui-ios' do
   pod "YYModel"
 
 #  pod "LZBluetooth", "1.6.13"
-pod 'LZBluetooth', "2.0.0"
-pod 'LZBracelet'
+pod 'LZBluetooth', "2.0.1"
+pod 'LZBracelet', "1.0.2"
 pod 'LZScale'
 pod 'LZBox'
-pod 'LZBloodPressure'
+pod 'LZBloodPressure', "1.0.1"
 pod 'LZSkip'
 
 

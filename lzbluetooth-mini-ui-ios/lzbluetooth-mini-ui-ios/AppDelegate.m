@@ -81,6 +81,11 @@
     }
 }
 
+/// 新增
+- (void)deviceInfo:(NSDictionary<NSString *,id> *)deviceInfo didReceiveMeasurementData:(NSDictionary<NSString *,id> *)measurementData {
+    NSLog(@"deviceInfo %@ %@",deviceInfo, measurementData);
+}
+
 - (void)deviceDidUpdateConnectStatus:(id<LZDeviceProtocol>)device {
     NSLog(@"连接状态发生变化 %ld", device.connectStatus);
 }
