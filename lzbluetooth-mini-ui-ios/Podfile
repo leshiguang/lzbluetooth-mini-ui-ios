@@ -26,9 +26,14 @@ pod 'LZSkip'
   pod "IQKeyboardManager"
 end
 
-#target 'SwiftDemo' do
-#  use_frameworks!
-#  pod "LZBluetooth"
-##  pod 'LZBluetooth', :path => '../../lzbluetoothmini'
-#  pod "SnapKit"
-#end
+target 'SwiftDemo' do
+  use_frameworks!
+  pod 'LZBluetooth', "2.0.1"
+  pod 'LZBracelet', "1.0.2"
+  pod 'LZScale'
+  pod 'LZBox'
+  pod 'LZBloodPressure', "1.0.1"
+  pod 'LZSkip'
+#  pod 'LZBluetooth', :path => '../../lzbluetoothmini'
+  pod "SnapKit"
+end
