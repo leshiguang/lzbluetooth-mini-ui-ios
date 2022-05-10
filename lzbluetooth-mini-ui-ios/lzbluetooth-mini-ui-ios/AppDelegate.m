@@ -46,7 +46,7 @@
 //    NSString *retString = [LZDataUtil hexStringFromData:reData];
     
     // 请使用自己的appId
-    [LZBluetooth initWithAppId:@"xxxxxxxxx"  options:@{
+    [LZBluetooth initWithAppId:@"xxxx"  options:@{
         @"ctei": @NO,
         @"debug": @YES,
         @"associatedId": @"xxxx"

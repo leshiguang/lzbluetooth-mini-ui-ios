@@ -301,7 +301,7 @@ LZUISettingTypeOta = 0xf0001,            // Ota
             
         case LZUISettingTypeSyncData: {
             LZA5SettingSyncData *temp = [LZA5SettingSyncData new];
-            temp.syncDataType = LZA5SyncDataTypeAll;
+            temp.syncDataType = LZA5SyncDataTypeMeasureData;
             setting = temp;
             break;
         }
