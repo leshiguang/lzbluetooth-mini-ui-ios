@@ -10,6 +10,9 @@
 #import "LZSettingTableViewCell.h"
 #import "LZDeviceSettingDBUtil.h"
 
+@import LZBracelet;
+@import LZScale;
+
 //设置类型
 typedef enum : NSUInteger {
     DEVICESETTYPE_DEVICE_NAME,                          //设备名称
@@ -277,7 +280,7 @@ typedef NS_ENUM(NSUInteger, LZDeviceInfoType) {
         case LZDeviceTypeBloodPressure:
             return [self bloodPressureSupportSettings];
         default:
-            return @[];
+            return @[@(0xffffffff)];
     }
 }
 
@@ -318,5 +321,6 @@ typedef NS_ENUM(NSUInteger, LZDeviceInfoType) {
         
     ];
 }
+
 
 @end

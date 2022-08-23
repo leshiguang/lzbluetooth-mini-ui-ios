@@ -12,6 +12,7 @@
 
 @import LZBluetooth;
 @import LZBracelet;
+@import LZCavosmart;
 //#import "LZDataUtil.h"
 //#import "LZDataStream.h"
 
@@ -46,7 +47,7 @@
 //    NSString *retString = [LZDataUtil hexStringFromData:reData];
     
     // 请使用自己的appId
-    [LZBluetooth initWithAppId:@"xxxx"  options:@{
+    [LZBluetooth initWithAppId:@"xxx"  options:@{
         @"ctei": @NO,
         @"debug": @YES,
         @"associatedId": @"xxxx"
@@ -54,6 +55,7 @@
     id<LZDeviceManagerProtocol> deviceManager = [LZBluetooth getDeviceManagerWithDeviceTypes:@[
         @(LZDeviceTypeBracelet),
         @(LZDeviceTypeScale),
+        @(LZDeviceTypeCavo),
 //        @(LZDeviceTypeBloodPressure),
 //        @(LZDeviceTypeAlice),
 //        @(LZDeviceTypeGlu)

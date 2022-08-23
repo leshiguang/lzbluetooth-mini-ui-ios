@@ -16,12 +16,13 @@ target 'lzbluetooth-mini-ui-ios' do
   pod "LZShareKit"
 
 #  pod "LZBluetooth", "1.6.13"
-pod 'LZBluetooth', "2.0.2"
-pod 'LZBracelet', "1.0.4"
+pod 'LZBluetooth'
+pod 'LZBracelet'
 pod 'LZScale'
 pod 'LZBox'
-pod 'LZBloodPressure', "1.0.1"
+pod 'LZBloodPressure'
 pod 'LZSkip'
+pod 'LZCavosmart'
 
 
   pod "IQKeyboardManager"
