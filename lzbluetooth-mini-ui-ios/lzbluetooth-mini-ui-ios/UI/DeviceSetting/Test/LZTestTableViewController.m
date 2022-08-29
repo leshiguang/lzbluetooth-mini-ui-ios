@@ -9,8 +9,9 @@
 #import "LZTestTableViewCell.h"
 #import "LZDialManagerViewController.h"
 
-@import LZSkip;
-@import LZBox;
+#import <LZSkip/LZSkip.h>
+#import <LZBox/LZBox.h>
+#import <LZCavosmart/LZCavosmart.h>
 
 
 
@@ -74,15 +75,32 @@ LZUISettingTypeMcuBoxTiming = 0x0801,  // 药盒设置时间
 LZUISettingTypeMcuBoxSyncData = 0x0802,  // 药盒获取信息
 LZUISettingTypeMcuBoxFind = 0x0803,     // 发现药盒
     
+LZUISettingTypeCVBP = 0x0901,  // 实时血压
+LZUISettingTypeCVBPSwitch = 0x0902, // 血压显示
+LZUISettingTypeCVTemp = 0x0903,  // 实时温度
+LZUISettingTypeCVTempSwitch = 0x0904,  // 温度显示
+LZUISettingTypeCVClock = 0x0905,  // 闹钟
+LZUISettingTypeCVDial = 0x0906,  // 表盘
+LZUISettingTypeCVEncourage = 0x0907,  // 鼓励目标
+LZUISettingTypeCVHRSwich = 0x0908,  // 心率开关
+LZUISettingTypeCVLanguage = 0x0909,  // 语言
+LZUISettingTypeCVLongSit = 0x090a,  // 久坐
+LZUISettingTypeCVMsgRemind = 0x090b,  // 消息提醒开关
+LZUISettingTypeCVRaise = 0x090c,  // 抬腕亮屏
+LZUISettingTypeCVSyncData = 0x090d,  // 同步数据
+LZUISettingTypeCVTimeFormat = 0x090e,  // 时间格式
+LZUISettingTypeCVUserInfo = 0x0910,  // 同步用户信息
+    
  // common
 LZUISettingTypeOta = 0xf0001,            // Ota
     
-
 };
 
 @interface LZTestTableViewController ()
 
 @property (nonatomic, strong) NSArray *list;
+
+@property (nonatomic, strong) NSMutableDictionary *cacheDic;
 
 @end
 
@@ -90,6 +108,8 @@ LZUISettingTypeOta = 0xf0001,            // Ota
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    _cacheDic = [NSMutableDictionary dictionary];
     
     NSString *model = self.device.deviceInfo[kLZBluetoothDeviceInfoKeyModelName];
     
@@ -145,7 +165,8 @@ LZUISettingTypeOta = 0xf0001,            // Ota
                 @(LZUISettingTypeCallMsgSend),
             ];
             
-        } else {
+        }
+        else {
             NSAssert(NO, @"不支持的设备");
         }
         
@@ -159,6 +180,24 @@ LZUISettingTypeOta = 0xf0001,            // Ota
             @(LZUISettingTypeMcuBoxTiming),
             @(LZUISettingTypeMcuBoxSyncData),
             @(LZUISettingTypeMcuBoxFind)
+        ];
+    } else if (self.device.deviceType == LZDeviceTypeCavo) {
+        self.list = @[
+            @(LZUISettingTypeCVBP),
+            @(LZUISettingTypeCVBPSwitch),
+            @(LZUISettingTypeCVTemp),
+            @(LZUISettingTypeCVTempSwitch),
+            @(LZUISettingTypeCVClock),
+            @(LZUISettingTypeCVDial),
+            @(LZUISettingTypeCVEncourage),
+            @(LZUISettingTypeCVHRSwich),
+            @(LZUISettingTypeCVLanguage),
+            @(LZUISettingTypeCVLongSit),
+            @(LZUISettingTypeCVMsgRemind),
+            @(LZUISettingTypeCVRaise),
+            @(LZUISettingTypeCVSyncData),
+            @(LZUISettingTypeCVTimeFormat),
+            @(LZUISettingTypeCVUserInfo),
         ];
     }
     
@@ -302,7 +341,7 @@ LZUISettingTypeOta = 0xf0001,            // Ota
             
         case LZUISettingTypeSyncData: {
             LZA5SettingSyncData *temp = [LZA5SettingSyncData new];
-            temp.syncDataType = LZA5SyncDataTypeAll;
+            temp.syncDataType = LZA5SyncDataTypeMeasureData;
             setting = temp;
             break;
         }
@@ -360,24 +399,136 @@ LZUISettingTypeOta = 0xf0001,            // Ota
             break;
         }
             
+        case LZUISettingTypeCVBP: {
+            LZCVBloodPressureSetting *cache = self.cacheDic[@(settingType)];
+            LZCVBloodPressureSetting *temp = [[LZCVBloodPressureSetting alloc] init];
+            temp.enable = !cache.enable;
+            setting = temp;
+            break;
+        }
+            
+        case LZUISettingTypeCVTemp: {
+            LZCVTemperatureSetting *cache = self.cacheDic[@(settingType)];
+            LZCVTemperatureSetting *temp = [LZCVTemperatureSetting new];
+            temp.enable = !cache.enable;
+            setting = temp;
+            break;
+        }
+            
+        case LZUISettingTypeCVBPSwitch: {
+            LZCVBloodPressureDisplaySwitchSetting *cache = self.cacheDic[@(settingType)];
+            LZCVBloodPressureDisplaySwitchSetting *temp = [LZCVBloodPressureDisplaySwitchSetting new];
+            temp.enable = !cache.enable;
+            setting = temp;
+            break;
+        }
+    
+        case LZUISettingTypeCVTempSwitch: {
+            LZCVTemperatureDisplaySetting *cache = self.cacheDic[@(settingType)];
+            LZCVTemperatureDisplaySetting *temp = [LZCVTemperatureDisplaySetting new];
+            temp.enable = !cache.enable;
+            setting = temp;
+            break;
+//            0xab000005c5cdba8b 0500100000
+        }
+        case LZUISettingTypeCVClock: {
+            LZCVClockSetting *temp = [LZCVClockSetting new];
+            LZCVClockInfo *info = [LZCVClockInfo new];
+            NSDate *date = [NSDate date];
+            info.index = 1;
+            info.hour = date.lz_hour;
+            info.minute = date.lz_minute + 1;
+            info.repeatTime = LZCVRepeatTimeAll;
+            temp.events = @[info];
+            setting = temp;
+            break;
+        }
+        case LZUISettingTypeCVDial: {
+            LZCVDialSetting *temp = [LZCVDialSetting new];
+            temp.index = 2;
+            setting = temp;
+            break;
+        }
+        case LZUISettingTypeCVHRSwich: {
+            LZCVHRSwitchSetting *cache = self.cacheDic[@(settingType)];
+            LZCVHRSwitchSetting *temp = [LZCVHRSwitchSetting new];
+            temp.enable = !cache.enable;
+            setting = temp;
+            break;
+        }
+    
+        case LZUISettingTypeCVLongSit: {
+            LZCVLongSitSetting *temp = [LZCVLongSitSetting new];
+            temp.enable = YES;
+            temp.repeatTime = LZCVRepeatTimeAll;
+            temp.duration = 1;
+            temp.startHour = 8;
+            temp.endHour = 24;
+            setting = temp;
+            break;
+        }
+            
+        case LZUISettingTypeCVTimeFormat: {
+            LZCVTimeFormatSetting *cache = self.cacheDic[@(settingType)];
+            LZCVTimeFormatSetting *temp = [LZCVTimeFormatSetting new];
+            temp.timeFormat = !cache.timeFormat;
+            setting = temp;
+            break;
+        }
+            
+        case LZUISettingTypeCVMsgRemind: {
+            LZCVMsgReminderSwitchSetting *temp = [LZCVMsgReminderSwitchSetting new];
+            temp.msgType = LZCVMsgTypeCall;
+            temp.enable = YES;
+            setting = temp;
+            break;
+        }
+            
+        case LZUISettingTypeCVEncourage: {
+            LZCVEncourageSetting *temp = [LZCVEncourageSetting new];
+            temp.targetType = LZCVTargetTypeStep;
+            temp.value = 100;
+            setting = temp;
+            break;
+        }
+            
+        case LZUISettingTypeCVRaise: {
+            LZCVRaiseSetting *cache = self.cacheDic[@(settingType)];
+            LZCVRaiseSetting *temp = [LZCVRaiseSetting new];
+            temp.enable = !cache.enable;
+            setting = temp;
+            break;
+        }
+        case LZUISettingTypeCVSyncData: {
+            LZCVSyncData *temp = [LZCVSyncData new];
+            setting = temp;
+            break;
+        }
+        case LZUISettingTypeCVLanguage: {
+            LZCVLanguageSetting *cache = self.cacheDic[@(settingType)];
+            LZCVLanguageSetting *temp = [LZCVLanguageSetting new];
+            temp.languageType = cache.languageType == LZCVLanguageTypeSimpleChinese ? LZCVLanguageTypeEng : LZCVLanguageTypeSimpleChinese;
+            setting = temp;
+            break;
+        }
+            
         default:
             break;
     }
     if (setting) {
+        self.cacheDic[@(settingType)] = setting;
         [self.device sendDataModel:setting completion:^(LZBluetoothErrorCode result, id  _Nullable response) {
-            NSLog(@"发送成功");
             NSLog(@"sendDataModel %@ %@", @(result), response);
+            if (result == LZBluetoothErrorCodeSuccess) {
+                NSLog(@"发送成功");
+            }
         }];
     }
 }
 
 - (void)getButtonClicked:(UIButton *)sender {
     LZUISettingType settingType = sender.tag;
-    LZA5GetSettingType type = 0;
-    if (self.device.deviceType != LZDeviceTypeBracelet || ![self.device.deviceInfo[kLZBluetoothDeviceInfoKeyModelName] containsString:@"456"]) {
-        NSLog(@"不支持");
-        return;
-    }
+    NSUInteger type = 0;
     switch (settingType) {
         case LZUISettingTypeHeartRateWarning:
             type = LZA5GetSettingTypeHeartRateWarningSetting;
@@ -423,6 +574,47 @@ LZUISettingTypeOta = 0xf0001,            // Ota
             
         case LZUISettingTypeTarget:
             type = LZA5GetSettingTypeTargetSetting;
+            break;
+            
+//            LZCVGetSettingTypeSedentaryReminderSetting = 2,         // 久坐提醒
+//            LZCVGetSettingTypeEventReminderSetting = 4,             // 闹钟
+//            LZCVGetSettingTypeTimeFormatSetting = 5,                // 24小时制
+//            LZCVGetSettingTypeDialTypeSetting = 6,                  // 表盘设置
+//            LZCVGetSettingTypeHeartRateSwitachSetting = 18,         // 24小时心率开关
+//            LZCVGetSettingTypeBloodPressureDisplaySwitch = 22,      // 血压开关
+//            LZCVGetSettingTypeTemperatureDisplaySwitch = 23,        // 温度开关
+
+            
+        case LZUISettingTypeCVBPSwitch:
+            type = LZCVGetSettingTypeBloodPressureDisplaySwitch;
+            break;
+    
+        case LZUISettingTypeCVTempSwitch:
+            type = LZCVGetSettingTypeTemperatureDisplaySwitch;
+            break;
+        case LZUISettingTypeCVClock:
+            type = LZCVGetSettingTypeEventReminderSetting;
+            break;
+        case LZUISettingTypeCVDial:
+            type = LZCVGetSettingTypeDialTypeSetting;
+            break;
+        
+        case LZUISettingTypeCVHRSwich:
+            type = LZCVGetSettingTypeHeartRateSwitachSetting;
+            break;
+    
+        case LZUISettingTypeCVLongSit:
+            type = LZCVGetSettingTypeSedentaryReminderSetting;
+            break;
+            
+        case LZUISettingTypeCVTimeFormat:
+            type = LZCVGetSettingTypeTimeFormatSetting;
+            break;
+        case LZUISettingTypeCVRaise:
+            type = LZCVGetSettingTypeRaiseSwitch;
+            break;
+        case LZUISettingTypeCVLanguage:
+            type = LZCVGetSettingTypeLanguage;
             break;
         
         default:
@@ -478,6 +670,55 @@ LZUISettingTypeOta = 0xf0001,            // Ota
             return @"实时心率开";
         case LZUISettingTypeRealtimeHRClose:
             return @"实时心率关";
+            
+//            LZUISettingTypeCVBP = 0x0901,  // 实时血压
+//            LZUISettingTypeCVBPSwitch = 0x0902, // 血压显示
+//            LZUISettingTypeCVTemp = 0x0903,  // 实时温度
+//            LZUISettingTypeCVTempSwitch = 0x0904,  // 温度显示
+//            LZUISettingTypeCVClock = 0x0905,  // 闹钟
+//            LZUISettingTypeCVDial = 0x0906,  // 表盘
+//            LZUISettingTypeCVEncourage = 0x0907,  // 鼓励目标
+//            LZUISettingTypeCVHRSwich = 0x0908,  // 心率开关
+//            LZUISettingTypeCVLanguage = 0x0909,  // 语言
+//            LZUISettingTypeCVLongSit = 0x090a,  // 久坐
+//            LZUISettingTypeCVMsgRemind = 0x090b,  // 消息提醒开关
+//            LZUISettingTypeCVRaise = 0x090c,  // 抬腕亮屏
+//            LZUISettingTypeCVSyncData = 0x090d,  // 同步数据
+//            LZUISettingTypeCVTimeFormat = 0x090e,  // 时间格式
+//            LZUISettingTypeCVUserInfo = 0x0910,  // 同步用户信息
+        case LZUISettingTypeCVBP:
+            return @"实时血压(只能设置)";
+        case LZUISettingTypeCVBPSwitch:
+            return @"血压显示";
+        case LZUISettingTypeCVTemp:
+            return @"温度(只能设置)";
+        case LZUISettingTypeCVTempSwitch:
+            return @"温度显示";
+        case LZUISettingTypeCVClock:
+            return @"闹钟";
+        case LZUISettingTypeCVDial:
+            return @"表盘";
+        case LZUISettingTypeCVEncourage:
+            return @"鼓励目标";
+        case LZUISettingTypeCVHRSwich:
+            return @"心率开关";
+        case LZUISettingTypeCVLanguage:
+            return @"语言";
+        case LZUISettingTypeCVLongSit:
+            return @"久坐";
+        case LZUISettingTypeCVMsgRemind:
+            return @"消息提醒开关(只能设置)";
+        case LZUISettingTypeCVRaise:
+            return @"抬腕";
+        case LZUISettingTypeCVSyncData:
+            return @"同步数据(只能设置)";
+        case LZUISettingTypeCVTimeFormat:
+            return @"时间格式";
+        case LZUISettingTypeCVUserInfo:
+            return @"用户信息(只能设置)";
+    
+            
+            
         default:
             break;
     }

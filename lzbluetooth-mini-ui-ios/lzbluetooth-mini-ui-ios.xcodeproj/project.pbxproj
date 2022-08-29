@@ -17,7 +17,6 @@
 		6019CB1A2613401800C24A0C /* LZOTAViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6019CB182613401800C24A0C /* LZOTAViewController.m */; };
 		6019CB1B2613401800C24A0C /* LZOTAViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6019CB192613401800C24A0C /* LZOTAViewController.xib */; };
 		6019CB1E2613474600C24A0C /* 431B2H1004_1010T211_000A3.1.0_0.0.0D150_000_6D04BCBC.lzo.lsf in Resources */ = {isa = PBXBuildFile; fileRef = 6019CB1D2613474600C24A0C /* 431B2H1004_1010T211_000A3.1.0_0.0.0D150_000_6D04BCBC.lzo.lsf */; };
-		6040509D2653AB8D00A20B1B /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6040509C2653AB8D00A20B1B /* CoreBluetooth.framework */; };
 		604E1AFD2744A76F00A84516 /* LZTestTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 604E1AFB2744A76F00A84516 /* LZTestTableViewController.m */; };
 		604E1B362744E92200A84516 /* LZTestTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 604E1B342744E92200A84516 /* LZTestTableViewCell.m */; };
 		604E1B372744E92200A84516 /* LZTestTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 604E1B352744E92200A84516 /* LZTestTableViewCell.xib */; };
@@ -103,8 +102,22 @@
 		60C72DBA25B5BA1800E00276 /* LZA5SettingEventRemindData+YYModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C72DB925B5BA1800E00276 /* LZA5SettingEventRemindData+YYModel.m */; };
 		60DC7BD725BAC2D8000E50EC /* LZInputStringTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 60DC7BD625BAC2D8000E50EC /* LZInputStringTableViewCell.m */; };
 		60E28F8425C192220025B510 /* LZHrSectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60E28F8325C192220025B510 /* LZHrSectionViewController.m */; };
+		60ED969C27EDB9B800D53910 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6040509C2653AB8D00A20B1B /* CoreBluetooth.framework */; };
 		72498FC97642C58CEA56EE92 /* Pods_lzbluetooth_mini_ui_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 972BCE45267335CFDDEDEB02 /* Pods_lzbluetooth_mini_ui_ios.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		60ED96A127EDB9BD00D53910 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		163C92D1A499CB589DCA1962 /* Pods-lzbluetooth-mini-ui-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lzbluetooth-mini-ui-ios.debug.xcconfig"; path = "Target Support Files/Pods-lzbluetooth-mini-ui-ios/Pods-lzbluetooth-mini-ui-ios.debug.xcconfig"; sourceTree = "<group>"; };
@@ -302,8 +315,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6040509D2653AB8D00A20B1B /* CoreBluetooth.framework in Frameworks */,
 				72498FC97642C58CEA56EE92 /* Pods_lzbluetooth_mini_ui_ios.framework in Frameworks */,
+				60ED969C27EDB9B800D53910 /* CoreBluetooth.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1006,6 +1019,7 @@
 				60C72C2425B55F9B00E00276 /* Frameworks */,
 				60C72C2525B55F9B00E00276 /* Resources */,
 				DA696BDF73C8A8E8AAC2344D /* [CP] Embed Pods Frameworks */,
+				60ED96A127EDB9BD00D53910 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1023,7 +1037,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1240;
-				LastUpgradeCheck = 1220;
+				LastUpgradeCheck = 1340;
 				TargetAttributes = {
 					60C59D162692A99F00AB7587 = {
 						CreatedOnToolsVersion = 12.4;
@@ -1267,7 +1281,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Q4ULFJ6L7N;
 				INFOPLIST_FILE = SwiftDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1289,7 +1303,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Q4ULFJ6L7N;
 				INFOPLIST_FILE = SwiftDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1354,7 +1368,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1407,10 +1421,11 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -1431,9 +1446,11 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/lzbluetooth-mini-ui-ios/Frameworks",
 					"$(PROJECT_DIR)/lzbluetooth-mini-ui-ios",
+					"$(USER_LIBRARY_DIR)/Containers/com.tencent.xinWeChat/Data/Library/Application\\ Support/com.tencent.xinWeChat/2.0b4.0.9/41dbbb52b45ef327ada321b9dc5de36b/Message/MessageTemp/dd415ed9a0b2fdf0221e56da188fa8dc/OpenData/静态包",
+					"$(USER_LIBRARY_DIR)/Containers/com.tencent.xinWeChat/Data/Library/Application\\ Support/com.tencent.xinWeChat/2.0b4.0.9/41dbbb52b45ef327ada321b9dc5de36b/Message/MessageTemp/dd415ed9a0b2fdf0221e56da188fa8dc/OpenData/静态包",
 				);
 				INFOPLIST_FILE = "lzbluetooth-mini-ui-ios/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1460,9 +1477,11 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/lzbluetooth-mini-ui-ios/Frameworks",
 					"$(PROJECT_DIR)/lzbluetooth-mini-ui-ios",
+					"$(USER_LIBRARY_DIR)/Containers/com.tencent.xinWeChat/Data/Library/Application\\ Support/com.tencent.xinWeChat/2.0b4.0.9/41dbbb52b45ef327ada321b9dc5de36b/Message/MessageTemp/dd415ed9a0b2fdf0221e56da188fa8dc/OpenData/静态包",
+					"$(USER_LIBRARY_DIR)/Containers/com.tencent.xinWeChat/Data/Library/Application\\ Support/com.tencent.xinWeChat/2.0b4.0.9/41dbbb52b45ef327ada321b9dc5de36b/Message/MessageTemp/dd415ed9a0b2fdf0221e56da188fa8dc/OpenData/静态包",
 				);
 				INFOPLIST_FILE = "lzbluetooth-mini-ui-ios/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

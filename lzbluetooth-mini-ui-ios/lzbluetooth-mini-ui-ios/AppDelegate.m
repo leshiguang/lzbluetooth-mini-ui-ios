@@ -14,6 +14,7 @@
 @import LZBloodPressure;
 @import LZBox;
 @import LZSkip;
+@import LZCavosmart;
 
 #import <YYModel/YYModel.h>
 #import <ExternalAccessory/ExternalAccessory.h>
@@ -33,22 +34,27 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
 //    @"lxe105d9c5fdf0cc93"
-    [LZBluetooth initWithAppId:@"lx99c41eaa523f62f2" options:@{
+
+    [LZBluetooth initWithAppId:@"com.leshiguang.saas.rbac.demo.appid" options:@{
     
         @"debug": @YES,
-        @"associatedId": @"13265792174"
+        @"associatedId": @"0"
     }];
     
+    
+    
     id<LZDeviceManagerProtocol> deviceManager = [LZBluetooth getDeviceManagerWithDeviceTypes:@[
-        @(LZDeviceTypeBracelet),
-        @(LZDeviceTypeScale),
-        @(LZDeviceTypeBloodPressure),
-        @(LZDeviceTypeMio),
-        @(LZDeviceTypeMcu)
+//        @(LZDeviceTypeBracelet),
+//        @(LZDeviceTypeScale),
+//        @(LZDeviceTypeBloodPressure),
+//        @(LZDeviceTypeMio),
+//        @(LZDeviceTypeMcu),
+        @(LZDeviceTypeCavo),
     ]];
     deviceManager.delegate = self;
     
     LZUserInfoConfig *userConfig = [[LZUserInfoConfig alloc] init];
+    userConfig.userId = @"0";
     deviceManager.userInfoConfig = userConfig;
     
     NSLog(@"sdkVersion %@", LZBluetooth.version);
@@ -70,6 +76,10 @@
         LZA5SleepData *sleepData = (LZA5SleepData *)measurementData;
         NSLog(@"睡眠数据 %@", sleepData);
     }
+}
+
+- (void)deviceInfo:(NSDictionary<NSString *,id> *)deviceInfo didReceiveMeasurementData:(NSDictionary<NSString *,id> *)measurementData {
+    NSLog(@"deviceInfo %@ %@",deviceInfo, measurementData);
 }
 
 - (void)deviceDidUpdateConnectStatus:(id<LZDeviceProtocol>)device {
