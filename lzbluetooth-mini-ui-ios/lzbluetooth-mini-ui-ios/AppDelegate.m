@@ -14,18 +14,12 @@
 @import LZBloodPressure;
 @import LZBox;
 @import LZSkip;
+@import LZCavosmart;
 
 #import <YYModel/YYModel.h>
 #import <ExternalAccessory/ExternalAccessory.h>
 
-<<<<<<< HEAD
-=======
-@import LZBluetooth;
-@import LZBracelet;
-@import LZCavosmart;
->>>>>>> afe7026f0e2f43953884b817b1cc7145b79bee82
-//#import "LZDataUtil.h"
-//#import "LZDataStream.h"
+
 
 
 @interface AppDelegate () <LZDeviceDelegate>
@@ -38,30 +32,32 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
-//    @"lxe105d9c5fdf0cc93"
-    [LZBluetooth initWithAppId:@"lx99c41eaa523f62f2" options:@{
     
     // 请使用自己的appId
     [LZBluetooth initWithAppId:@"xxx"  options:@{
         @"ctei": @NO,
         @"debug": @YES,
-        @"associatedId": @"13265792174"
+        @"associatedId": @"0"
     }];
     
+    
+    
     id<LZDeviceManagerProtocol> deviceManager = [LZBluetooth getDeviceManagerWithDeviceTypes:@[
+
         @(LZDeviceTypeBracelet),
         @(LZDeviceTypeScale),
         @(LZDeviceTypeBloodPressure),
         @(LZDeviceTypeMio),
         @(LZDeviceTypeMcu)
         @(LZDeviceTypeCavo),
-//        @(LZDeviceTypeBloodPressure),
-//        @(LZDeviceTypeAlice),
-//        @(LZDeviceTypeGlu)
+
+        @(LZDeviceTypeG3),
+
     ]];
     deviceManager.delegate = self;
     
     LZUserInfoConfig *userConfig = [[LZUserInfoConfig alloc] init];
+    userConfig.userId = @"0";
     deviceManager.userInfoConfig = userConfig;
     
     NSLog(@"sdkVersion %@", LZBluetooth.version);
@@ -85,7 +81,6 @@
     }
 }
 
-/// 新增
 - (void)deviceInfo:(NSDictionary<NSString *,id> *)deviceInfo didReceiveMeasurementData:(NSDictionary<NSString *,id> *)measurementData {
     NSLog(@"deviceInfo %@ %@",deviceInfo, measurementData);
 }

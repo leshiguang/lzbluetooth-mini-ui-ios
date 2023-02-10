@@ -23,7 +23,7 @@ pod 'LZBox'
 pod 'LZBloodPressure'
 pod 'LZSkip'
 pod 'LZCavosmart'
-
+pod 'LZGlucose'
 
   pod "IQKeyboardManager"
 end
