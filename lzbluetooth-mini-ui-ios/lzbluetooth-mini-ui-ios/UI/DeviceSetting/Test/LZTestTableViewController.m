@@ -267,7 +267,7 @@ LZUISettingTypeOta = 0xf0001,            // Ota
             LZA5SettingMutipleData *temp = [LZA5SettingMutipleData new];
             LZMSetting *obj = [[LZMSetting alloc] init];
             obj.tag = LZSettingTagBloodOxygen;
-            obj.value = 1;
+            obj.value = 1; 
             temp.settings = @[obj];
             setting = temp;
             break;

@@ -7,7 +7,9 @@
 //
 
 #import "LZViewController.h"
-#import <LZBluetooth/LZBluetooth.h>
+
+@import LZBluetooth;
+
 #import "LSWMyDeviceListViewController.h"
 #import "LZSearchBindContainerViewController.h"
 #import "LZInputStringTableViewCell.h"

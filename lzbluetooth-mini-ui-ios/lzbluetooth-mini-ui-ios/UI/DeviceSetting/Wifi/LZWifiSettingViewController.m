@@ -9,6 +9,8 @@
 #import "LZInputStringTableViewCell.h"
 #import "UIViewController+MBProgressHUD.h"
 
+@import LZScale;
+
 @interface LZWifiSettingViewController () <LZDeviceDelegate, LZInputStringTableViewCellDelegate>
 
 @property (nonatomic, strong) NSMutableDictionary *wifiMap;

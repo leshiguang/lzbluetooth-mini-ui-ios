@@ -11,7 +11,8 @@
 #import "LSWButton.h"
 #import "LSWAppFontConfigrationMacro.h"
 #import "LSWAppColorConfigrationMacro.h"
-#import <LZBluetooth/LZBluetooth.h>
+
+@import LZBluetooth;
 
 #pragma mark - _LSWBSBSDVDeviceCell
 @interface _LSWBSBSDVDeviceCell : UITableViewCell

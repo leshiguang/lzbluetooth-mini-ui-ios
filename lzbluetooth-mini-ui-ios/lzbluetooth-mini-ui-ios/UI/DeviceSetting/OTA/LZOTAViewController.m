@@ -20,7 +20,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"ota升级";
-    self.path = [[NSBundle mainBundle] pathForResource:@"431B3H1004_1010T311_000A3.1.0_0.0.0D150_000_994E57A4" ofType:@"lsf"];
+    self.path = [[NSBundle mainBundle] pathForResource:@"460B3H1003_1003T008_008A0.0.0_3.4.51D242_242_B423E4CF.lzo" ofType:@"lsf"];
     
     NSLog(@"deviceInfo %@", self.device.deviceInfo);
 }

@@ -7,6 +7,8 @@
 
 #import "LZScaleUnitViewController.h"
 
+@import LZScale;
+
 @interface LZScaleUnitViewController ()
 
 @property (nonatomic, strong) LZA6UnitSettingData *data;

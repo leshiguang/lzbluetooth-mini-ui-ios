@@ -138,7 +138,7 @@ typedef NS_ENUM(NSUInteger, LZUIDialAction) {
 
 - (void)pushPhoto {
     
-    UIImage *image = [UIImage imageNamed:@"home_page_bluetooth"];
+    UIImage *image = [UIImage imageNamed:@"xiangce"];
     NSString *model = self.device.deviceInfo[kLZBluetoothDeviceInfoKeyModelName];
     NSData *data = nil;
     if ([model containsString:@"456"]) {
@@ -153,6 +153,8 @@ typedef NS_ENUM(NSUInteger, LZUIDialAction) {
         NSAssert(NO, @"不支持相册表盘");
     }
     
+    NSString *dic = [NSHomeDirectory() stringByAppendingPathComponent:@"tanjian.bin"];
+    [data writeToFile:dic atomically:YES];
     
 //    NSString *path = [[NSBundle mainBundle] pathForResource:@"WatchFace-Custom" ofType:@"bin"];
 //

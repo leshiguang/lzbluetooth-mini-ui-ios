@@ -9,7 +9,9 @@
 #import "LSWMineBraceletTableViewCell.h"
 #import <Masonry/Masonry.h>
 #import <SDWebImage/UIImageView+WebCache.h>
-#import <LZBluetooth/LZBluetooth.h>
+
+@import LZBluetooth;
+@import LZBracelet;
 
 
 static CGFloat iconImageViewSize = 36;

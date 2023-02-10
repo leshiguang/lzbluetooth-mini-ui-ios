@@ -6,7 +6,8 @@
 //
 
 #import <Foundation/Foundation.h>
-@import LZBracelet;
+
+@import LZBluetooth;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -23,11 +24,11 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param macString Mac地址
 + (void)saveSettingDatas:(id)settingDatas withMacString:(NSString *)macString;
 
-+ (void)setEventReminder:(LZA5SettingEventRemindData *)data macString:(NSString *)macString;
++ (void)setEventReminder:(id)data macString:(NSString *)macString;
 
-+ (void)removeEventReminder:(LZA5SettingEventRemindData *)contentData macString:(NSString *)macString;
++ (void)removeEventReminder:(id)contentData macString:(NSString *)macString;
 
-+ (void)setCallReminder:(LZA5SettingMessageReminderData *)data macString:(NSString *)macString;
++ (void)setCallReminder:(id)data macString:(NSString *)macString;
 
 
 /// 设置类型

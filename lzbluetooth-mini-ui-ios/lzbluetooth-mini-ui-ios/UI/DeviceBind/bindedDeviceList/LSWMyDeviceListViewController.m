@@ -14,7 +14,7 @@
 #import "LSWAppFontConfigrationMacro.h"
 #import "LSWAppColorConfigrationMacro.h"
 
-#import <LZBluetooth/LZBluetooth.h>
+@import LZBluetooth;
 
 typedef NS_ENUM(NSUInteger, LSDeviceListSection) {
     LSDeviceListSectionBand = 0,

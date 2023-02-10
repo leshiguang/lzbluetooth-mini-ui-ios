@@ -7,6 +7,7 @@
 
 #import "LZDeviceManagerViewController.h"
 #import "LZBaseSetTableViewCell.h"
+@import LZBracelet;
 
 NS_ASSUME_NONNULL_BEGIN
 
