@@ -15,13 +15,14 @@ target 'lzbluetooth-mini-ui-ios' do
   pod "YYModel"
 
 #  pod "LZBluetooth", "1.6.13"
-pod 'LZBluetooth', :path => "../../lzbluetoothmini"
+pod 'LZBluetooth'
 pod 'LZBracelet'
 pod 'LZScale'
 pod 'LZBox'
 pod 'LZBloodPressure'
 pod 'LZSkip'
-pod 'LZCavosmart', :path => "../../lzbluetoothmini"
+pod 'LZCavosmart'
+pod 'LZGlucose'
 
   pod "IQKeyboardManager"
 end

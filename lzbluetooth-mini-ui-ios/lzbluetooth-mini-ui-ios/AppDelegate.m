@@ -49,7 +49,7 @@
 //        @(LZDeviceTypeBloodPressure),
 //        @(LZDeviceTypeMio),
 //        @(LZDeviceTypeMcu),
-        @(LZDeviceTypeCavo),
+        @(LZDeviceTypeG3),
     ]];
     deviceManager.delegate = self;
     

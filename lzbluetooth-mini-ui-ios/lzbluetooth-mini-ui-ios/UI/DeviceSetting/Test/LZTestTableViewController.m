@@ -13,6 +13,8 @@
 #import <LZBox/LZBox.h>
 #import <LZCavosmart/LZCavosmart.h>
 
+@import LZGlucose;
+
 
 
 typedef NS_ENUM(NSUInteger, LZUISettingType) {
@@ -90,6 +92,10 @@ LZUISettingTypeCVRaise = 0x090c,  // 抬腕亮屏
 LZUISettingTypeCVSyncData = 0x090d,  // 同步数据
 LZUISettingTypeCVTimeFormat = 0x090e,  // 时间格式
 LZUISettingTypeCVUserInfo = 0x0910,  // 同步用户信息
+    
+    
+LZUISettingTypeG3ReadCount = 0x0a01, // 获取历史数据
+LZUISettingTypeG3Delete = 0x0a02,   // 删除历史数据
     
  // common
 LZUISettingTypeOta = 0xf0001,            // Ota
@@ -198,6 +204,11 @@ LZUISettingTypeOta = 0xf0001,            // Ota
             @(LZUISettingTypeCVSyncData),
             @(LZUISettingTypeCVTimeFormat),
             @(LZUISettingTypeCVUserInfo),
+        ];
+    } else if (self.device.deviceType == LZDeviceTypeG3) {
+        self.list = @[
+            @(LZUISettingTypeG3ReadCount),
+            @(LZUISettingTypeG3Delete)
         ];
     }
     
@@ -511,6 +522,17 @@ LZUISettingTypeOta = 0xf0001,            // Ota
             setting = temp;
             break;
         }
+        case LZUISettingTypeG3ReadCount: {
+            LZGLReadRecord *temp = [LZGLReadRecord new];
+            setting = temp;
+            break;
+        }
+        case LZUISettingTypeG3Delete: {
+            LZGLDeleteSetting *temp = [LZGLDeleteSetting new];
+            temp.isAll = YES;
+            setting = temp;
+            break;
+        }
             
         default:
             break;
@@ -716,8 +738,10 @@ LZUISettingTypeOta = 0xf0001,            // Ota
             return @"时间格式";
         case LZUISettingTypeCVUserInfo:
             return @"用户信息(只能设置)";
-    
-            
+        case LZUISettingTypeG3ReadCount:
+            return @"获取历史数据";
+        case LZUISettingTypeG3Delete:
+            return @"删除历史数据";
             
         default:
             break;
