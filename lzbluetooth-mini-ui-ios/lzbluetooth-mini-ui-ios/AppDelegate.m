@@ -15,6 +15,7 @@
 @import LZBox;
 @import LZSkip;
 @import LZCavosmart;
+@import LZGlucose;
 
 #import <YYModel/YYModel.h>
 #import <ExternalAccessory/ExternalAccessory.h>
@@ -48,11 +49,9 @@
         @(LZDeviceTypeScale),
         @(LZDeviceTypeBloodPressure),
         @(LZDeviceTypeMio),
-        @(LZDeviceTypeMcu)
+        @(LZDeviceTypeMcu),
         @(LZDeviceTypeCavo),
-
         @(LZDeviceTypeG3),
-
     ]];
     deviceManager.delegate = self;
     
