@@ -35,7 +35,7 @@
     
     
     // 请使用自己的appId
-    [LZBluetooth initWithAppId:@"xxx"  options:@{
+    [LZBluetooth initWithAppId:@"com.leshiguang.saas.rbac.demo.appid"  options:@{
         @"ctei": @NO,
         @"debug": @YES,
         @"associatedId": @"0"
@@ -45,13 +45,13 @@
     
     id<LZDeviceManagerProtocol> deviceManager = [LZBluetooth getDeviceManagerWithDeviceTypes:@[
 
-        @(LZDeviceTypeBracelet),
-        @(LZDeviceTypeScale),
+//        @(LZDeviceTypeBracelet),
+//        @(LZDeviceTypeScale),
         @(LZDeviceTypeBloodPressure),
-        @(LZDeviceTypeMio),
-        @(LZDeviceTypeMcu),
-        @(LZDeviceTypeCavo),
-        @(LZDeviceTypeG3),
+//        @(LZDeviceTypeMio),
+//        @(LZDeviceTypeMcu),
+//        @(LZDeviceTypeCavo),
+//        @(LZDeviceTypeG3),
     ]];
     deviceManager.delegate = self;
     

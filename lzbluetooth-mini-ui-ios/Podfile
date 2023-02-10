@@ -20,7 +20,7 @@ pod 'LZBluetooth'
 pod 'LZBracelet'
 pod 'LZScale'
 pod 'LZBox'
-pod 'LZBloodPressure'
+pod 'LZBloodPressure', "1.0.3"
 pod 'LZSkip'
 pod 'LZCavosmart'
 pod 'LZGlucose'
