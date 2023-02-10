@@ -13,14 +13,16 @@ target 'lzbluetooth-mini-ui-ios' do
   pod "Masonry"
 #  pod "CocoaDebug", "1.4.8"
   pod "YYModel"
+  pod "LZShareKit"
 
 #  pod "LZBluetooth", "1.6.13"
-pod 'LZBluetooth', "2.0.0"
+pod 'LZBluetooth'
 pod 'LZBracelet'
 pod 'LZScale'
 pod 'LZBox'
 pod 'LZBloodPressure'
 pod 'LZSkip'
+pod 'LZCavosmart'
 
 
   pod "IQKeyboardManager"
@@ -28,7 +30,12 @@ end
 
 #target 'SwiftDemo' do
 #  use_frameworks!
-#  pod "LZBluetooth"
+#  pod 'LZBluetooth', "2.0.2"
+#  pod 'LZBracelet', :path => '../../lzbluetoothmini'
+#  pod 'LZScale'
+#  pod 'LZBox'
+#  pod 'LZBloodPressure', "1.0.1"
+#  pod 'LZSkip'
 ##  pod 'LZBluetooth', :path => '../../lzbluetoothmini'
 #  pod "SnapKit"
 #end
