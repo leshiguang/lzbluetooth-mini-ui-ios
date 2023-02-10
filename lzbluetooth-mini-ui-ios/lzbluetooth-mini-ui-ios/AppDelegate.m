@@ -46,19 +46,13 @@
     
     id<LZDeviceManagerProtocol> deviceManager = [LZBluetooth getDeviceManagerWithDeviceTypes:@[
 
-        @(LZDeviceTypeBracelet),
-        @(LZDeviceTypeScale),
+//        @(LZDeviceTypeBracelet),
+//        @(LZDeviceTypeScale),
         @(LZDeviceTypeBloodPressure),
-        @(LZDeviceTypeMio),
-        @(LZDeviceTypeMcu),
-        @(LZDeviceTypeCavo),
-<<<<<<< HEAD
-//        @(LZDeviceTypeBloodPressure),
-//        @(LZDeviceTypeAlice),
-//        @(LZDeviceTypeGlu)
-=======
->>>>>>> ea4247e79c1f11bfc4efca35599cbaa77d758d25
-        @(LZDeviceTypeG3),
+//        @(LZDeviceTypeMio),
+//        @(LZDeviceTypeMcu),
+//        @(LZDeviceTypeCavo),
+//        @(LZDeviceTypeG3),
     ]];
     deviceManager.delegate = self;
     
