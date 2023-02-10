@@ -13,6 +13,7 @@
 @import LZBluetooth;
 @import LZBracelet;
 @import LZCavosmart;
+@import LZGlucose;
 //#import "LZDataUtil.h"
 //#import "LZDataStream.h"
 
@@ -59,6 +60,7 @@
 //        @(LZDeviceTypeBloodPressure),
 //        @(LZDeviceTypeAlice),
 //        @(LZDeviceTypeGlu)
+        @(LZDeviceTypeG3),
     ]];
     deviceManager.delegate = self;
     
