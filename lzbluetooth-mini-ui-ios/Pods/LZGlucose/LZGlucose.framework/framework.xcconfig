@@ -1,0 +1,15 @@
+//
+//  lzbluetooth.xcconfig
+//  LZBluetooth
+//
+//  Created by tanjian on 2022/1/11.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+
+APP_VERSION_TXT = 1.0.0
+
+
+

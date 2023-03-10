@@ -1,0 +1,6 @@
+framework module LZGlucose {
+  umbrella header "LZGlucose.h"
+
+  export *
+  module * { export * }
+}

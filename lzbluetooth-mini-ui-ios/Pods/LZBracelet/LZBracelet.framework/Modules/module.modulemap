@@ -1,0 +1,6 @@
+framework module LZBracelet {
+  umbrella header "LZBracelet.h"
+
+  export *
+  module * { export * }
+}

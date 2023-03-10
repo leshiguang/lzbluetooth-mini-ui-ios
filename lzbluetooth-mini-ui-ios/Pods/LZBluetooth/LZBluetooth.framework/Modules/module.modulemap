@@ -1,0 +1,6 @@
+framework module LZBluetooth {
+  umbrella header "LZBluetooth.h"
+
+  export *
+  module * { export * }
+}

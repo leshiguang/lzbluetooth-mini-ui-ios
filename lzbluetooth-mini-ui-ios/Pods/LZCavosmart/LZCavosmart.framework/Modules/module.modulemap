@@ -1,0 +1,6 @@
+framework module LZCavosmart {
+  umbrella header "LZCavosmart.h"
+
+  export *
+  module * { export * }
+}

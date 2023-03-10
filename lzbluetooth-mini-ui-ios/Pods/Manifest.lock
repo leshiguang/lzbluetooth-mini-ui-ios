@@ -1,0 +1,70 @@
+PODS:
+  - IQKeyboardManager (6.5.11)
+  - LZBloodPressure (1.0.3):
+    - LZBluetooth (~> 2.0)
+  - LZBluetooth (2.1.0)
+  - LZBox (1.0.0):
+    - LZBluetooth (~> 2.0)
+  - LZBracelet (1.0.4):
+    - LZBluetooth (~> 2.0)
+  - LZCavosmart (1.0.0):
+    - LZBluetooth (>= 2.0.3)
+  - LZGlucose (1.0.0):
+    - LZBluetooth (~> 2.1)
+  - LZScale (1.0.0):
+    - LZBluetooth (~> 2.0)
+  - LZSkip (1.0.0):
+    - LZBluetooth (~> 2.0)
+  - Masonry (1.1.0)
+  - SDWebImage (5.15.5):
+    - SDWebImage/Core (= 5.15.5)
+  - SDWebImage/Core (5.15.5)
+  - YYModel (1.0.4)
+
+DEPENDENCIES:
+  - IQKeyboardManager
+  - LZBloodPressure (= 1.0.3)
+  - LZBluetooth (~> 2.1.0)
+  - LZBox
+  - LZBracelet
+  - LZCavosmart
+  - LZGlucose
+  - LZScale
+  - LZSkip
+  - Masonry
+  - SDWebImage
+  - YYModel
+
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - IQKeyboardManager
+    - Masonry
+    - SDWebImage
+    - YYModel
+  https://github.com/leshiguang/cocoapods.git:
+    - LZBloodPressure
+    - LZBluetooth
+    - LZBox
+    - LZBracelet
+    - LZCavosmart
+    - LZGlucose
+    - LZScale
+    - LZSkip
+
+SPEC CHECKSUMS:
+  IQKeyboardManager: ef43ce1ba1e5aaf4adf222c0a46f39761f246879
+  LZBloodPressure: 0ec356b5829d9b666cfc7b45f0c4d29e780391a7
+  LZBluetooth: 45c126651dd8ef079f668a80bbf7e51b9c6bc6c8
+  LZBox: c7d2500d896c8a2427a644b1f6aa3f5cad9a065f
+  LZBracelet: bc7050a2804c995ac3a8899ddb3d6fe0543d8229
+  LZCavosmart: ee4b65de21a90f271a7140e303efd33486835cfc
+  LZGlucose: 0d764cbe319a9d629a201adc42f1c089d6fba3a0
+  LZScale: 0fa6b44ab58bf28b5ecfd463de5d518c0cc7fbea
+  LZSkip: ca1360a146c85e78c42890a00a43fc6fc53c1db2
+  Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
+  SDWebImage: fd7e1a22f00303e058058278639bf6196ee431fe
+  YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
+
+PODFILE CHECKSUM: 71eab652ba1c103738363bf8777d0baafc98d5b5
+
+COCOAPODS: 1.10.0

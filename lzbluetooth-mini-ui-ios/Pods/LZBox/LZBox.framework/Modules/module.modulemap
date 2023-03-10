@@ -1,0 +1,6 @@
+framework module LZBox {
+  umbrella header "LZBox.h"
+
+  export *
+  module * { export * }
+}

@@ -1,0 +1,6 @@
+framework module LZSkip {
+  umbrella header "LZSkip.h"
+
+  export *
+  module * { export * }
+}

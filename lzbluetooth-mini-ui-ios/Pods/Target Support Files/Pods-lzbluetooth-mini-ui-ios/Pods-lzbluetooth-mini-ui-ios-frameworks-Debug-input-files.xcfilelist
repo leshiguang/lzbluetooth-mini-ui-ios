@@ -1,0 +1,13 @@
+${PODS_ROOT}/Target Support Files/Pods-lzbluetooth-mini-ui-ios/Pods-lzbluetooth-mini-ui-ios-frameworks.sh
+${BUILT_PRODUCTS_DIR}/IQKeyboardManager/IQKeyboardManager.framework
+${PODS_ROOT}/LZBloodPressure/LZBloodPressure.framework
+${PODS_ROOT}/LZBluetooth/LZBluetooth.framework
+${PODS_ROOT}/LZBox/LZBox.framework
+${PODS_ROOT}/LZBracelet/LZBracelet.framework
+${PODS_ROOT}/LZCavosmart/LZCavosmart.framework
+${PODS_ROOT}/LZGlucose/LZGlucose.framework
+${PODS_ROOT}/LZScale/LZScale.framework
+${PODS_ROOT}/LZSkip/LZSkip.framework
+${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework
+${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework
+${BUILT_PRODUCTS_DIR}/YYModel/YYModel.framework

@@ -1,0 +1,6 @@
+framework module LZBloodPressure {
+  umbrella header "LZBloodPressure.h"
+
+  export *
+  module * { export * }
+}

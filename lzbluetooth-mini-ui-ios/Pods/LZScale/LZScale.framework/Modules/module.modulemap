@@ -1,0 +1,6 @@
+framework module LZScale {
+  umbrella header "LZScale.h"
+
+  export *
+  module * { export * }
+}
