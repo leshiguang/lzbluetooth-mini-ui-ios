@@ -100,6 +100,7 @@ LZUISettingTypeG3Delete = 0x0a02,   // 删除历史数据
     
  // common
 LZUISettingTypeOta = 0xf0001,            // Ota
+LZUISettingTypeBattery = 0xf0002,   // 获取电量
     
 };
 
@@ -170,6 +171,7 @@ LZUISettingTypeOta = 0xf0001,            // Ota
                 @(LZUISettingTypeMsgSend),
                 @(LZUISettingTypeHeartRateSwitch),
                 @(LZUISettingTypeCallMsgSend),
+                @(LZUISettingTypeBattery),
             ];
             
         }
@@ -538,6 +540,10 @@ LZUISettingTypeOta = 0xf0001,            // Ota
             setting = temp;
             break;
         }
+        case LZUISettingTypeBattery: {
+            [self.deviceManager readBatteryWithMacString:self.device.mac deviceType:LZDeviceTypeBracelet];
+            return;
+        }
 
             
         default:
@@ -750,6 +756,8 @@ LZUISettingTypeOta = 0xf0001,            // Ota
             return @"获取历史数据";
         case LZUISettingTypeG3Delete:
             return @"删除历史数据";
+        case LZUISettingTypeBattery:
+            return @"获取电量";
             
         default:
             break;
