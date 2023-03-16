@@ -168,9 +168,9 @@ LZUISettingTypeBattery = 0xf0002,   // 获取电量
                 @(LZUISettingTypeTarget),
                 @(LZUISettingTypeRealtimeHROpen),
                 @(LZUISettingTypeRealtimeHRClose),
-                @(LZUISettingTypeMsgSend),
-                @(LZUISettingTypeHeartRateSwitch),
-                @(LZUISettingTypeCallMsgSend),
+//                @(LZUISettingTypeMsgSend),
+//                @(LZUISettingTypeHeartRateSwitch),
+//                @(LZUISettingTypeCallMsgSend),
                 @(LZUISettingTypeBattery),
             ];
             
